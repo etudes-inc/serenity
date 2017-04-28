@@ -1,0 +1,1621 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf340
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww31920\viewh23120\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+CDP\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+chekAuth, sends nothing, returns...\
+\
+\
+COMMON OBJECTS\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 attribution: \{\}\
+	createdOn\
+	createdBy\
+	modifiedOn\
+	modifiedBy\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf0 schedule: \{\} (Schedule.send)\
+	open: long time since\
+	due\
+	allowUntil\
+	hide: Boolean (hide till open)\
+	status: int: ScheduleStatus: closed(4, "Closed"), open(3, "Open"), willOpen(1, "Will Open"), willOpenHide(2, "Hidden Until Open");\
+	close: long time since: computed close date\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 	lastCall: boolean, set and true if we are 2 hours or closer to close\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf0 evaluationDesign: 		// EvaluationDesignImpl.send\
+	rubricSelected: long: rubric id, 0 if no rubric\
+	rubric: ...\
+	autoRelease: Bolean\
+	forGrade: Boolean			// gradebook integration flag\
+	points: Float: 			// 0 if no points\
+	forPoints: boolean			// if it has / needs points\
+	zeroIfMissed				// if true, once a student has no access anymore (close date, special access), consider the score 0 if not submitted.\
+	mutablePoints: boolean		// true if points are set here (else built up from the item)\
+	anonGrading: boolean\
+	actualPoints: Float			// null if no points defined\
+	actualCategory: id of category	// 0 if none set\
+	category: id of category		// or default category for item type if none set\
+	categoryPosition: int: position in category, or missing if not set\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 	reviewWhen: 0- submission 1- release 2- date 3- never\
+	reviewAfter: date\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0 \cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 evaluation: \{\}\
+	? id:\
+	type: official(1), peer(2), unknown(0); Int\
+	score: float\
+	evaluated: boolean\
+	released: boolean\
+	mayReview: boolean			// true if the evaluation may be reviewed by the student, not true if the submission was a non-submit and there are no review comments\
+	comment: html\
+	?? XX submittedOn: (the finished of the submission?) Date\
+	revewedOn: Date (if user reviewed)\
+	needsReview: boolean\
+	ratings: \{\}  - entries are named criterion id, valued ratings for the criterion Int\
+	? createdOn, createdBy, modifiedOn, modifiedBy (modifiedBy for last updated, used for needsReview setting)\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0 \cf0 \
+ordering: \{\}\
+	isFirst: boolean\
+	isLast: boolean\
+	next:\
+	prev:\
+	position: int					// 1 based, position in set\
+	size: int					// size of set\
+\
+\
+ASSESSMENT OBJECTS\
+\
+assessment: \{\}\
+	< info section >\
+	id\
+	type: string					// 
+\f1 assignment("A"), essay("E"), fce("F"), offline("O"), survey("S"), test("T");
+\f0 \
+	title: text\
+	published: boolean\
+	valid: boolean\
+	allowRemove: boolean			// some assessment are not allowed to be removed\
+\
+	schedule: \{\}					// std\
+\
+	< design section >\
+	design:\
+		instructions: html				// 
+\f1 optional
+\f0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 		parts [] \{\}:\
+			id:\
+			title:  text				// optional\
+			instructions: html			// optional\
+			ordering: 				// std ordering, part in assessment\
+			points: float				// total points for part\
+			shuffle: boolean\
+			questions: int				// total # questions\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 		details: [] \{\}\
+			id:\
+			partId: long				// part id\
+			type:  str				// S - select, D - draw \
+			description: text			// title if defined, else presentation text, of a "S" type's question)\
+			points: float\
+			questionType: 			// question type title, or "DRAW"\
+			questionId:				// if type is "S"\
+			poolTitle: text\
+			poolId:\
+			count: int				// 1 or # questions in draw\
+			ordering:				// std ordering, detail in part\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0 \cf0 \
+	< attribution section >\
+	attribution:					// std\
+\
+	< evaluation design section >\
+	evaluationDesign:				// std\
+\
+	< options section >\
+	options: \{\}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 		finalMsg: html				// optional\
+		shuffle: boolean\
+		hints: boolean\
+		layout:  int					//  0 - question per page, 1 - part per page,  2 - all on one page\
+		numbering:  int				// 0 - continuous 1 - restart on each part\
+		requiresPassword: boolean		// if a password is needed\
+		password: plain text				// may not be needed or included, missing if not defined\
+		pledge: boolean\
+		triesSet: boolean				// false means unlimited\
+		numTries: int					// set if triesSet\
+		timeLimitSet: boolean			// false means no limig\
+		timeLimit: 					// 01:30 ???\
+		showSummary: boolean\
+		reviewIncludes: int				// 0- all q, answer key and scores  1- all q, answer key scores for correct 2 - incorrect q, no answerkey score 3- incorrect q, w/ answer key score 4- all q, no answer key score\
+		showFeedback: boolean\
+		showModelAnswer: boolean\
+		award: boolean\
+		awardPct: int					// missing if not award\
+		resultsEmail: str				// emails, comma separated, optional\
+		flexible: boolean				// true for flexible, false for linear\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0 \cf0 \
+	< user submit status section >			// sent in the context of a assessments for a user in a site, the user's ability to submit\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 	submitStatus: str					//  again("A"), nothing("N"), resume("R"), start("S"), testdrive("T"); String\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0 \cf0 \
+question: \{\}\
+	< info section >\
+	id:\
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 	type: "mneme:Essay", etc\
+	title: text						// optional\
+	description:						// display text for question\
+	attribution:						// std. attribution\
+\
+	< set while in the context of an assessment section >\
+	partId: part id\
+	ordering:						// std ordering: in assessment or part depending on assessment's continuous or restart numbering setting\
+\
+	evaluationDesign: \{\}\
+		points: float					// if in assessment, the assigned points for the question, else the question's pool points setting, may not be set\
+\
+	< type specific details >\
+	essay:\
+		question: html\
+\
+	tf:\
+		question: html\
+		answer: boolean				// correct answer, true or false\
+\
+	mc:							// also used for likert, \
+		question: html\
+		singleAnswer: boolean			// single answer if true, multiple if false (not set for likert)\
+		choices: [] \{\}\
+			text:\
+			answer: int				// the answer code in a submission answer that refers to this choice\
+			correct: boolean			// if this is the / a correct answer (not set for likert)\
+\
+	fillin:							// FillInLine and FillBlanks\
+		segments: [] \{\}\
+			text: html				// question text segment\
+			fillin: integer				// -or- fill in slot number (0 based)\
+		answers: []  str				// correct answer value for each fillin segment\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 submission: \{\}\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 	id:\
+	userIid:\
+	status:	 str						// autoComplete("A"), evaluationNonSubmit("E"), userFinished("U");\
+\
+	< user details section>				// if we have a valid user\
+	userNameSort:\
+	userName: \
+	userIid:						// optional\
+	userRoster: 						// optional: the name of the roster / section the user belongs to in the site\
+\
+	< submission progress section >			// sent only for user initiated submissions (not evaluationNonSubmit)\
+	started:						// date started\
+	finished:						// date finished - optional - sent if complete\
+	late: boolean						// if late - optional - sent if complete\
+	autoScore: float					// optional - sent if complete\
+\
+	inProgress: boolean	\
+	complete: boolean\
+	evaluation:						// std evaluation\
+\
+	< best indicator section >\
+	best: boolean					// optional: true, or missing\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+	< answers section >\
+	answers: [] \{\}\
+		id:						// answer id\
+		questionId:					// question id for which this is an answer\
+		evaluation:					// subset of std. evaluation (type, score, comment)\
+			score: float\
+			type: 1				// official(1), peer(2), unknown(0); Int\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 			comment: html			// optional\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+		< type specific answer sections >\
+\
+		essay:\
+			answer: html\
+\
+		tf:\
+			answer: boolean			// user's answer\
+			correct: boolean			// if answer is correct\
+\
+		mc:						// also for likert\
+			answer: int				// one of the choices		TODO: multiple answers, corrects\
+			correct: boolean			// if correct (not set for likert)\
+\
+		fillin:\
+			answers: [] \{\}\
+				text: 				// answer given for this fillin position\
+				correct:			// this answer is correct\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1 \cf0 pool: \{\}\
+	id\
+	attribution:						// std attribution\
+	title: text\
+	description: text					// optional\
+	numQuestions: int\
+	points: float\
+	difficulty: int\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0 \cf0 \
+\
+login\
+sends: userid, password\
+returns:\
+cdp:status: 0 for success, 1 for invalid\
+\
+portal_info, sends nothing, returns:\
+-> extraSite - an extra side id to add to the list (admin)\
+sites[] - forPortal\
+	id: 9\
+	title: \'93ETU GRG 101 F15\'94\
+	accessStatus: 0\
+	role: 5\
+	tools: [integer ids]\
+	links: []\
+user: \{\} (see below)\
+\
+\
+(full sites)\
+sites []\
+	accessStatus: 0\
+	activity: \{\}\
+		notVisitAlerts: 16\
+		online: 0\
+		reviewCount: 3\
+		unreadMessages: 7\
+		unreadPosts: 9999\
+	chatEnabled: true\
+	client: \{\}\
+		id: 1\
+		name: \'93Etudes\'94\
+	createdOn: 1441838571509\
+	id: 9\
+	links: []\
+	name: \'93ETU GRG 101 F15\'94\
+	publishOn: 14437008000000\
+	published: true\
+	role: 5\
+	rosterTool: \{\}\
+		id: 114\
+		role: 5\
+		title: \'93Site Roster\'94\
+		url: \'93/roster/siteroster\'94\
+	setupTool: \{\}\
+	skin: \{\}\
+		client: 0\
+		color: \'93730416\'94\
+		id: 1\
+		name: \'93Etudes\'94\
+	term: \{\}\
+		id: 46\
+		name: \'93Fall 2015\'92\
+	tools: []\
+		id: 101\
+		role: 1\
+		title: \'93Home\'94\
+		url: \'93/home/home\'94\
+user: \{\}\
+	admin: false\
+	helpdesk: boolean\
+	avatar: \'93/download/14/gandalf.jpeg\'94\
+	connectAim, connectFacebook, connectGooglePlus, connectLinkedIn, connectSkype, connectTwitter, connectWeb\
+	createdBy: \'93Etudes Admin\'94\
+	createdOn:\'a01441838571326\
+	eid: \'93ggolden\'94\
+	emailExposed: true\
+	emailOfficial: \'93ggolden@etudes.org\'94\
+	emailUser: \'93ggolden22@mac.com\'94\
+	id: 4\
+	iid: \'9319580922@etu\'94\
+	modifiedBy: \'93Glenn Golden\'94\
+	modifiedOn:\'a01442458056265\
+	nameDisplay: \'93Glenn Golden\'94\
+	nameFirst: \'93Glenn\'94\
+	nameLast: \'93Golden\'94\
+	nameSort: \'93Golden, Glenn\'94\
+	profileInterests: null\
+	profileLocation: \'93Ann Arbor, MI\'94, profileOccupation\
+	rosterUser: true\
+	signature: \'93- Glenn<br>\'94\
+	timeZone: "America/Detroit"\
+	lang: \'93en-us"\
+	protected: bool (true for admin, helpdesk...)\
+\
+dashboard\
+\
+dash_activity\
+	sites: [] - user\'92s selected (not hidden) in order, max 12\
+		accessStatus\
+		title\
+		id\
+		role: user role in site\
+		activity: \{\}\
+			online\
+			unreadMessages\
+			unreadPosts\
+			notVisitAlerts\
+			reviewCount\
+		publishOn\
+		unpublishOn\
+\
+home_activity:\
+-> site: site id\
+	activity: \{\} (same as for dash_activity)\
+\
+dash_events:\
+home_events: (does not need site)\
+-> site: site id (for home only)\
+-> date: date for events (if missing, uses today)\
+	eventsDate: date (matches resolved \'a0incoming parameter)\
+	events: []\
+		title\
+		itemType:\'a0ToolItemType # (i.e. GO TO XXX, EDIT XXX) (was subtype)\
+		site:\{ id, title, role: user role # \}\
+		tool: toolId\
+		dateStart: date\
+		dateEnd: date\
+		content: \'93<p>\'85</p>\'94\
+\
+dash_eventsDays:\
+home_eventsDays:\
+-> year: 2015, month: 1..12\
+-> site: site id (for home only)\
+	eventsDays:\
+		year: 2015\
+		month: 1 .. 12\
+		days: [] - with day number (1 .. 31) for each day with events\
+\
+dash_announcements:\
+home_announcements (does not need site returned):\
+-> site: site id (for home only)\
+	announcements: [] \'a0 \'a0news: [] (title content)\
+		site: \{id, title\}\
+		title\
+		content\
+		createdBy: user display name\
+		
+\f1 bylineDate: date released or (if null) modified
+\f0 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 	[ not used in db ]
+\f0 \
+
+\f1 		id, createdBy createdOn modifiedBy modifiedOn order published releaseDate released isPublic
+\f0 \
+
+\f1 \
+home_options:
+\f0 \
+
+\f1 -> site: site id
+\f0 \
+
+\f1 	options
+\f0 \
+		format:\
+
+\f1 		numAnnc:
+\f0 \
+
+\f1 		fullAnnc:
+\f0 \
+
+\f1 		components: []
+\f0 \
+
+\f1 			id
+\f0 \
+
+\f1 			title
+\f0 \
+
+\f1 			enabled
+\f0 \
+
+\f1 			order\
+		fs: 0 for homepage filesystem, 1 for CHS/resources file system, 9 for serenity fs
+\f0 \
+
+\f1 \
+home_current:
+\f0 \
+
+\f1 -> site: site id
+\f0 \
+
+\f1 	current: \{\}
+\f0 \
+
+\f1 		id
+\f0 \
+
+\f1 		title
+\f0 \
+
+\f1 		published
+\f0 \
+
+\f1 		status:\'a0current(0), past(3), pending(1), unknown(-1), unpublished(2);
+\f0 \
+
+\f1 		createdBy, createdOn, modifiedBy, modifiedOn
+\f0 \
+
+\f1 		releaseOn: date
+\f0 \
+
+\f1 		source:\'a0authored("A"), file("F"), web("W"), youtube("Y\'94)
+\f0 \
+
+\f1 		content: (only for\'a0\'93A\'94)
+\f0 \
+
+\f1 		fileUrl: download url (for\'a0\'93F\'94)
+\f0 \
+
+\f1 		fileName: (for\'a0\'93F\'94)
+\f0 \
+
+\f1 		fileRefId: myfiles ref id (for\'a0\'93F\'94) ???
+\f0 \
+
+\f1 		alt: text (\'93F\'94 and\'a0\'93\'94W\'94)
+\f0 \
+
+\f1 		url: (for\'a0\'93W\'94)
+\f0 \
+
+\f1 		height: # of pixels int (for\'a0\'93W\'94)
+\f0 \
+
+\f1 		youtubeId: 11 char string (for\'a0\'93Y\'94)
+\f0 \
+
+\f1 		ratio: int 1 4 16 (for\'a0\'93Y\'94)
+\f0 \
+
+\f1 \
+home_get
+\f0 \
+
+\f1 -> site: site id
+\f0 \
+
+\f1 	items: [] each like current
+\f0 \
+
+\f1 \
+home_save:
+\f0 \
+
+\f1 home_saveOptions
+\f0 \
+
+\f1 \
+\
+login process:
+\f0 \
+
+\f1 login tool sends "login portal_info\'94, looks for a cdp-status=0 return, sends the data to portal.login()
+\f0 \
+
+\f1 CdpServlet.dispatchLogin() writes\'a0\'93EtudesToken\'94 cookie with the authentication token, tracks service visit.
+\f0 \
+On any request\'92s arrival, the cookie is read, and the authentication is checked, and a user is found.\
+** Serenity never renews an authentication - if the client side doesn\'92t blow the session, it lives forever\
+portal takes data, activates the client-side session, records the auth. token from the cookie\
+\
+client refresh page process:\
+when the portal starts, via auth.noticeAuthenticationChange, auth.checkAuthorization, is sends a \'93checkAuth portal_info\'94.\
+CdpServlet.dispatchCheckAuth returns status=2 if the cookie token is not a valid open current authorization, or a status=0 if it is. \'a0Clears the cookie if not valid.\
+\
+logout process:\
+if there is a cookie, portal sends \'93logout\'94, nothing returned\
+CdpServlet.dispatchLogout reads the cookie token and cancels the authentication, clears the cookie.\
+\
+Etudes CDP:\
+all requests call establishSessionFromCookie\
+CdpServlet.establishSessionFromCookie uses the standard cookie (\'93JSESSIONID\'94) and value (in-mem-session id.server) - activates the session and sets it as current.\
+CdpServlet.dispatch via authenticate() finds a session with a user, so no per-request authentication needed; via tracker.setupFakeSession finds a real session so no faking.\
+CdpServlet.login calls authenticate() to check the parameters\
+\
+presence:\
+portal fires presence request every 30 seconds while in a site\
+portal_presence:\
+-> track=1 for first visit to site\
+-> site: site id\
+	presence: []\
+		id: user id\
+		nameDisplay\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 evaluation_gradingItems: (old: "assessments")\
+-> site: site id\
+	items: [] (sent by GradingItem.send): all gradable items, and all best (completed, released, highest of multiple) evaluations from each student for each item\
+		toolItem: \{\}\
+			site: site id\
+			tool: tool id (int)\
+			itemId: item in tool id\
+		title: String\
+		type: int: toolItemType id  (ToolItemType.send)  USES: only type.id\
+			id: type id: '\
+			title: ???\
+			tool: int tool id\
+		schedule: \{\} (Schedule.send)\
+			open: long time since\
+			due\
+			allowUntil\
+			hide: Boolean (hide till open)\
+			status: int: ScheduleStatus: closed(4, "Closed"), open(3, "Open"), willOpen(1, "Will Open"), willOpenHide(2, "Hidden Until Open");\
+			close: long time since: computed close date\
+		design: EvaluationDesignImpl.send\
+			rubricSelected: long: rubric id, 0 if no rubric\
+			rubric: ...\
+			autoRelease: Bolean\
+			forGrade: Boolean\
+			points: Float: 0 if no points\
+			forPoints: boolean\
+			mutablePoints: boolean - true if points are set here\
+			anonGrading: boolean\
+			actualPoints: Float or missing if null\
+			actualCategory: id of category, or 0 if none set\
+			category: id of category, or default category for item type if none set\
+			categoryPosition: int: position in category, or missing if not set\
+		summary: \{\}\
+			avgScore: Float: average score for all the "best" submissions for the item from all students\
+			avgCount: # evaluations in the summary\
+\
+	summary: \{\}\
+		points: Float: total points of all non-extra-credit items\
+		items: int: number of those items\
+		extraPoints: Float: total extra credit item points\
+		extraItems: int: num extra credit items\
+\
+evaluation_memberItems\
+-> site: site id\
+-> user: user id\
+	items: [] (GradingItem.send) plus one\
+		evaluation: (EvaluationImpl.send) (if one exists)\
+		\
+	member: \{\} (MemberImpl.send), plus\
+		summary: \{\} for member across all items, based on "best (completed released) evaluated submissions:\
+			score - score sum for all "best" submissions"\
+			points - points sum for all "best" submissions\
+			grade - letter grade\
+			allPoints - points for entire set of (non extra credit) items\
+	exportUrl: (optional) URL for the export button\
+\
+evaluation_categories:\
+-> site: site id\
+	stdCategories: boolean (true for standard, false for custom)\
+	categories: [\{\}] (sent by CategoryImpl.send)\
+		id: long\
+		title: string\
+		type: int ToolItemType.id: \
+		order: int\
+		drop: # to drop int\
+		createdBy, createdOn, modifiedBy, modifiedOn\
+		equalDistribution: boolean\
+		numItems: # items in category Int\
+I\
+evaluation_options:\
+-> site: site id\
+	options: (sent by OptionsImpl.send)\
+		dropLowestActive: Boolean\
+		gradingScale: int codeof grading scale: letters(1), lettersPM(2), pass(3), unknown(0)\
+		gradingScaleThresholdsable: Boolean - if true, the selected scale can be changed\
+		includeAll: Boolean - include all in grade (else include toDate)\
+		showLetterGrades: Boolean\
+		gradingScaleThresholds_1, (_2 and _3): [] (sent by GradeThreshold.send)\
+			grade: String\
+			threshold: Float 0..1 ??? needed\
+			thresholdPct: Float: 0..100\
+		boostBy: Float: # of points or percentage points (if 0, no boost)\
+		boostType: 0 - percentage or 1 - points\
+\
+ToolItemType = \{none:0, forum:1, assignment:3, test:5, essay:6, offline:4, fce:2002, survey:2003, syllabus:2004, module:2005, blog:2, extra:1001, chat:2001, event:2006\};\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+evaluation_gradingMembers:\
+-> site: site id\
+	members: [] (MemberImpl.send())\
+		role: Int: role level in site\
+		* userId: Long: user id (internal id)\
+		nameDisplay:\
+		* nameSort:\
+		eid:\
+		iidFull: iid display\
+		* iid: iid for this user in this site / client\
+		avatar: download URL to use's avatar\
+		admin: Boolean: if admin\
+		* active: Boolean: user is active, or not active (enrolled / dropped)\
+		* blocked: Boolean - user is blocked\
+		* roststerName: (section)\
+		rosterId:\
+		official: Boolean - loaded by the roster\
+		* adhoc: Boolean: if true, means added, non-roster\
+		master: Boolean\
+		* summary: \{\}\
+			score: Float: total score across all best completed released evaluated submissions\
+			points: Float: point total across all items with submissions\
+			items: Int: number of items with submissions (0 for no items, 1 for any items)\
+			grade: String: computed grade from submissions\
+			gradeOverride: null, or a grade string holding the manual grade override\
+	summary: \{\}\
+\pard\pardeftab720\partightenfactor0
+\cf0 		points: Float: total points of all non-extra-credit items\
+		extraPoints: Float: total extra credit item points\
+	exportURL: (optional) URL for the export button w/ 
+\f1 \kerning1\expnd0\expndtw0 %0: sort: "Status" ... %1: sort order: "asc" ... %2: section: "All" ...
+\f0 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+evaluation_itemMembers:\
+-> site: site id\
+-> tool: tool id\
+-> item: tool item id\
+	members: [] (MemberImpl.send)\
+	evaluation: eval from best submission of user to item (EvaluationImpl.send), or missing if none\
+		submittedOn: date\
+		reviewedOn: date\
+\
+evaluation_gradesSave:\
+-> site\
+-> count_members\
+-> n_members_id _grade: user id and grade override (or blank for none)\
+\
+evaluation_optionsSave\
+-> site: site id\
+-> count_categories ... \
+-> options\
+	boostBy: #\
+	boostType: # 0,1\
+	dropLowestActive: boolean\
+	gradingScale: # letters(1), lettersPM(2), pass(3), unknown(0)\
+	includeAll: boolean (else todate)\
+	showLetterGrades: boolean\
+options_0 (0..x)_gradingScaleThresholds_1 (1..3) _grade _threshold _thresholdPct\
+options_count_gradingScaleThresholds_1 (1..3)\
+\
+evaluation_itemsReorder\
+-> site: site id\
+->count_order\
+->0_order _itemId _categoryId\
+\
+evaluation_evaluation_changeUseStandard\
+-> site: site id\
+-> standard: boolean (false = custom)\
+\
+evaluation_categoriesSave\
+-> site: site id\
+-> removed_categories: categories ids list\
+-> count_categories: # categories\
+-> 0_categories_id _title _order _drop (?) _type (?) _weight _equalDistribution                  0..count   id<0, added\
+\
+evaluation_rubricGetSite\
+-> site: site id\
+	rubrics:\
+		scale:\
+			id:\
+			number: (0..5)\
+			title:\
+			description: ???\
+		criteria:\
+			order: (1 .. order in rubric)\
+			id:\
+			title: ???\
+			description:\
+			scorePct: Int\
+			standards:\
+				id:\
+				level:\
+				description:\
+		id, createdOn, createdBy, modifiedOn, modifiedBy\
+		title:\
+\
+evaluation_rubricSave:\
+-> site: site id\
+-> \'85\
+	rubric: the id of the saved rubric\
+\
+announcement_get\
+-> site: siteId\
+	announcements[\{\}]  each loaded by AnnouncementImpl.send()\
+		id, createdBy, createdOn, modifiedBy, modifiedOn\
+		order: (always set, even if we are not doing order, but doing desc release date)\
+		published\
+		releaseDate:\
+		released: boolean\
+		bylineDate: (released date or modifiedOn)\
+		isPublic: boolean\
+		title:\
+		content: html\
+	
+\f1 fs: 0 for homepage filesystem, 1 for CHS/resources file system, 9 for serenity fs\
+\
+syllabus_get\
+-> site: site id\
+	syllabus (sent by SyllabusImpl.send)\
+		id, createdBy, createdOn, modifiedBy, modifiedOn\
+		source: "E" or "S"\
+		external: \{\}  (sent by SyllabusExternalImpl.send)\
+			url:\
+			height:\
+			target: ("W" for new window, "I" for inlilne)\
+		sections: [\{\}]  (each sent by SylalbusSectionImpl.send)\
+			id, createdBy, createdOn, modifiedBy, modifiedOn\
+			title:\
+			order: int\
+			published: boolean\
+			isPublic: boolean\
+			content: html\
+		accepted: (for student access, the date, only if accepted)\
+
+\f0 	
+\f1 fs: 0 for homepage filesystem, 1 for CHS/resources file system, 9 for serenity fs\
+\
+\
+cm item: coursemap_getView, coursemap_getManage:\
+-> site: site id\
+	items:\
+		id:\
+		progress: 0 - none, 1- inprogress  2- complete (ProgressStatus)\
+		count: \
+		schedule:\
+		published: boolean\
+		title: (or header text)\
+		type: 
+\f0  toolItemType id\
+		design: (reviewLink needs)\
+		evaluation: (submittedOn, reviewLink needs)\
+		scoreNA: boolean (if the score is not applicable)\
+		datesRO: boolean (if the dates may not be edited)\
+		datesNA: boolean (if there are no dates, such as syllabus)\
+		blocker: boolean\
+		blocking: boolean (only for student view)\
+		toolItem: \{\}\
+\pard\pardeftab720\partightenfactor0
+\cf0 			tool: tool id (int)\
+			itemId: item in tool id\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 		active: boolean (if true, the link is active and takes you to the item)\
+	member: for review ???\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 coursemap_getOptions:\
+-> site: site id\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 	options:\
+		masteryPct: int 0..100\
+		removePrereqOnClose: boolean\
+\
+coursemap_save...\
+-> site: site id\
+-> count_items  0_items_id  0_items 0_items_schedule_open _allowUntil _due  0_items.blocker  0_items_title (for headers)\
+\
+coursemap_order\
+-> site: site id\
+-> order: array of ids\
+\
+\
+\
+ASSESSMENT\
+\
+\
+assessment_getView			// for a user, all assessments, and for any with submissions, the one best, and indication if in progress (w/id), with submit status,  tries count\
+-> site siteId\
+	assessments: [] \{\}			// info, evaluationDesign, schedule, options (no pw), submitStatus\
+		submissionInProgress: id		// the submission id that is in progress\
+		submitCount:	 int			// # completed submissions\
+		submissionReview: \{\}		// std. submission, for the one to review - optional\
+\
+	fs: 2 for Mneme\
+\
+\
+assessment_getManage			// for instructors, all assessments, valid/invalid, published/unpublished, all types\
+-> site: site id\
+	assessments: [] \{\}			// info, schedule\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0 \cf0 		< grading info section >\
+		gradingInfo: \{\}\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 			needsGrading: boolean			//  - if any submission to the assessment has ungraded (marked as neither evaluated nor released) submissions\
+			numCompleteSubmissions: int		// count of submissions completed\
+			numGradedSubmissions: int		// count of submissions graded\
+\
+	fs: 2 for Mneme\
+\
+\
+assessment_getDesign			// for a single assessment, to edit the assessment design\
+-> site: site id\
+-> assessment: id\
+	assessment: \{\}			// info, attribution, evaluationDesign, design\
+\
+\
+assessment_getOptions			// for a single assessment, to edit the options\
+-> site: site id\
+-> assessment: assessment id\
+	assessment: \{\}			// info, attribution, schedule, evaluationDesign, options\
+\
+\
+assessment_getInstructions		// for a single assessment, to edit instructions\
+-> site: site id\
+-> assessment: assessment id\
+	assessment: \{\}			// info, design\
+\
+\
+assessment_getParts			// for a single assessment, to edit the parts\
+-> site: site id\
+-> assessment: assessment id\
+	assessment: \{\}			// info, design\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 assessment_getPools			// to manage pools\
+-> site:\
+	pools: \{\} []				// std pool, no questions\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 assessment_getPool			// details to display / manage a pool\
+-> site:\
+	 pool: \{\}				// std. pool info\
+	questions: [] \{\}			// info section\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\
+assessment_getGradeAssessment	// submissions for all users in site to an assessment (used in grading views) - official evaluations (not peer)\
+-> site: site id\
+-> assessment: assessment id\
+	assessment: \{\}			// info, schedule, evaluationDesign\
+	submissions: [] \{\}			// std. submission, with "best", no answers\
+\
+\
+assessment_getGradeSubmission	// grade individual submission\
+-> site: site id\
+-> submission: submission id\
+	assessment: \{\}			// info, schedule, evaluationDesign\
+	submission: \{\}			// complete with answers, no "best"\
+\
+\
+assessment_getEnter			// support for the enter view - a student approaching entry for a new submission to an assessment     TODO: instructors and test drive   TODO: not allowed if submission in progress already\
+-> site:\
+-> assessment:\
+	assessment:				// info, schedule, evaluationDesign, attribution, options (no pw), desing		TODO: need all this?\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 assessment_getToc				// for an inprogress submission by the user\
+-> site\
+-> submission: id\
+	assessment: \{\}			// info, evaluationDesign, options, design\
+	entries: [] \{\}\
+		partId: id\
+		points: float\
+		description:			// question text for display\
+		status: int			// 1- unanswered, 2- marked for review,  3-missing required reason, 0- answered\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\
+assessment_getReview			// submitter reviewing a submission - mark it as reviewed\
+-> site:\
+\pard\pardeftab720\partightenfactor0
+\cf0 -> submission:\
+	assessment: \{\}			// info, evaluationDesign, options, design\
+	submissionIds: []			// submissions to this assessment from this user, a list of ids - all completed submissions, released or not\
+	submission: \{\}			// w/ answers, "best" set			\
+	questions: [] \{\}			// for each quesion involved in the submission, with details\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+\
+assessment_saveGradeAssessment	// save from grade assessment for a single assessment, multiple submissions - score, evaluated, released\
+-> site\
+-> assessment\
+	count_submissions\
+	0_submissions_id, _evaluated, _released , _score       0..count-1\
+\
+assessment_saveOptions			// while editing one assessment's options\
+-> site\
+-> assessment: id\
+-> title, published, type, schedule_ , evaluationDesign_ , options_ \
+\
+\
+assessment_save_design			// while editing one (possibly new) assessment's design, set points, reorder part details\
+-> site\
+-> assessment: id long			// <0 for a new one\
+->	title:\
+->	type:\
+->	count_details,   0_details_id,   _points,   ? _order\
+->	removed_details: [] detailId\
+->	reorder: [] str				// P+id and id mix for questions and party in the new question order\
+\
+\
+assessment_saveManage			// while managing assessments, dates\
+-> site\
+->	count_items  0_items_id _schedule_open _schedule_due _schedule_allowUntil\
+\
+\
+assessment_save_instructions		// while editing instructions for a single assessment\
+-> site\
+-> assessment\
+-> 	design_instructions\
+-> 	design_count_parts  design_0_parts_id _instructions\
+\
+\
+assessment_save_parts			// while editing parts for a single assessment\
+-> site\
+-> assessment\
+-> 	design_count_parts\
+->	design_0_parts_id			// - id for new part\
+->	 design_0_parts_title _shuffle\
+->	design_removed_parts[]: 		// ids of removed parts\
+->	reorder: []				// ids of parts in new order\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 assessment_savePool			// while editing a pool\
+-> site\
+-> pool					// TODO: - id for new pool?\
+-> title, description (text) , points (float), difficulty (str)\
+	? savedId: the id of the pool\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf0 \
+assessment_remove			// to remove one or more assessments - policy may prohibit individually\
+-> site:\
+-> ids: []					// ids to remove\
+\
+\
+assessment_publish			// to publish one or more assessments\
+-> site:\
+-> ids: []					// ids of assessments to publish\
+\
+\
+assessment_unpublish			// to unpublish one or more assessments\
+-> site:\
+-> ids: []					// ids of assessments to unpublish\
+\
+\
+assessment_enter				// start or resume the assessment for the user\
+-> site:\
+-> assessment:\
+-> pw: string (clear)				// optional\
+	submissionId:			// set if a submission is going now, not set if we didn't get in for some reason\
+\
+\
+assessment_finish				// complete the inprogress submission for this user\
+-> site:\
+-> submission:\
+\
+\
+assessment_evaluate			// while grading a submission\
+-> site\
+-> submission\
+-> score (float), evaluated, released, comment, \
+-> ratings...\
+-> 						// TODO: per-answer evaluation ...\
+\
+	evaluation \{\} updated evaluation for the submission\
+\
+\
+assessment_archive			// to archive one or more assessments\
+-> site:\
+-> ids: []					// ids of assessments to archive\
+\
+\
+assessment_export				// TODO:\
+\
+\
+assessment_release			// bulk release submissions to a single assessment\
+-> site\
+-> assessment\
+-> criteria: str					// "A" for all, "E" for evaluated\
+\
+\
+assessment_commentAll			// add comment to all completed submissions to this assessment\
+-> site:\
+-> assessment:\
+-> comment: html\
+\
+\
+assessment_adjustScores			// adjust scores to all completed submissions to this assessment\
+-> site id\
+-> assessment\
+-> adjustAll: float				// adjust all submissions by this\
+-> deductLate: float				// deduct this from late\
+// -> zeroNonSubmits: bool			// assign 0 to non-submits\
+\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 assessment_importScores			// TODO:\
+-> site:\
+-> assessment:\
+-> scoresFile: file\
+\
+\
+site_sites\
+	sites:[]\{\}\
+		id:\
+		term: \{\}\
+			id: \
+			name:\
+		role:\
+		accessStatus:\
+		title:\
+		publishOn:\
+		unpublishOn:\
+		createdOn:\
+\
+site_publish\
+-> ids: []\
+\
+site_unpublish\
+-> ids: []\
+\
+\
+\
+myfiles\
+\
+file: \{\}					// file reference from myfiles\
+	id:\
+	downloadUrl:\
+	file: \{\}\
+		id:\
+		name:\
+		mimeType:\
+		size: str		// display string: 95 kb, 200.3 mb\
+		date:			// date modified \
+	usage: [] \{\}\
+		site:\
+			id:\
+			title:\
+			role:\
+		tool: long		// tool id\
+		itemId: long		// item in tool making the reference\
+\
+myfiles_get\
+-> forUserId:				// for a different user. ???\
+	myfiles: [] \{\}			// of file\
+\
+myfiles_remove\
+\
+myfiles_rename\
+\
+myfiles_replace\
+\
+myfiles_upload\
+\
+\
+\
+chat\
+\
+message: \{\}\
+	id:				// message id\
+	from: \{\}			// subset of user\
+		id:			// from user's display id\
+		
+\f0 nameDisplay:	// from user's display  name\
+
+\f1 	createdOn:			// message timestamp\
+	content: str			// message plain text content\
+\
+// room for _get\
+room: \{\}\
+	id:\
+	title:\
+	online: int		// online count\
+\
+// full room definition for _manage\
+room: \{\}\
+	id:\
+	title:\
+	published:\
+	groups:	// ?\
+\
+chat_get\
+-> site\
+-> room				// optional, default if not specified\
+-> after				// a message id of the last message we have\
+	roomId: 			// id of room\
+	after:				// message id of the first message NOT sent - the remainder sent in messages need to be appended to, not replace, what the client has\
+	messages: [] \{\}\
+	online: [] \{\}			// users in the chat room - subset of user (id, nameDisplay, avatar)\
+	rooms: [] \{\}\
+		id:\
+		title:\
+		online: int		// online count\
+\
+chat_post\
+-> site\
+-> room:				// id or if missing default\
+-> msg:				// message to post\
+\
+\
+chat_manage			// instructor only\
+-> site\
+	rooms: [] \{\}			// rooms (full)\
+\
+chat_save\
+-> site\
+-> order, titles, access\
+count_rooms   0_rooms_id _title\
+order []\
+\
+chat_publish\
+-> site\
+-> ids\
+\
+chat_unpublish\
+-> site\
+-> ids\
+\
+chat_remove\
+-> site\
+-> ids\
+\
+\
+ActivityMeter\
+\
+\
+user: \{\}				// like Participant in evaluation\
+	userId:\
+	nameDisplay:\
+	nameSort:\
+	iid:\
+	rosterName:			// i.e.section\
+	active:				// not dropped\
+	blocked:\
+	official:			// not added - TODO: official == !adhoc ? need both?\
+	adhoc:			// added\
+	master:			// ta or instructor\
+\
+activity_overview\
+-> site\
+	items: [] \{\}			// user, +\
+		firstVisit:\
+		lastVisit:\
+		visits: int\
+		syllabus:		// date accepted\
+		modules:\
+		forums:\
+		assessments:\
+\
+	summary: \{\}\
+		enrolled: int\
+		added: int\
+		dropped: int\
+		blocked: int\
+		alert: int\
+\
+activity_site\
+-> site\
+	items: [] \{\}			// like from overview, without the syllabus .. assessments items\
+	summary: \{\}\
+		visited:		// # students ever visited\
+		absent:		// # students never visited\
+		recent:		// # students visited in last 7 days\
+\
+activity_syllabus\
+-> site\
+	items: [] \{\}			// like overview, but without modules .. assessments - add firstVisit and lastVisit from syllabus stats, not site\
+\
+\
+activity_module\
+-> site\
+	items: [] \{\}\
+		id\
+		valid\
+		published\
+		schedule.status\
+		title\
+		sections: [] \{\}\
+			id\
+			title\
+			viewers: int\
+\
+activity_forum\
+-> site\
+	items: [] \{\}\
+		id\
+		valid\
+		published\
+		schedule.status\
+		title\
+		students			// # students posted\
+		posts				// total # posts\
+	summary: \{\}\
+		posts:				// total posts: TODO: could be computed from the items.posts\
+		posted:			// students who have, at least once  TODO: posted = students - notPosted... need all these?\
+		notPosted:			// students who have never posted\
+		students:			// total students (to compute % for posted / not\
+\
+activity_assessment\
+-> site\
+	items: [] \{\}\
+		id\
+		valid\
+		published\
+		schedule.status\
+		title\
+		type:
+\f0  string			// 
+\f1 assignment("A"),  offline("O"), survey("S"), test("T");\
+		students			// # students submitted\
+		submissions			// total # submissions\
+		inProgress			// # in progress\
+\
+activity_alert\
+-> site\
+	items: [] \{\}			// user, +\
+		firstVisit:\
+		lastVisit:\
+		visits: int\
+		syllabus:		// date accepted\
+		modules:\
+		forums:\
+		assessments:\
+\
+activity_moduleItem\
+-> site\
+-> section:\
+	items: [] \{\}			// user, +\
+		firstVisit:		// visit to section\
+		lastVisit:\
+\
+activity_forumItem\
+-> site\
+-> forum:\
+	items: [] \{\}			// user, +\
+		posts:\
+		reviewed: date	// missing if not\
+\
+activity_assessmentItem\
+-> site\
+-> assessment:\
+	items: [] \{\}			// user, +\
+		started: date\
+		finished: date\
+		reviewed: date	// missing if not\
+\
+activity_student\
+-> site\
+-> student: id\
+	user:\
+		nameDisplay:\
+	summary: \{\}\
+		lastVisit:\
+		modules: int		// pct modules completed (0..100)\
+		posts: int\
+		assessments: int	// completed\
+		syllabus: boolean	// if accepted\
+		missed: int		// if any items missed\
+	items: [] \{\}			// CM like items\
+\
+\
+Modules\
+\
+\
+module: \{\}\
+	id:\
+	title:\
+	attribution:\
+	description: text		// optional\
+	nextSteps: text		// optional\
+	schedule:\
+	inProgress: boolean		// only for view, if some but not all sections completed\
+	completed: boolean		// only for view, if student has completed all sections\
+	lastVisit: date			// only for view, date of student's last visit to any section in the module\
+	sections: [] \{\}\
+	prev: module id		// only needed for viewModule, null if none\
+	next: module Id		// only needed for viewNodule / viewSection, null if none\
+\
+section: \{\}\
+	id\
+	title\
+	instructions: text\
+	source:			// "A" authored, "F" file uploaded, "L" lti (link to publishers content), "W" web\
+\
+	< source="A" section>\
+	content: html\
+\
+	< source="F" section>\
+	fileUrl:				// fileRefId for serenity\
+	fileName:\
+	alt:\
+	newWindow: bool\
+\
+	< source="W" section>\
+	url:\
+	alt:\
+	newWindow: bool\
+\
+	< source="L" section>\
+	url:\
+	alt:\
+	newWindow: bool\
+	key:\
+	secret:\
+	custom:\
+\
+	lastVisit: date			// only for view, date of student's last visit to any section in the module\
+	license: text\
+	licenseUrl:\
+	copyright:			// UND, AUT, PUB, CCL, FUE\
+	copyrightName:\
+	copyrightYear:\
+	prev: section id		// only for viewSection, null if none\
+	next: section id		 // only for viewSection, null if none\
+	attribution:\
+\
+\
+module_view\
+-> site\
+	modules: [] \{\}\
+\
+module_manage			// todo: .fs return (3 for melete)\
+-> site\
+	modules: [] \{\}\
+\
+module_saveManage\
+-> site\
+-> ...\
+\
+module_viewModule\
+-> site\
+-> module:			// module id\
+	module: \{\}\
+\
+module_viewSection\
+-> site\
+-> module\
+-> section\
+	module: \{\}		// id, title, next, prev\
+	section: \{\}\
+\
+module_editSection\
+-> site\
+-> module\
+-> section\
+	module: \{\}		// id, title, next, prev\
+	section: \{\}\
+\
+module_saveSection\
+-> site\
+-> module\
+-> section\
+->	instructions, title, content		// TODO: license ...\
+\
+module_editModule\
+-> site\
+-> module\
+	module: \{\}		// id, title, description, nextSteps, next, prev, sections (enough for nav - length, [].id)\
+\
+module_saveSection\
+-> site\
+-> module\
+-> section\
+->	instructions, title, content		// TODO: license ...\
+\
+module_archive\
+-> site\
+-> ids\
+\
+module_delete\
+-> site\
+-> ids\
+\
+module_resources				// setup the ck finder for the meleteDocs in this site  !  So terrible!\
+-> site\
+\
+module_options\
+-> site\
+	options: \{\}\
+		copyright:			// UND, AUT, PUB, CCL, FUE\
+		copyrightName:\
+		copyrightYear:\
+		allowPrint: bool\
+		autoNumber: bool\
+\
+module_saveOptions\
+-> site\
+-> allowPrint: bool\
+-> autoNumber: bool\
+-> copyright: "AUT" ...\
+-> copyrightName: text\
+-> copyrightYear: text\
+\
+\
+Schedule\
+\
+event:\
+	id:\
+	title:\
+	content: html\
+	fields: \{\}\
+		location: text\
+		<name of field 1>: text\
+		...\
+	allDay: boolean\
+\
+	schedule: \{\}\
+		start: date\
+		end: date\
+		frequency: \{\}				// missing if just once\
+			type: str			// "O" once "D" daily "W" weekly "M" monthly\
+			period: int			// every how many days, weeks, months\
+			ends: str			// "T" for times, "D" for date, "F" for forever\
+			times: int			// for "T", # events before ending\
+			date: date			// for "D", date after which ends\
+\
+schedule_view\
+-> site\
+-> start: date\
+-> end: date\
+	events: []\{\}\
+\
+schedule_options\
+-> site\
+	options: \{\}\
+		fields: [] \{\}		// of field names\
+			id:\
+			order: int	// 1 based\
+			title:\
+\
+schedule_edit\
+-> site\
+-> event\
+	event: \{\}\
+\
+schedule_save\
+-> site\
+-> ...\
+\
+schedule_saveOptions\
+-> site\
+-> ...  0_fields_   id, title, order\
+\
+\
+\
+Roster\
+\
+roster_aggregateRoster\
+-> site\
+	members: [] \{\}\
+		userId:\
+		nameSort:\
+		iid:\
+		avatar:\
+\
+		blocked: bool\
+		active: bool\
+		adhoc: bool\
+		official: bool\
+		master: bool\
+\
+		rosterName:\
+		role: int 				// user role level in site\
+\
+		access: \{\}				// global special access (if defined)\
+			extendDue: int		// # days, or missing if not set\
+			extendTimeOption:		// "A", "M", "U", or "N" if none\
+			extendTimeValue:		// one of these extendTime options can be define - time value is 1:30 style H:MM\
+			extendTimeMultiplier:	// float > 1\
+\
+\
+roster_addMembers\
+-> site\
+-> role: int\
+-> users\
+	results\
+\
+roster_removeMembers\
+-> site\
+-> users\
+	results\
+\
+roster_blockMembers\
+-> site\
+-> users\
+	results\
+\
+roster_unblockMembers\
+-> site\
+-> users\
+	results\
+\
+roster_roleMembers\
+-> site\
+-> users\
+-> role: int\
+	results\
+\
+roster_groups\
+-> site\
+	groups: [] \{\}\
+		id:\
+		title:\
+		size: int\
+\
+roster_group\
+-> site\
+-> group\
+	group: \{\}\
+		id:\
+		title:\
+		members: [] long (or str)		// user id of members\
+\
+roster_groupSave		// if a new group, update the parameters["group"] to the new group id after saving\
+-> site\
+-> group			// -1 id for a new group\
+-> title\
+-> members			// user ids of group members\
+\
+roster_groupRemove\
+-> site\
+-> groups				// list of ids of groups to delete\
+\
+roster_accessSave\
+-> site\
+-> user\
+-> access_ extendDue, extendTimeValue, extendTimeMultiplier, extendTimeOption\
+\
+roster_accessDelete\
+-> site\
+-> user\
+}
