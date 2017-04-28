@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+	<div class="e3_panel">
+		<div id="module_header" class="e3_pinned">
+			<div class="e3_panelHeader" i18n="header_module">MODULES</div>
+			<div id="module_modebar" class="e3_modebar"></div>
+			<div id="module_headerbar" class="e3_panelHeaderBar e3_offstage">
+				<div id="module_itemnav" class="e3_itemnav e3_offstage"></div
+
+				><div id="module_bar_view" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_panelHeaderBarRight">
+						<div class="e3_action titled"><a id="module_view_bookmarks" i18n="a_bookmarks" href="">Bookmarks</a></div
+					></div
+				></div
+
+				><div id="module_bar_viewModule" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div id="module_viewModule_title" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+					><div class="e3_panelHeaderBarRight">
+						<div class="e3_action titled"><a id="module_viewModule_bookmarks" i18n="a_bookmarks" href="">Bookmarks</a></div
+					></div
+				></div
+
+				><div id="module_bar_viewSection" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"><a id="module_viewSection_moduleTitle" href=""></a></div>
+					</div
+					><div class="e3_panelHeaderBarRight">
+						<div class="e3_action titled"><a id="module_viewSection_bookmarks" i18n="a_bookmarks" href="">Bookmarks</a></div
+					></div
+				></div
+
+				><div id="module_bar_manage" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action add"><a id="module_manage_addModule" i18n="a_addModule" href="">Add Module</a></div
+					><div class="e3_action delete"><a id="module_manage_delete" i18n="a_delete" href="">Delete</a></div
+					><div class="e3_action export"><a id="module_manage_export" i18n="a_export" href="">Export</a></div
+					><div class="e3_action import"><a id="module_manage_import" i18n="a_import" href="">Import</a></div
+					><div class="e3_action titled"><a id="module_manage_archive" i18n="a_archive" href="">Archive</a></div
+					><div class="e3_action titled"><a id="module_manage_restore" i18n="a_restore" href="">Restore</a></div
+					><div class="e3_panelHeaderBarRight">
+						<div class="e3_action titled"><a id="module_manage_addSection" i18n="a_addSection" href="">Add Section</a></div
+					></div
+				></div
+
+				><div id="module_bar_editModule" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div id="module_editModule_moduleTitle" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+					><div class="e3_panelHeaderBarRight">
+						<div class="e3_action add"><a id="module_editModule_add" i18n="a_addSection" href="">Add Section</a></div
+					></div
+				></div
+
+				><div id="module_bar_editSection" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"><a id="module_editSection_moduleTitle" href=""></a></div>
+					</div
+					><div class="e3_panelHeaderBarRight">
+						<div class="e3_action add"><a id="module_editSection_add" i18n="a_addSection" href="">Add Section</a></div
+						><div class="e3_action titled"><a id="module_editSection_preview" i18n="a_view" href="">Preview</a></div
+					></div
+				></div
+
+			></div>
+
+			<div id="module_header_view" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+32 8+x 8+80 8+80 8+80+32] 40 | *20 -->
+				<div class=dot></div
+				><div style="width:calc(100vw - 100px - 368px); min-width:calc(1200px - 100px - 368px)" i18n="header_title" >TITLE</div
+				><div class="date2l" i18n="header_open">OPEN</div
+				><div class="date2l" i18n="header_due">DUE</div
+				><div class="date2l" i18n="header_lastVisit">LAST VISIT</div
+			></div>
+
+			<div id="module_header_viewModule" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+x 8+150+32] 40 | *20 -->
+				<div style="width:calc(100vw - 100px - 222px); min-width:calc(1200px - 100px - 222px)" i18n="header_title" >TITLE</div
+				><div class="date" i18n="header_lastVisit">LAST VISIT</div
+			></div>
+
+			<div id="module_header_manage" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+16 8+x 8+168 8+168 8+168 8+24+32] 40 | *20 -->
+				<div class="icon"></div
+				><div style="width:calc(100vw - 100px - 648px); min-width:calc(1200px - 100px - 648px)" i18n="header_title" >TITLE</div
+				><div class="dateInput" i18n="header_open">OPEN</div
+				><div class="dateInput" i18n="header_due">DUE</div
+				><div class="dateInput" i18n="header_allow">ALLOW UNITL</div
+			></div>
+
+		</div>
+
+		<div id="module_view" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="module_view_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="module_view_none" i18n="msg_noneDefined" class="e3_offstage e3_note" style="padding-top:24px;">No items are defined.</div>
+			</div>
+		</div>
+
+		<div id="module_manage" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="module_manage_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="module_manage_none" i18n="msg_noneDefined" class="e3_offstage e3_note" style="padding-top:24px;">No items are defined.</div>
+			</div>
+		</div>
+
+ 		<div id="module_option" class="e3_offstage" style="width:100%; background-color:rgba(255,255,255,0.6);"><!-- 1200px: 40 [ 24 524 24 524 24 ] 40 -->
+			<div class="e3_panelBody headed footed indented24" style="width:1072px; margin:auto; background-color:transparent;">
+				<div style="width:524px; margin-right:24px; display:inline-block; vertical-align:top;">
+					<div class="e3_panel" style="margin-bottom:24px;">
+						<div class="e3_subpanelHeader" i18n="header_defaultCopyright">DEFAULT COPYRIGHT</div>
+						<div class="e3_panelBody headed indented24">
+							<fieldset class="e3_editFieldsLR">
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsTitle"><label i18n="label_source">Copyright Status:</label></div>
+									<div class="e3_editFieldsBody">
+										<select id="module_option_copyright" class="e3_input" size="1">
+											<option value="UND">Copyright Not Determined</option>
+											<option value="AUT">Copyright of Author</option>
+											<option value="PUB">Public Domain</option>
+											<option value="CCL">Creative Commons License</option>
+											<option value="FUE">Fair Use Exception</option>
+										</select>
+									</div>
+								</div>
+								<div id="module_option_copyright_NY" class="e3_editFieldsEntry e3_offstage">
+									<div class="e3_editFieldsTitle"><label i18n="label_source">Copyright:</label></div>
+									<div class="e3_editFieldsBody">
+										&copy;
+										<input id="module_option_copyright_NY_name" class="e3_input" style="width:200px;" type="text" value="" placeholder="NAME" i18n="ph_name"/>
+										,
+										<input id="module_option_copyright_NY_year" class="e3_input" style="width:80px;" type="text" value="" placeholder="YEAR" i18n="ph_year"/>
+									</div>
+								</div>
+							</fieldset>
+							<div id="module_option_copyright_UND" class="e3_note e3_offstage">
+							</div>
+							<div id="module_option_copyright_AUT" class="e3_note e3_offstage">
+							</div>
+							<div id="module_option_copyright_PUB" class="e3_note e3_offstage">
+								<span i18n="msg_copyright_pub">Work placed into the public domain may be freely reproduced, distributed, transmitted, used, modified, built upon, or otherwise exploited by anyone for any purpose.</span>
+							</div>
+							<div id="module_option_copyright_CCL" class="e3_note e3_offstage">
+								<span i18n="msg_copyright_ccl">CCL...</span>
+							</div>
+							<div id="module_option_copyright_FUE" class="e3_note e3_offstage">
+								<span i18n="msg_copyright_fue">Materials used in this section are subject to fair use exception. Permission to use this material is not granted, as the author is not the copyright holder.</span>
+							</div>
+						</div>
+					</div>
+				</div
+				><div style="width:524px; display:inline-block; vertical-align:top;">
+					<div class="e3_panel" style="margin-bottom:24px;">
+						<div class="e3_subpanelHeader" i18n="header_siteOptions">SITE OPTIONS</div>
+						<div class="e3_panelBody headed indented24">
+							<fieldset class="e3_editFieldsLR">
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsTitle"></div>
+									<div class="e3_editFieldsBody"><input id="module_option_studentPrinting" type="checkbox"></input><label i18n="label_studentPrinting" for="module_option_studentPrinting">Allow Student Printing</label></div>
+								</div>
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsTitle"></div>
+									<div class="e3_editFieldsBody"><input id="module_option_autoNumbering" type="checkbox"></input><label i18n="label_autoNumbering" for="module_option_autoNumbering">Automatically Number Modules and Sections</label></div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="module_resource" class="e3_offstage">
+			<div class="e3_panelBody headed footed indented">
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"></div>
+						<div class="e3_editFieldsBody">
+							<div id="module_resource_picker" style="border-top:1px solid #DCDCDC;"></div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+
+		<div id="module_viewModule" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<div class="e3_note" id="module_viewModule_instructions" style="padding-top:24px; width:600px; padding-left:48px; padding-bottom:8px;"></div>
+				<table id="module_viewModule_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="module_viewModule_none" i18n="msg_noneDefined" class="e3_offstage e3_note" style="padding-top:24px;">No items are defined.</div>
+				<div class="e3_note" id="module_viewModule_next" style="padding-top:24px; width:600px; padding-left:48px;"></div>
+			</div>
+		</div>
+
+		<div id="module_viewSection" class="e3_offstage">
+			<div class="e3_panelBody headed footed indented24">
+				<div class="e3_note" id="module_viewSection_instructions" style="width:600px;"></div>
+				<div class="e3_sectionHeader"><span id="module_viewSection_sectionTitle"></span></div>
+				<div id="module_viewSection_content" class="e3_content" style="padding-left:24px;"></div>
+				<div class="e3_sectionHeader" style="text-align:right; margin-top:12px;"><a id="module_viewSection_license" target="_blank" href="" style="font-size:12px;"></a></div>
+			</div>
+		</div>
+
+		<div id="module_editModule" class="e3_offstage">
+			<div class="e3_panelBody headed footed indented">
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_title" for="module_editModule_title">Title:</label></div>
+						<div class="e3_editFieldsBody"><input id="module_editModule_title" class="e3_input" value="" type="text" style="width:calc(100% / 2);" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_instructions" for="module_editModule_instructions">Instructions:</label></div>
+						<div class="e3_editFieldsBody"><textarea id="module_editModule_instructions" cols="40" rows="2" wrap="SOFT" style="width:calc(100% / 2); padding:8px; resize: none;" placeholder="OPTIONAL" i18n="ph_optional"></textarea></div>
+					</div>
+				</fieldset>
+				<fieldset class="e3_editFieldsLR">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_open" for="module_editModule_open">Open:</label></div>
+						<div class="e3_editFieldsBody"><input id="module_editModule_open" class="e3_input e3_timestamp" type="text" value="" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"></div>
+						<div class="e3_editFieldsBody"><input id="module_editModule_hide" type="checkbox"></input><label i18n="label_hide" for="module_editModule_hide">Hide Until Open</label></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_due" for="module_editModule_due">Due:</label></div>
+						<div class="e3_editFieldsBody"><input id="module_editModule_due" class="e3_input e3_timestamp" type="text" value="" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_allow" for="module_editModule_allow">Allow Until:</label></div>
+						<div class="e3_editFieldsBody"><input id="module_editModule_allow" class="e3_input e3_timestamp" type="text" value="" /></div>
+					</div>
+				</fieldset>
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_nextSteps" for="module_editModule_nextSteps">Next Steps:</label></div>
+						<div class="e3_editFieldsBody"><textarea id="module_editModule_nextSteps" cols="40" rows="2" wrap="SOFT" style="width:calc(100% / 2); padding:8px; resize: none;" placeholder="OPTIONAL" i18n="ph_optional"></textarea></div>
+					</div>
+				</fieldset>
+				<div id="module_editModule_attribution"></div>
+			</div>
+		</div>
+
+		<div id="module_editSection" class="e3_offstage">
+			<div class="e3_panelBody headed footed indented">
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_title" for="module_editSection_title">Title:</label></div>
+						<div class="e3_editFieldsBody"><input id="module_editSection_title" class="e3_input" value="" type="text" style="width:calc(100% / 2);" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_instructions" for="module_editSection_instructions">Instructions:</label></div>
+						<div class="e3_editFieldsBody"><textarea id="module_editSection_instructions" cols="40" rows="2" wrap="SOFT" style="width:calc(100% / 2); padding:8px; resize: none;"></textarea></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_source">Source:</label></div>
+						<div class="e3_editFieldsBody">
+							<div class="e3_editFieldsBodyLine"><input name="module_editSection_source" id="module_editSection_source_A" value="A" type="radio" /><label i18n="label_author" for="module_editSection_source_A">Author a Section</label></div>
+							<div class="e3_editFieldsBodyLine"><input name="module_editSection_source" id="module_editSection_source_F" value="F" type="radio" /><label i18n="label_sourceUpload" for="module_editSection_source_F">Select or Upload a File</label></div>
+							<div class="e3_editFieldsBodyLine"><input name="module_editSection_source" id="module_editSection_source_W" value="W" type="radio" /><label i18n="label_sourceWeb" for="module_editSection_source_W">Select a Web Resource</label></div>
+							<div class="e3_editFieldsBodyLine"><input name="module_editSection_source" id="module_editSection_source_L" value="L" type="radio" /><label i18n="label_lti" for="module_editSection_source_L">Link to Publisher Content</label></div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset id="module_editSection_A" class="e3_editFieldsTB e3_offstage">
+					<div class="e3_editFieldsEntry">
+						<div id="module_editSection_A_content" class="e3_editFieldsBody"></div>
+					</div>
+				</fieldset>
+				<fieldset id="module_editSection_F" class="e3_editFieldsTB e3_offstage">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_file">Selected File:</label> <span id="module_editSection_F_selected"></span> <label id="module_editSection_F_alert" class="alert e3_offstage" i18n="alert_required">* required to publish</label></div>
+						<div class="e3_editFieldsBody">
+							<div id="module_editSection_F_picker" style="border-top:1px solid #DCDCDC;"></div>
+						</div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_urlAlt" for="module_editSection_F_alt">Alternative Text</label></div>
+						<div class="e3_editFieldsBody"><input id="module_editSection_F_alt" class="e3_input" style="width:calc(100% - 8px);" type="text" value="" /></div>
+					</div>
+				</fieldset>
+				<fieldset id="module_editSection_W" class="e3_editFieldsTB e3_offstage">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_url" for="module_editSection_W_url">URL</label><label id="module_editSection_W_alert" class="alert e3_offstage" i18n="alert_required" for="module_editSection_W_url">* required to publish</label></div>
+						<div class="e3_editFieldsBody"><input id="module_editSection_W_url" class="e3_input" style="width:calc(100% - 8px);" type="text" value="" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"></div>
+						<div class="e3_editFieldsBody">
+							<input id="module_editSection_W_newWindow" type="checkbox"></input>
+							<label i18n="label_shareEmail" for="module_editSection_W_newWindow">Open in a New Window</label>
+						</div>						
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_urlAlt" for="module_editSection_W_alt">Alternative Text</label></div>
+						<div class="e3_editFieldsBody"><input id="module_editSection_W_alt" class="e3_input" style="width:calc(100% - 8px);" type="text" value="" /></div>
+					</div>
+				</fieldset>
+				<fieldset id="module_editSection_L" class="e3_editFieldsTB e3_offstage">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_url" for="module_editSection_L_url">URL</label><label id="module_editSection_L_alert" class="alert e3_offstage" i18n="alert_required" for="module_editSection_L_url">* required to publish</label></div>
+						<div class="e3_editFieldsBody"><input id="module_editSection_L_url" class="e3_input" style="width:calc(100% - 8px);" type="text" value="" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"></div>
+						<div class="e3_editFieldsBody">
+							<input id="module_editSection_L_newWindow" type="checkbox"></input>
+							<label i18n="label_shareEmail" for="module_editSection_L_newWindow">Open in a New Window</label>
+						</div>						
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_urlAlt" for="module_editSection_L_alt">Alternative Text</label></div>
+						<div class="e3_editFieldsBody"><input id="module_editSection_L_alt" class="e3_input" style="width:calc(100% - 8px);" type="text" value="" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_key" for="module_editSection_L_key">Key:</label></div>
+						<div class="e3_editFieldsBody"><input id="module_editSection_L_key" class="e3_input" style="width:calc(100% - 8px);" type="text" value="" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_secret" for="module_editSection_L_secret">Secret:</label></div>
+						<div class="e3_editFieldsBody"><input id="module_editSection_L_secret" class="e3_input" style="width:calc(100% - 8px);" type="text" value="" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_custom" for="module_editSection_L_custom">Custom Parameters:</label></div>
+						<div class="e3_editFieldsBody"><textarea id="module_editSection_L_custom" cols="40" rows="2" wrap="SOFT" style="width:calc(100% / 2); padding:8px; resize: none;"></textarea></div>
+					</div>
+				</fieldset>
+				<fieldset class="e3_editFieldsLR">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_source">Copyright Status:</label></div>
+						<div class="e3_editFieldsBody">
+							<select id="module_editSection_copyright" class="e3_input" size="1">
+								<option value="UND">Copyright Not Determined</option>
+								<option value="AUT">Copyright of Author</option>
+								<option value="PUB">Public Domain</option>
+								<option value="CCL">Creative Commons License</option>
+								<option value="FUE">Fair Use Exception</option>
+							</select>
+						</div>
+					</div>
+					<div id="module_editSection_copyright_NY" class="e3_editFieldsEntry e3_offstage">
+						<div class="e3_editFieldsTitle"><label i18n="label_source">Copyright:</label></div>
+						<div class="e3_editFieldsBody">
+							&copy;
+							<input id="module_editSection_copyright_NY_name" class="e3_input" style="width:200px;" type="text" value="" placeholder="NAME" i18n="ph_name"/>
+							,
+							<input id="module_editSection_copyright_NY_year" class="e3_input" style="width:80px;" type="text" value="" placeholder="YEAR" i18n="ph_year"/>
+						</div>
+					</div>
+				</fieldset>
+				<div id="module_editSection_copyright_UND" class="e3_note e3_offstage">
+				</div>
+				<div id="module_editSection_copyright_AUT" class="e3_note e3_offstage">
+				</div>
+				<div id="module_editSection_copyright_PUB" class="e3_note e3_offstage">
+					<span i18n="msg_copyright_pub">Work placed into the public domain may be freely reproduced, distributed, transmitted, used, modified, built upon, or otherwise exploited by anyone for any purpose.</span>
+				</div>
+				<div id="module_editSection_copyright_CCL" class="e3_note e3_offstage">
+					<span i18n="msg_copyright_ccl">CCL...</span>
+				</div>
+				<div id="module_editSection_copyright_FUE" class="e3_note e3_offstage">
+					<span i18n="msg_copyright_fue">Materials used in this section are subject to fair use exception. Permission to use this material is not granted, as the author is not the copyright holder.</span>
+				</div>
+				<div id="module_editSection_attribution"></div>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="module_sectionTitle_template" class="e3_offstage">
+		<ul id="module_sectionTitle_template_body" style="margin:8px 0px 8px 0px;">
+			<li id="module_sectionTitle_template_title"></li>
+		</ul>
+	</div>
+
+	<div id="module_viewNav" class="e3_offstage">
+ 		<div class="e3_action return"><a id="module_viewNav_contents" i18n="a_contents" href="">CONTENTS</a></div>
+ 		<div class="e3_action prev"><a id="module_viewNav_prev" i18n="a_prev" href="">PREV</a></div>
+ 		<div class="e3_action next"><a id="module_viewNav_next" i18n="a_next" href="">NEXT</a></div>
+	</div>
+
+	<div id="module_editNav" class="e3_offstage">
+		<div class="e3_action done"><a id="module_editNav_done" i18n="a_done" e3_hoverBkg="#2AB31D" href="">DONE</a></div>
+		<div class="e3_action titledGreen"><a id="module_editNav_save" class="e3_text special" href="" e3_hoverBkg="#2AB31D" i18n="action_save">SAVE</a></div>
+ 		<div class="e3_action prev"><a id="module_editNav_prev" i18n="a_prev" href="">PREV</a></div>
+ 		<div class="e3_action next"><a id="module_editNav_next" i18n="a_next" href="">NEXT</a></div>
+	</div>
+
+	<div i18n="title_nothingSelected" id="module_selectFirst" title="Nothing Selected" style="display: none;">
+		<div i18n="msg_nothingSelected" class="e3_dialogBody">First select one or more items before performing that action.</div>
+	</div>
+
+	<div i18n="title_singleSelect" id="module_select1First" title="Select One" style="display: none;">
+		<div i18n="msg_singleSelect" class="e3_dialogBody">First select one item before performing that action.</div>
+	</div>
+
+</div>
+</body>
+</html>

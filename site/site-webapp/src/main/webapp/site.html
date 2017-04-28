@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+	<div style="margin:8px 30px 16px 30px;">
+		<label i18n="label_sortBy">Sort By:</label>
+		<input type="radio" name="site_sortby" id="site_sortby_0" value="0" /><label i18n="Creation Date" for="site_sortby_0">Creation Date</label>
+		<input type="radio" name="site_sortby" id="site_sortby_1" value="1" /><label i18n="Term" for="site_sortby_1">Term</label>
+		<div style="display:inline-block; margin-left: 50px;">
+			<a i18n="pageFirst" id="site_page_first" href="" class="e3_toolUiLinkI" style="background: url(/ui/icons/pager_first.png) no-repeat left center; padding-left:12px">&nbsp;</a>
+			<a i18n="pagePrev" id="site_page_prev" href="" class="e3_toolUiLinkI" style="background: url(/ui/icons/pager_prev.png) no-repeat left center; padding-left:12px">&nbsp;</a>
+				<span i18n="pageDisplay" id="site_pageDisplay"></span>
+			<a i18n="pageNext" id="site_page_next" href="" class="e3_toolUiLinkI" style="background: url(/ui/icons/pager_next.png) no-repeat left center; padding-left:12px">&nbsp;</a>
+			<a i18n="pageLast" id="site_page_last" href="" class="e3_toolUiLinkI" style="background: url(/ui/icons/pager_last.png) no-repeat left center; padding-left:12px">&nbsp;</a>
+		</div>
+		<div style="display:inline-block; float:right;">
+			<input id="site_search" type="text" />
+			<button id="site_searchGo" type="button" i18n="Search">Search</button>
+		</div>
+	</div>
+	<div class="e3_section">
+		<div id="site_site_actions" class="e3_tableActions">
+			<a i18n="Setup" id="site_site_actions_setup" href="" style="background-image: url('/ui/icons/cog_edit.png');">Setup</a>
+			<a i18n="Roster" id="site_site_actions_roster" href="" style="background-image: url('/ui/icons/group.png');">Roster</a>
+			<a i18n="Publish" id="site_site_actions_publish" href="" style="background-image: url('/ui/icons/publish.png');">Publish</a>
+			<a i18n="Unpublish" id="site_site_actions_unpublish" href="" style="background-image: url('/ui/icons/publish_rmv.png');">Unpublish</a>
+			<a i18n="Purge" id="site_site_actions_purge" href="" style="background-image: url('/ui/icons/delete.png');">Purge</a>
+			<a i18n="Archive" id="site_site_actions_archive" href="" style="background-image: url('/ui/icons/make_inactive.png');">Purge</a>
+			<a i18n="Clear" id="site_site_actions_clear" href="" style="background-image: url('/ui/icons/make_inactive.png');">Clear</a>
+		</div>
+		<table id="site_site_table" class="e3_table">
+			<thead>
+				<tr>
+					<th class="tight"></th>
+					<th i18n="Name">Name</th>
+					<th class="tight"></th>
+					<th i18n="Term">Term</th>
+					<th i18n="Creation Date">Creation Date</th>
+					<th i18n="Instructor">Instructor</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		<div id="site_site_none" i18n="msg_noneDefined" class="e3_offstage e3_note">No items are defined</div>
+	</div>
+	
+	<div i18n="confirmPublishTitle" id="site_confirmPublish" title="Confirm Publish" style="display: none;">
+		<div i18n="confirmPublish" class="e3_dialogBody">Publishing these sites will open them to student access. Are you sure you want to publish the selected sites?</div>
+	</div>
+
+	<div i18n="confirmUnpublishTitle" id="site_confirmUnpublish" title="Confirm Unpublish" style="display: none;">
+		<div i18n="confirmUnpublish" class="e3_dialogBody">Unpublishing these sites will close them to student access. Are you sure you want to unpublish the selected sites?</div>
+	</div>
+
+	<div i18n="confirmPurgeTitle" id="site_confirmPurge" title="Confirm Purge" style="display: none;">
+		<div i18n="confirmPurge" class="e3_dialogBody">Purging these sites will completely remove them from Etudes.<br /><p style='text-align:center; font-weight:bold;'>All site content will be removed.</p>Are you sure you want to purge the selected sites?</div>
+	</div>
+
+	<div i18n="confirmArchiveTitle" id="site_confirmArchive" title="Confirm Archive" style="display: none;">
+		<div i18n="confirmArchive" class="e3_dialogBody">Are you sure you want to archive the selected sites?</div>
+	</div>
+
+	<div i18n="confirmClearTitle" id="site_confirmClear" title="Confirm Clear" style="display: none;">
+		<div i18n="confirmClear" class="e3_dialogBody">Are you sure you want to clear the selected sites?  All non-instructor users will be removed, as well as any contributions made by these users.</div>
+	</div>
+
+	<div i18n="confirmRemoveFromTabsTitle" id="site_confirmRemoveFromTabs" title="Confirm Remove From Tabs" style="display: none;">
+		<div i18n="confirmRemoveFromTabs" class="e3_dialogBody">Are you sure you want to remove this site from your tabs?<br />You will still have access to the site from <i>My Sites</i>.</div>
+	</div>
+
+	<div i18n="confirmAddToTabsTitle" id="site_confirmAddToTabs" title="Confirm Add To Tabs" style="display: none;">
+		<div i18n="confirmAddToTabs" class="e3_dialogBody">These sites are displayed on the dashboard, and as tabs across the top of myEtudes for easy access.<br />Are you sure you want to add this site to your tabs?</div>
+	</div>
+
+	<div i18n="nothingSelectedTitle" id="site_selectFirst" title="Nothing Selected" style="display: none;">
+		<div i18n="nothingSelected" class="e3_dialogBody">First select one or more sites, using the checkboxes.</div>
+	</div>
+
+	<div i18n="nothingSelectedTitle" id="site_select1First" title="Nothing Selected" style="display: none;">
+		<div i18n="nothingSelected1" class="e3_dialogBody">First select a site, using the checkboxes.</div>
+	</div>
+
+	<div id="myfiles_cdp_forms" class="e3_offstage"></div>
+</div>
+</body>
+</html>

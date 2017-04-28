@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+	<div class="e3_panel">
+		<div id="schedule_header" class="e3_pinned">
+			<div class="e3_panelHeader" i18n="header_schedule">SCHEDULE</div>
+			<div id="schedule_modebar" class="e3_modebar e3_offstage"></div>
+			<div id="schedule_headerbar" class="e3_panelHeaderBar e3_offstage">
+
+				<div id="schedule_itemnav" class="e3_itemnav e3_offstage"></div
+
+				><div id="schedule_bar_view" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action prev"><a id="schedule_view_prev" i18n="a_prev" href="">PREV</a></div
+					><div class="e3_action titled"><a id="schedule_view_today" i18n="a_today" href="">TODAY</a></div
+					><div class="e3_action next"><a id="schedule_view_next" i18n="a_next" href="">NEXT</a></div
+					><div class="e3_infoLines">
+						<div id="schedule_view_title" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+					><div class="e3_panelHeaderBarRight">
+						<div class="e3_action add"><a id="schedule_view_add" i18n="a_add" href="" style="border-right:1px solid #D0D0D0;">Add</a></div
+						><div  id="schedule_view_view" class="e3_panelHeaderBarGrouping"></div
+					></div
+				></div
+
+				><div id="schedule_bar_edit" class="e3_panelHeaderBarGrouping e3_offstage">
+					EDIT
+				</div
+
+			></div>
+		</div>
+
+		<div id="schedule_view" class="e3_offstage">
+			<div class="e3_panelBody headed footed indented">
+				<div id="schedule_calendar"></div>
+			</div>
+		</div>
+
+		<div id="schedule_edit" class="e3_offstage">
+			<div class="e3_panelBody headed footed indented">
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_subject" for="schedule_edit_title">Title:</label></div>
+						<div class="e3_editFieldsBody"><input id="schedule_edit_title" class="e3_input" value="" type="text" style="width:calc(100% / 2);" /></div>
+					</div>
+				</fieldset>
+				<fieldset class="e3_editFieldsLR">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_start" for="schedule_edit_start">Start:</label></div>
+						<div class="e3_editFieldsBody"><input id="schedule_edit_start" class="e3_input e3_timestamp" type="text" value="" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_end" for="schedule_edit_end">End:</label></div>
+						<div class="e3_editFieldsBody"><input id="schedule_edit_end" class="e3_input e3_timestamp" type="text" value="" /></div>
+					</div>
+				</fieldset>
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div id="schedule_edit_content" class="e3_editFieldsBody"></div>
+					</div>
+				</fieldset>
+				<div id="schedule_edit_attribution"></div>
+			</div>
+		</div>
+
+	</div>
+
+	<div i18n="title_viewEvent" id="schedule_view_event" title="EVENT" style="display:none;">
+		<div class="e3_dialogBody">
+			<div id="schedule_view_event_title" class="e3_text bold" style="font-size:16px;"></div>
+			<div id="schedule_view_event_byline" class="e3_text light" style="color:#909090; font-size:14px; padding:8px 0px 16px 0px;"></div>
+			<div id="schedule_view_event_content" class="e3_content" style="padding:0px 24px;"></div>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

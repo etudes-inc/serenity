@@ -1,0 +1,56 @@
+.e3_editor_toolbar
+{
+	border: 1px solid #C0C0C0;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	padding: 3px 0px 0px 3px;
+	background-color: white;
+}
+
+.e3_editor_body
+{
+	border: 1px solid #6066AC;
+	padding: 8px;
+	background-color: white;
+}
+
+a.e3_editorTool
+{
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	padding: 0px;
+	margin: 0px 1px 0px 0px;
+}
+a.e3_editorTool.round
+{
+	border-radius: 16px;
+}
+a.e3_editorTool.square
+{
+	border-radius: 4px;
+}
+a.e3_editorTool.outline
+{
+	border: 1px solid #9A661F;
+}
+a.e3_editorTool.noOutline
+{
+	border: 1px solid transparent;
+}
+a.e3_editorTool:hover,
+a.e3_editorTool:active
+{
+	border: 1px solid #6066AC !important;
+}
+a.e3_editorTool.active
+{
+	background-color: #EBE0D2;
+	border: 1px solid #9A661F;
+}
+
+img.e3_editorImage
+{
+}

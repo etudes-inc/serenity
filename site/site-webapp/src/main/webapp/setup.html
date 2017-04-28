@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+
+<div id="portal_content">
+
+	<div style="width:100%;"><!-- 16 : 16 506 12 12 506 16 : 16 -->
+		<div class="e3_panel" style="width:1068px; margin: 0 auto;">
+			<div id="setup_header" class="e3_pinned">
+				<div class="e3_panelHeader" i18n="header_setup">SETUP</div>
+				<div id="setup_navbar" style="position:relative; background-color:white; border-bottom:1px solid #DCDCDC; width:100%; height:52px;">
+					<div id="setup_itemNav" style="position:absolute; top:0; left:0; width:324px; height:52px;"></div>
+					<div id="setup_info" style="position:absolute; top:0; left:324px; width:calc(100% - 324px); height:52px; color:#808080; font-family:Verdana,Geneva,Arial,sans-serif; font-weight:700; font-size:12px; line-height:16px;">
+						<div id="setup_nav_siteTitle"style="position:absolute; top:20px; left:20px; font-family:Oswald, sans-serif; font-size:24px; font-weight:300; color:#606060;"></div>
+					</div>
+				</div>
+				<div id="setup_actionbar" style="position:relative; background-color:white; border-bottom:1px solid #DCDCDC; width:100%; height:52px;">
+					<div class="e3_action titled right"><a i18n="a_roster" id="setup_nav_rosterlink" href=""></a></div
+				></div>
+			</div>
+			<div class="e3_panelBody" style="background-color:rgba(255,255,255,0.6);">
+				<div style="width:506px; margin:20px 12px 20px 16px; display:inline-block; vertical-align:top;">
+					<div class="e3_panel">
+						<div class="e3_subpanelHeader">
+							<a id="setup_edit_appearance" class="edit" href="" i18n="title_edit"><svg><use xlink:href="#icon-settings"></use></svg></a>
+							<span i18n="header_appearance">APPEARANCE</span>
+						</div>
+						<div class="e3_panelBody">
+							<div class="e3_section">
+								<fieldset class="e3_horizontal">
+									<div class="e3_entry"><label class="e3_label" i18n="label_skin" for="setup_skin">Skin:</label><span class="e3_data" id="setup_skin"></span></div>
+									<div class="e3_entry"><label class="e3_label"></label><img class="e3_data" id="setup_skin_logo" src="" style="padding-top:8px;padding-bottom:16px;"></div>
+								</fieldset>
+							</div>
+						</div>
+					</div>
+					<div class="e3_panel">
+						<div class="e3_subpanelHeader">
+							<a id="setup_edit_tools" class="edit" href="" i18n="title_edit"><svg><use xlink:href="#icon-settings"></use></svg></a>
+							<span i18n="header_tools">TOOLS</span>
+						</div>
+						<div class="e3_panelBody">
+							<div class="e3_section">
+								<div><ul id="setup_tools"></ul></div>
+							</div>
+						</div>
+					</div>
+					<div class="e3_panel">
+						<div class="e3_subpanelHeader">
+							<a id="setup_edit_links" class="edit" href="" i18n="title_edit"><svg><use xlink:href="#icon-settings"></use></svg></a>
+							<span i18n="header_siteLinks">SITE LINKS</span>
+						</div>
+						<div class="e3_panelBody">
+							<div class="e3_section">
+								<div><dl id="setup_links"></dl></div>
+							</div>
+						</div>
+					</div>
+					<div class="e3_panel">
+						<div class="e3_subpanelHeader">
+							<a id="setup_edit_services" class="edit" href="" i18n="title_edit"><svg><use xlink:href="#icon-settings"></use></svg></a>
+							<span i18n="header_extServices">EXTERNAL SERVICES</span>
+						</div>
+						<div class="e3_panelBody">
+							<div class="e3_section">
+								<div><ul id="setup_services"></ul></div>
+							</div>
+						</div>
+					</div>
+				</div
+				><div style="width:506px; margin:20px 16px 20px 12px; display:inline-block; vertical-align:top;">
+					<div class="e3_panel">
+						<div class="e3_subpanelHeader" i18n="header_import">1.&nbsp;&nbsp;IMPORT CONTENT</div>
+						<div class="e3_panelBody">
+							<div class="e3_section">
+								<fieldset class="e3_vertical">
+									<div class="e3_entry">
+										<div class="e3_label" i18n="label_import">Import from selected tools from another site.</div>
+										<button class="e3_data" i18n="Import" id="setup_import" type="button">Import</button>
+									</div>
+									<div class="e3_entry">
+										<div class="e3_label" i18n="label_upload">Upload content packaged from other systems.</div>
+										<button class="e3_data" i18n="Upload" id="setup_upload" type="button">Upload</button>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+					</div>
+					<div class="e3_panel">
+						<div class="e3_subpanelHeader">
+							<a id="setup_editBaseDate" class="edit" href="" i18n="title_edit"><svg><use xlink:href="#icon-settings"></use></svg></a>
+							<span i18n="header_baseDate">2.&nbsp;&nbsp;SET BASE DATE</span>
+						</div>
+						<div class="e3_panelBody">
+							<div class="e3_section">
+								<fieldset class="e3_horizontal">
+									<div class="e3_entry"><label class="e3_label" i18n="label_baseDate" for="setup_baseDate">Base Date:</label><span class="e3_data" id="setup_baseDate"></span></div>
+								</fieldset>
+								<table id="setup_baseDate_table" class="e3_table">
+									<thead>
+										<tr>
+											<th i18n="header_tool">Tool</th>
+											<th i18n="header_range">Date Range</th>
+										</tr>
+									</thead>
+									<tbody></tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="e3_panel">
+						<div class="e3_subpanelHeader">
+							<a id="setup_edit_publication" class="edit" href="" i18n="title_edit"><svg><use xlink:href="#icon-settings"></use></svg></a>
+							<span i18n="header_publish">3.&nbsp;&nbsp;PUBLISH</span>
+						</div>
+						<div class="e3_panelBody">
+							<div class="e3_section">
+								<fieldset class="e3_horizontal">
+									<div class="e3_entry e3_offstage" id="setup_publish_published"><label class="e3_label"></label><span class="e3_iconed" style="background-image: url('/ui/icons/publish.png');">Published</span></div>
+									<div class="e3_entry e3_offstage" id="setup_publish_unpublished"><label class="e3_label"></label><span class="e3_iconed" style="background-image: url('/ui/icons/closed.gif');">Closed</span></div>
+									<div class="e3_entry e3_offstage" id="setup_publish_willPublish"><label class="e3_label"></label><span class="e3_iconed" style="background-image: url('/ui/icons/calendar.png');">Will Open</span></div>
+									<div class="e3_entry"><label class="e3_label" i18n="label_publishOn" for="setup_publish_publishOn">Publish On:</label><span class="e3_data" id="setup_publish_publishOn"></span></div>
+									<div class="e3_entry"><label class="e3_label" i18n="label_unpublishOn" for="setup_publish_unpublishOn">Unpublish On:</label><span class="e3_data" id="setup_publish_unpublishOn"></span></div>
+								</fieldset>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div i18n="toolsTitle" id="setup_edit_tools_ui" title="Tools" style="display: none;">
+		<div class="e3_dialogBody">
+			<div class="e3_section">
+				<div class="e3_info" i18n="toolsInstructions">Select the tools to include in this site.</div>
+				<fieldset class="e3_vertical">
+					<div class="e3_entry">
+						<div class="e3_data e3_multiLine">
+							<div><input type="checkbox" name="setup_edit_tools_choices" id="setup_edit_tools_choices_101" value="101" /><label i18n="Home" for="setup_edit_tools_choices_101">Home</label></div>
+							<div><input type="checkbox" name="setup_edit_tools_choices" id="setup_edit_tools_choices_102" value="102" disabled /><label i18n="Course Map" for="setup_edit_tools_choices_102">Course Map</label></div>
+							<div><input type="checkbox" name="setup_edit_tools_choices" id="setup_edit_tools_choices_103" value="103" /><label i18n="Schedule" for="setup_edit_tools_choices_103">Schedule</label></div>
+							<div><input type="checkbox" name="setup_edit_tools_choices" id="setup_edit_tools_choices_104" value="104" /><label i18n="Announcements" for="setup_edit_tools_choices_104">Announcements</label></div>
+							<div><input type="checkbox" name="setup_edit_tools_choices" id="setup_edit_tools_choices_105" value="105" /><label i18n="Syllabus" for="setup_edit_tools_choices_105">Syllabus</label></div>
+							<div><input type="checkbox" name="setup_edit_tools_choices" id="setup_edit_tools_choices_106" value="106" /><label i18n="Modules" for="setup_edit_tools_choices_106">Modules</label></div>
+							<div><input type="checkbox" name="setup_edit_tools_choices" id="setup_edit_tools_choices_107" value="107" /><label i18n="ATS" for="setup_edit_tools_choices_107">AT&S</label></div>
+							<div><input type="checkbox" name="setup_edit_tools_choices" id="setup_edit_tools_choices_108" value="108" /><label i18n="Discussions" for="setup_edit_tools_choices_108">Discussions</label></div>
+							<div><input type="checkbox" name="setup_edit_tools_choices" id="setup_edit_tools_choices_100" value="100" /><label i18n="Blogs" for="setup_edit_tools_choices_100">Blogs</label></div>
+							<div><input type="checkbox" name="setup_edit_tools_choices" id="setup_edit_tools_choices_109" value="109" /><label i18n="Chat" for="setup_edit_tools_choices_109">Chat</label></div>
+							<div><input type="checkbox" name="setup_edit_tools_choices" id="setup_edit_tools_choices_110" value="110" /><label i18n="Resources" for="setup_edit_tools_choices_110">Resources</label></div>
+							<div><input type="checkbox" name="setup_edit_tools_choices" id="setup_edit_tools_choices_111" value="111" /><label i18n="Gradebook" for="setup_edit_tools_choices_111">Gradebook</label></div>
+							<div><input type="checkbox" name="setup_edit_tools_choices" id="setup_edit_tools_choices_112" value="112" disabled /><label i18n="Activity Meter" for="setup_edit_tools_choices_112">Activity Meter</label></div>
+							<div><input type="checkbox" name="setup_edit_tools_choices" id="setup_edit_tools_choices_115" value="115" disabled /><label i18n="Social" for="setup_edit_tools_choices_115">Social</label></div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+
+	<div i18n="skinTitle" id="setup_edit_skin_ui" title="Appearance" style="display: none;">
+		<div class="e3_dialogBody" style="width:750px;">
+			<div class="e3_section">
+				<div class="e3_info" i18n="skinInstructions">Select the skin to use for this site.</div>
+				<div class="e3_section2">
+					<div class="e3_section2_col">
+						<fieldset class="e3_vertical" id="setup_edit_skin_l">
+						</fieldset>
+					</div>
+					<div class="e3_section2_gap"></div>
+					<div class="e3_section2_col">
+						<fieldset class="e3_vertical" id="setup_edit_skin_r">
+						</fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div i18n="linksTitle" id="setup_edit_links_ui" title="Site Links" style="display: none;">
+		<div class="e3_dialogBody" style="width:750px;">
+			<div class="e3_section">
+				<div class="e3_tableActions">
+					<a i18n="addLink" id="setup_edit_links_add" href="" style="background-image: url('/ui/icons/add.png');">Add</a>
+				</div>
+				<table id="setup_edit_links_table" class="e3_table">
+					<thead>
+						<tr>
+							<th i18n="Title">Title</th>
+							<th i18n="URL">URL</th>
+							<th class="tight"></th>
+							<th class="tight"></th>
+							<th class="tight"></th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div i18n="sitesTitle" id="setup_select_import_site_ui" title="Select Site" style="display: none;">
+		<div class="e3_dialogBody" style="width:750px;">
+			<div class="e3_section">
+				<div class="e3_info" i18n="importSiteInstructions">Select the site from which to import content:</div>
+				<table id="setup_select_import_site_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			<div class="e3_alert e3_offstage" id="setup_select_import_site_alert" i18n="selectSiteAlert">Select a site before continuing.</div>
+		</div>
+	</div>
+
+	<div i18n="importToolsTitle" id="setup_select_import_tools_ui" title="Select Tools" style="display: none;">
+		<div class="e3_dialogBody" style="width:750px;">
+			<div class="e3_section">
+				<div class="e3_info" i18n="importToolsInstructions">Select the tools from which to import content:</div>
+				<div class="e3_section">
+					<fieldset class="e3_horizontal" id="setup_select_import_tools">
+					</fieldset>
+				</div>
+			</div>
+			<div class="e3_alert e3_offstage" id="setup_select_import_tools_alert" i18n="selectImportToolsAlert">Select one or more tools before importing.</div>
+		</div>
+	</div>
+	
+	<div i18n="loginSuccessfulTitle" id="setup_importing" title="Importing Content" style="display: none;">
+		<div class="e3_dialogBody">
+			<div class="e3_section">
+				<div>Importing content from <span id="setup_importing_site"></span></div>
+				<ul id="setup_importing_tools"></ul>
+				<div id="setup_importing_busy" class="e3_working" style="width: 12em;">
+					<img src="/ui/icons/progress.gif" width="42">
+					<span i18n="importingDotDotDot">Importing ...</span>
+				</div>
+				<div id="setup_importing_done" class="e3_working e3_offstage">
+					Complete!
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div i18n="publishTitle" id="setup_edit_publish_ui" title="Site Publication" style="display: none;">
+		<div class="e3_dialogBody">
+			<div class="e3_section">
+				<div class="e3_info" i18n="publishInstructions">Once published, this site is open to active site members.</div>
+				<h1 class="e3_sectionUi" i18n="Options">Options</h1>
+				<fieldset class="e3_vertical">
+					<div class="e3_entry">
+						<div class="e3_data e3_multiLine">
+							<div><input type="radio" name="setup_edit_publish_ui_option" id="setup_edit_publish_ui_option_1" value="1" /><label i18n="publishNow" for="setup_edit_publish_ui_option_1">Publish Now</label></div>
+							<div><input type="radio" name="setup_edit_publish_ui_option" id="setup_edit_publish_ui_option_2" value="2" /><label i18n="unpublishNow" for="setup_edit_publish_ui_option_2">Unpublish Now</label></div>
+							<div><input type="radio" name="setup_edit_publish_ui_option" id="setup_edit_publish_ui_option_3" value="3" /><label i18n="setPublication" for="setup_edit_publish_ui_option_3">Set Publication Dates</label></div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<div class="e3_section e3_offstage" id="setup_edit_publish_ui_schedule">
+				<h1 class="e3_sectionUi" i18n="Schedule">Schedule</h1>
+				<fieldset class="e3_horizontal">
+					<div class="e3_entry">
+						<label class="e3_label" i18n="pubDate" for="setup_edit_publish_ui_pubDate">Publish Date:</label>
+						<input class="e3_data" type="text" id="setup_edit_publish_ui_pubDate" value="" />
+					</div>
+					<div class="e3_entry">
+						<label class="e3_label" i18n="unpubDate" for="setup_edit_publish_ui_unpubDate">Unpublish Date:</label>
+						<input class="e3_data" type="text" id="setup_edit_publish_ui_unpubDate" value="" />
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+
+	<div i18n="baseDateTitle" id="setup_edit_baseDate" title="Base Date" style="display: none;">
+		<div class="e3_dialogBody">
+			<div class="e3_section">
+				<div class="e3_info" i18n="baseDateInstructions">Setting a new Base Date adjusts *all* of the content dates in your site.</div>
+				<div class="e3_info">
+					<span i18n="baseDateInstructions2">For details about the base date feature:</span>
+					<ul>
+						<li>
+							<a class="e3_toolUiLinkU" i18n="baseDateHelp" id="setup_edit_baseDate_help" href="http://etudes.org/help/instructors/site-setup-base-date" target="_blank" title="View Base Date Instructions">View Instructions</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="e3_section">
+				<h1 class="e3_sectionUi" i18n="header_ranges">Date Ranges</h1>
+				<table class="e3_table" id="setup_edit_baseDate_table">
+					<thead>
+						<tr>
+							<th i18n="header_tool">Tool</th>
+							<th i18n="header_range">Date Range</th>
+							<th i18n="header_newRange">New Range</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			<div class="e3_section">
+				<h1 class="e3_sectionUi" i18n="header_setNewBaseDate">Set New Base Date</h1>
+				<fieldset class="e3_horizontal">
+					<div class="e3_entry">
+						<label class="e3_label" i18n="label_baseDate" for="setup_edit_baseDate_baseDate">Base Date:</label>
+						<span class="e3_data" id="setup_edit_baseDate_baseDate"></span>
+					</div>
+					<div class="e3_entry">
+						<label class="e3_label" i18n="label_newBaseDate" for="setup_edit_baseDate_newDate">New Date:</label>
+						<input class="e3_data" type="text" id="setup_edit_baseDate_newDate" value="" />
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+
+	<!--  -->
+	<!-- general support -->
+	<!--  -->
+	<div id="setup_cdp_forms" class="e3_offstage"></div>
+</div>
+</body>
+</html>

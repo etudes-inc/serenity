@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div id="portal_content">
+
+	<div class="e3_panel">
+		<div id="evaluation_header" class="e3_pinned">
+			<div class="e3_panelHeader" i18n="header_grades">GRADEBOOK</div>
+			<div id="evaluation_modebar" class="e3_modebar"></div>
+			<div id="evaluation_headerbar" class="e3_panelHeaderBar e3_offstage">
+				<div id="evaluation_itemnav" class="e3_itemnav e3_offstage"></div
+
+				><div id="evaluation_bar_overview" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_itemsxx">ITEMS</div>
+						<div id="evaluation_overview_assessments"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_points">POINTS</div>
+						<div id="evaluation_overview_points" hideOnReorder="1"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_wEc">W/ EXTRA CREDIT</div>
+						<div id="evaluation_overview_points_ec"></div>
+					</div
+					><div id="evaluation_overview_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="evaluation_bar_grade" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_points">POINTS</div>
+						<div id="evaluation_grade_points"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_wEc">W/ EXTRA CREDIT</div>
+						<div id="evaluation_grade_points_ec"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_wEc">AVERAGE</div>
+						<div id="evaluation_grade_avgPct"></div>
+					</div
+				></div
+
+				><div id="evaluation_bar_category" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div id="evaluation_category_controls" class="e3_panelHeaderBarGrouping">
+				 		<div class="e3_action add"><a id="evaluation_category_add" i18n="a_add" href="">Add</a></div
+				 		><div class="e3_action delete"><a id="evaluation_category_delete" i18n="a_delete" href="">Delete</a></div
+				 	></div
+					><div class="e3_infoBlock">
+						<div id="evaluation_bar_total_header" i18n="header_points">POINTS</div>
+						<div id="evaluation_bar_total"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_wEc">W/ EXTRA CREDIT</div>
+						<div id="evaluation_bar_ec"></div>
+					</div
+					><div class="e3_infoLines">
+						<div id="evaluation_category_weightSummary"></div>
+						<div id="evaluation_category_weightsInvalid" style="color:#E00000;"></div>
+					</div
+					><div id="evaluation_category_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="evaluation_bar_rubric" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action add"><a id="evaluation_rubric_add" i18n="a_add" href="">Add</a></div
+					><div class="e3_action titled"><a id="evaluation_rubric_view" i18n="a_view" href="">View</a></div
+					><div class="e3_action delete"><a id="evaluation_rubric_delete" i18n="a_delete" href="">Delete</a></div
+				></div
+
+				><div id="evaluation_bar_itemGrade" class="e3_panelHeaderBarGrouping e3_offstage">
+				</div
+
+				><div id="evaluation_bar_memberGrade" class="e3_panelHeaderBarGrouping e3_offstage">
+				</div
+
+				><div id="evaluation_bar_review" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_itemsxx">SCORE</div>
+						<div id="evaluation_info_review_score"></div>
+					</div
+					><div class="e3_infoLines">
+						<div><span id="evaluation_info_review_statusDot"></span><span id="evaluation_info_review_title" class="e3_text" style="vertical-align:top; margin-left:4px;"></span></div>
+						<div id="evaluation_info_review_memberInfo"><span id="evaluation_info_review_memberDot"></span><span id="evaluation_info_review_name" class="e3_text" style="vertical-align:top; margin-left:4px;"></span><span id="evaluation_info_review_iid" style="font-size:9px; color:#ADADAD; vertical-align:top; margin-left:4px;"></span></div>
+					</div
+					><div class="e3_infoLines">
+						<div id="evaluation_info_review_started"></div>
+						<div id="evaluation_info_review_finished"></div>
+					</div>
+				</div
+
+				><div id="evaluation_bar_rubricEdit" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_panelHeaderBarRight">
+						<div class="e3_action titled"><a id="evaluation_rubricEdit_view" i18n="a_view" href="">View</a></div
+					></div
+				></div
+
+				><div id="evaluation_bar_rubricCriterionEdit" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div id="evaluation_bar_rubricCriterionEdit_rubric"></div>
+						<div></a></div>
+					</div
+				></div
+
+			></div>
+			<div id="evaluation_headerbar2" class="e3_panelHeaderBar e3_offstage">
+
+				<div id="evaluation_bar2_grade" class="e3_panelHeaderBarGrouping e3_offstage">
+			 		<div class="e3_action export"><a id="evaluation_grade_export" i18n="a_export" href="">Export</a></div
+					><div class="e3_infoLines">
+						<div><a id="evaluation_grade_showing" href=""></a></div>
+						<div><a id="evaluation_grade_lowDrops" href=""></a></div>
+					</div
+					><div class="e3_infoLines">
+						<div></div>
+						<div><a id="evaluation_grade_boosting" href=""></a></div>
+					</div
+					><div id="evaluation_actions_grade_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="evaluation_bar2_itemGrade" class="e3_panelHeaderBarGrouping e3_offstage">
+				 	<div class="e3_action export"><a id="evaluation_itemGrade_export" i18n="a_export" href=""></a></div
+					><div class="e3_infoBlock">
+						<div i18n="header_points">POINTS</div>
+						<div id="evaluation_itemGrade_points"></div>
+					</div
+					><div class="e3_infoLines">
+						<div id="evaluation_itemGrade_title" class="e3_text bold"></div>
+						<div><span id="evaluation_itemGrade_status"></span></div>
+					</div
+					><div id="evaluation_itemGrade_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="evaluation_bar2_memberGrade" class="e3_panelHeaderBarGrouping e3_offstage">
+			 		<div class="e3_action export"><a id="evaluation_memberGrade_export" i18n="a_export" href=""></a></div
+					><div id="evaluation_memberGrade_bkg" class="e3_infoBlock">
+						<div id="evaluation_memberGrade_header"></div>
+						<div id="evaluation_memberGrade_grade"></div>
+					</div
+					><div id="evaluation_memberGrade_pctCompleteBlock" class="e3_infoBlock">
+						<div i18n="header_pctComplete">PERCENT COMPLETE</div>
+						<div id="evaluation_memberGrade_pctComplete"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_possiblePoints">POSSIBLE POINTS</div>
+						<div id="evaluation_memberGrade_possiblePoints"></div>
+					</div
+					><div id="evaluation_memberGrade_member" class="e3_infoLines">
+						<div id="evaluation_memberGrade_name" class="e3_text bold"></div>
+						<div  class="e3_text special light" style="font-size:10px; text-transform:uppercase;"><span id="evaluation_memberGrade_status"></span><span id="evaluation_memberGrade_iid" style="margin-left:8px;"></span></div>
+					</div
+					><div class="e3_infoLines">
+						<div id="evaluation_memberGrade_score"></div>
+						<div id="evaluation_memberGrade_showing"></div>
+					</div
+					><div id="evaluation_memberGrade_actions"  class="e3_panelHeaderBarRight"></div
+				></div
+
+			></div>
+
+			<div id="evaluation_header_overview" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 16+32 32+8 x+8 60+8 80+8 80+8 80+8 80+8 8+80+32] 40 | *20 -->
+				<div class="icon"></div
+				><div style="width:calc(100vw - 100px - 596px); min-width:calc(1200px - 100px - 596px)" i18n="header_title" >TITLE</div
+				><div style="width:60px;"></div
+				><div class="date2l" i18n="header_open">OPEN</div
+				><div class="date2l" i18n="header_due">DUE</div
+				><div style="width:80px;" i18n="header_students">STUDENTS</div
+				><div style="width:80px;" i18n="header_average">AVERAGE</div
+				><div style="width:80px;" i18n="header_points">POINTS</div
+			></div>
+
+			<div id="evaluation_header_grade" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+x 8+80 8+80 120+8 8+100+32 ] 40 | *20 -->
+				<div style="width:calc(100vw - 100px - 476px); min-width:calc(1200px - 100px - 476px);" i18n="header_name" >NAME</div
+				><div style="width:80px;" i18n="header_section">SECTION</div
+				><div style="width:80px;" i18n="header_status">STATUS</div
+				><div style="width:120px;" i18n="header_score">SCORE</div
+				><div style="width:100px;" i18n="header_grade">GRADE OVERRIDE</div
+			></div>
+
+			<div id="evaluation_header_category" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 16+32 16+8 x+8 80+8 80+8 100+8+32 ] 40 | *20  -->
+				<div class="icon"></div
+				><div class="icon"></div
+				><div style="width:calc(100vw - 100px - 396px - 16px); min-width:calc(1200px - 100px - 396px - 16px); padding-left:24px;" i18n="header_category">CATEGORY</div
+				><div style="width:80px;" i18n="header_points">POINTS</div
+				><div style="width:64px; padding-left:24px;" i18n="header_weight">WEIGHT</div
+				><div style="width:100px;" i18n="header_distribution">DISTRIBUTION</div
+			></div>
+
+			<div id="evaluation_header_rubric" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 16+32 300+8 x+8 8+24+32] 40 | *20 -->
+				<div class="icon"></div
+				><div style="width:300px;" i18n="header_title">TITLE</div
+				><div style="width:calc(100vw - 100px - 428px); min-width:calc(1200px - 100px - 428px);" i18n="header_description">DESCRIPTION</div
+				><div style="width:24px;"></div
+			></div>
+
+			<div id="evaluation_header_itemGrade" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+x 8+80 8+80 8+80 8+80 8+150+32] 40 | *20 -->
+				<div style="width:calc(100vw - 100px - 574px); min-width:calc(1200px - 100px - 574px);" i18n="header_name" >NAME</div
+				><div style="width:80px;" i18n="header_section">SECTION</div
+				><div style="width:80px;" i18n="header_status">STATUS</div
+				><div class="date2l" style="width:80px;" i18n="header_finished">FINISHED</div
+				><div class="date2l" style="width:80px;" i18n="header_reviewed">REVIEWED</div
+				><div style="width:134px; padding-left:24px;" i18n="header_score">SCORE</div
+			></div>
+
+			<div id="evaluation_header_memberGrade" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+x 60+8 80+8 80+8 80+8 80+8 80+8 8+150+32] 40 | *20 -->
+				<div style="width:calc(100vw - 100px - 730px); min-width:calc(1200px - 100px - 730px);" i18n="header_title" >TITLE</div
+				><div style="width:60px;"></div
+				><div class="date2l" i18n="header_open">OPEN</div
+				><div class="date2l" i18n="header_due">DUE</div
+				><div style="width:80px;" i18n="header_points">POINTS</div
+				><div class="date2l" i18n="header_finished">FINISHED</div
+				><div class="date2l" i18n="header_reviewed">REVIEWED</div
+				><div style="width:150px;" i18n="header_score">SCORE</div
+			></div>
+
+		</div>
+
+		<div id="evaluation_overview" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="evaluation_overview_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="evaluation_overview_none" i18n="msg_noneDefined" class="e3_offstage e3_note" style="padding-top:24px;">No items are defined.</div>
+			</div>
+		</div>
+	
+		<div id="evaluation_grade" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="evaluation_grade_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="evaluation_grade_none" i18n="msg_noStudents" class="e3_offstage e3_note" style="padding-top:24px;">No students to display.</div>
+			</div>
+		</div>
+
+		<div id="evaluation_category" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="evaluation_category_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="evaluation_category_none" i18n="msg_noCategories" class="e3_offstage e3_note" style="padding-top:24px;">No categories are defined</div>
+			</div>
+		</div>
+
+ 		<div id="evaluation_option" class="e3_offstage" style="width:100%; background-color:rgba(255,255,255,0.6);"><!-- 1200px: 40 [ 24 524 24 524 24 ] 40 -->
+			<div class="e3_panelBody headed footed indented24" style="width:1072px; margin:auto; background-color:transparent;">
+				<div style="width:524px; margin-right:24px; display:inline-block; vertical-align:top;">
+					<div class="e3_panel" style="margin-bottom:24px;">
+						<div class="e3_subpanelHeader" i18n="header_gradeDisplay">GRADE DISPLAY</div>
+						<div class="e3_panelBody headed indented24">
+							<fieldset class="e3_editFieldsTB">
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsTitle"><label i18n="label_gradeIncludes">Grades Include:</label></div>
+									<div class="e3_editFieldsBody">
+										<div class="e3_editFieldsBodyLine"><input name="evaluation_options_grade" id="evaluation_options_grade_0" value="false" type="radio" /><label i18n="label_gradeReleased" for="evaluation_options_grade_0">Only Released Work</label></div>
+										<div class="e3_editFieldsBodyLine"><input name="evaluation_options_grade" id="evaluation_options_grade_1" value="true" type="radio" /><label i18n="label_gradeAll" for="evaluation_options_grade_1">All Work (work not yet submitted or released will count as 0 points)</label></div>
+									</div>
+								</div>
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsBody"><input id="evaluation_options_showLetterGrade" type="checkbox" /><label i18n="label_showLetterGrade" for="evaluation_options_showLetterGrade">Show Letter Grade To Students</label></div>
+								</div>
+							</fieldset>
+						</div>
+					</div>					
+					<div class="e3_panel" style="margin-bottom:24px;">
+						<div class="e3_subpanelHeader" i18n="header_boost">BOOST ALL GRADES</div>
+						<div class="e3_panelBody headed indented24">
+							<fieldset class="e3_editFieldsLR">
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsTitle">
+										<input class="e3_input" id="evaluation_grade_boost_num" value="" type="number" size="3" step="1" style="width:32px;"/>
+									</div>
+									<div class="e3_editFieldsBody">
+										<div class="e3_editFieldsBodyLine"><input name="evaluation_grade_boost_by" id="evaluation_grade_boost_by_0" value="0" type="radio" /><label i18n="label_boostPercentagePoints" for="evaluation_grade_boost_by_0">Percentage Points</label></div>
+										<div class="e3_editFieldsBodyLine"><input name="evaluation_grade_boost_by" id="evaluation_grade_boost_by_1" value="1" type="radio" /><label i18n="label_boostPoints" for="evaluation_grade_boost_by_1">Points</label></div>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+					<div class="e3_panel" style="margin-bottom:24px;">
+						<div class="e3_subpanelHeader" i18n="header_dropLowest">DROP LOWEST SCORE ITEMS</div>
+						<div class="e3_panelBody headed indented24">
+							<fieldset class="e3_editFieldsTB">
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsTitle"><label i18n="label_dropLowest">Number to drop from each category:</label></div>
+									<div class="e3_editFieldsBody">
+										<table id="evaluation_options_drop_table" class="e3_table">
+											<thead></thead> <!-- in 506, 8 [70px + 32  then x+8] 8 -->
+											<tbody></tbody>
+										</table>
+									</div>
+								</div>
+								<div style="height:20px;"><label id="evaluation_options_dropActivateInvalid" for="evaluation_options_dropActivate" class="alert" i18n="msg_invalidDrop">* Drop number is higher than available items in one or more categories</label></div>
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsTitle"></div>
+									<div class="e3_editFieldsBody"><input id="evaluation_options_dropActivate" type="checkbox" /><label i18n="label_dropActivate" for="evaluation_options_dropActivate">Apply to final grades now</label></div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+				</div
+				><div style="width:524px; display:inline-block; vertical-align:top;">
+					<div class="e3_panel" style="margin-bottom:24px;">
+						<div class="e3_subpanelHeader" i18n="header_gradingScale">GRADING SCALE</div>
+						<div class="e3_panelBody headed indented24">
+							<fieldset class="e3_editFieldsTB">
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsTitle"><label i18n="label_gradeScale">Select a Grading Scale:</label></div>
+									<div class="e3_editFieldsBody">
+										<div id="evaluation_options_scaleChangeInvalid" class="alert" style="padding-bottom:8px;" i18n="msg_invalidScaleChange">* Remove grade overrides before selecting a different grading scale</div>
+										<select id="evaluation_options_gradeScale" style="border:none;">
+											<option value="1">LETTER GRADES</option>
+											<option value="2">LETTER GRADES +-</option>
+											<option value="3">PASS / NOT PASS</option>
+										</select>
+									</div>
+								</div>
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsTitle"><label i18n="label_dropLowest">Minimum % for each grade:</label></div>
+									<div class="e3_editFieldsBody">
+										<table id="evaluation_options_gradeScale_table" class="e3_table">
+											<thead></thead>
+											<tbody></tbody>
+										</table>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="evaluation_rubric" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="evaluation_rubric_table" class="e3_table">
+					<thead>
+					</thead>
+					<tbody></tbody>
+				</table>
+	 			<div id="evaluation_rubric_none" i18n="msg_noneDefined" class="e3_offstage e3_note" style="padding-top:24px;">No items are defined</div>
+			</div>
+		</div>
+
+		<div id="evaluation_itemGrade" class="e3_offstage">
+			<div class="e3_panelBody footed">	
+				<table id="evaluation_itemGrade_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="evaluation_itemGrade_none" i18n="msg_noStudents" class="e3_offstage e3_note" style="padding-top:24px;">No students to display.</div>
+			</div>
+		</div>
+
+		<div id="evaluation_rubricEdit" class="e3_offstage">
+			<div class="e3_panelBody headed footed indented">
+				<fieldset class="e3_editFieldsLR">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_title" for="evaluation_rubricEdit_title">Title:</label></div>
+						<div class="e3_editFieldsBody"><input class="e3_input" id="evaluation_rubricEdit_title" value="" type="text" size="40" /></div>
+					</div>
+				</fieldset>
+				<div id="evaluation_rubricEdit_scale" style="padding-bottom:24px;">
+					<div class="e3_subpanelHeader" i18n="header_ratingScale">RATING SCALE</div>
+					<div class="e3_panelHeaderBar small">
+						<div class="e3_action small titled"><a id="evaluation_rubricEdit_scaleMinus" i18n="action_fewer" href="">FEWER</a></div
+						><div class="e3_action small titled"><a id="evaluation_rubricEdit_scalePlus" i18n="action_more" href="">MORE</a></div
+					></div>
+					<div style="padding:20px 20px 0px 20px;"> <!-- width:calc((100% / 3) - 30px); -->
+						<input class="e3_input" id="evaluation_rubricEdit_scale0" value="" type="text" style="margin-right:32px; width:200px;" placeholder="title"></input
+						><input class="e3_input" id="evaluation_rubricEdit_scale1" value="" type="text" style="margin-right:32px; width:200px;" placeholder="title"></input
+						><input class="e3_input" id="evaluation_rubricEdit_scale2" value="" type="text" style="width:200px;" placeholder="title"></input
+					></div>
+					<div id="evaluation_rubricEdit_scales2" style="padding:20px 20px 0px 20px;">
+						<input class="e3_input" id="evaluation_rubricEdit_scale3" value="" type="text" style="margin-right:32px; width:200px;" placeholder="title"></input
+						><input class="e3_input" id="evaluation_rubricEdit_scale4" value="" type="text" style="margin-right:32px; width:200px;" placeholder="title"></input
+						><input class="e3_input" id="evaluation_rubricEdit_scale5" value="" type="text" style="width:200px;" placeholder="title"></input
+					></div>
+				</div>
+				<div id="evaluation_rubricEdit_criteria">
+					<div class="e3_subpanelHeader" i18n="header_criteria">CRITERIA</div>
+					<div class="e3_panelHeaderBar small">
+						<div class="e3_action small titled"><a id="evaluation_rubricEdit_criteriaAdd" i18n="action_add" href="">ADD</a></div
+						><div class="e3_action small titled"><a id="evaluation_rubricEdit_criteriaStandards" i18n="action_setStandards" href="">SET STANDARDS</a></div
+						><div class="e3_action small titled"><a id="evaluation_rubricEdit_criteriaDelete" i18n="action_delete" href="">DELETE</a></div
+					></div>
+					<div style="padding-top:16px;">
+						<table id="evaluation_rubricEdit_criteriaTable" class="e3_table">
+							<thead></thead>
+							<tbody></tbody>
+						</table>
+						<div id="evaluation_rubricEdit_criteriaNone" i18n="msg_noCriteria" class="e3_offstage e3_note" style="padding-top:24px;">No criteria are defined.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="evaluation_rubricCriterionEdit" class="e3_offstage">
+			<div class="e3_panelBody headed footed indented">
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_criterion" for="evaluation_rubricCriterionEdit_description">Criterion</label></div>
+						<div class="e3_editFieldsBody"><input id="evaluation_rubricCriterionEdit_description" class="e3_input" style="width:calc(100% - 8px);" i18n="ph_description" placeholder="description" /></div>
+					</div>
+				</fieldset>
+				
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_standards" for="evaluation_rubricCriterionEdit_description">Rating Level Standards</label></div>
+						<div class="e3_editFieldsBody">
+							<div id="evaluation_rubricCriterionEdit_standard_0" style="padding:16px 0px;">
+								<div style="padding-bottom:16px;"><span style="vertical-align:middle;" i18n="header_forLevel">For Scale Level:</span><div class="e3_text special ellipsis" id="evaluation_rubricCriterionEdit_standard_0_title" style="display:inline-block; margin-left:16px; padding:2px 8px; color:black; font-size:12px; width:200px; border:1px solid #A8A8A8; vertical-align:middle; text-align:center; text-transform:uppercase;"></div></div>
+								<div><textarea id="evaluation_rubricCriterionEdit_standard_0_content" style="width:calc(100% - 20px); height:100px; resize:none; padding:8px; margin:0;" i18n="ph_standard" placeholder="criterion rating level standard (optional)"></textarea></div>
+							</div>
+							<div id="evaluation_rubricCriterionEdit_standard_1" style="padding:16px 0px;">
+								<div style="padding-bottom:16px;"><span style="vertical-align:middle;" i18n="header_forLevel">For Scale Level:</span><div class="e3_text special ellipsis" id="evaluation_rubricCriterionEdit_standard_1_title" style="display: inline-block; margin-left:16px; padding:2px 8px; color:black; font-size:12px; width:200px; border:1px solid #A8A8A8; vertical-align:middle; text-align:center; text-transform:uppercase;"></div></div>
+								<div><textarea id="evaluation_rubricCriterionEdit_standard_1_content" style="width:calc(100% - 20px); height:100px; resize:none; padding:8px; margin:0;" i18n="ph_standard" placeholder="criterion rating level standard (optional)"></textarea></div>
+							</div>
+							<div id="evaluation_rubricCriterionEdit_standard_2" style="padding:16px 0px;">
+								<div style="padding-bottom:16px;"><span style="vertical-align:middle;" i18n="header_forLevel">For Scale Level:</span><div class="e3_text special ellipsis" id="evaluation_rubricCriterionEdit_standard_2_title" style="display: inline-block; margin-left:16px; padding:2px 8px; color:black; font-size:12px; width:200px; border:1px solid #A8A8A8; vertical-align:middle; text-align:center; text-transform:uppercase;"></div></div>
+								<div><textarea id="evaluation_rubricCriterionEdit_standard_2_content" style="width:calc(100% - 20px); height:100px; resize:none; padding:8px; margin:0;" i18n="ph_standard" placeholder="criterion rating level standard (optional)"></textarea></div>
+							</div>
+							<div id="evaluation_rubricCriterionEdit_standard_3" style="padding:16px 0px;">
+								<div style="padding-bottom:16px;"><span style="vertical-align:middle;" i18n="header_forLevel">For Scale Level:</span><div class="e3_text special ellipsis" id="evaluation_rubricCriterionEdit_standard_3_title" style="display: inline-block; margin-left:16px; padding:2px 8px; color:black; font-size:12px; width:200px; border:1px solid #A8A8A8; vertical-align:middle; text-align:center; text-transform:uppercase;"></div></div>
+								<div><textarea id="evaluation_rubricCriterionEdit_standard_3_content" style="width:calc(100% - 20px); height:100px; resize:none; padding:8px; margin:0;" i18n="ph_standard" placeholder="criterion rating level standard (optional)"></textarea></div>
+							</div>
+							<div id="evaluation_rubricCriterionEdit_standard_4" style="padding:16px 0px;">
+								<div style="padding-bottom:16px;"><span style="vertical-align:middle;" i18n="header_forLevel">For Scale Level:</span><div class="e3_text special ellipsis" id="evaluation_rubricCriterionEdit_standard_4_title" style="display: inline-block; margin-left:16px; padding:2px 8px; color:black; font-size:12px; width:200px; border:1px solid #A8A8A8; vertical-align:middle; text-align:center; text-transform:uppercase;"></div></div>
+								<div><textarea id="evaluation_rubricCriterionEdit_standard_4_content" style="width:calc(100% - 20px); height:100px; resize:none; padding:8px; margin:0;" i18n="ph_standard" placeholder="criterion rating level standard (optional)"></textarea></div>
+							</div>
+							<div id="evaluation_rubricCriterionEdit_standard_5" style="padding:16px 0px;">
+								<div style="padding-bottom:16px;"><span style="vertical-align:middle;" i18n="header_forLevel">For Scale Level:</span><div class="e3_text special ellipsis" id="evaluation_rubricCriterionEdit_standard_5_title" style="display: inline-block; margin-left:16px; padding:2px 8px; color:black; font-size:12px; width:200px; border:1px solid #A8A8A8; vertical-align:middle; text-align:center; text-transform:uppercase;"></div></div>
+								<div><textarea id="evaluation_rubricCriterionEdit_standard_5_content" style="width:calc(100% - 20px); height:100px; resize:none; padding:8px; margin:0;" i18n="ph_standard" placeholder="criterion rating level standard (optional)"></textarea></div>
+							</div>
+							
+						</div>
+					</div>
+				</fieldset>
+
+			</div>
+		</div>
+
+		<div id="evaluation_memberGrade" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="evaluation_memberGrade_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="evaluation_memberGrade_none" i18n="msg_noneDefined" class="e3_offstage e3_note" style="padding-top:24px;">No items are defined.</div>
+			</div>
+		</div>
+
+		<div id="evaluation_review" class="e3_offstage">
+			<div class="e3_panelBody footed indented">
+				<div id="evaluation_review_review_ui" class="e3_section"></div>
+				<div id="evaluation_review_evaluation_ui"></div>
+			</div>
+		</div>
+
+	</div>
+	
+	<div id="evaluation_grade_template_score" class="e3_offstage">
+		<span id="evaluation_grade_template_score_pct"></span>
+		<div id="evaluation_grade_template_score_grade" style="display:inline-block; position:relative; top:6px; margin-left:18px;"></div>
+		<div style="font-size:9px; line-height:normal; position:relative; top:2px;"
+			><span id="evaluation_grade_template_score_score"></span
+			><span style="font-size:7px; color:#ADADAD; font-weight:bold; display:inline-block; padding:0px 2px;" i18n="msg_of">OF</span
+			><span id="evaluation_grade_template_score_points"></span
+		></div>
+	</div>
+
+	<div id="evaluation_rubricEdit_criterionTemplate" class="e3_offstage"> <!-- 40 [ 24 - 24 [ 16+8 x+8 16+8 ] 24 - 24 ] 40 | *20 -->
+		<div id="evaluation_rubricEdit_criterionTemplate_body" style="width:calc(100vw - 100px - 152px); min-width:calc(1200px - 100px - 152px); padding:16px 0px;">
+			<div><input class="e3_input" id="evaluation_rubricEdit_criterionTemplate_description" i18n="ph_description" placeholder="description" style="width:calc(100% - 8px);" /></div>
+			<div id="evaluation_rubricEdit_criterionTemplate_standards" style="width:100%; padding-top:16px;"></div>
+			<div id="evaluation_rubricEdit_criterionTemplate_standards2" style="width:100%; padding-top:16px;"></div>
+		</div>
+	</div>
+
+	<div id="evaluation_rubricEdit_standardTemplate" class="e3_offstage">
+		<div id="evaluation_rubricEdit_standardTemplate_body" style="display:inline-block;">
+			<div class="e3_text bold ellipsis" id="evaluation_rubricEdit_standardTemplate_title" style="padding:0px 0px 4px 8px; color:#656565; font-size: 14px;"></div> <!-- 1/3 of width, subtract padding (8 8) border(1 1) and 1/3 right padding (2 * 32) ~ 40-->
+			<div><textarea id="evaluation_rubricEdit_standardTemplate_content" style="width:calc(((100vw - 100px - 152px) / 3) - 40px); min-width:calc(((1200px - 100px - 152px) / 3) - 40px); height:70px; resize:none; padding:8px; margin:0;" placeholder="rating standard (optional)"></textarea></div>
+		</div>
+	</div>
+
+	<div i18n="title_boost" id="evaluation_boostOptionDialog" title="BOOST ALL GRADES" style="display: none;">
+		<div class="e3_dialogBody">
+			<div class="e3_section">
+				<fieldset class="e3_editFieldsLR">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle">
+							<input class="e3_input" id="evaluation_boostOptionDialog_num" value="" type="number" size="3" step="1" style="width:32px;"/>
+						</div>
+						<div class="e3_editFieldsBody">
+							<div class="e3_editFieldsBodyLine"><input name="evaluation_boostOptionDialog_by" id="evaluation_boostOptionDialog_by_0" value="0" type="radio" /><label i18n="label_boostPercentagePoints" for="evaluation_boostOptionDialog_by_0">Percentage Points</label></div>
+							<div class="e3_editFieldsBodyLine"><input name="evaluation_boostOptionDialog_by" id="evaluation_boostOptionDialog_by_1" value="1" type="radio" /><label i18n="label_boostPoints" for="evaluation_boostOptionDialog_by_1">Points</label></div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+
+	<div i18n="title_drop" id="evaluation_dropOptionDialog" title="DROP LOWEST SCORE ITEMS" style="display: none;">
+		<div class="e3_dialogBody">
+			<div class="e3_section">
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_dropLowest">Number to drop from each category:</label></div>
+						<div class="e3_editFieldsBody">
+							<table id="evaluation_dropOptionDialog_table" class="e3_table">
+								<thead></thead> <!-- in 506, 8 [70px + 32  then x+8] 8 -->
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"></div>
+						<div class="e3_editFieldsBody"><input id="evaluation_dropOptionDialog_dropActivate" type="checkbox" /><label i18n="label_dropActivate" for="evaluation_dropOptionDialog_dropActivate">Apply to final grades now</label><label id="evaluation_dropOptionDialog_dropActivateInvalid" for="evaluation_dropOptionDialog_dropActivate" class="alert" i18n="msg_invalidDrop">* Drop number is higher than available items in one or more categories</label></div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+
+	<div i18n="title_showing" id="evaluation_showingOptionDialog" title="GRADE DISPLAY" style="display: none;">
+		<div class="e3_dialogBody">
+			<div class="e3_section">
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_gradeIncludes">Grades Include:</label></div>
+						<div class="e3_editFieldsBody">
+							<div class="e3_editFieldsBodyLine"><input name="evaluation_showingOptionDialog_grade" id="evaluation_showingOptionDialog_grade_0" value="false" type="radio" /><label i18n="label_gradeReleased" for="evaluation_showingOptionDialog_grade_0">Only Released Work</label></div>
+							<div class="e3_editFieldsBodyLine"><input name="evaluation_showingOptionDialog_grade" id="evaluation_showingOptionDialog_grade_1" value="true" type="radio" /><label i18n="label_gradeAll" for="evaluation_showingOptionDialog_grade_1">All Work (work not yet submitted or released will count as 0 points)</label></div>
+						</div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsBody"><input id="evaluation_showingOptionDialog_showLetterGrade" type="checkbox" /><label i18n="label_showLetterGrade" for="evaluation_showingOptionDialog_showLetterGrade">Show Letter Grade To Students</label></div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+
+	<div i18n="title_rubric" id="evaluation_rubricEdit_alertView" title="RUBRIC" style="display: none;">
+		<div class="e3_dialogBody" style="width:1100px;">
+			<div id="evaluation_rubricEdit_alertView_view"></div>
+		</div>
+	</div>
+
+	<div i18n="title_confirmRubricDelete" id="evaluation_confirmRubricDelete" title="Delete Rubric" style="display: none;">
+		<div i18n="msg_confirmRubricDelete" class="e3_dialogBody">Are you sure you want to delete the selected rubric(s)?</div>
+	</div>
+
+	<div i18n="title_confirmCriteriaDelete" id="evaluation_confirmCriteriaDelete" title="Delete Criteria" style="display: none;">
+		<div i18n="msg_confirmCriteriaDelete" class="e3_dialogBody">Are you sure you want to delete the selected criteria?</div>
+	</div>
+
+	<div i18n="title_select" id="evaluation_selectFirst" title="Select Something" style="display: none;">
+		<div i18n="msg_select" class="e3_dialogBody">First select one or more items before performing that action.</div>
+	</div>
+
+	<div i18n="title_select1" id="evaluation_select1First" title="elect Something" style="display: none;">
+		<div i18n="msg_select1" class="e3_dialogBody">First select a single item before performing that action.</div>
+	</div>
+
+	<div i18n="title_fixWeights" id="evaluation_fixWeights" title="Correct Category Weights" style="display: none;">
+		<div i18n="msg_fixWeights" class="e3_dialogBody">Category weights (excluding extra credit) must total 100%.  Correct before saving.</div>
+	</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+	<div class="e3_panel">
+		<div id="cm_header" class="e3_pinned">
+			<div class="e3_panelHeader">
+				<a id="cm_view_edit" class="edit e3_offstage" href="" i18n="a_edit"><svg><use xlink:href="#icon-settings"></use></svg></a>
+				<span i18n="header_cm">COURSE MAP</span>
+			</div>
+			<div id="cm_modebar" class="e3_modebar"></div>
+			<div id="cm_headerbar" class="e3_panelHeaderBar e3_offstage">
+				<div id="cm_itemnav" class="e3_itemnav e3_offstage"></div
+				><div id="cm_bar_manage" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div>line one</div>
+						<div>line two</div>
+					</div
+				></div
+				><div id="cm_bar_review" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_itemsxx">SCORE</div>
+						<div id="cm_info_review_score"></div>
+					</div
+					><div class="e3_infoLines">
+						<div><span id="cm_info_review_statusDot"></span><span id="cm_info_review_title" class="e3_text" style="vertical-align:top; margin-left:4px;"></span></div>
+						<div></div>
+					</div
+					><div class="e3_infoLines">
+						<div id="cm_info_review_started"></div>
+						<div id="cm_info_review_finished"></div>
+					</div>
+				</div
+			></div>
+			<div id="cm_header_view" class="e3_table_headerRow e3_offstage"> <!-- 40 [32+32 x+8 60+8 80+8 80+8 80+8 80+8 8+150+32] 40 | *20 -->
+				<div class="dot"></div
+				><div style="width:calc(100vw - 100px - 682px); min-width:calc(1200px - 100px - 682px);" i18n="header_title">TITLE</div
+				><div style="width:60px;"></div
+				><div class="date2l" i18n="header_open">OPEN</div
+				><div class="date2l" i18n="header_due">DUE</div
+				><div class="date2l" i18n="header_activity">ACTIVITY</div
+				><div class="date2l" i18n="header_count">COUNT</div
+				><div style="width:150px;" i18n="header_score">SCORE</div
+			></div>
+			<div id="cm_header_manage" class="e3_table_headerRow e3_offstage"> <!-- 40 [32+16 8+32 8+x 8+60 8+100 8+168 8+168 8+168 8+24+32] 40 | *20 -->
+				<div class="icon"></div
+				><div class="dot"></div
+				><div style="width:calc(100vw - 100px - 864px); min-width:calc(1200px - 100px - 864px);" i18n="header_title">TITLE</div
+				><div style="width:60px;"></div
+				><div i18n="header_blocker" style="width:100px;">PREREQUISITE</div
+				><div class="dateInput" i18n="header_open">OPEN</div
+				><div class="dateInput" i18n="header_due">DUE</div
+				><div class="dateInput" i18n="header_allowUntil">ALLOW UNTIL</div
+			></div>
+		</div>
+
+		<div id="cm_view" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="cm_view_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="cm_view_none" i18n="msg_noneDefined" class="e3_offstage e3_note" style="padding-top:24px;">No items are defined.</div>
+			</div>
+		</div>
+
+		<div id="cm_manage" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="cm_manage_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="cm_manage_none" i18n="msg_noneDefined" class="e3_offstage e3_note" style="padding-top:24px;">No items are defined.</div>
+			</div>
+		</div>
+
+		<div id="cm_review" class="e3_offstage">
+			<div class="e3_panelBody footed indented">
+				<div id="cm_review_review_ui" class="e3_section"></div>
+				<div id="cm_review_evaluation_ui"></div>
+			</div>
+		</div>
+
+ 		<div id="cm_option" class="e3_offstage" style="width:100%; background-color:rgba(255,255,255,0.6);"><!-- 1200px: 40 [ 24 524 24 524 24 ] 40 -->
+			<div class="e3_panelBody headed footed indented24" style="width:1072px; margin:auto; background-color:transparent;">
+				<div style="width:524px; margin-right:24px; display:inline-block; vertical-align:top;">
+					<div class="e3_panel" style="margin-bottom:24px;">
+						<div class="e3_subpanelHeader" i18n="header_gradeDisplay">MASTERY LEVEL</div>
+						<div class="e3_panelBody headed indented24">
+							<fieldset class="e3_editFieldsTB">
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsTitle"><label for="cm_option_master" i18n="label_minScore">Minimum score (percentage) to master</label></div>
+									<div class="e3_editFieldsBody">
+										<input class="e3_input" id="cm_option_master" value="" type="number" size="3" step="1" style="width:48px;"/>%
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>					
+				</div
+				><div style="width:524px; display:inline-block; vertical-align:top;">
+					<div class="e3_panel" style="margin-bottom:24px;">
+						<div class="e3_subpanelHeader" i18n="header_boost">PREREQUISITE HANDLING</div>
+						<div class="e3_panelBody headed indented24">
+							<fieldset class="e3_editFieldsTB">
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsBody"><input id="cm_dropPrereqOnClose" type="checkbox" /><label i18n="label_dropPrereq" for="cm_dropPrereqOnClose">Remove prerequisite when item closes</label></div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="cm_view_title_template" class="e3_offstage">
+			<div id="cm_view_title_template_body" style="padding-top:16px; padding-bottom:12px;">
+				<div id="cm_view_title_template_title"></div>
+				<div id="cm_view_title_template_msg" class="alert" style="padding-top:4px;"></div>
+			</div>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

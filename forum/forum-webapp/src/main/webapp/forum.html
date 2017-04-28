@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+
+	<div class="e3_panel">
+		<div id="forum_header" class="e3_pinned">
+			<div class="e3_panelHeader">
+				<a id="forum_header_manage" class="edit e3_offstage" href="" i18n="a_edit"><svg><use xlink:href="#icon-settings"></use></svg></a>
+				<span i18n="header_forum">DISCUSSIONS</span>
+			</div>
+			<div id="forum_modebar" class="e3_modebar"></div>
+			<div id="forum_headerbar" class="e3_panelHeaderBar e3_offstage">
+				<div id="forum_itemnav" class="e3_itemnav e3_offstage"></div
+
+				><div id="forum_bar_forum" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div><span id="forum_info_forum_category"></span><span style="padding:0px 8px;">&gt;</span><span id="forum_info_forum_title" class="e3_text bold"></span></div>
+						<div id="forum_info_forum_description"></div>
+					</div
+				></div
+
+				><div id="forum_bar_topic" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div><span id="forum_info_topic_category" class="e3_text special light" style="font-size:13px;"></span><span class="e3_text special light" style="font-size:13px; padding:0px 8px;">&gt;</span><span id="forum_info_topic_title" class="e3_text bold" style="font-size:16px; color:black;"></span></div>
+						<div id="forum_info_topic_description"></div>
+					</div
+				></div
+
+			></div>
+
+			<div id="forum_headerbar2" class="e3_panelHeaderBar e3_offstage">
+
+				<div id="forum_bar2_forum" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action add"><a id="forum_forum_add" i18n="a_newTopic" href="">New Topic</a></div
+					><div class="e3_action titled"><a id="forum_forum_watch" i18n="a_watch" href="">Watch</a></div
+					><div id="forum_forum_actions" class="e3_panelHeaderBarRight"></div
+				></div>
+
+				<div id="forum_bar2_topic" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action titled"><a id="forum_topic_reply" i18n="a_reply" href="">Reply</a></div
+					><div class="e3_action titled"><a id="forum_topic_watch" i18n="a_watch" href="">Watch</a></div
+					><div class="e3_action titled"><a id="forum_topic_bookmark" i18n="a_bookmark" href="">Bookmark</a></div
+					><div class="e3_action titled"><a id="forum_topic_markRead" i18n="a_markRead" href="">Mark Read</a></div
+				></div
+
+			></div>
+
+			<div id="forum_header_forums" class="e3_table_headerRow e3_offstage"> <!-- 16 [ 30+32 32+8 x+8 80+8 80+8 50+8 50+8 100+8 100+8 ] 16 4* 16* -->
+				<div class="e3_table_header" style="width:30px;"></div
+				><div class="e3_table_header" style="width:32px;"></div
+				><div class="e3_table_header" style="width:calc(100vw - 670px);" ></div
+				><div class="e3_table_header" style="width:80px;" i18n="header_open">OPEN</div
+				><div class="e3_table_header" style="width:80px;" i18n="header_due">DUE</div
+				><div class="e3_table_header" style="width:50px;" i18n="header_topics">TOPICS</div
+				><div class="e3_table_header" style="width:50px;" i18n="header_posts">POSTS</div
+				><div class="e3_table_header" style="width:100px;" i18n="header_lastPost">LAST POST</div
+				><div class="e3_table_header" style="width:100px;" i18n="header_score">SCORE</div
+			></div>
+			<div id="forum_header_forum" class="e3_table_headerRow e3_offstage"> <!-- 16 [ 16+32 30+8 32+8 x+8 80+8 80+8 50+8 100+8 100+8 24+8 ] 16 4* 16* -->
+				<div class="e3_table_header" style="width:16px;"></div
+				><div class="e3_table_header" style="width:30px;"></div
+				><div class="e3_table_header" style="width:32px;"></div
+				><div class="e3_table_header" style="width:calc(100vw - 667px);" ></div
+				><div class="e3_table_header" style="width:80px;" i18n="header_open">OPEN</div
+				><div class="e3_table_header" style="width:80px;" i18n="header_due">DUE</div
+				><div class="e3_table_header" style="width:50px;" i18n="header_posts">POSTS</div
+				><div class="e3_table_header" style="width:100px;" i18n="header_lastPost">LAST POST</div
+				><div class="e3_table_header" style="width:100px;" i18n="header_score">SCORE</div
+				><div class="e3_table_header" style="width:24px;"></div
+			></div>
+		</div>
+
+		<!-- forums (view) mode -->
+		<div id="forum_forums" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="forum_forums_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- forum (topic - view) mode -->
+		<div id="forum_forum" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="forum_forum_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- topic mode -->
+		<div id="forum_topic" class="e3_offstage">
+			<div class="e3_panelBody">
+				<table id="forum_topic_table" class="e3_table" style="width:100%;">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="forum_topic_posts"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="forum_forums_listTemplate" class="e3_offstage">
+		<div id="forum_forums_listTemplate_body">
+			<div id="forum_forums_listTemplate_title" class="e3_text bold" style="font-size:15px; margin-top:10px;"></div>
+			<div id="forum_forums_listTemplate_description" style="margin-bottom:10px; color:#787878; font-size:14px;"></div>
+		</div>
+	</div>
+
+	<div id="forum_forum_listTemplate" class="e3_offstage">
+		<div id="forum_forum_listTemplate_body">
+			<div id="forum_forum_listTemplate_title" class="e3_text bold" style="font-size:15px; margin-top:10px;"></div>
+			<div id="forum_forum_listTemplate_attribution" style="margin-bottom:10px; color:#787878; font-size:11px;"></div>
+		</div>
+	</div>
+
+	<div id="forum_lastTemplate" class="e3_offstage">
+		<div id="forum_lastTemplate_body" style="overflow:hidden;">
+			<div id="forum_lastTemplate_on" class="e3_text light" style="text-transform:uppercase; font-size:12px;"></div>
+			<div style="color:#787878; font-size:11px; text-overflow:ellipsis; white-space:nowrap;">- <span id="forum_lastTemplate_by"></span></div>
+		</div>
+	</div>
+
+	<!-- 16 [ x+8 ] 16 4* 16* -->
+	<div id="forum_topic_postTemplate" class="e3_offstage">
+		<div id="forum_topic_postTemplate_body" style="position:relative; background-color:white; min-height:303px;">
+			<div class="e3_text bold" style="background-color:#898989; color:white; height:38px; line-height:38px; position:relative; overflow:hidden;">
+				<div id="forum_topic_postTemplate_date" style="position:absolute; left:24px; top:0px;"></div>
+				<div  style="position:absolute; left:214px; top:0px;">Subject:</div>
+				<div id="forum_topic_postTemplate_title" style="position:absolute; left:274px; top:0px;"></div>
+				<div style="position:absolute; right:12px; top:0px;"><a id="forum_topic_postTemplate_menu" class="e3_contextMenuLight" style="display:inline-block; height:31px; width:38px; overflow:hidden; text-align:center; padding-top:7px;" href="" i18n="a_menu"><svg><use xlink:href="#icon-menu"></use></svg></a></div>
+			</div>
+			<div style="width:190px; background-color:#E9EAEE; height:265px; float:left; position:relative; margin-right:16px;">
+				<div style="width:145px; height:165px; position:absolute; top:24px; left:24px;"><img id="forum_topic_postTemplate_avatar" style="max-width:145px; max-height:165px;" src="/ui/icons/avatar.png" /></div>
+				<div id="forum_topic_postTemplate_name" class="e3_text bold" style="position:absolute; top:190px; left:24px; color:#606060;">Name Person</div>
+				<div id="forum_topic_postTemplate_occupation" class="e3_text bold" style="position:absolute; top:206px; left:24px; font-size:11px; color:#808080;">Student</div>
+				<div id="forum_topic_postTemplate_location" class="e3_text bold" style="position:absolute; top:220px; left:24px; font-size:11px; color:#808080;">Location, USA</div>
+				<div class="e3_text special" style="position:absolute; bottom:4px; left:24px; color:#A0A0A0; font-size:11px;"><a id="forum_topic_postTemplate_star" class="e3_simple e3_text special" style="color:#A0A0A0" href=""><span id="forum_topic_postTemplate_stars"></span> <span i18m="msg_stars">STARS</span></a></div>
+				<div class="e3_text special" style="position:absolute; bottom:4px; right:24px; color:#A0A0A0; font-size:11px;">MESSAGE</div>
+			</div>
+			<div id="forum_topic_postTemplate_content" class="e3_content" style="padding:8px 16px;"></div>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

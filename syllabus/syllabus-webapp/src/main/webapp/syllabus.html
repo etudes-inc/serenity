@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+	<div class="e3_panel">
+		<div id="syllabus_header" class="e3_pinned">
+			<div class="e3_panelHeader">
+				<a id="syllabus_view_edit" class="edit e3_offstage" href="" i18n="a_edit"><svg><use xlink:href="#icon-settings"></use></svg></a>
+				<span i18n="header_syllabus">SYLLABUS</span>
+			</div>
+			<div id="syllabus_modebar" class="e3_modebar e3_offstage"></div>
+			<div id="syllabus_headerbar" class="e3_panelHeaderBar e3_offstage">
+				<div id="syllabus_itemnav" class="e3_itemnav e3_offstage"></div
+				><div id="syllabus_bar_edit"  class="e3_panelHeaderBarGrouping e3_panelHeaderBarRight e3_offstage"">
+					<div class="e3_action titled"><a id="syllabus_edit_view" i18n="a_view" href="">Preview</a></div
+				></div
+				><div id="syllabus_bar_manage" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div  id="syllabus_manage_action_source" class="e3_panelHeaderBarGrouping"></div
+					><div class="e3_action add"><a id="syllabus_manage_action_add" i18n="a_add" href="">Add</a></div
+					><div class="e3_action titled"><a id="syllabus_manage_action_view" i18n="a_view" href="">Preview</a></div
+					><div class="e3_action titled"><a id="syllabus_manage_action_publish" i18n="a_publish" href="">Publish</a></div
+					><div class="e3_action titled"><a id="syllabus_manage_action_unpublish" i18n="a_unpublish" href="">Unpublish</a></div					
+					><div class="e3_action delete"><a id="syllabus_manage_action_delete" i18n="a_delete" href="">Delete</a></div
+				></div
+			></div>
+			<div id="syllabus_header_manage_sections" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 16+32 16+8 32+8 8+x 8+24+32 ] 40 | *20 -->
+				<div class="e3_table_header" style="width:16px;"></div
+				><div class="e3_table_header" style="width:16px;"></div
+				><div class="e3_table_header" style="width:32px;"></div
+				><div class="e3_table_header" style="width:calc(100vw - 100px - 184px); min-width:calc(1200px - 100px - 184px)" i18n="header_title">TITLE</div
+			></div>
+		</div>
+
+		<!-- view mode -->
+		<div id="syllabus_view" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<div id="syllabus_view_syllabus"></div>
+				<div id="syllabus_view_accept" style="margin-left:auto; margin-right:auto; padding-top:24px; width:80%;" class="e3_offstage">
+					<div style="background-color: #FFFFCB; border: 5px double #9DA2A6; padding:10px;">
+						<div style="text-align: center;">
+							<div i18n="msg_pledge" style="font-style: italic; font-weight: bold;">I have read the syllabus, and I accept its terms.</div>
+							<button id="syllabus_view_accept_button" class="e3_offstage" type="button" i18n="btn_accept" title="Accept [Accesskey + a]" accesskey="a"
+								style="padding-left:20px; margin-left:6px; background-repeat:no-repeat; background-position:3px center; background-image:url(/ui/icons/accept.png); margin-top:10px;">Accept</button>
+							<div id="syllabus_view_accepted" class="e3_offstage" style="margin-top:10px;"><span i18n="msg_accepted">You accepted the syllabus</span> <span id="syllabus_view_accepted_on"></span></div>
+						</div>
+					</div>
+				</div>
+				<div id="syllabus_view_none" class="e3_note e3_offstage" style="padding-top:24px;" i18n="msg_noSyllabus">No syllabus is defined.</div>
+				<div id="syllabus_view_none_published" class="e3_note e3_offstage" style="padding-top:24px;" i18n="msg_noSyllabusPublished">No syllabus is published.</div>
+			</div>
+		</div>
+
+		<!-- manage mode -->
+		<div id="syllabus_manage" class="e3_offstage">
+	
+			<div id="syllabus_manage_external" class="e3_panelBody headed footed indented e3_offstage">
+				<fieldset class="e3_editFieldsLR">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_url" for="syllabus_manage_external_url">URL:</label></div>
+						<div class="e3_editFieldsBody"><input id="syllabus_manage_external_url" class="e3_input" type="url" size="140" placeholder="External Syllabus URL" i18n="ph_url" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_display">Display:</label></div>
+						<div class="e3_editFieldsBody">
+							<input type="radio" name="syllabus_manage_external_target" id="syllabus_manage_external_target_0" value="I" /><label i18n="label_inpage" for="syllabus_manage_external_target_0">In Page</label>
+							<input type="radio" name="syllabus_manage_external_target" id="syllabus_manage_external_target_1" value="W" style="margin-left:20px;" /><label i18n="label_newwindow" for="syllabus_manage_external_target_1">New Tab / Window</label>
+						</div>
+					</div>
+					<div id="syllabus_manage_external_heightUi" class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_height" for="syllabus_manage_external_height">Height:</label></div>
+						<div class="e3_editFieldsBody">
+							<input id="syllabus_manage_external_height" class="e3_input" type="number" />
+							<span i18n="msg_inpx" class="e3_text italic light" style="font-size:13px; margin-left:10px;">(pixels)</span>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+	
+			<div id="syllabus_manage_internal" class="e3_panelBody footed e3_offstage">
+				<table id="syllabus_manage_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- edit mode -->
+		<div id="syllabus_edit" class="e3_panel e3_offstage">
+			<div class="e3_panelBody headed footed indented">
+				<fieldset class="e3_editFieldsLR">
+					<div class=e3_editFieldsEntry>
+						<div class="e3_editFieldsTitle"><label i18n="label_title" for="syllabus_edit_subject">Title:</label></div>
+						<div class="e3_editFieldsBody"><input class="e3_input" id="syllabus_edit_title" value="" type="text" size="80" /></div>
+					</div>
+				</fieldset>
+				<fieldset class="e3_editFieldsTB">
+					<div class=e3_editFieldsEntry>
+						<div id="syllabus_edit_content_editor" class="e3_editFieldsBody"></div>
+					</div>
+				</fieldset>
+				<fieldset class="e3_editFieldsLR">
+					<div class=e3_editFieldsEntry>
+						<div class="e3_editFieldsBody"><input id="syllabus_edit_published" type="checkbox"></input><label i18n="label_published" for="syllabus_edit_published">Published</label></div>
+					</div>
+					<div class=e3_editFieldsEntry>
+						<div class="e3_editFieldsBody"><input id="syllabus_edit_public" type="checkbox"></input><label i18n="label_public" for="syllabus_edit_public">Allow Public Access</label></div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+
+	<div id="syllabus_template_section" class="e3_offstage">
+		<div id="syllabus_template_section_body" style="padding:24px 24px 0px 24px;">
+			<div class="e3_sectionHeader"><span id="syllabus_template_section_title"></span></div>
+			<div id="syllabus_template_section_content" class="e3_content" style="padding:0px 12px;"></div>
+		</div>
+	</div>
+
+	<div id="syllabus_template_newWindow" class="e3_offstage">
+		<div id="syllabus_template_newWindow_body" class="e3_section" style="padding:24px;">
+			<div class="e3_sectionHeader"><span i18n="header_syllabus">SYLLABUS</span></div>
+			<div style="padding:24px;">
+				<div>
+					<span i18n="msg_clickHere">Click here to read the syllabus:</span>
+					<a id="syllabus_template_newWindow_a" class="e3_toolUiLinkU" href="" target="_blank" i18n="a_clickHere"></a>
+				</div>
+				<div style="padding-top:24px;"i18n="msg_returnToAccept">
+					Return here to accept the syllabus.
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="syllabus_template_inline" class="e3_offstage">
+		<iframe id="syllabus_template_inline_body" style="width:100%; height:900px; border-style:none;"></iframe>
+	</div>
+	
+	<div i18n="title_nothingSelected" id="syllabus_selectFirst" title="Nothing Selected" style="display: none;">
+		<div i18n="msg_nothingSelected" class="e3_dialogBody">First select one or more sections before performing that action.</div>
+	</div>
+
+	<div i18n="title_confirmDelete" id="syllabus_confirmDelete" title="Confirm Delete Section" style="display: none;">
+		<div i18n="msg_confirmDelete" class="e3_dialogBody">Are you sure you want to delete this section?</div>
+	</div>
+
+</div>
+</body>
+</html>

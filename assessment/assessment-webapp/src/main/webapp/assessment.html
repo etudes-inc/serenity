@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+	<div class="e3_panel">
+		<div id="asmt_header" class="e3_pinned">
+			<div class="e3_panelHeader">
+				<a id="asmt_view_edit" class="edit e3_offstage" href="" i18n="a_edit"><svg><use xlink:href="#icon-settings"></use></svg></a>
+				<span i18n="header_asmt">ASSESSMENTS, TESTS AND SURVEYS</span>
+			</div>
+			<div id="asmt_modebar" class="e3_modebar e3_offstage"></div>
+			<div id="asmt_headerbar" class="e3_panelHeaderBar e3_offstage">
+				<div id="asmt_itemnav" class="e3_itemnav e3_offstage"></div
+
+				><div id="asmt_bar_option"  class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div id="asmt_option_bar_title" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+				></div
+
+				><div id="asmt_bar_edit"  class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div id="asmt_edit_bar_title" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+				></div
+
+				><div id="asmt_bar_editPool"  class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div id="asmt_editPool_bar_title" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+				></div
+
+				><div id="asmt_bar_instruction"  class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div id="asmt_instruction_title" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+				></div
+
+				><div id="asmt_bar_part"  class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div id="asmt_part_title" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+					><div class="e3_panelHeaderBarRight">
+						<div class="e3_action titled"><a id="asmt_part_instructions" i18n="a_instructions" href="">Instructions</a></div
+					></div
+				></div
+
+				><div id="asmt_bar_view" class="e3_panelHeaderBarGrouping e3_panelHeaderBarRight e3_offstage">
+				</div
+
+				><div id="asmt_bar_enter" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_points">POINTS</div>
+						<div id="asmt_enter_points"></div>
+					</div
+					><div class="e3_infoBlock" style="border-right:none;">
+						<div id="asmt_enter_type" style="text-transform:uppercase;"></div>
+						<div id="asmt_enter_title"></div>
+					</div
+				></div
+
+				><div id="asmt_bar_toc" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_points">POINTS</div>
+						<div id="asmt_toc_points"></div>
+					</div
+					><div class="e3_infoBlock" style="border-right:none;">
+						<div id="asmt_toc_type" style="text-transform:uppercase;"></div>
+						<div id="asmt_toc_title"></div>
+					</div
+				></div
+
+				><div id="asmt_bar_deliver" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div><span id="asmt_deliver_asmtPoints" class="e3_text italic"></span><span id="asmt_deliver_title" class="e3_text bold" style="margin-left:16px;"></span></div>
+					</div
+				></div
+
+				><div id="asmt_bar_review" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_points">POINTS</div>
+						<div id="asmt_review_points"></div>
+					</div
+					><div class="e3_infoLines">
+						<div id="asmt_review_title" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+				></div
+
+				><div id="asmt_bar_gradeAsmt" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_points">POINTS</div>
+						<div id="asmt_gradeAsmt_points"></div>
+					</div
+					><div class="e3_infoLines">
+						<div id="asmt_gradeAsmt_title" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+				></div
+
+				><div id="asmt_bar_gradeSubmission"  class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_points">POINTS</div>
+						<div id="asmt_gradeSubmission_points"></div>
+					</div
+					><div class="e3_infoLines">
+						<div id="asmt_gradeSubmission_title" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+				></div
+
+				><div id="asmt_bar_manage" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action add"><a id="asmt_manage_add" i18n="a_add" href="">Add</a></div
+					><div class="e3_action titled"><a id="asmt_manage_view" i18n="a_view" href="">Preview</a></div
+					><div class="e3_action titled"><a id="asmt_manage_options" i18n="a_options" href="">Options</a></div
+					><div class="e3_action titled"><a id="asmt_manage_publish" i18n="a_publish" href="">Publish</a></div
+					><div class="e3_action titled"><a id="asmt_manage_unpublish" i18n="a_unpublish" href="">Unpublish</a></div
+					><div class="e3_action delete"><a id="asmt_manage_delete" i18n="a_delete" href="">Delete</a></div
+					><div class="e3_action export"><a id="asmt_manage_export" i18n="a_export" href="">Export</a></div
+					><div class="e3_action import"><a id="asmt_manage_import" i18n="a_import" href="">Import</a></div
+					><div class="e3_action titled"><a id="asmt_manage_archive" i18n="a_archive" href="">Archive</a></div
+					><div class="e3_action titled"><a id="asmt_manage_restore" i18n="a_restore" href="">Restore</a></div
+				></div
+
+				><div id="asmt_bar_grade" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div id="asmt_grade_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="asmt_bar_pools" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action add"><a id="asmt_pools_add" i18n="a_add" href="">Add</a></div
+					><div class="e3_action titled"><a id="asmt_pools_view" i18n="a_view" href="">Preview</a></div
+					><div class="e3_action titled"><a id="asmt_pools_combine" i18n="a_combine" href="">Combine</a></div
+					><div class="e3_action delete"><a id="asmt_pools_delete" i18n="a_delete" href="">Delete</a></div
+					><div class="e3_action import"><a id="asmt_pools_import" i18n="a_import" href="">Import</a></div
+					><div id="asmt_pools_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+			></div>
+			<div id="asmt_headerbar2" class="e3_panelHeaderBar e3_offstage">
+
+				<div id="asmt_bar2_manage" class="e3_panelHeaderBarGrouping e3_offstage">
+<!-- 					<div class="e3_action add"><a id="asmt_manage_add" i18n="a_add" href="">Add</a></div -->
+<!-- 					><div class="e3_action import"><a id="asmt_manage_import" i18n="a_import" href="">Import</a></div -->
+<!-- 					><div class="e3_action titled"><a id="asmt_manage_restore" i18n="a_restore" href="">Restore</a></div -->
+					<div id="asmt_manage_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="asmt_bar2_edit" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div id="asmt_edit_typeBar" class="e3_panelHeaderBarGrouping"></div
+					><div class="e3_infoBlock" style="border-right:none;">
+						<div i18n="header_title">TITLE</div>
+						<div style="position:relative; top:-6px;"><input id="asmt_edit_title" class="e3_input" value="" type="text" size="55" /></div>
+					</div
+					><div class="e3_panelHeaderBarRight">
+						<div class="e3_action titled"><a id="asmt_edit_instructions" i18n="a_instructions" href="">Instructions</a></div
+						><div class="e3_action titled"><a id="asmt_edit_parts" i18n="a_parts" href="">Parts</a></div
+						><div class="e3_action titled"><a id="asmt_edit_options" i18n="a_options" href="">Options</a></div
+						><div class="e3_action titled"><a id="asmt_edit_view" i18n="a_view" href="">Preview</a></div
+					></div
+				></div
+
+				><div id="asmt_bar2_editPool" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock" style="border-right:none;">
+						<div i18n="header_title">TITLE</div>
+						<div style="position:relative; top:-6px;"><input id="asmt_editPool_title" class="e3_input" value="" type="text" size="55" /></div>
+					</div
+					><div id="asmt_editPool_difficultyBar" class="e3_panelHeaderBarGrouping"></div					
+					><div class="e3_infoBlock" style="border-right:none;">
+						<div i18n="header_questionPoints">QUESTION POINTS</div>
+						<div style="position:relative; top:-6px;"><input id="asmt_editPool_points" class="e3_input" value="" type="text" size="6" /></div>
+					</div
+					><div class="e3_infoBlock" style="border-right:none;">
+						<div i18n="header_questionPoints">DESCRIPTION</div>
+						<div style="position:relative; top:-6px;"><input id="asmt_editPool_description" class="e3_input" value="" type="text" size="55" /></div>
+					</div
+				></div
+
+				><div id="asmt_bar2_part" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action add"><a id="asmt_part_add" i18n="a_add" href="">Add</a></div
+					><div class="e3_action delete"><a id="asmt_part_delete" i18n="a_delete" href="">Delete</a></div
+				></div
+
+				><div id="asmt_bar2_gradeAsmt" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action titled"><a id="asmt_gradeAsmt_releaseEvaluated" i18n="a_releaseEvaluated" href="">Release Evaluated</a></div
+					><div class="e3_action titled"><a id="asmt_gradeAsmt_releaseAll" i18n="a_releaseAll" href="">Release All</a></div
+					><div class="e3_action titled"><a id="asmt_gradeAsmt_commentAll" i18n="a_commentAll" href="">Comment All</a></div
+					><div class="e3_action titled"><a id="asmt_gradeAsmt_adjustScores" i18n="a_adjustScores" href="">Adjust Scores</a></div
+					><div class="e3_action titled"><a id="asmt_gradeAsmt_importScores" i18n="a_importScores" href="">Import Scores</a></div
+					><div id="asmt_gradeAsmt_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="asmt_bar2_gradeSubmission"  class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div><span i18n="label_started" style="display:inline-block; width:60px; text-align:right; margin-right:4px; color:#A8A8A8;">Started:</span> <span id="asmt_gradeSubmission_started" style="font-weight:700;"></span></div>
+						<div><span i18n="label_finished" style="display:inline-block; width:60px; text-align:right; margin-right:4px; color:#A8A8A8;">Finished:</span> <span id="asmt_gradeSubmission_finished" style="font-weight:700;"></span></div>
+					</div
+					><div class="e3_infoLines">
+						<div id="asmt_gradeSubmission_userName" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+				></div
+
+				><div id="asmt_bar2_review" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div id="asmt_review_scorePct_bkg" class="e3_infoBlock">
+						<div i18n="header_scorePct">PERCENT</div>
+						<div id="asmt_review_scorePct"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_score">SCORE</div>
+						<div id="asmt_review_scorePts"></div>
+					</div
+					><div class="e3_infoLines">
+						<div><span i18n="label_started" style="display:inline-block; width:60px; text-align:right; margin-right:4px; color:#A8A8A8;">Started:</span> <span id="asmt_review_started" style="font-weight:700;"></span></div>
+						<div><span i18n="label_finished" style="display:inline-block; width:60px; text-align:right; margin-right:4px; color:#A8A8A8;">Finished:</span> <span id="asmt_review_finished" style="font-weight:700;"></span></div>
+					</div
+					><div class="e3_infoLines">
+						<div class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-7px;"><span id="asmt_review_best" i18n="msg_best">BEST</span><span id="asmt_review_noReview" i18n="msg_noReview">This submission is not available for review</span></div>
+					</div
+				></div
+
+				><div id="asmt_bar2_enter" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_tries">TRIES</div>
+						<div id="asmt_enter_tries"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_timed">TIMED</div>
+						<div id="asmt_enter_timed"></div>
+					</div
+					><div class="e3_infoLines">
+						<div><span i18n="label_due" style="display:inline-block; width:60px; text-align:right; margin-right:4px; color:#A8A8A8;">Due:</span> <span id="asmt_enter_due" style="font-weight:700;"></span></div>
+						<div id="asmt_enter_nearDue"><span i18n="label_nearDue" style="display:inline-block; width:60px; text-align:right; margin-right:4px; color:#E00000; font-weight:700;">Near Due:</span> <span id="asmt_enter_due" style="font-weight:700;">You must start before the due date. When the due date passes, it will finish automatically.</span></div>
+					</div
+				></div
+
+			></div>
+			<div id="asmt_headerbar3" class="e3_panelHeaderBar e3_offstage">
+				<div id="asmt_bar3_edit" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_points">POINTS</div>
+						<div id="asmt_edit_points"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_questions">QUESTIONS</div>
+						<div id="asmt_edit_questions"></div>
+					</div
+					><div class="e3_action add"><a id="asmt_edit_add" i18n="a_add" href="">Add</a></div
+					><div class="e3_action titled"><a id="asmt_edit_select" i18n="a_select" href="">Select</a></div
+					><div class="e3_action titled"><a id="asmt_edit_draw" i18n="a_draw" href="">Draw</a></div
+					><div class="e3_action titled"><a id="asmt_edit_move" i18n="a_move" href="">Move</a></div
+					><div class="e3_action titled"><a id="asmt_edit_remove" i18n="a_remove" href="">Remove</a></div
+				></div
+				><div id="asmt_bar3_editPool" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action add"><a id="asmt_editPool_add" i18n="a_add" href="">Add</a></div
+					><div class="e3_action titled"><a id="asmt_editPool_view" i18n="a_view" href="">Preview</a></div
+					><div class="e3_action titled"><a id="asmt_editPool_move" i18n="a_move" href="">Move</a></div
+					><div class="e3_action titled"><a id="asmt_editPool_copy" i18n="a_copy" href="">Copy</a></div
+					><div class="e3_action delete"><a id="asmt_editPool_delete" i18n="a_delete" href="">Delete</a></div
+					><div id="asmt_editPool_actions" class="e3_panelHeaderBarRight"></div
+				></div
+			></div>
+
+			<div id="asmt_header_view" class="e3_table_headerRow e3_offstage"> <!-- 40 [32+32 8+x 8+60 8+80 8+80 8+40 8+40 8+80 8+80 8+150+32] 40 | *20 -->
+				<div class="dot"></div
+				><div style="width:calc(100vw - 100px - 778px); min-width:calc(1200px - 100px - 778px);" i18n="header_title" >TITLE</div
+				><div style="width:60px;"></div
+				><div class="date2l" i18n="header_open">OPEN</div
+				><div class="date2l" i18n="header_due">DUE</div
+				><div style="width:40px;" i18n="header_limit">TIMED</div
+				><div style="width:40px;" i18n="header_tries">TRIES</div
+				><div class="date2l" i18n="header_started">STARTED</div
+				><div class="date2l" i18n="header_finished">FINISHED</div
+				><div style="width:150px;" i18n="header_score">SCORE</div
+			></div>
+			<div id="asmt_header_manage" class="e3_table_headerRow e3_offstage"> <!-- 40 [32+16 8+32 8+x 8+60 8+168 8+168 8+168 8+100 8+24+32] 40 | *20 -->
+				<div class="icon"></div
+				><div class="dot"></div
+				><div style="width:calc(100vw - 100px - 864px); min-width:calc(1200px - 100px - 864px);" i18n="header_title" >TITLE</div
+				><div style="width:60px;"></div
+				><div class="dateInput" i18n="header_open">OPEN</div
+				><div class="dateInput" i18n="header_due">DUE</div
+				><div class="dateInput" i18n="header_allow">ALLOW UNITL</div
+				><div style="width:76px; padding-left:24px;" i18n="header_graded">GRADED</div
+			></div>
+			<div id="asmt_header_grade" class="e3_table_headerRow e3_offstage"> <!-- 40 [32+x 8+60 8+150 8+150 8+24+32] 40 | *20 -->
+				<div i18n="header_title" style="width:calc(100vw - 100px - 480px); min-width:calc(1200px - 100px - 480px);">TITLE</div
+				><div style="width:60px;"></div
+				><div class="date" i18n="header_open">OPEN</div
+				><div class="date" i18n="header_due">DUE</div
+			></div>
+			<div id="asmt_header_gradeAsmt" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+x 8+60 8+80 8+80 8+60 8+60 8+75 8+75 8+24+32 ] 40 | *20 -->
+				<div style="width:calc(100vw - 100px - 642px); min-width:calc(1200px - 100px - 642px);" i18n="header_name" >NAME</div
+				><div style="width:60px;" i18n="header_section">SECTION</div
+				><div class="date2l" i18n="header_started">STARTED</div
+				><div class="date2l" i18n="header_finished">FINISHED</div
+				><div style="width:60px;" i18n="header_autoScore">AUTO</div
+				><div style="width:60px;" i18n="header_final">FINAL</div
+				><div style="width:75px;" i18n="header_evaluated">EVALUATED</div
+				><div style="width:75px;" i18n="header_relesed">RELEASED</div
+			></div>
+			<div id="asmt_header_edit" class="e3_table_headerRow e3_offstage"> <!-- 40 [32+16 8+16 8+x 8+60 8+60 8+200 8+60 8+24+32] 40 | *20 -->
+				<div class="icon"></div
+				><div class="icon"></div
+				><div i18n="header_question" style="width:calc(100vw - 100px - 556px); min-width:calc(1200px - 100px - 556px);">QUESTION</div
+				><div i18n="header_points" style="width:60px;">POINTS</div
+				><div i18n="header_type" style="width:60px;">TYPE</div
+				><div i18n="header_pool" style="width:200px;">POOL</div
+				><div i18n="header_count" style="width:60px;">COUNT</div
+			></div>
+			<div id="asmt_header_part" class="e3_table_headerRow e3_offstage"> <!-- 40 [32+16 8+16 8+x 8+60 8+100 8+100 8+24+32] 40 | *20 -->
+				<div class="icon"></div
+				><div class="icon"></div
+				><div i18n="header_partTitle" style="width:calc(100vw - 100px - 464px); min-width:calc(1200px - 100px - 464x);">PART TITLE</div
+				><div i18n="header_shuffle" style="width:60px;">SHUFFLE</div
+				><div i18n="header_questions" style="width:100px;">QUESTIONS</div
+				><div i18n="header_points" style="width:100px;">POINTS</div
+			></div>
+			<div id="asmt_header_pools" class="e3_table_headerRow e3_offstage"> <!-- 40 [32+16 8+x 8+75 8+75 8+75 8+150 8+24+32] 40 | *20 -->
+				<div class="icon"></div
+				><div style="width:calc(100vw - 100px - 527px); min-width:calc(1200px - 100px - 527px);" i18n="header_title" >TITLE</div
+				><div style="width:75px;" i18n="header_questions">QUESTIONS</div
+				><div style="width:75px;" i18n="header_points">POINTS</div
+				><div style="width:75px;" i18n="header_difficulty">DIFFICULTY</div
+				><div style="width:150px;" i18n="header_created">CREATED</div
+			></div>
+			<div id="asmt_header_editPool" class="e3_table_headerRow e3_offstage"> <!-- 40 [32+16 8+x 8+60 8+150 8+24+32] 40 | *20 -->
+				<div class="icon"></div
+				><div style="width:calc(100vw - 100px - 246px); min-width:calc(1200px - 100px - 246px);" i18n="header_title" >QUESTION</div
+				><div style="width:60px;" i18n="header_questions">TYPE</div
+				><div style="width:150px;" i18n="header_created">CREATED</div
+			></div>
+			<div id="asmt_header_toc" class="e3_table_headerRow e3_offstage"> <!-- 40 [32+60 8+75 8+x+32] 40 | *20 -->
+				<div style="width:60px;" i18n="header_points">POINTS</div
+				><div style="width:75px;" i18n="header_status">STATUS</div
+				><div i18n="header_question" style="width:calc(100vw - 100px - 215px); min-width:calc(1200px - 100px - 215px);">QUESTION</div
+			></div>
+		</div>
+
+		<!-- view mode -->
+		<div id="asmt_view" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="asmt_view_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="asmt_view_none" i18n="msg_noneAvailable" class="e3_note e3_offstage" style="padding-top:24px;">No items are available</div>
+			</div>
+		</div>
+
+		<!-- enter mode -->
+		<div id="asmt_enter" class="e3_offstage">
+			<div class="e3_panelBody footed indented">
+				<div id="asmt_enter_instructions" class="e3_content" style="padding-top:24px;"></div>
+				<div id="asmt_enter_notice_survey" style="padding-top:24px; color:#686868;">
+					This is a <span style="font-weight:700; color:black;">Survey</span>
+					<ul>
+						<li>Surveys are anonymous by design. Your identity is never revealed.
+						<li>Surveys do not have a point value and do not appear in the Gradebook.
+					</ul>
+				</div>
+				<div id="asmt_enter_notice_fce" style="padding-top:24px; color:#686868;"></div>
+				<div id="asmt_enter_notice_linear" style="padding-top:24px; color:#686868;">
+					<span style="font-weight:700;">Notice:</span> This has <span style="font-weight:700; color:black;">strict order</span>:
+					<ul>
+						<li style="font-weight:700; color:black;">You may answer a question only once.
+						<li>Once you move on to the next question, you will not be able to return to any previously answered questions to change your answers.
+						<li>Please review your answers closely prior to clicking on "Next".
+						<li>You may click on "Continue Later" at any time and return to where you left off to finish later.
+					</ul>
+				</div>
+				<div id="asmt_enter_notice_flexible" style="padding-top:24px; color:#686868;">
+					<span style="font-weight:700;">Notice:</span> This has <span style="font-weight:700; color:black;">flexible order</span>:
+					<ul>
+						<li id="asmt_enter_notice_flexible_nextPrev">You have the flexibility to move back and forth using the "Next" and "Prev" buttons and the Table of Contents to change your answers.
+						<li id="asmt_enter_notice_flexible_toc">You have the flexibility to use the Table of Contents.
+						<li>You may mark questions to review them again before finishing; these will be tagged for you in the Table of Contents.
+						<li id="asmt_enter_notice_flexible_exitNote">You may exit at any time by clicking on "Continue later".
+					</ul>
+					Your submission will be completed only when you click on (and confirm) the "Finish" button. If no late submissions are allowed and the due date passes, the system will auto-finish the submission for you, with everything that you have completed up to that point.
+				</div>
+				<div id="asmt_enter_notice_assignment" style="padding-top:24px; color:#686868;">
+					<span style="font-weight:700;">Notice:</span>
+					<ul id="asmt_enter_notice_assignment_exitNote">
+						<li>You may exit at any time by clicking on "Continue later".
+					</ul>
+					Your Assignment will be completed only when you click on (and confirm) the "Finish" button. If no late submissions are allowed and the due date passes, the system will auto-finish the Assignment for you, with everything that you have completed up to that point.
+				</div>
+				<div id="asmt_enter_notice_highest" style="padding-top:24px; color:#686868;">
+					<span style="font-weight:700;">Notice:</span> This allows <span style="font-weight:700; color:black;">multiple tries</span>:
+					<ul>
+						<li>The try with the <span style="font-weight:700; color:black;">highest</span> score will be used for grading.
+					</ul>
+			    </div>
+				<div id="asmt_enter_notice_timed" style="padding-top:24px; color:#686868;">
+				    <span style="font-weight:700;">Notice:</span> This is <span style="font-weight:700; color:black;">timed</span>:
+					<ul>
+						<li style="font-weight:700; color:black;">The timer will start as soon as you begin.
+						<li>If you begin the Assignment and click "Continue Later", <span style="font-weight:700; color:black;">the timer will keep running while you are gone.</span>
+						<li>When time runs out, the Assignment will finish automatically with everything that you have completed up to that point.
+					</ul>
+    			</div>
+				<div id="asmt_enter_evaluation_ui" style="padding-top:24px;"></div>
+			</div>
+		</div>
+	
+		<!-- toc mode -->
+		<div id="asmt_toc" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="asmt_toc_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- deliver mode -->
+		<div id="asmt_deliver" class="e3_offstage">
+			<div class="e3_panelBody footed indented">
+				<div id="asmt_deliver_body"></div>
+			</div>
+		</div>
+	
+		<!-- review mode -->
+		<div id="asmt_review" class="e3_tool e3_offstage">
+			<div class="e3_panelBody footed indented">
+				<div id="asmt_review_review_ui" style="padding-top:24px;"></div>
+				<div class="e3_sectionHeader"><span i18n="header_evaluation">Evaluation</span></div>
+				<div id="asmt_review_evaluation_ui" style="padding-top:24px;"></div>
+			</div>
+		</div>
+	
+		<!-- grade assessment mode -->
+		<div id="asmt_gradeAsmt" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="asmt_gradeAsmt_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="asmt_gradeAsmt_none" i18n="msg_noneAvailable" class="e3_note e3_offstage" style="padding-top:24px;">No items are available</div>
+			</div>
+		</div>
+
+		<!-- grade submission mode -->
+		<div id="asmt_gradeSubmission" class="e3_offstage">
+			<div class="e3_panelBody headed footed indented">
+				<div id="asmt_gradeSubmission_answer"></div>
+				<div id="asmt_gradeSubmission_grade" style="margin-top:24px;"></div>
+			</div>
+		</div>
+	
+		<!-- manage mode -->
+		<div id="asmt_manage" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="asmt_manage_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="asmt_manage_none" i18n="msg_noneDefined" class="e3_note e3_offstage" style="padding-top:24px;">No items are defined</div>
+			</div>
+		</div>
+	
+		<!-- pools mode -->
+		<div id="asmt_pools" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="asmt_pools_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="asmt_pools_none" i18n="msg_noneDefined" class="e3_note e3_offstage" style="padding-top:24px;">No items are defined</div>
+			</div>
+		</div>
+
+		<!-- edit pool mode -->
+		<div id="asmt_editPool" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="asmt_editPool_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="asmt_editPool_none" i18n="msg_noneDefined" class="e3_note e3_offstage" style="padding-top:24px;">No items are defined</div>
+			</div>
+		</div>
+
+		<!-- grade mode -->
+		<div id="asmt_grade" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="asmt_grade_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="asmt_grade_none" i18n="msg_noneGrading" class="e3_note e3_offstage" style="padding-top:24px;">No items are available for grading</div>
+			</div>
+		</div>
+
+		<!-- edit assessment mode -->
+		<div id="asmt_edit" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="asmt_edit_questions_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="asmt_edit_questions_none" i18n="msg_noQuestions" class="e3_offstage e3_note" style="padding-top:24px;">No questions are defined.</div>
+			</div>
+		</div>
+
+		<!-- instructions mode -->
+		<div id="asmt_instruction" class="e3_offstage">
+			<div class="e3_panelBody headed footed indented">
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_instructionsAssessment">Overall Instructions:</label></div>
+						<div id="asmt_instruction_assessment" class="e3_editFieldsBody"></div>
+					</div>
+				</fieldset>
+				<div id="asmt_instruction_parts"></div>					
+			</div>
+		</div>
+
+		<div id=asmt_instruction_template class="e3_offstage">
+			<fieldset id="asmt_instruction_template_body" class="e3_editFieldsTB">
+				<div class="e3_editFieldsEntry">
+					<div class="e3_editFieldsTitle"><label id="asmt_instruction_template_label"></label></div>
+					<div id="asmt_instruction_template_editor" class="e3_editFieldsBody"></div>
+				</div>
+			</fieldset>
+		</div>
+
+		<!-- parts mode -->
+		<div id="asmt_part" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="asmt_part_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- assessment option mode -->
+		<div id="asmt_option" class="e3_offstage"><!-- 1200px: 40 [ 24 524 24 524 24 ] 40 -->
+			<div class="e3_panel" style="background-color:rgba(255,255,255,0.6);">
+				<div class="e3_panelBody headed footed indented24" style="width:1072px; margin:auto; background-color:transparent;">
+					<div style="width:524px; margin-right:24px; display:inline-block; vertical-align:top;">
+						<div class="e3_panel" style="margin-bottom:24px;">
+							<div class="e3_subpanelHeader" i18n="header_identity">IDENTITY</div>
+							<div class="e3_panelBody headed indented24">
+								<fieldset class="e3_editFieldsTB">
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsTitle"><label i18n="label_title" for="asmt_option_title">Title:</label></div>
+										<div class="e3_editFieldsBody"><input id="asmt_option_title" class="e3_input" value="" type="text" style="width:100%;"/></div>
+									</div>
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsTitle"><label i18n="label_type">Type:</label></div>
+										<div class="e3_editFieldsBody">
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_type" id="asmt_option_type_A" value="A" type="radio" /><label i18n="msg_type_A" for="asmt_option_type_A">Assignment</label></div>
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_type" id="asmt_option_type_T" value="T" type="radio" /><label i18n="msg_type_T" for="asmt_option_type_T">Test</label></div>
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_type" id="asmt_option_type_S" value="S" type="radio" /><label i18n="msg_type_S" for="asmt_option_type_S">Survey</label></div>
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_type" id="asmt_option_type_O" value="O" type="radio" /><label i18n="msg_type_O" for="asmt_option_type_O">Offline</label></div>
+											<div id="asmt_option_type_new">						
+												<div class="e3_editFieldsBodyLine"><input name="asmt_option_type" id="asmt_option_type_E" value="E" type="radio" /><label i18n="msg_type_E" for="asmt_option_type_E">Essay</label></div>
+												<div class="e3_editFieldsBodyLine"><input name="asmt_option_type" id="asmt_option_type_F" value="F" type="radio" /><label i18n="msg_type_F" for="asmt_option_type_F">Evaluation</label></div>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<div class="e3_panel" style="margin-bottom:24px;">
+							<div class="e3_subpanelHeader" i18n="header_review">PRESENTATION</div>
+							<div class="e3_panelBody headed indented24">
+								<fieldset class="e3_editFieldsTB">
+									<div class="e3_editFieldsEntry compact">
+										<div class="e3_editFieldsBody"><input id="asmt_option_shuffle" type="checkbox"></input><label i18n="label_shuffle" for="asmt_option_shuffle">Shuffle choices for multiple choice questions</label></div>
+									</div>
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsBody"><input id="asmt_option_showHints" type="checkbox"></input><label i18n="label_hints" for="asmt_option_showHints">Show hints</label></div>
+									</div>
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsTitle"><label i18n="label_layout">Layout:</label></div>
+										<div class="e3_editFieldsBody">
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_layout" id="asmt_option_layout_0" value="0" type="radio" /><label i18n="msg_reviewOnSubmitxx" for="asmt_option_layout_0">One question per page</label></div>
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_layout" id="asmt_option_layout_1" value="1" type="radio" /><label i18n="msg_reviewOnSubmitxx" for="asmt_option_layout_1">One part per page</label></div>
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_layout" id="asmt_option_layout_2" value="2" type="radio" /><label i18n="msg_reviewOnSubmitxx" for="asmt_option_layout_2">All questions on one page</label></div>
+										</div>
+									</div>
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsTitle"><label i18n="label_partNumbering">Part Numbering:</label></div>
+										<div class="e3_editFieldsBody">
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_partNumbering" id="asmt_option_partNumbering_0" value="0" type="radio" /><label i18n="msg_reviewOnSubmitxx" for="asmt_option_partNumbering_0">Continuous</label></div>
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_partNumbering" id="asmt_option_partNumbering_1" value="1" type="radio" /><label i18n="msg_reviewOnSubmitxx" for="asmt_option_partNumbering_1">Restart on each part</label></div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<div class="e3_panel" style="margin-bottom:24px;">
+							<div class="e3_subpanelHeader" i18n="header_review">GRADING</div>
+							<div class="e3_panelBody headed indented24">
+								<div id="asmt_option_evalDesign"></div>
+							</div>
+						</div>
+					</div
+					><div style="width:524px; display:inline-block; vertical-align:top;">
+						<div class="e3_panel" style="margin-bottom:24px;">
+							<div class="e3_subpanelHeader" i18n="header_access">ACCESS</div>
+							<div class="e3_panelBody headed indented24">
+								<fieldset class="e3_editFieldsLR">
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsTitle"><label i18n="label_open" for="asmt_option_open">Open:</label></div>
+										<div class="e3_editFieldsBody"><input id="asmt_option_open" class="e3_input e3_timestamp" type="text" value="" /></div>
+									</div>
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsTitle"></div>
+										<div class="e3_editFieldsBody"><input id="asmt_option_hide" type="checkbox"></input><label i18n="label_hide" for="asmt_option_hide">Hide Until Open</label></div>
+									</div>
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsTitle"><label i18n="label_due" for="asmt_option_due">Due:</label></div>
+										<div class="e3_editFieldsBody"><input id="asmt_option_due" class="e3_input e3_timestamp" type="text" value="" /></div>
+									</div>
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsTitle"><label i18n="label_allow" for="asmt_option_allow">Allow Until:</label></div>
+										<div class="e3_editFieldsBody"><input id="asmt_option_allow" class="e3_input e3_timestamp" type="text" value="" /></div>
+									</div>
+								</fieldset>
+								<fieldset class="e3_editFieldsTB">
+									<div class="e3_editFieldsEntry compact">
+										<div class="e3_editFieldsBody"><input id="asmt_option_published" type="checkbox"></input><label i18n="label_publish" for="asmt_option_published">Publish</label></div>
+									</div>
+								</fieldset>
+								<fieldset class="e3_editFieldsLR" style="padding-bottom:12px;">
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsTitle"><label i18n="label_password" for="asmt_option_password">Password:</label></div>
+										<div class="e3_editFieldsBody"><input id="asmt_option_password" class="e3_input e3_timestamp" type="text" value="" /></div>
+									</div>
+								</fieldset>
+								<fieldset class="e3_editFieldsTB">
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsTitle"></div>
+										<div class="e3_editFieldsBody"><input id="asmt_option_requireHonorPledge" type="checkbox"></input><label i18n="label_requireHonorPledge" for="asmt_option_requireHonorPledge">Require accepted honor pledge</label></div>
+									</div>
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsTitle"><label i18n="label_tries">Tries:</label></div>
+										<div class="e3_editFieldsBody roomForInput">
+											<div class="e3_editFieldsBodyLine">
+												<input name="asmt_option_tries" id="asmt_option_tries_U" value="false" type="radio" /><label i18n="msg_unlimited" for="asmt_option_tries_U">Unlimited</label>
+											</div>
+											<div class="e3_editFieldsBodyLine">
+												<input name="asmt_option_tries" id="asmt_option_tries_N" value="true" type="radio" /><label i18n="msg_number" for="asmt_option_tries_N">Number of Tries:</label>
+												<input id="asmt_option_numTries" class="e3_input" value="" type="text" size="5" />
+											</div>
+										</div>
+									</div>
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsTitle"><label i18n="label_limit">Time Limit:</label></div>
+										<div class="e3_editFieldsBody roomForInput">
+											<div class="e3_editFieldsBodyLine">
+												<input name="asmt_option_limit" id="asmt_option_limit_U" value="false" type="radio" /><label i18n="msg_unlimited" for="asmt_option_limit_U">Unlimited</label>
+											</div>
+											<div class="e3_editFieldsBodyLine">
+												<input name="asmt_option_limit" id="asmt_option_limit_N" value="true" type="radio" /><label i18n="msg_nnumber" for="asmt_option_limit_N">Timed:</label>
+												<input id="asmt_option_timeLimit" class="e3_input" value="" type="text" size="5" />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<div class="e3_panel" style="margin-bottom:24px;">
+							<div class="e3_subpanelHeader" i18n="header_review">REVIEW</div>
+							<div class="e3_panelBody headed indented24">
+								<fieldset class="e3_editFieldsTB">
+									<div class="e3_editFieldsEntry compact">
+										<div class="e3_editFieldsTitle"><label i18n="label_reviewAvailable">Make Review Available:</label></div>
+										<div class="e3_editFieldsBody roomForInput">
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_reviewAvailable" id="asmt_option_reviewAvailable_0" value="0" type="radio" /><label i18n="msg_reviewOnSubmit" for="asmt_option_reviewAvailable_0">Upon Submission</label></div>
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_reviewAvailable" id="asmt_option_reviewAvailable_1" value="1" type="radio" /><label i18n="msg_reviewOnSubmit" for="asmt_option_reviewAvailable_1">Upon Release</label></div>
+											<div class="e3_editFieldsBodyLine">
+												<input name="asmt_option_reviewAvailable" id="asmt_option_reviewAvailable_2" value="2" type="radio" /><label i18n="msg_afterDate" for="asmt_option_reviewAvailable_2">After Date:</label>
+												<input id="asmt_option_reviewAfterDate" class="e3_input e3_timestamp" type="text" value="" />
+											</div>
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_reviewAvailable" id="asmt_option_reviewAvailable_3" value="3" type="radio" /><label i18n="msg_reviewNever" for="asmt_option_reviewAvailable_3">Never</label></div>
+										</div>
+									</div>
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsBody"><input id="asmt_option_showSummary" type="checkbox"></input><label i18n="label_showSummary" for="asmt_option_showSummary">Show summary of data and all answers</label></div>
+									</div>
+									<div class="e3_editFieldsEntry compact">
+										<div class="e3_editFieldsTitle"><label i18n="label_tries">Show In Review:</label></div>
+										<div class="e3_editFieldsBody">
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_reviewIncludes" id="asmt_option_reviewAIncludes_0" value="0" type="radio" /><label i18n="msg_reviewOnSubmitxx" for="asmt_option_reviewAIncludes_0">All questions, with answer key and scores</label></div>
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_reviewIncludes" id="asmt_option_reviewAIncludes_1" value="1" type="radio" /><label i18n="msg_reviewOnSubmitxx" for="asmt_option_reviewAIncludes_1">All questions, with answer key and scores only for correct answers</label></div>
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_reviewIncludes" id="asmt_option_reviewAIncludes_2" value="2" type="radio" /><label i18n="msg_reviewOnSubmitxx" for="asmt_option_reviewAIncludes_2">Only incorrect questions, without answer key or scores</label></div>
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_reviewIncludes" id="asmt_option_reviewAIncludes_3" value="3" type="radio" /><label i18n="msg_reviewOnSubmitxx" for="asmt_option_reviewAIncludes_3">Only incorrect questions, with answer key and scores</label></div>
+											<div class="e3_editFieldsBodyLine"><input name="asmt_option_reviewIncludes" id="asmt_option_reviewAIncludes_4" value="4" type="radio" /><label i18n="msg_reviewOnSubmitxx" for="asmt_option_reviewAIncludes_4">All questions, without answer key or scores</label></div>
+										</div>
+									</div>
+									<div class="e3_editFieldsEntry compact">
+										<div class="e3_editFieldsBody"><input id="asmt_option_showFeedback" type="checkbox"></input><label i18n="label_showFeedback" for="asmt_option_showFeedback">Show feedback</label></div>
+									</div>
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsBody"><input id="asmt_option_showModelAnswer" type="checkbox"></input><label i18n="label_showModelAnswer" for="asmt_option_showModelAnswer">Show model answer for released submissions</label></div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+					</div>
+					<div style="width:1072px;">
+						<div class="e3_panel" style="margin-bottom:24px;">
+							<div class="e3_subpanelHeader" i18n="header_access">COMPLETION</div>
+							<div class="e3_panelBody headed indented24">
+								<fieldset class="e3_editFieldsTB">
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsTitle"><label i18n="label_finalMsg">Final Message:</label></div>
+										<div id="asmt_option_finalMsg_editor" class="e3_editFieldsBody"></div>
+									</div>
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsBody roomForInput">
+											<div class="e3_editFieldsBodyLine">
+												<input id="asmt_option_certificate" type="checkbox"></input><label i18n="label_showSummaryxxx" for="asmt_option_certificate">Award certificate for minimum score earned:</label>
+												<input id="asmt_option_certificate_pct" class="e3_input" value="" type="text" size="5" />
+												<label i18n="label_showSummaryxxx" for="asmt_option_certificate_pct">%</label>
+											</div>
+										</div>
+									</div>
+									<div class="e3_editFieldsEntry">
+										<div class="e3_editFieldsTitle"><label i18n="label_emailResults">Send results email to these addresses</label></div>
+										<textarea id="asmt_option_email" cols="40" rows="2" wrap="SOFT" style="padding:8px; resize: none;"></textarea>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="asmt_option_attribution"></div>
+			</div>
+		</div>
+	</div>
+
+	<div i18n="title_nothingSelected" id="asmt_selectFirst" title="Nothing Selected" style="display: none;">
+		<div i18n="msg_nothingSelected" class="e3_dialogBody">First select one or more items before performing that action.</div>
+	</div>
+
+	<div i18n="title_singleSelect" id="asmt_select1First" title="Select One" style="display: none;">
+		<div i18n="msg_singleSelect" class="e3_dialogBody">First select one assessment before performing that action.</div>
+	</div>
+
+	<div i18n="title_confirmDelete" id="asmt_confirmDelete" title="Delete Assessment" style="display: none;">
+		<div i18n="msg_confirmDelete" class="e3_dialogBody">Are you sure you want to delete the selected assessment(s)?</div>
+	</div>
+
+	<div id="asmt_enternav" class="e3_offstage">
+ 		<div class="e3_action return"><a id="asmt_enter_cancel" i18n="a_return" href="">RETURN</a></div>
+ 		<div class="e3_action titledInvertedGreen"><a id="asmt_enter_begin" style="border:2px solid #2AB31D; height:48px;" i18n="a_begin" e3_hoverBkg="#FFFFFF" e3_hoverFg="#2AB31D" href="">BEGIN</a></div>
+	</div>
+
+	<div id="asmt_tocnav" class="e3_offstage">
+ 		<div class="e3_action return"><a id="asmt_toc_later" i18n="a_continueLater" href="">CONTINUE LATER</a></div>
+ 		<div class="e3_action titledInvertedGreen"><a id="asmt_toc_finish" style="border:2px solid #2AB31D; height:48px;" i18n="a_finish" e3_hoverBkg="#FFFFFF" e3_hoverFg="#2AB31D" href="">FINISH</a></div>
+	</div>
+
+	<div id="asmt_deliver_template_finish" class="e3_offstage">
+		<div class="e3_action titled"><a i18n="a_finish" href="">Finish</a></div>
+	</div>
+
+	<div id="asmt_deliver_template_essay" class="e3_offstage">
+		<div id="asmt_deliver_template_essay_body">
+			<div id="asmt_deliver_template_essay_instructions" class="e3_section e3_content"></div>
+			<fieldset class="e3_editFieldsTB">
+				<div class="e3_editFieldsEntry">
+					<div id="asmt_deliver_template_essay_editor" class="e3_editFieldsBody"></div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+	<div id="asmt_review_template_question" class="e3_offstage">
+		<div id="asmt_review_template_question_body" style="padding-bottom:24px;">
+			<div class=e3_sectionHeader>
+				<div id="asmt_review_template_question_scorePct_ui" class="e3_infoBlockSmall">
+					<div i18n="header_scorePct">PERCENT</div>
+					<div id="asmt_review_template_question_scorePct"></div>
+				</div>
+				<div id="asmt_review_template_question_scorePts_ui" class="e3_infoBlockSmall">
+					<div i18n="header_score">SCORE</div>
+					<div id="asmt_review_template_question_scorePts"></div>
+				</div>
+				<div id="asmt_review_template_question_position_ui" class="e3_infoBlockSmall">
+					<div i18n="header_question">QUESTION</div>
+					<div id="asmt_review_template_question_position"></div>
+				</div>
+			</div>
+			<div id="asmt_review_template_question_qa"></div>
+			<fieldset id="asmt_review_template_question_evaluation" class="e3_editFieldsTB">
+				<div class="e3_editFieldsEntry">
+					<div id="asmt_review_template_question_evaluation_official" class="e3_editFieldsTitle e3_offstage"><label i18n="header_commentOfficial">Grader's Comment:</label></div>
+					<div id="asmt_review_template_question_evaluation_peer"class="e3_editFieldsTitle e3_offstage"><label i18n="header_commentPeer">Reviewer's Comment:</label></div>
+					<div id="asmt_review_template_question_evaluation_comment" class="e3_content paper" style="background-color:#fffce5;"></div><!-- e3_specialBorder -->
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+	<!-- correct / incorrect markings -->
+	<div id="asmt_review_template_marking_correct" class="e3_offstage">
+		<svg id="asmt_review_template_marking_correct_body" style="width:14px; height:14px; position:relative; top:2px; fill:#2AB31D;"><use xlink:href='#icon-check'></use></svg>
+	</div>
+	<div id="asmt_review_template_marking_incorrect" class="e3_offstage">
+		<svg id="asmt_review_template_marking_incorrect_body" style="width:11px; height:11px; position:relative; top:1px; fill:#E00000;"><use xlink:href='#icon-cross'></use></svg>	
+	</div>
+	<div id="asmt_review_template_marking_indicate" class="e3_offstage">
+		<svg id="asmt_review_template_marking_indicate_body" style="width:14px; height:14px; position:relative; top:2px; fill:#0072C6;"><use xlink:href='#icon-pointRight'></use></svg>	
+	</div>
+
+	<!-- review of essay question -->
+	<div id="asmt_review_template_essay" class="e3_offstage">
+		<div id="asmt_review_template_essay_body">
+			<fieldset class="e3_editFieldsTB">
+				<div class="e3_editFieldsEntry">
+					<div class="e3_editFieldsBody">
+						<div id="asmt_review_template_essay_instructions" class="e3_content"></div>
+					</div>
+				</div>
+				<div class="e3_editFieldsEntry">
+<!-- 					<div class="e3_editFieldsTitle"><label i18n="label_answer">Answer:</label></div> -->
+					<div class="e3_editFieldsBody">
+						<div id="asmt_review_template_essay_content" class="e3_content paper"></div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+	<!-- review of true / false question -->
+	<div id="asmt_review_template_tf" class="e3_offstage">
+		<div id="asmt_review_template_tf_body">
+			<fieldset class="e3_editFieldsTB">
+				<div class="e3_editFieldsEntry" style="padding-bottom:0px;">
+					<div class="e3_editFieldsBody">
+						<div id="asmt_review_template_tf_instructions" class="e3_content"></div>
+					</div>
+				</div>
+				<div class="e3_editFieldsEntry">
+					<div class="e3_editFieldsBody">
+						<div class="e3_editFieldsBodyLine"><div id="asmt_review_template_tf_true_mark" style="display:inline-block; width:24px; text-align:center;"></div><input id="asmt_review_template_tf_true" value="true" disabled="disabled" type="radio"><label for="asmt_review_template_tf_true">True</label></div>
+						<div class="e3_editFieldsBodyLine"><div id="asmt_review_template_tf_false_mark" style="display:inline-block; width:24px; text-align:center;"></div><input id="asmt_review_template_tf_false" value="false" disabled="disabled" type="radio"><label for="asmt_review_template_tf_false">False</label></div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+	<!-- review of multiple choice question -->
+	<div id="asmt_review_template_mc" class="e3_offstage">
+		<div id="asmt_review_template_mc_body">
+			<fieldset class="e3_editFieldsTB">
+				<div class="e3_editFieldsEntry" style="padding-bottom:0px;">
+					<div class="e3_editFieldsBody">
+						<div id="asmt_review_template_mc_instructions" class="e3_content"></div>
+					</div>
+				</div>
+				<div class="e3_editFieldsEntry">
+					<div id="asmt_review_template_mc_choices" class="e3_editFieldsBody">
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div id="asmt_review_template_mc_entry" class="e3_offstage">
+		<div id="asmt_review_template_mc_entry_body" class="e3_editFieldsBodyLine"><div id="asmt_review_template_mc_entry_mark" style="display:inline-block; width:24px; text-align:center;"></div><input id="asmt_review_template_mc_entry_radio" value="true" disabled="disabled" type="radio"><label id="asmt_review_template_mc_entry_label"></label></div>
+	</div>
+
+	<!-- review of fillin question -->
+	<div id="asmt_review_template_fillin" class="e3_offstage">
+		<div id="asmt_review_template_fillin_body">
+			<fieldset class="e3_editFieldsTB">
+				<div class="e3_editFieldsEntry">
+					<div class="e3_editFieldsBody">
+						<div id="asmt_review_template_fillin_results" class="e3_content paper"></div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+	<div id="asmt_review_template_mc_entry" class="e3_offstage">
+		<div id="asmt_review_template_mc_entry_body" class="e3_editFieldsBodyLine"><div id="asmt_review_template_mc_entry_mark" style="display:inline-block; width:24px; text-align:center;"></div><input id="asmt_review_template_mc_entry_radio" value="true" disabled="disabled" type="radio"><label id="asmt_review_template_mc_entry_label"></label></div>
+	</div>
+
+	<div id="asmt_gradeSubmission_template_essay" class="e3_offstage">
+		<div id="asmt_gradeSubmission_template_essay_body">
+			<fieldset class="e3_editFieldsTB">
+				<div class="e3_editFieldsEntry">
+					<div class="e3_editFieldsTitle"><label i18n="label_instructions">Instructions</label></div>
+					<div class="e3_editFieldsBody">
+						<div id="asmt_gradeSubmission_template_essay_instructions" class="e3_content" style="margin-left:32px;"></div>
+					</div>
+				</div>
+				<div class="e3_editFieldsEntry">
+					<div class="e3_editFieldsTitle"><label i18n="label_answer">Answer</label></div>
+					<div class="e3_editFieldsBody">
+						<div id="asmt_gradeSubmission_template_essay_answer" class="e3_content" style="margin-left:32px;"></div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+	<div id="asmt_title_template" class="e3_offstage">
+		<div id="asmt_title_template_body" style="padding-top:4px; padding-bottom:4px;">
+			<div id="asmt_title_template_title"></div>
+			<div id="asmt_title_template_msg" class="hover" style="font-size:12px; color:#686868; padding-top:4px;"></div>
+		</div>
+	</div>
+	
+	<div id="asmt_gradeAsmt_title_template" class="e3_offstage">
+		<div id="asmt_gradeAsmt_title_template_body" style="padding-top:4px; padding-bottom:4px;">
+			<div id="asmt_gradeAsmt_title_template_name"></div>
+			<div id="asmt_gradeAsmt_title_template_iid" class="hover" style="font-size:9px; color:#686868; padding-top:4px;"><span></span></div>
+		</div>
+	</div>
+
+	<div id="asmt_manage_graded_template" class="e3_offstage">
+		<div id="asmt_manage_graded_template_body"><span id="asmt_manage_graded_template_dot" style="display:inline-block; vertical-align:top; width:24px;"></span> <span id="asmt_manage_graded_template_msg"></span></div>
+	</div>
+
+	<div i18n="title_addCommentAll" id="asmt_gradeAsmt_commentDialog" title="Add Comment To All" style="display: none;">
+		<div class="e3_dialogBody" style="width:1000px;">
+			<fieldset class="e3_editFieldsTB">
+				<div class="e3_editFieldsEntry">
+					<div id="asmt_gradeAsmt_commentDialog_comment" class="e3_editFieldsBody"></div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+	<div i18n="title_adjustScores" id="asmt_gradeAsmt_scoresDialog" title="Adjust Scores" style="display: none;">
+		<div class="e3_dialogBody">
+			<div class="e3_note" i18n="msg_adjustScores">Select the adjustment(s) you wish to make, fill in the details, and press "ADJUST" when ready.</div>
+			<fieldset class="e3_editFieldsLR">
+				<div class="e3_editFieldsEntry">
+					<div class="e3_editFieldsTitle"><label i18n="label_adjustScores" for="asmt_gradeAsmt_scoresDialog_adjustScores">Adjust the score of all submissions by:</label></div>
+					<div class="e3_editFieldsBody"><input class="e3_input" id="asmt_gradeAsmt_scoresDialog_adjustScores" value="" style="width:48px;"/></div>
+				</div>
+				<div class="e3_editFieldsEntry">
+					<div class="e3_editFieldsTitle"><label i18n="label_deductLate" for="asmt_gradeAsmt_scoresDialog_deductLate">Deduct the following points from all late submissions:</label></div>
+					<div class="e3_editFieldsBody"><input class="e3_input" id="asmt_gradeAsmt_scoresDialog_deductLate" value="" style="width:48px;"/></div>
+				</div>
+<!-- 				<div class="e3_editFieldsEntry"> -->
+<!-- 					<div class="e3_editFieldsTitle"><label></label></div> -->
+<!-- 					<div class="e3_editFieldsBody"> -->
+<!-- 						<input id="asmt_gradeAsmt_scoresDialog_zeroNonSubmit" type="checkbox"></input> -->
+<!-- 						<label i18n="label_zeroNonSubmit" for="asmt_gradeAsmt_scoresDialog_zeroNonSubmit">Assign a 0 to non-submitters</label> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+			</fieldset>
+		</div>
+	</div>
+
+	<div i18n="title_importScores" id="asmt_gradeAsmt_importDialog" title="Import Scores" style="display: none;">
+		<div class="e3_dialogBody">
+			<div class="e3_note">
+				<span i18n="msg_importScores">Select the CSV file containing scores for this assessment.</span>
+				<a id="asmt_gradeAsmt_importDialog_help" class="e3_help" href="http://etudes.org/help/instructors/import-scores-in-ats" target="_blank" i18n="a_help">HELP</a>
+			</div>
+			<fieldset class="e3_editFieldsTB">
+				<div class="e3_editFieldsTitle"><label i18n="label_selectScoresFile" for="asmt_gradeAsmt_importDialog_import">Scores CSV File:</label></div>
+				<div class="e3_editFieldsEntry" style="margin-top:24px;">
+					<input id="asmt_gradeAsmt_importDialog_import" type="file" accept="text/*" />
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+	<div i18n="title_beginPledgePassword" id="asmt_beginPledgePassword" title="Begin" style="display: none;">
+		<div class="e3_dialogBody">
+			<fieldset class="e3_editFieldsTB">
+				<div id="asmt_beginPledgePassword_pledgeUI" class="e3_editFieldsEntry">
+					<div class="e3_editFieldsTitle"><label id="asmt_beginPledgePassword_pledgeLbl" i18n="label_pledgeRequired">You must agree to this Honor Pledge to begin:</label></div>
+					<div class="e3_editFieldsBody">
+						<input id="asmt_beginPledgePassword_pledge" type="checkbox"></input>
+						<label i18n="label_pledge" for="asmt_beginPledgePassword_pledge">The work that I will submit is my own; I will neither give nor receive any aid on this submission.</label>
+					</div>
+				</div>
+				<div id="asmt_beginPledgePassword_passwordUI" class="e3_editFieldsEntry">
+					<div class="e3_editFieldsTitle"><label id="asmt_beginPledgePassword_passwordLbl" i18n="label_password">You must enter the password to begin:</label></div>
+					<div class="e3_editFieldsBody">
+						<input id="asmt_beginPledgePassword_password" class="e3_input" value="" type="password" size="12" i18n="ph_password" placeholder="Password"/>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

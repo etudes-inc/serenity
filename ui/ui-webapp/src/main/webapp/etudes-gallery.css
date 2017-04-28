@@ -1,0 +1,33 @@
+.e3_gallerySelected
+{
+	border-style: dashed;
+	border-color: #6066AC;
+}
+.e3_galleryFigure
+{
+	display: inline-block;
+	padding: 0;
+	margin: 0 8px 0 0;
+}
+.e3_galleryFigure img
+{
+    display: block;
+	margin-left: auto;
+    margin-right: auto;
+	width: 64px;
+	height: auto;
+    padding: 12px;
+}
+.e3_galleryFigure figcaption
+{
+	text-align: center;
+	padding-bottom:12px;
+}
+.e3_inlineEditAction
+{
+	padding-left:16px;
+	background-position: center left;
+	background-repeat: no-repeat;
+	position: relative;
+	top: -8px;
+}

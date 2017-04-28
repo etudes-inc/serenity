@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+	<div class="e3_panel">
+		<div id="mysites_header" class="e3_pinned">
+			<div class="e3_panelHeader" i18n="header_mysites">MY SITES</div>
+			<div id="mysites_actions" class="e3_panelHeaderBar">
+				<div class="e3_action titled"><a i18n="a_setup" id="mysites_sites_actions_setup" href=""></a></div
+				><div class="e3_action titled"><a i18n="a_roster" id="mysites_sites_actions_roster" href=""></a></div
+				><div class="e3_action titled"><a i18n="a_publish" id="mysites_sites_actions_publish" href=""></a></div
+				><div class="e3_action titled"><a i18n="a_unpublish" id="mysites_sites_actions_unpublish" href=""></a></div
+			></div>
+			<div id="mysites_sites_headers" class="e3_table_headerRow"> <!-- 40 [ 16+32 32+8 x+8 150+8 150+8 8+150+32 ] 40 | *20 -->
+				<div class="icon" style="width:16px;"></div
+				><div class="dot" style="width:32px;"></div
+				><div style="width:calc(100vw - 100px - 602px); min-width:calc(1200px - 100px - 602px);" i18n="header_title">TITLE</div
+				><div class="date" i18n="header_open">OPEN</div
+				><div class="date" i18n="header_close">CLOSE</div
+				><div class="date" i18n="header_created">CREATED</div
+			></div>
+		</div>
+		
+		<div class="e3_panelBody footed">
+			<table id="mysites_sites_table" class="e3_table">
+				<thead></thead>
+				<tbody></tbody>
+			</table>
+			<div id="mysites_none" i18n="msg_noneDefined" class="e3_note e3_offstage" style="padding-top:24px;">You are not a member of any site.</div>
+		</div>
+	</div>
+	
+	<div i18n="confirmPublishTitle" id="mysites_confirmPublish" title="Confirm Publish" style="display: none;">
+		<div i18n="confirmPublish" class="e3_dialogBody">Publishing a site opens it to student access. Are you sure you want to publish the selected site(s)?</div>
+	</div>
+
+	<div i18n="confirmUnpublishTitle" id="mysites_confirmUnpublish" title="Confirm Unpublish" style="display: none;">
+		<div i18n="confirmUnpublish" class="e3_dialogBody">Unpublishing a sites closes it, preventing student access. Are you sure you want to unpublish the selected site(s)?</div>
+	</div>
+
+	<div i18n="nothingSelectedTitle" id="mysites_selectFirst" title="Nothing Selected" style="display: none;">
+		<div i18n="nothingSelected" class="e3_dialogBody">First select one or more sites, using the checkboxes.</div>
+	</div>
+
+	<div i18n="nothingSelectedTitle" id="mysites_select1First" title="Nothing Selected" style="display: none;">
+		<div i18n="nothingSelected1" class="e3_dialogBody">First select a site, using the checkboxes.</div>
+	</div>
+
+</div>
+</body>
+</html>

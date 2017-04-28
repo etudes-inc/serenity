@@ -1,0 +1,137 @@
+-- *********************************************************************************
+-- $URL: https://source.etudes.org/svn/serenity/trunk/core/core-webapp/src/main/resources/sql/evaluation.sql $
+-- $Id: evaluation.sql 11587 2015-09-10 03:14:52Z ggolden $
+-- **********************************************************************************
+--
+-- Copyright (c) 2015 Etudes, Inc.
+-- 
+-- Licensed under the Apache License, Version 2.0 (the "License");
+-- you may not use this file except in compliance with the License.
+-- You may obtain a copy of the License at
+-- 
+--      http://www.apache.org/licenses/LICENSE-2.0
+-- 
+-- Unless required by applicable law or agreed to in writing, software
+-- distributed under the License is distributed on an "AS IS" BASIS,
+-- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-- See the License for the specific language governing permissions and
+-- limitations under the License.
+--
+-- *********************************************************************************/
+
+DROP TABLE IF EXISTS EVALUATION_DESIGN;
+DROP TABLE IF EXISTS EVALUATION_RUBRIC;
+DROP TABLE IF EXISTS EVALUATION_CRITERION;
+DROP TABLE IF EXISTS EVALUATION_LEVEL;
+DROP TABLE IF EXISTS EVALUATION_STANDARD;
+DROP TABLE IF EXISTS EVALUATION_EVALUATION;
+DROP TABLE IF EXISTS EVALUATION_RATING;
+DROP TABLE IF EXISTS EVALUATION_CATEGORY;
+
+-- ---------------------------------------------------------------------------
+-- EVALUATION
+-- ---------------------------------------------------------------------------
+
+CREATE TABLE EVALUATION_DESIGN
+(
+  ID               BIGINT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  SITE             BIGINT UNSIGNED NOT NULL,
+  TOOL             INT UNSIGNED NOT NULL,
+  ITEM             BIGINT UNSIGNED NOT NULL,
+  GRADE            CHAR (1) NOT NULL DEFAULT '0' CHECK (GRADE IN ('0','1')),
+  AUTORELEASE      CHAR (1) NOT NULL DEFAULT '0' CHECK (AUTORELEASE IN ('0','1')),
+  POINTS           FLOAT,
+  RUBRIC           BIGINT UNSIGNED,
+  CATEGORY         BIGINT UNSIGNED,
+  CATEGORY_POS     INT UNSIGNED,
+  KEY CRITERIA_REF (SITE, TOOL, ITEM)
+);
+
+CREATE TABLE EVALUATION_RUBRIC
+(
+  ID               BIGINT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  SITE             BIGINT UNSIGNED NOT NULL,
+  TITLE            VARCHAR (255),
+  CREATED_BY       BIGINT UNSIGNED,
+  CREATED_ON       BIGINT,
+  MODIFIED_BY      BIGINT UNSIGNED,
+  MODIFIED_ON      BIGINT,
+  KEY RUBRIC_S (SITE)
+);
+
+CREATE TABLE EVALUATION_CRITERION
+(
+  ID               BIGINT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  RUBRIC           BIGINT UNSIGNED,
+  TITLE            VARCHAR (255),
+  DESCRIPTION      VARCHAR (2048),
+  SCOREPCT         INT UNSIGNED,
+  CRITERIONORDER   BIGINT UNSIGNED NOT NULL, 
+  KEY CRITERION_R  (RUBRIC)
+);
+
+CREATE TABLE EVALUATION_LEVEL
+(
+  ID               BIGINT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  RUBRIC           BIGINT UNSIGNED NOT NULL,
+  TITLE            VARCHAR (255),
+  DESCRIPTION      VARCHAR (2048),
+  NUMBER           INT UNSIGNED,
+  KEY LEVEL_R      (RUBRIC)
+);
+
+CREATE TABLE EVALUATION_STANDARD
+(
+  ID               BIGINT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  CRITERION        BIGINT UNSIGNED NOT NULL,
+  LEVEL            BIGINT UNSIGNED NOT NULL,
+-- TODO: if we offer rich description, DESCRIPTION becomes a file reference: BIGINT UNSIGNED,
+  DESCRIPTION      VARCHAR (2048),
+  UNIQUE KEY STANDARD_CL (CRITERION, LEVEL)
+);
+
+CREATE TABLE EVALUATION_EVALUATION
+(
+  ID               BIGINT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  SITE             BIGINT UNSIGNED NOT NULL,
+  TOOL             INT UNSIGNED NOT NULL,
+  ITEM             BIGINT UNSIGNED NOT NULL,
+  WORK             BIGINT UNSIGNED NOT NULL,
+  SUBMITTED_BY     BIGINT UNSIGNED NOT NULL,
+  SUBMITTED_ON     BIGINT,
+  EVALUATION_TYPE  INT UNSIGNED NOT NULL,
+  CREATED_BY       BIGINT UNSIGNED,
+  CREATED_ON       BIGINT,
+  MODIFIED_BY      BIGINT UNSIGNED,
+  MODIFIED_ON      BIGINT,
+  SCORE            FLOAT,
+  COMMENT          BIGINT UNSIGNED,
+  EVALUATED        CHAR (1) NOT NULL DEFAULT '0' CHECK (EVALLUATED IN ('0','1')),
+  RELEASED         CHAR (1) NOT NULL DEFAULT '0' CHECK (RELEASED IN ('0','1')),
+  REVIEWED_ON      BIGINT,
+  KEY CRITERION_REF (SITE, TOOL, ITEM, WORK, SUBMITTED_BY)
+);
+
+CREATE TABLE EVALUATION_RATING
+(
+  ID               BIGINT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  EVALUATION       BIGINT UNSIGNED NOT NULL,
+  CRITERION        BIGINT UNSIGNED NOT NULL,
+  RATING           INT UNSIGNED NOT NULL,
+  KEY EVALUATION_RATING_E (EVALUATION)
+);
+
+CREATE TABLE EVALUATION_CATEGORY
+(
+  ID               BIGINT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  SITE             BIGINT UNSIGNED NOT NULL,
+  TITLE            VARCHAR (255),
+  CATEGORY_TYPE    INT UNSIGNED NOT NULL,
+  SITEORDER        BIGINT UNSIGNED NOT NULL,
+  DROPLOWEST       BIGINT UNSIGNED NOT NULL,
+  CREATED_BY       BIGINT UNSIGNED,
+  CREATED_ON       BIGINT,
+  MODIFIED_BY      BIGINT UNSIGNED,
+  MODIFIED_ON      BIGINT,
+  KEY CATEGORY_S (SITE)
+);

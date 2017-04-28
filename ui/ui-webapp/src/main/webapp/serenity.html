@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<link href="/ui/jquery-ui-1.11.1.custom/jquery-ui.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/ui/jquery-ui-timepicker-addon-1.5.0.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/ui/jquery.contextmenu.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/ui/etudes-core.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/ui/etudes-icons.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/ui/etudes-dialog.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/ui/etudes-table.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/ui/etudes-gallery.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/ui/etudes-editor.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/ui/etudes-timestamp.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/ui/etudes-evaluation.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/ui/fullcalendar-2.5.0.min.css" type="text/css" rel="stylesheet" media="all" />
+<script type="text/javascript" src="/ui/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="/ui/jquery-ui-1.11.1.custom/jquery-ui.js"></script>
+<script type="text/javascript" src="/ui/jquery.tablesorter.min-2.17.8.js"></script>
+<script type="text/javascript" src="/ui/jquery.contextmenu.js"></script>
+<script type="text/javascript" src="/ui/jquery-ui-timepicker-addon-1.5.0.js"></script>
+<script type="text/javascript" src="/ui/moment.min.2.9.0.js"></script>
+<script type="text/javascript" src="/ui/moment-timezone-with-data.min.0.3.0.js"></script>
+<script type="text/javascript" src="/ckfinder/ckfinder/ckfinder.js"></script>
+<script type="text/javascript" src="/ckeditor/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/ckeditor/ckeditor/plugins/ckeditor_wiris/core/WIRISplugins.js?viewer=image" defer="defer"></script>
+<script type="text/javascript" src="/ui/fullcalendar-2.5.0.min.js"></script>
+<script type="text/javascript" src="/ui/etudes-extend.js"></script>
+<script type="text/javascript" src="/ui/etudes-edit.js"></script>
+<script type="text/javascript" src="/ui/etudes-cdp.js"></script>
+<script type="text/javascript" src="/ui/etudes-i18n.js"></script>
+<script type="text/javascript" src="/ui/etudes-dialog.js"></script>
+<script type="text/javascript" src="/ui/etudes-table.js"></script>
+<script type="text/javascript" src="/ui/etudes-session.js"></script>
+<script type="text/javascript" src="/ui/etudes-editor_i10n.js"></script>
+<script type="text/javascript" src="/ui/etudes-editor.js"></script>
+<script type="text/javascript" src="/ui/etudes-editor-ck.js"></script>
+<script type="text/javascript" src="/ui/etudes-filer_i10n.js"></script>
+<script type="text/javascript" src="/ui/etudes-filer.js"></script>
+<script type="text/javascript" src="/ui/etudes-filer-ck.js"></script>
+<script type="text/javascript" src="/ui/etudes-timestamp.js"></script>
+<script type="text/javascript" src="/ui/rangy-core-1.2.3.js"></script>
+<script type="text/javascript" src="/ui/etudes-evaluation_i10n.js"></script>
+<script type="text/javascript" src="/ui/etudes-evaluation.js"></script>
+<script type="text/javascript" src="/ui/serenity_i10n.js"></script>
+<script type="text/javascript" src="/ui/serenity.js"></script>
+
+<style type="text/css">
+
+/* <!-- <link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'> --> */
+/* https://www.google.com/fonts#UsePlace:use/Collection:Oswald */
+@font-face
+{
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Oswald Light'), local('Oswald-Light'), url(/ui/font/oswald300n.ttf) format('truetype');
+}
+@font-face
+{
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'), url(/ui/font/oswald400n.ttf) format('truetype');
+}
+@font-face
+{
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Oswald Bold'), local('Oswald-Bold'), url(/ui/font/oswald700n.ttf) format('truetype');
+}
+
+/* links in the banner */
+a.portal_bannerLink:link,
+a.portal_bannerLink:visited,
+a.portal_bannerLink:hover,
+a.portal_bannerLink:active,
+a.portal_bannerLink:focus
+{
+	color: #B3B3B3; /*#909090;*/
+	text-decoration: none;
+}
+
+/* links in the banner - right icon */
+a.portal_bannerLinkIR:link,
+a.portal_bannerLinkIR:visited,
+a.portal_bannerLinkIR:hover,
+a.portal_bannerLinkIR:active,
+a.portal_bannerLinkIR:focus
+{
+	color: #B3B3B3; /*#909090;*/
+	text-decoration: none;
+	background-position: right center;
+	background-repeat: no-repeat;
+	padding-right: 26px;
+}
+
+/* links in the banner - left icon */
+a.portal_bannerLinkIL:link,
+a.portal_bannerLinkIL:visited,
+a.portal_bannerLinkIL:hover,
+a.portal_bannerLinkIL:active,
+a.portal_bannerLinkIL:focus
+{
+	color: #B3B3B3; /*#909090;*/
+	text-decoration: none;
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding-left: 26px;
+}
+
+/* for portal menus */
+div.portal_menu div:first-child
+{
+	padding-top: 18px;
+}
+div.portal_menu div:last-child
+{
+	padding-bottom: 18px;
+}
+
+/* for e3_modebar */
+.e3_modebar
+{
+	width: 100%;	
+	background-color: #E4E2E3;
+	height: 34px;
+	line-height: 34px;
+	position: relative;
+}
+a.e3_modebar_mode
+{
+	padding: 0px 20px;
+	color: #888888;
+	background-color: #E4E2E3;
+	border-right: 1px solid #DADADA;
+	text-decoration: none;
+	display: inline-block;
+	height: 34px;
+	font-family: Oswald, sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+a.e3_modebar_mode.current
+{
+	color: black;
+	background-color: #C0C0C0;
+}
+
+/* for the sort actions refined from e3_infoBlock */
+div.e3_panelHeaderBar div.e3_sortAction
+{
+	border: none;
+}
+div.e3_panelHeaderBar div.e3_panelHeaderBarRight div.e3_sortAction
+{
+	border:none;
+}
+div.e3_sortAction a.dir
+{
+}
+div.e3_sortAction a.val
+{
+	font-family: Oswald, sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #686868;
+}
+a.e3_sortDir svg
+{
+	width: 14px;
+	height: 14px;
+	padding: 2px;
+	fill: #686868;
+	vertical-align: middle;
+}
+a.e3_sortDir:hover svg
+{
+	fill: black;
+	padding: 0px;
+	width: 18px;
+	height: 18px;
+}
+
+</style>
+
+<title i18n="title">Etudes</title>
+</head>
+<body id="portal_backdrop" style="background-attachment:fixed; background-size:cover; background-position:center;">
+	<!-- z model: banner z:99, menus z:100, tool pinning content z:90 -->
+	<!-- banner -->
+	<div id="portal_banner_area"class="e3_text special" style="height:100px; font-size:20px; color:#909090;">
+		<div id="portal_banner" style="width:100%; height:100px; background-color:rgba(0,0,0,0.6); z-index:99; position:relative;">
+			<div id="portal_banner_bigLogo" style="position:absolute; top:0px; right:40px; width:344px; height:100px; z-index:100;">
+				<a href="" class="e3_simple" id="portal_banner_bigLogoA"><img src="/ui/art/logo/etudes_large.png" /></a>
+			</div>
+			<div style="position:absolute; top:0; left:0; width:100%; height:100px;">
+				<img id="portal_clientLogo" style="display:block; margin:8px auto;" src="/ui/art/logo/hartnell.png" />
+			</div>
+			<div style="position:absolute; top:0; left:0; width:100%; height:100px;">
+				<div style="height:50px; position:relative;"></div>
+				<div id="portal_banner_bottomLine" class="e3_shadowed" style="height:50px; position:relative; z-index:99;">
+					<div id="portal_banner_smallLogo" style="position:absolute; right:40px; bottom:0px;">
+						<a href="" class="e3_simple" id="portal_banner_smallLogoA"><img src="/ui/art/logo/etudes_small.png" /></a>
+					</div>
+					<div style="position:absolute; left:32px; bottom:5px;">
+						<a id="portal_menuName" class="portal_bannerLinkIR" href="" style="background-image:url('/ui/art/icon/menu.png'); padding-left:16px; margin-right:14px;" i18n="header_menu">MENU</a>
+						<a id="portal_online" class="portal_bannerLinkIL" href="" style="background-image:url('/ui/art/icon/online.png'); padding-left:16px; margin-right:14px; background-position:16px center; width:44px; display:inline-block; text-align:right;"><span id="portal_online_count" style="color:#19BF00; font-size:12px; vertical-align:3px;"></span></a>
+						<a id="portal_siteName" class="portal_bannerLink" href="" style="display:inline-block; padding-left:16px; margin-right:14px; vertical-align:top;"><span id="portal_siteNameText" class="e3_text special ellipsis" style="display:inline-block; max-width:212px; vertical-align:top;"></span><img style="margin-left:8px; position:relative; top:-2px" src="/ui/art/icon/falldown.png" /></a>
+						<a id="portal_userName" class="portal_bannerLink" href="" style="display:inline-block; text-transform:uppercase; width:140px; padding-left:16px; vertical-align:top;"><span id="portal_userNameText" class="e3_text special ellipsis" style="display:inline-block; max-width:122px; vertical-align:top;"></span><img style="margin-left:8px; position:relative; top:-2px" src="/ui/art/icon/falldown.png" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="portal_usernav" class="e3_offstage e3_shadowed portal_menu" style="position:absolute; z-index:100;"></div>
+		<div id="portal_sitenav" class="e3_offstage e3_shadowed portal_menu" style="position:absolute; z-index:100;"></div>
+		<div id="portal_onlineList" class="e3_offstage e3_shadowed portal_menu" style="position:absolute; z-index:100;"></div>
+		<div id="portal_menu" class="e3_offstage e3_shadowed portal_menu" style="position:absolute; z-index:100;"></div>
+		<div id="portal_contextMenu" class="e3_offstage e3_shadowed portal_menu" style="position:absolute; z-index:100;"></div>
+	</div>
+
+<!-- tool stage - one full width area -->
+	<!-- full screen height (100vh) minus the heights of the top banner (100) and bottom footer (32) and 48 padding -->
+	<div id="portal_toolStage" style="min-height:calc(100vh - 180px); padding:24px 40px;"></div>
+
+<!-- footer -->
+	<div class="e3_text special light" style="height:32px; line-height:32px; font-size:12px; color:white; background-color:rgba(0,0,0,0.6); position:relative;">
+		<div style="position:absolute; left:48px;">&copy; 2008 - 2015, Etudes, Inc.  All rights reserved.</div>
+		<div style="position:absolute; right:48px;">SerenityAlpha - dev</div>
+		<div id="portal_footer_bkgName" style="position:absolute; right:200px;"></div>
+	</div>
+
+	<!--  -->
+	<!-- general support -->
+	<!--  -->
+	<div i18n="problemTitle" id="portal_cdpFailure" title="Problem with Request" style="display: none;">
+		<div i18n="problem" class="e3_dialogBody">Unable to contact Etudes at this time.</div>
+	</div>
+
+	<div i18n="notLoggedInTitle" id="portal_notLoggedIn" title="Access Denied" style="display: none;">
+		<div i18n="notLoggedIn" class="e3_dialogBody">You are not logged in.</div>
+	</div>
+
+	<div i18n="title_confirmExit" id="portal_confirmExit" title="Unsaved Work" style="display: none;">
+		<div i18n="msg_confirmExit" class="e3_dialogBody">Wait! You are leaving behind unsaved work. Would you like to save before continuing?</div>
+	</div>
+
+	<div id="portal_attributionTemplate" class="e3_offstage">
+		<div style="display:table; font-style: italic; font-size: 10px; padding-right: 10px; float:right;">
+			<div id="portal_attributionTemplate_row_extra" style="display:table-row"><div id="portal_attributionTemplate_extra_label" style="display:table-cell; text-align:right; padding-right:10px;"></div><div style="display:table-cell" id="portal_attributionTemplate_extra"></div></div>
+			<div id="portal_attributionTemplate_row_id" style="display:table-row"><div style="display:table-cell; text-align:right; padding-right:10px;" i18n="label_id"></div><div style="display:table-cell" id="portal_attributionTemplate_id"></div></div>
+			<div id="portal_attributionTemplate_row_created" style="display:table-row"><div style="display:table-cell; text-align:right; padding-right:10px;" i18n="label_created"></div><div style="display:table-cell" id="portal_attributionTemplate_created"></div></div>
+			<div id="portal_attributionTemplate_row_modified" style="display:table-row"><div style="display:table-cell; text-align:right; padding-right:10px;" i18n="label_modified"></div><div style="display:table-cell" id="portal_attributionTemplate_modified"></div></div>
+		</div>
+		<div style="clear:both;"></div>
+	</div>
+
+ 	<div id="portal_itemNavTemplate" class="e3_offstage" style="background-color:white; height:52px; line-height:52px;">
+ 		<div class="e3_action return"><a id="portal_itemNavTemplate_return" i18n="a_return" href="">RETURN</a></div>
+		<div class="e3_action done"><a id="portal_itemNavTemplate_done" i18n="a_done" e3_hoverBkg="#2AB31D" href="">DONE</a></div>
+<!--  		<div class="e3_action titledInvertedGreen"><a id="portal_itemNavTemplate_save" class="e3_text special" e3_hoverBkg="#FFFFFF" e3_hoverFg="#2AB31D" style="border:2px solid #2AB31D; height:48px;" href="" i18n="action_save">SAVE</a></div> -->
+		<div class="e3_action titledGreen"><a id="portal_itemNavTemplate_save" class="e3_text special" href="" e3_hoverBkg="#2AB31D" i18n="action_save">SAVE</a></div>
+ 		<div class="e3_action prev"><a id="portal_itemNavTemplate_prev" i18n="a_prev" href="">PREV</a></div>
+ 		<div class="e3_text special" id="portal_itemNavTemplate_pos" style="display:inline-block; padding:0px 16px; height:52px; border-right:1px solid #D0D0D0; font-size:12px; color:#808080; text-align:center; letter-spacing:1px;"></div>
+ 		<div class="e3_action next"><a id="portal_itemNavTemplate_next" i18n="a_next" href="">NEXT</a></div>
+	</div>
+
+	<div id="e3_Modebar_saveDiscardTemplate" class="e3_offstage">
+		<div style="position:absolute; top:0px; right:0px;">
+			<a id="e3_Modebar_saveDiscardTemplate_save" class="e3_text special green inverted e3_offstage" href="" style="display:inline-block; height:32px; line-height:32px; font-size:12px; letter-spacing:1px; text-decoration:none; padding:0px 20px;" i18n="action_save">SAVE</a
+			><a id="e3_Modebar_saveDiscardTemplate_discard" class="e3_text special red inverted e3_offstage" href="" style="display:inline-block; height:32px; line-height:32px; font-size:12px; letter-spacing:1px; text-decoration:none; padding:0px 20px;" i18n="action_discard">DISCARD</a
+		></div>
+	</div>
+
+	<div id="e3_evaluation_rubricDisplay_template" class="e3_offstage">
+		<div id="e3_evaluation_rubricDisplay_template_body">
+			<div class="e3_text_dark" style="width:100%; color:black; font-size:14px; margin-top:8px; margin-bottom:8px;"
+				><div class="e3_text ellipsis" id="e3_evaluation_rubricDisplay_template_scale_0" style="display:inline-block; width:calc((100% / 6) - 27px); margin-right:8px; padding:2px 8px; border:1px solid #A8A8A8;"></div
+				><div class="e3_text ellipsis" id="e3_evaluation_rubricDisplay_template_scale_1" style="display:inline-block; width:calc((100% / 6) - 27px); margin-right:8px; padding:2px 8px; border:1px solid #A8A8A8;"></div
+				><div class="e3_text ellipsis" id="e3_evaluation_rubricDisplay_template_scale_2" style="display:inline-block; width:calc((100% / 6) - 27px); margin-right:8px; padding:2px 8px; border:1px solid #A8A8A8;"></div
+				><div class="e3_text ellipsis" id="e3_evaluation_rubricDisplay_template_scale_3" style="display:inline-block; width:calc((100% / 6) - 27px); margin-right:8px; padding:2px 8px; border:1px solid #A8A8A8;"></div
+				><div class="e3_text ellipsis" id="e3_evaluation_rubricDisplay_template_scale_4" style="display:inline-block; width:calc((100% / 6) - 27px); margin-right:8px; padding:2px 8px; border:1px solid #A8A8A8;"></div
+				><div class="e3_text ellipsis" id="e3_evaluation_rubricDisplay_template_scale_5" style="display:inline-block; width:calc((100% / 6) - 27px); margin-right:8px; padding:2px 8px; border:1px solid #A8A8A8;"></div
+			></div>
+			<div id="e3_evaluation_rubricDisplay_template_criteria"></div>
+		</div>
+	</div>
+
+	<div id="e3_evaluation_rubricDisplay_criterion_template" class="e3_offstage">
+		<div id="e3_evaluation_rubricDisplay_criterion_template_body" style="color: #656565;">
+			<div id="e3_evaluation_rubricDisplay_criterion_template_description" class="e3_text" style="margin-top:16px; margin-left:32px;"></div>
+		</div>
+	</div>
+
+	<div id="e3_evaluation_rubricView_criterion_template" class="e3_offstage">
+		<div id="e3_evaluation_rubricView_criterion_template_body" style="padding-bottom:24px;">
+			<div class="e3_text" style="width:100%; color:black; font-size:13px; padding-bottom:6px;">
+				<div id="e3_evaluation_rubricView_criterion_template_description"></div>
+			</div>
+			<div class="e3_text" style="width:100%; color:black; font-size:12px;">
+				<div id="e3_evaluation_rubricView_criterion_template_standard_0" style="display:inline-block; vertical-align:top; width:calc((100% / 6) - 27px); margin-right:8px; padding:2px 8px; height:100px; border:1px solid #A8A8A8; vertical-align:top; overflow-x:hidden; overflow-y:auto; color:#686868;"><span id="e3_evaluation_rubricView_criterion_template_standard_0_level" class="e3_text ellipsis special bold" style="display:block; text-align:center; text-transform:uppercase; color:black;"></span><span id="e3_evaluation_rubricView_criterion_template_standard_0_standard" style="display:block; margin-top:6px;"></span></div
+				><div id="e3_evaluation_rubricView_criterion_template_standard_1" style="display:inline-block; vertical-align:top; width:calc((100% / 6) - 27px); margin-right:8px; padding:2px 8px; height:100px; border:1px solid #A8A8A8; vertical-align:top; overflow-x:hidden; overflow-y:auto; color:#686868;"><span id="e3_evaluation_rubricView_criterion_template_standard_1_level" class="e3_text ellipsis special bold" style="display:block; text-align:center; text-transform:uppercase; color:black;"></span><span id="e3_evaluation_rubricView_criterion_template_standard_1_standard" style="display:block; margin-top:6px;"></span></div
+				><div id="e3_evaluation_rubricView_criterion_template_standard_2" style="display:inline-block; vertical-align:top; width:calc((100% / 6) - 27px); margin-right:8px; padding:2px 8px; height:100px; border:1px solid #A8A8A8; vertical-align:top; overflow-x:hidden; overflow-y:auto; color:#686868;"><span id="e3_evaluation_rubricView_criterion_template_standard_2_level" class="e3_text ellipsis special bold" style="display:block; text-align:center; text-transform:uppercase; color:black;"></span><span id="e3_evaluation_rubricView_criterion_template_standard_2_standard" style="display:block; margin-top:6px;"></span></div
+				><div id="e3_evaluation_rubricView_criterion_template_standard_3" style="display:inline-block; vertical-align:top; width:calc((100% / 6) - 27px); margin-right:8px; padding:2px 8px; height:100px; border:1px solid #A8A8A8; vertical-align:top; overflow-x:hidden; overflow-y:auto; color:#686868;"><span id="e3_evaluation_rubricView_criterion_template_standard_3_level" class="e3_text ellipsis special bold" style="display:block; text-align:center; text-transform:uppercase; color:black;"></span><span id="e3_evaluation_rubricView_criterion_template_standard_3_standard" style="display:block; margin-top:6px;"></span></div
+				><div id="e3_evaluation_rubricView_criterion_template_standard_4" style="display:inline-block; vertical-align:top; width:calc((100% / 6) - 27px); margin-right:8px; padding:2px 8px; height:100px; border:1px solid #A8A8A8; vertical-align:top; overflow-x:hidden; overflow-y:auto; color:#686868;"><span id="e3_evaluation_rubricView_criterion_template_standard_4_level" class="e3_text ellipsis special bold" style="display:block; text-align:center; text-transform:uppercase; color:black;"></span><span id="e3_evaluation_rubricView_criterion_template_standard_4_standard" style="display:block; margin-top:6px;"></span></div
+				><div id="e3_evaluation_rubricView_criterion_template_standard_5" style="display:inline-block; vertical-align:top; width:calc((100% / 6) - 27px); margin-right:8px; padding:2px 8px; height:100px; border:1px solid #A8A8A8; vertical-align:top; overflow-x:hidden; overflow-y:auto; color:#686868;"><span id="e3_evaluation_rubricView_criterion_template_standard_5_level" class="e3_text ellipsis special bold" style="display:block; text-align:center; text-transform:uppercase; color:black;"></span><span id="e3_evaluation_rubricView_criterion_template_standard_5_standard" style="display:block; margin-top:6px;"></span></div
+			></div>
+		</div>
+	</div>
+
+	<div id="e3_evaluation_grade_criterion_template" class="e3_offstage">
+		<div id="e3_evaluation_grade_criterion_template_body" style="padding-bottom:24px;">
+			<div class="e3_text" style="width:100%; color:black; font-size:13px; padding-bottom:6px;">
+				<div id="e3_evaluation_grade_criterion_template_description"></div>
+			</div>
+			<div class="e3_text" style="width:100%; font-size:12px;">
+				<div id="e3_evaluation_grade_criterion_template_scale_0" style="display:inline-block; vertical-align:top; width:calc((100% / 6) - 25px); height:100px; overflow-y:auto; margin-right:8px; padding:0px 6px; border:2px solid #A8A8A8;"><a href="" style="width:100%; height:100%; display:block; text-decoration:none; color:#686868;"><span id="e3_evaluation_grade_criterion_template_scale_0_level" class="e3_text ellipsis special" style="display:block; text-align:center; text-transform:uppercase;"></span><span id="e3_evaluation_grade_criterion_template_scale_0_standard" style="display:block; margin-top:6px;"></span></a></div
+				><div id="e3_evaluation_grade_criterion_template_scale_1" style="display:inline-block; vertical-align:top; width:calc((100% / 6) - 25px); height:100px; overflow-y:auto; margin-right:8px; padding:0px 6px; border:2px solid #A8A8A8;"><a href="" style="width:100%; height:100%; display:block; text-decoration:none; color:#686868;"><span id="e3_evaluation_grade_criterion_template_scale_1_level" class="e3_text ellipsis special" style="display:block; text-align:center; text-transform:uppercase;"></span><span id="e3_evaluation_grade_criterion_template_scale_1_standard" style="display:block; margin-top:6px;"></span></a></div
+				><div id="e3_evaluation_grade_criterion_template_scale_2" style="display:inline-block; vertical-align:top; width:calc((100% / 6) - 25px); height:100px; overflow-y:auto; margin-right:8px; padding:0px 6px; border:2px solid #A8A8A8;"><a href="" style="width:100%; height:100%; display:block; text-decoration:none; color:#686868;"><span id="e3_evaluation_grade_criterion_template_scale_2_level" class="e3_text ellipsis special" style="display:block; text-align:center; text-transform:uppercase;"></span><span id="e3_evaluation_grade_criterion_template_scale_2_standard" style="display:block; margin-top:6px;"></span></a></div
+				><div id="e3_evaluation_grade_criterion_template_scale_3" style="display:inline-block; vertical-align:top; width:calc((100% / 6) - 25px); height:100px; overflow-y:auto; margin-right:8px; padding:0px 6px; border:2px solid #A8A8A8;"><a href="" style="width:100%; height:100%; display:block; text-decoration:none; color:#686868;"><span id="e3_evaluation_grade_criterion_template_scale_3_level" class="e3_text ellipsis special" style="display:block; text-align:center; text-transform:uppercase;"></span><span id="e3_evaluation_grade_criterion_template_scale_3_standard" style="display:block; margin-top:6px;"></span></a></div
+				><div id="e3_evaluation_grade_criterion_template_scale_4" style="display:inline-block; vertical-align:top; width:calc((100% / 6) - 25px); height:100px; overflow-y:auto; margin-right:8px; padding:0px 6px; border:2px solid #A8A8A8;"><a href="" style="width:100%; height:100%; display:block; text-decoration:none; color:#686868;"><span id="e3_evaluation_grade_criterion_template_scale_4_level" class="e3_text ellipsis special" style="display:block; text-align:center; text-transform:uppercase;"></span><span id="e3_evaluation_grade_criterion_template_scale_4_standard" style="display:block; margin-top:6px;"></span></a></div
+				><div id="e3_evaluation_grade_criterion_template_scale_5" style="display:inline-block; vertical-align:top; width:calc((100% / 6) - 25px); height:100px; overflow-y:auto; margin-right:8px; padding:0px 6px; border:2px solid #A8A8A8;"><a href="" style="width:100%; height:100%; display:block; text-decoration:none; color:#686868;"><span id="e3_evaluation_grade_criterion_template_scale_5_level" class="e3_text ellipsis special" style="display:block; text-align:center; text-transform:uppercase;"></span><span id="e3_evaluation_grade_criterion_template_scale_5_standard" style="display:block; margin-top:6px;"></span></a></div
+			></div>
+		</div>
+	</div>
+
+	<div id="e3_evaluation_review_criterion_template" class="e3_offstage">
+		<div id="e3_evaluation_review_criterion_template_body" style="padding-bottom:24px;">
+			<div class="e3_text" style="width:100%; color:black; font-size:14px; padding-bottom:6px;">
+				<div id="e3_evaluation_review_criterion_template_description"></div>
+			</div>
+			<div style="width:100%; font-size:12px; margin-bottom:8px;">
+				<div class="e3_text ellipsis special" id="e3_evaluation_review_criterion_template_scale" style="text-transform:uppercase; padding:2px 24px; text-align:right; border:1px solid #A8A8A8;"></div>
+			</div>
+			<div style="padding:0px 24px;">
+				<div class="e3_text" style="font-size:12px;"id="e3_evaluation_review_criterion_template_standard"></div
+			></div>
+		</div>
+	</div>
+
+	<div id="e3_filer_template" class="e3_offstage">
+		<div id="e3_filer_template_bodyH">
+			<input id="e3_filer_template_upload" class="e3_offstage" type="file" accept="*" />
+			<div id="e3_filer_actionbar" class="e3_panelHeaderBar">
+				<div class="e3_action titled"><a id="e3_filer_view" i18n="a_view" href="">VIEW</a></div
+				><div class="e3_action titled"><a id="e3_filer_dowload" i18n="a_download" href="">DOWNLOAD</a></div
+				><div class="e3_action titled"><a id="e3_filer_rename" i18n="a_rename" href="">RENAME</a></div
+				><div class="e3_action titled"><a id="e3_filer_replace" i18n="a_replace" href="">REPLACE</a></div
+				><div class="e3_action delete"><a id="e3_filer_delete" i18n="a_delete" href="">DELETE</a></div
+				><div class="e3_action titled right"><a id="e3_filer_upload" i18n="a_upload" href="">UPLOAD</a></div
+			></div>
+			<div id="e3_filer_tableHeaders" class="e3_table_headerRow"> <!-- 40 [ 16+32 48+8 32+8 x+8 100+8 200+8 8+150+32 ] 40 | *20 -->
+				<div class="icon"></div
+				><div id="e3_filer_headerPick" style="width:48px; text-align:center;" i18n="header_select">PICK</div
+				><div style="width:32px;"></div
+				><div style="width:calc(100vw - 100px - 658px); min-width:calc(1200px - 100px - 658px);" i18n="header_name">NAME</div
+				><div style="width:100px;" i18n="header_size">SIZE</div
+				><div style="width:200px;" i18n="header_type">TYPE</div
+				><div class="date" i18n="header_date">DATE</div
+			></div>
+		</div>
+		<div id="e3_filer_template_bodyB">
+			<div id="e3_filer_tableHeight" style="height:200px; overflow-y:scroll;"><!-- overflow-x:hidden; -->
+				<table id="e3_filer_template_filesTable" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+			</div>
+			<div id="e3_filer_template_none" i18n="msg_noResources" class="e3_note e3_offstage" style="padding-top:24px;">There are no resources.</div>
+			<hr id="e3_filer_tableFooter" style="height:12px; border:0; box-shadow:inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);" />
+		</div>
+	</div> 
+	
+	<div id="e3_sortActionTemplate" class="e3_offstage">
+		<div id="e3_sortActionTemplate_body" class="e3_infoBlock e3_sortAction" transient="true">
+			<div id="e3_sortActionTemplate_label" style="text-transform:uppercase;">SORT</div>
+			<div style="position:relative; top:-2px;">
+				<a id="e3_sortActionTemplate_a" class="dir e3_sortDir e3_offstage" href="" i18n="a_asc"><svg><use xlink:href="#icon-sort-asc"></use></svg></a>
+				<a id="e3_sortActionTemplate_d" class="dir e3_sortDir e3_offstage" href="" i18n="a_desc"><svg><use xlink:href="#icon-sort-desc"></use></svg></a>
+				<a id="e3_sortActionTemplate_value" class="val" href=""><span id="e3_sortActionTemplate_value_text"></span><img style="margin-left:8px; position:relative; top:-2px" src="/ui/art/icon/falldown.png" /></a>
+			</div>
+		</div>
+	</div>
+
+	<div i18n="title_confirmUpload" id="e3_filer_template_confirmUpload" title="Duplicates Found" style="display: none;">
+		<div i18n="msg_confirmUpload" class="e3_dialogBody">This upload contains files named the same as files already uploaded.  Do you want to replace existing files, or keep them, renaming the new files?</div>
+	</div>
+
+	<div i18n="title_noFileSelected" id="e3_filer_select1First" title="Nothing Selected" style="display: none;">
+		<div i18n="msg_noFileSelected" class="e3_dialogBody">First select a file before performing that action.</div>
+	</div>
+
+	<div i18n="title_noFilesSelected" id="e3_filer_selectFirst" title="Nothing Selected" style="display: none;">
+		<div i18n="msg_noFilesSelected" class="e3_dialogBody">First select one or more files before performing that action.</div>
+	</div>
+
+	<div i18n="title_confirmFileRemove" id="e3_filer_confirmRemove" title="Remove Files" style="display: none;">
+		<div i18n="msg_confirmFileRemove" class="e3_dialogBody">Are you sure you want to remove the selected file(s)?</div>
+	</div>
+
+	<div i18n="title_noDelete" id="e3_filer_noDelete" title="May Not Delete" style="display: none;">
+		<div i18n="msg_noDelete" class="e3_dialogBody">The selected file is in use and may not be deleted.</div>
+	</div>
+
+	<div i18n="title_replaceConflict" id="e3_filer_replaceConflict" title="Name Conflict" style="display: none;">
+		<div i18n="msg_replaceConflict"class="e3_dialogBody">You already have a file with this name.</div>
+	</div>
+
+	<div i18n="title_renameConflict"id="e3_filer_renameConflict" title="Name Conflict" style="display: none;">
+		<div i18n="msg_renameConflict"class="e3_dialogBody">Choose a unique name.</div>
+	</div>
+
+	<div id="portal_usernavTemplate" class="e3_offstage" style="background-color:black; font-size:18px; width:170px; height:32px;"><a id="portal_usernavTemplateA" class="e3_text special light" href="" style="display:block; padding: 0px 16px; line-height:32px; color:white; text-decoration:none;"></a></div>
+	<div id="portal_sitenavTemplate" class="e3_offstage" style="background-color:black; font-size:18px; width:260px; height:32px;"><a id="portal_sitenavTemplateA" class="e3_text special light ellipsis" href="" style="display:block; padding: 0px 16px; line-height:32px; color:white; text-decoration:none;"></a></div>
+	<div id="portal_sitenavClosedTemplate" class="e3_offstage" style="background-color:black; font-size:18px; font-style:italic; width:260px; height:32px;"><a id="portal_sitenavClosedTemplateA" class="e3_text special light ellipsis" href="" style="display:block; padding: 0px 16px; color:#808080; text-decoration:none;"></a></div>
+	<div id="portal_onlineTemplate" class="e3_offstage" style="background-color:#EAEAEA; font-size:18px; width:260px; height:32px; overflow:hidden;"><span id="portal_onlineTemplateA" class="e3_text special light ellipsis" style="display:block; padding:0px 16px; color:#909090; line-height:32px; white-space:nowrap;"></span></div>
+	<div id="portal_menuTemplate" class="e3_offstage" style="background-color:black; font-size:18px; width:260px; height:32px;"><a id="portal_menuTemplateA" class="e3_text light special" href="" style="display:block; padding:0px 16px; line-height:32px; color:white; text-decoration:none;"></a></div>
+	<div id="portal_menuAdminTemplate" class="e3_offstage" style="background-color:#DDDDDD; font-size:14px; width:260px; height:32px;"><a id="portal_menuAdminTemplateA" class="e3_text special" href="" style="display:block; padding:0px 16px; line-height:32px; color:#333333; text-decoration:none;"></a></div>
+	<div id="portal_menuLinkTemplate" class="e3_offstage" style="background-color:white; font-size:14px; width:260px; height:32px; overflow:hidden;"><a id="portal_menuLinkTemplateA" class="e3_text special bold ellipsis" href="" target="_blank" style="display:block; padding:0px 16px; line-height:32px; color:#686868; text-decoration:none; white-space:nowrap;"></a></div>
+	<div id="portal_contextMenuTemplate" class="e3_offstage" style="background-color:#686868; font-size:16px;"><a id="portal_portal_contextMenuTemplateA" class="e3_text special light" href="" style="display:block; padding:0px 16px; color:white; text-decoration:none; white-space:nowrap; text-align:center;"></a></div>
+	<div id="portal_contextMenuTemplateDivider" class="e3_offstage" style="background-color:#686868; font-size:16px;"><hr style="display:block; padding:0px 16px; color:white; text-decoration:none; white-space:nowrap; text-align:center;"/></div>
+
+<!-- 	<div id="portal_menuLinkDividerTATemplate" class="e3_offstage" style="width:0; height:0; border-left:260px solid black; border-bottom:32px solid #DDDDDD;"></div> -->
+	<div id="portal_menuLinkDividerTATemplate" class="e3_offstage" style="width:260; height:32;"><img style="vertical-align:top;" src="/ui/art/icon/menu-divider-bg2.png" /></div>
+
+<!-- 	<div id="portal_menuLinkDividerALTemplate" class="e3_offstage" style="width:0; height:0; border-left:260px solid #DDDDDD; border-bottom:32px solid white;"></div> -->
+	<div id="portal_menuLinkDividerALTemplate" class="e3_offstage" style="width:260; height:32;"><img style="vertical-align:top;" src="/ui/art/icon/menu-divider-gw2.png" /></div>
+
+<!--  	<div id="portal_menuLinkDividerTLTemplate" class="e3_offstage" style="width:0; height:0; border-left:260px solid black; border-bottom:32px solid white;"></div> -->
+ 	<div id="portal_menuLinkDividerTLTemplate" class="e3_offstage" style="width:260; height:32;"><img style="vertical-align:top;" src="/ui/art/icon/menu-divider-bw2.png" /></div>
+
+	<div id="e3_FilerCK_dialog" i18n="" title="Select a File" style="display: none; z-index:20000;">
+		<div class="e3_dialogBody">
+			<div id="e3_FilerCK_dialog_filer"></div>
+		</div>
+	</div>
+
+	<div id="e3_EvaluationEditTemplate" class="e3_offstage">
+		<fieldset class="e3_editFieldsTB">
+			<div class="e3_editFieldsEntry compact">
+				<div class="e3_editFieldsBody roomForInput">
+					<div class="e3_editFieldsBodyLine">					
+						<input id="e3_EvaluationEdit_useRubric" type="checkbox" /><label i18n="label_useRubric" for="e3_EvaluationEdit_worthPoints">Grade With Rubric:</label>
+						<select class="e3_data" id="e3_EvaluationEdit_rubric" style="border:none;"></select>
+					</div>
+				</div>
+			</div>
+			<div class="e3_editFieldsEntry compact">
+				<div class="e3_editFieldsBody roomForInput">
+					<div class="e3_editFieldsBodyLine">					
+						<input id="e3_EvaluationEdit_worthPoints" type="checkbox" /><label i18n="label_worthPoints" for="e3_EvaluationEdit_worthPoints">Worth Points</label>
+						<input class="e3_input" id="e3_EvaluationEdit_points" value="" /><span id="e3_EvaluationEdit_pointsSet" class="e3_offstage" style="color:#ADADAD; font-size:12px; padding-left:6px; vertical-align: top;"></span>
+					</div>
+				</div>
+			</div>
+			<div class="e3_editFieldsEntry compact">
+				<div class="e3_editFieldsBody roomForInput">
+					<div class="e3_editFieldsBodyLine">					
+						<input id="e3_EvaluationEdit_autoRelease" type="checkbox" /><label i18n="label_autoRelease" for="e3_EvaluationEdit_autoRelease">Auto Release</label>
+					</div>
+				</div>
+			</div>
+			<div class="e3_editFieldsEntry compact">
+				<div class="e3_editFieldsBody roomForInput">
+					<div class="e3_editFieldsBodyLine">					
+						<input id="e3_EvaluationEdit_anonGrading" type="checkbox" /><label i18n="label_anonGrading" for="e3_EvaluationEdit_anonGrading">Anonymous Grading</label>
+					</div>
+				</div>
+			</div>
+			<div class="e3_editFieldsEntry">
+				<div class="e3_editFieldsTitle"></div>
+				<div class="e3_editFieldsBody roomForInput">
+					<div class="e3_editFieldsBodyLine">					
+						<input id="e3_EvaluationEdit_forGrade" type="checkbox" /><label i18n="label_forGrade" for="e3_EvaluationEdit_forGrade">Include In Gradebook:</label>
+						<select class="e3_data" id="e3_EvaluationEdit_category" style="border:none;" ></select>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+
+
+<!-- 	<div id="e3_EvaluationReviewLinkTemplate_notGraded" class="e3_offstage"> -->
+<!-- 		<div class="e3_text special light" style="width:138px;"  i18n="msg_unreleased">NOT GRADED</div> -->
+<!-- 	</div> -->
+
+	<div id="e3_EvaluationReviewLinkTemplate" class="e3_offstage">
+		<div style="width:150px; color:#656565;">
+			<div style="display:inline-block; width:80px; vertical-align:top;">
+				<div style="text-align:center; padding-top:8px;">
+					<div id="e3_EvaluationReviewLink_pct"></div>
+					<div id="e3_EvaluationReviewLink_score" style="font-size:10px;"></div>
+					<div id="e3_EvaluationReviewLink_notGraded" class="e3_text special light" style="font-size:12px;" i18n="msg_unreleased">NOT GRADED</div>
+					<div id="e3_EvaluationReviewLinkReviewUI"><span id="e3_EvaluationReviewLinkReviewDot" style="position:relative; top:2px; left:2px;"></span><a id="e3_EvaluationReviewLinkReview" href="" class="e3_simple e3_text special" style="width:auto; line-height:normal; padding:4px 6px; color:#656565;" i18n="msg_review">REVIEW</a></div>
+					<div id="e3_EvaluationReviewLinkNoReview" class="e3_text special" style="font-size:8px; text-transform:uppercase; cursor:default;"></div>
+				</div
+			></div
+			><div id="e3_EvaluationReviewLinkBars" style="display:inline-block; width:70px; vertical-align:top; margin-top:10px;"></div>
+		</div>
+	</div>
+
+<!-- 	<div id="e3_EvaluationReviewLinkTemplate" class="e3_offstage"> -->
+<!-- 		<div style="width:150px;"> -->
+<!-- 			<div style="display:inline-block; width:80px; vertical-align:top;"> -->
+<!-- 				<div style="display:inline-block; width:72px; text-align:center; padding:2px 4px 2px 4px;"> -->
+<!-- 					<div id="e3_EvaluationReviewLink_pct" class="e3_text" style="color:#656565;"></div> -->
+<!-- 					<div class="e3_text" style="font-size:10px;" id="e3_EvaluationReviewLink_score"></div> -->
+<!-- 				</div> -->
+<!-- 				<div id="e3_EvaluationReviewLinkReviewDot" style="top:2px; left:6px; position:relative; display:inline-block; width:24px;"></div -->
+<!-- 				><a id="e3_EvaluationReviewLinkReview" href="" class="e3_simple e3_text special" style="width:auto; vertical-align:top; line-height:normal; padding:4px 6px; color:#656565;"i18n="msg_review">REVIEW</a -->
+<!-- 			></div -->
+<!-- 			><div id="e3_EvaluationReviewLinkBars" style="display:inline-block; width:70px; vertical-align:top; margin-top:6px;"></div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+
+	<div id="e3_EvaluationGradeTemplate" class="e3_offstage">
+		<fieldset id="e3_EvaluationGrade_rubric" class="e3_editFieldsTB">
+			<div class="e3_editFieldsEntry">
+				<div class="e3_editFieldsTitle" style="margin-bottom:8px;"><label i18n="header_rubric">Rubric:</label></div>
+				<div id="e3_EvaluationGrade_rubricGrading"></div>		
+			</div>
+		</fieldset>
+		<fieldset class="e3_editFieldsTB">
+			<div class="e3_editFieldsEntry">
+				<div class="e3_editFieldsTitle"><label i18n="header_comment">Comment:</label></div>
+				<div id="e3_EvaluationGrade_comment" class="e3_editFieldsBody"></div>
+			</div>
+		</fieldset>
+		<fieldset class="e3_editFieldsLR">
+			<div class="e3_editFieldsEntry">
+				<div class="e3_editFieldsTitle"><label i18n="label_score" for="e3_EvaluationGrade_score">Score:</label></div>
+				<div class="e3_editFieldsBody"><input id="e3_EvaluationGrade_score" class="e3_input" size="4" value="" /><label for="e3_EvaluationGrade_score" id="e3_EvaluationGrade_points"></label></div>
+			</div>
+		</fieldset>
+		<fieldset class="e3_editFieldsTB">
+			<div class="e3_editFieldsEntry">
+				<div class="e3_editFieldsBody"><input id="e3_EvaluationGrade_evaluated" type="checkbox" /><label i18n="msg_markEvaluated" for="e3_EvaluationGrade_evaluated">Mark as <b>Evaluated</b></label></div>
+			</div>
+			<div class="e3_editFieldsEntry">
+				<div class="e3_editFieldsBody"><input id="e3_EvaluationGrade_released" type="checkbox" /><label i18n="msg_release" for="e3_EvaluationGrade_released"><b>Release</b> to Submitter</label></div>
+			</div>
+		</fieldset>
+	</div>
+
+	<div id="e3_EvaluationReviewTemplate" class="e3_offstage">
+<!-- 	<div id="e3_EvaluationReview_score" class="e3_sectionHeader" id="e3_EvaluationReview_score"></div> -->
+		<fieldset  id="e3_EvaluationReview_rubric" class="e3_editFieldsTB">
+			<div class="e3_editFieldsEntry">
+				<div class="e3_editFieldsTitle"><label i18n="header_rubric">Rubric:</label></div>
+				<div id="e3_EvaluationReview_rubricReview"></div>
+			</div>
+		</fieldset>
+		<fieldset id="e3_EvaluationReview_commentUI" class="e3_editFieldsTB">
+			<div class="e3_editFieldsEntry">
+				<div id="e3_EvaluationReviewTemplate_official" class="e3_editFieldsTitle e3_offstage"><label i18n="header_commentOfficial">Grader's Comment:</label></div>
+				<div id="e3_EvaluationReviewTemplate_peer"class="e3_editFieldsTitle e3_offstage"><label i18n="header_commentPeer">Reviewer's Comment:</label></div>
+				<div id="e3_EvaluationReview_comment" class="e3_specialBorder e3_content"></div>
+			</div>
+		</fieldset>
+	</div>
+
+	<div id="e3_EvaluationDisplayTemplate" class="e3_offstage">
+		<fieldset class="e3_editFieldsTB">
+<!-- 			<div class="e3_editFieldsTitle"><label i18n="header_grading">Grading</label></div> -->
+<!-- 			<div class="e3_editFieldsEntry"> -->
+<!-- 				<div class="e3_editFieldsBody"> -->
+<!-- 					<div id="e3_EvaluationDisplay_gradePoints" style="margin-left:24px;"></div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+			<div id="e3_EvaluationDisplay_criteria" class="e3_editFieldsEntry">
+				<div class="e3_editFieldsTitle" i18n="header_rubric">Rubric:</div>
+				<div class="e3_editFieldsBody">
+					<div id="e3_EvaluationDisplay_rubricView"></div>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+
+	<!-- SVG icons -->
+	<!-- from IcoMoon https://icomoon.io/ under http://creativecommons.org/licenses/by-sa/3.0/us/ -->
+	<!-- from IcoMoon "Entypo+" https://icomoon.io/ under http://creativecommons.org/licenses/by-sa/4.0 -->
+	<!-- from IcoMoon "IcoMoon - Free" under http://creativecommons.org/licenses/by/4.0/ -->
+	<svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<defs>
+			<!-- settings from Linecons -->
+			<symbol id="icon-settings" viewBox="0 0 1024 1024">
+				<path class="path1" d="M972.512 405.76l-98.048-19.648c-4.928-14.176-10.752-27.936-17.184-41.248l55.552-83.328c16.928-25.376 13.568-59.2-8-80.736l-61.568-61.568c-12.384-12.384-28.736-18.752-45.312-18.752-12.256 0-24.64 3.52-35.424 10.752l-83.328 55.52c-13.376-6.464-27.136-12.224-41.312-17.152l-19.648-98.080c-5.952-29.952-32.256-51.456-62.752-51.456h-87.040c-30.496 0-56.768 21.536-62.752 51.456l-19.648 98.080c-14.176 4.928-27.936 10.72-41.248 17.152l-83.296-55.52c-10.848-7.232-23.2-10.752-35.488-10.752-16.544 0-32.896 6.368-45.28 18.752l-61.536 61.568c-21.568 21.568-24.928 55.36-8 80.736l55.52 83.328c-6.464 13.344-12.224 27.104-17.152 41.28l-98.112 19.616c-29.92 5.984-51.456 32.256-51.456 62.752v87.040c0 30.496 21.536 56.8 51.456 62.752l98.080 19.68c4.928 14.176 10.72 27.936 17.152 41.248l-55.488 83.328c-16.928 25.376-13.568 59.2 8 80.736l61.568 61.568c12.384 12.384 28.736 18.752 45.28 18.752 12.288 0 24.672-3.552 35.456-10.752l83.328-55.552c13.344 6.496 27.104 12.256 41.28 17.184l19.616 98.048c5.984 29.952 32.256 51.488 62.752 51.488h87.040c30.496 0 56.8-21.568 62.752-51.488l19.68-98.048c14.176-4.928 27.936-10.752 41.248-17.184l83.328 55.552c10.816 7.2 23.2 10.752 35.424 10.752 16.576 0 32.928-6.368 45.312-18.752l61.568-61.568c21.568-21.568 24.928-55.36 8-80.736l-55.552-83.328c6.496-13.376 12.256-27.136 17.184-41.312l98.048-19.616c29.92-5.92 51.488-32.256 51.488-62.752v-87.040c0-30.496-21.568-56.768-51.488-62.752zM861.888 575.2c-22.24 4.448-40.448 20.32-47.872 41.76-4.128 11.808-8.928 23.264-14.304 34.368-9.952 20.448-8.256 44.576 4.32 63.424l55.552 83.328-61.568 61.568-83.328-55.552c-10.688-7.136-23.072-10.752-35.488-10.752-9.504 0-19.072 2.112-27.872 6.368-11.136 5.376-22.56 10.24-34.432 14.368-21.376 7.424-37.248 25.632-41.696 47.872l-19.68 98.112h-87.040l-19.616-98.112c-4.448-22.24-20.32-40.448-41.728-47.872-11.808-4.128-23.296-8.928-34.4-14.304-8.832-4.32-18.368-6.432-27.904-6.432-12.448 0-24.8 3.616-35.488 10.752l-83.328 55.552-61.568-61.568 55.52-83.328c12.576-18.88 14.208-43.008 4.384-63.36-5.376-11.136-10.208-22.56-14.336-34.432-7.424-21.376-25.664-37.248-47.872-41.696l-98.080-19.68-0.064-87.072 98.112-19.616c22.208-4.448 40.448-20.32 47.872-41.728 4.128-11.808 8.896-23.296 14.304-34.4 9.92-20.416 8.256-44.544-4.352-63.392l-55.488-83.328 61.536-61.568 83.328 55.52c10.688 7.136 23.072 10.752 35.488 10.752 9.504 0 19.040-2.112 27.872-6.368 11.104-5.376 22.56-10.208 34.4-14.336 21.408-7.424 37.28-25.664 41.728-47.872l19.648-98.080 87.040-0.032 19.616 98.112c4.448 22.208 20.32 40.448 41.76 47.872 11.808 4.128 23.264 8.896 34.368 14.304 8.864 4.288 18.368 6.4 27.936 6.4 12.448 0 24.8-3.616 35.488-10.752l83.328-55.52 61.568 61.568-55.552 83.328c-12.576 18.88-14.176 42.976-4.384 63.36 5.376 11.104 10.24 22.56 14.368 34.4 7.424 21.408 25.632 37.28 47.872 41.728l98.048 19.648 0.096 87.040-98.112 19.648zM512 288.032c-123.68 0-224 100.32-224 224 0 123.712 100.32 224 224 224s224-100.32 224-224c0-123.68-100.32-224-224-224zM512 708.064c-108.224 0-196-87.808-196-196 0-108.224 87.776-196 196-196 108.192 0 196 87.776 196 196 0 108.192-87.808 196-196 196zM512 384.032c-70.72 0-128 57.28-128 128 0 70.688 57.28 128 128 128 70.688 0 128-57.312 128-128s-57.312-128-128-128zM512 608.064c-52.992 0-96-43.008-96-96s43.008-96 96-96 96 43.008 96 96c0 52.992-43.008 96-96 96z"></path>
+			</symbol>
+
+<!-- 			<!-- trash from Linecons --> -->
+<!-- 			<symbol id="icon-trash" viewBox="0 0 1024 1024"> -->
+<!-- 				<path d="M959.36 218.208c-3.072-50.24-44.384-90.112-95.36-90.112h-96v-32.064c0-53.024-43.008-96-96-96h-320c-53.024 0-96 42.976-96 96v32.032h-96c-51.040 0-92.32 39.872-95.392 90.112h-0.608v69.856c0 35.328 28.672 64 64 64v0 544c0 70.688 57.312 128 128 128h512c70.688 0 128-57.312 128-128v-544c35.328 0 64-28.672 64-64v-69.824h-0.64zM320 96.064c0-17.696 14.304-32 32-32h320c17.696 0 32 14.304 32 32v32h-384v-32zM832 896.064c0 35.264-28.736 64-64 64h-512c-35.296 0-64-28.736-64-64v-544h640v544zM896 256.032v32h-768v-63.968c0-17.696 14.304-32 32-32h704c17.696 0 32 14.304 32 32v31.968zM288 896.192h64c17.696 0 32-14.304 32-32v-416c0-17.696-14.304-32-32-32h-64c-17.696 0-32 14.304-32 32v416c0 17.696 14.304 32 32 32zM288 448.16h64v416h-64v-416zM480 896.192h64c17.696 0 32-14.304 32-32v-416c0-17.696-14.304-32-32-32h-64c-17.696 0-32 14.304-32 32v416c0 17.696 14.304 32 32 32zM480 448.16h64v416h-64v-416zM672 896.192h64c17.696 0 32-14.304 32-32v-416c0-17.696-14.304-32-32-32h-64c-17.696 0-32 14.304-32 32v416c0 17.696 14.304 32 32 32zM672 448.16h64v416h-64v-416z"></path> -->
+<!-- 			</symbol> -->
+<!-- 			<!-- cancel-circle from IcoMoon - Free--> -->
+<!-- 			<symbol id="icon-delete" viewBox="0 0 16 16"> -->
+<!-- 				<path d="M8 0c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zM8 14.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5 6.5 2.91 6.5 6.5-2.91 6.5-6.5 6.5z"></path> -->
+<!-- 				<path d="M10.5 4l-2.5 2.5-2.5-2.5-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 2.5-2.5 2.5 2.5 1.5-1.5-2.5-2.5 2.5-2.5z"></path> -->
+<!-- 			</symbol> -->
+<!-- 			<!-- checkmark2 from IcoMoon - Free --> -->
+<!-- 			<symbol id="icon-save" viewBox="0 0 16 16"> -->
+<!-- 				<path d="M6.21 14.339l-6.217-6.119 3.084-3.035 3.133 3.083 6.713-6.607 3.084 3.035-9.797 9.643zM1.686 8.22l4.524 4.453 8.104-7.976-1.391-1.369-6.713 6.607-3.133-3.083-1.391 1.369z"></path> -->
+<!-- 			</symbol> -->
+
+			<!-- geeg_rightChevron.svg by gracky -->
+			<symbol id="icon-arrow" viewBox="0 0 17.1 22.7">
+				<polygon points="5.6,0 0,5.7 5.5,11.2 0,17 5.6,22.7 17.1,11.4 "/>
+			</symbol>
+			<!--  -->
+			<symbol id="icon-menu" viewBox="0 0 32 32">
+				<path d="M16.002 12.48c-1.944 0-3.522 1.576-3.522 3.52s1.578 3.52 3.522 3.52c1.944 0 3.518-1.576 3.518-3.52s-1.574-3.52-3.518-3.52zM4.802 12.48c-1.944 0-3.522 1.576-3.522 3.52s1.578 3.52 3.522 3.52c1.944 0 3.518-1.578 3.518-3.52s-1.574-3.52-3.518-3.52zM27.202 12.48c-1.944 0-3.522 1.576-3.522 3.52s1.578 3.52 3.522 3.52c1.944 0 3.518-1.576 3.518-3.52s-1.574-3.52-3.518-3.52z"></path>
+			</symbol>
+			<!-- icomoon sort-amount-asc.svg fill="#444444" -->
+			<symbol id="icon-sort-asc" viewBox="0 0 24 24">
+				<path d="M7.5 18v-18h-3v18h-3.75l5.25 5.25 5.25-5.25h-3.75z"></path>
+				<path d="M10.5 13.5h13.5v3h-13.5v-3z"></path>
+				<path d="M10.5 9h10.5v3h-10.5v-3z"></path>
+				<path d="M10.5 4.5h7.5v3h-7.5v-3z"></path>
+				<path d="M10.5 0h4.5v3h-4.5v-3z"></path>
+			</symbol>
+			<!-- icomoon sort-amount-desc.svg fill="#444444" -->
+			<symbol id="icon-sort-desc" viewBox="0 0 24 24">
+				<path d="M7.5 18v-18h-3v18h-3.75l5.25 5.25 5.25-5.25h-3.75z"></path>
+				<path d="M10.5 0h13.5v3h-13.5v-3z"></path>
+				<path d="M10.5 4.5h10.5v3h-10.5v-3z"></path>
+				<path d="M10.5 9h7.5v3h-7.5v-3z"></path>
+				<path d="M10.5 13.5h4.5v3h-4.5v-3z"></path>
+			</symbol>
+			<!-- icomoon Entypo+ shuffle.svg  fill="#444444" -->
+			<symbol id="icon-shuffle" viewBox="0 0 24 24">
+				<path d="M18.112 8.033h1.104v3.434l4.784-4.829-4.786-4.83v2.864h-1.104c-4.433 0-6.931 3.286-9.137 6.182-1.982 2.606-3.696 4.859-6.463 4.859h-2.51v3.359h2.512c4.433 0 6.931-3.283 9.137-6.182 1.982-2.608 3.696-4.858 6.463-4.858zM6.492 10.15c0.19-0.244 0.379-0.494 0.572-0.748 0.468-0.617 0.965-1.266 1.502-1.915-1.586-1.481-3.498-2.573-6.055-2.573h-2.512v3.359h2.512c1.592 0 2.834 0.748 3.98 1.877zM19.214 15.953h-1.104c-1.688 0-2.984-0.841-4.189-2.086-0.12 0.157-0.241 0.317-0.364 0.476-0.529 0.696-1.098 1.441-1.727 2.182 1.627 1.589 3.6 2.789 6.278 2.789h1.104v2.878l4.787-4.83-4.786-4.83v3.421z"></path>
+			</symbol>
+			<!-- from icoMoon - Free checkmark.png, 24px, fill="#2AB31D" -->
+			<symbol id="icon-check" viewBox="0 0 24 24">
+				<path d="M20.25 3l-11.25 11.25-5.25-5.25-3.75 3.75 9 9 15-15z" />
+			</symbol>
+			<!-- from icoMoon - Free cross.svg, 24px -->
+			<symbol id="icon-cross" viewBox="0 0 24 24">
+				<path d="M23.781 19.281c-0-0-0-0-0-0l-7.281-7.281 7.281-7.281c0-0 0-0 0-0 0.078-0.078 0.135-0.17 0.171-0.268 0.1-0.267 0.043-0.578-0.172-0.793l-3.439-3.439c-0.214-0.214-0.526-0.271-0.793-0.172-0.098 0.036-0.189 0.093-0.268 0.171 0 0-0 0-0 0l-7.281 7.281-7.281-7.281c-0-0-0-0-0-0-0.078-0.078-0.17-0.135-0.268-0.171-0.267-0.1-0.578-0.043-0.793 0.172l-3.439 3.439c-0.214 0.214-0.271 0.526-0.172 0.793 0.036 0.098 0.093 0.189 0.171 0.268 0 0 0 0 0 0l7.281 7.281-7.281 7.281c-0 0-0 0-0 0-0.078 0.078-0.135 0.17-0.171 0.268-0.1 0.267-0.043 0.578 0.172 0.793l3.439 3.439c0.214 0.214 0.526 0.271 0.793 0.172 0.098-0.036 0.189-0.093 0.268-0.171 0-0 0-0 0-0l7.281-7.281 7.281 7.281c0 0 0 0 0 0 0.078 0.078 0.17 0.135 0.268 0.171 0.267 0.1 0.579 0.043 0.793-0.172l3.439-3.439c0.214-0.214 0.271-0.526 0.172-0.793-0.036-0.097-0.093-0.189-0.171-0.268z"></path>
+			</symbol>		
+			<!-- from icoMoon - Free forward.svg, 24px -->
+			<symbol id="icon-pointRight" viewBox="0 0 24 24">
+				<path d="M6.144 0c-2.666 4.829-3.115 12.195 7.356 11.949v-5.949l9 9-9 9v-5.821c-12.538 0.327-13.935-11.068-7.356-18.179z"></path>
+			</symbol>		
+		</defs>
+	</svg>
+</body>
+</html>

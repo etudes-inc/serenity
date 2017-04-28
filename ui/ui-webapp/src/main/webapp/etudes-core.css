@@ -1,0 +1,1658 @@
+/* set font, assure consistent margin and padding cross browser */
+body
+{
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	min-width: 1200px;
+	overflow-y: scroll;
+}
+
+/* class for sections of html not currently in the view */
+.e3_offstage
+{
+	display: none !important;
+}
+
+/* out style for buttons (or a's that look like our buttons) - hover by js */
+/* if a in inline-block parent div, parent needs vertical-align:top;  - parent needs height / line-height set to center the a text V */
+button.e3_button,
+a.e3_button
+{
+	background: none;
+	border: none;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	text-decoration: none;
+	font-family: Oswald, sans-serif;
+	font-weight: 400;
+}
+a.e3_button
+{
+	text-align: center;
+}
+button.e3_button.disabled,
+a.e3_button.disabled
+{
+	opacity: 0.4;
+	cursor: default;
+}
+button.e3_button.highlighted,
+a.e3_button.highlighted
+{
+	color: #2AB31D !important;
+}
+
+/* in-UI messages that appear with alerts for the user, such as for invalid entry - set height, line-height in html */
+div.e3_alertMsg
+{
+	color: white;
+	background-color: rgba(142, 30, 19, 0.6); /* #8E1E13 */
+	font-weight: 700;
+	font-size: 18px;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	cursor: default;
+	text-align: center;
+}
+
+/* data input, our way */
+input.e3_input
+{
+	padding: 0.3em 4px;
+	color: black;
+	border: none;
+	border-bottom: 1px solid #D8D8D8; /* #D8D8D8; #EAEAEA; */
+ 	background-color: transparent;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	outline: none;
+}
+input.e3_input.inverted
+{
+	color: white;
+	border-bottom: 1px solid white;
+}
+input.e3_input:hover
+{
+	border-bottom: 1px solid #FFB000;
+}
+input.e3_input:focus
+{
+	border-bottom: 1px solid #2AB31D;
+}
+input.e3_input.thickLine
+{
+	border-bottom: 2px solid black;
+}
+input.e3_input.thickLine.inverted
+{
+	border-bottom: 2px solid white;
+}
+input.e3_input.thickLine:hover
+{
+	border-bottom: 2px solid #FFB000;
+}
+input.e3_input.thickLine:focus
+{
+	border-bottom: 2px solid #2AB31D;
+}
+/* match a disabled input, but in a span */
+span.e3_disabledInput
+{
+	color: #808080;
+	font-style: italic;
+	padding: 0.3em 4px;
+	border: none;
+	border-bottom: 1px solid #D8D8D8; /* #D8D8D8; #EAEAEA; */
+ 	background-color: transparent;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	outline: none;
+}
+
+input.e3_input::-webkit-input-placeholder
+{
+/* 	font-family: Oswald, sans-serif; */
+	color: #888888;
+	font-weight: 700;
+	opacity: 1.0;
+	text-align: center;
+}
+input.e3_input::-moz-placeholder
+{
+/* 	font-family: Oswald, sans-serif; */
+	color: #888888;
+	font-weight: 700;
+	opacity: 1.0;
+	text-align: center;
+}
+input.e3_input:-ms-input-placeholder
+{
+/* 	font-family: Oswald, sans-serif; */
+	color: #888888;
+	font-weight: 700;
+	opacity: 1.0;
+	text-align: center;
+}
+input.e3_input.inverted::-webkit-input-placeholder
+{
+	color: #A8A8A8;
+}
+input.e3_input.inverted::-moz-placeholder
+{
+	color: #A8A8A8;
+}
+input.e3_input.inverted:-ms-input-placeholder
+{
+	color: #A8A8A8;
+}
+input.e3_input:focus::-webkit-input-placeholder
+{
+	opacity: 0.4;
+}
+input.e3_input:focus::-moz-placeholder
+{
+	opacity: 0.4;
+}
+input.e3_input:focus:-ms-input-placeholder
+{
+	opacity: 0.4;
+}
+
+fieldset.e3_editFieldsLR:disabled input.e3_input,
+fieldset.e3_editFieldsTB:disabled input.e3_input,
+input.e3_input:disabled
+{
+	color: #808080;
+	border-bottom: 1px solid #D8D8D8;
+	font-style: italic;
+}
+
+select.e3_input
+{
+	padding: 0.3em 4px;
+	color: black;
+	border: none;
+	border-bottom: 1px solid #D8D8D8; /* #D8D8D8; #EAEAEA; */
+ 	background-color: transparent;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+	outline: none;
+}
+
+/* for a hovering look with a drop shadow */
+.e3_shadowed
+{
+	box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.8);
+}
+
+/* actions blocks in a header bar - an a in a div (class e3_action then one of the modifiers below on the div) - hover setup in js with setupHoverControls() */
+div.e3_action
+{
+	display: inline-block;
+	height: 52px;
+	border-right: 1px solid #D0D0D0;
+	vertical-align: top;
+	text-align: center;
+}
+div.e3_action a
+{
+	display: inline-block;
+	padding: 0px 32px;
+	height: 52px;
+	line-height: 52px;
+	font-family: Oswald, sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+}
+
+div.e3_action a:link,
+div.e3_action a:visited
+{
+	text-decoration: none;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-color: white;
+	color: transparent;
+}
+/* for add actions */
+div.e3_action.add a:link,
+div.e3_action.add a:visited
+{
+	background-image: url('/ui/icons/action_add.png');
+}
+/* for delete actions */
+div.e3_action.delete a:link,
+div.e3_action.delete a:visited
+{
+	background-image: url('/ui/icons/action_delete.png'); /* trash.png */
+}
+/* for export actions */
+div.e3_action.export a:link,
+div.e3_action.export a:visited
+{
+	background-image: url('/ui/icons/action_export.png');
+}
+/* for import actions */
+div.e3_action.import a:link,
+div.e3_action.import a:visited
+{
+	background-image: url('/ui/icons/action_import.png');
+}
+/* for duplicate actions */
+div.e3_action.duplicate a:link,
+div.e3_action.duplicate a:visited
+{
+	background-image: url('/ui/icons/action_copy.png');
+}
+/* for print actions */
+div.e3_action.print a:link,
+div.e3_action.print a:visited
+{
+	background-image: url('/ui/icons/action_print.png');
+}
+/* for return actions (item nav) */
+div.e3_action.return a:link,
+div.e3_action.return a:visited
+{
+	background-image: url('/ui/icons/action_return.png');
+}
+/* for done actions (item nav) */
+div.e3_action.done a:link,
+div.e3_action.done a:visited
+{
+	background-image: url('/ui/icons/action_done.png');
+}
+/* for prev actions (item nav) */
+div.e3_action.prev a:link,
+div.e3_action.prev a:visited
+{
+	background-image: url('/ui/icons/previous.png');
+}
+/* for next actions (item nav) */
+div.e3_action.next a:link,
+div.e3_action.next a:visited
+{
+	background-image: url('/ui/icons/next.png');
+}
+/* for any action that has a title instead of an icon */
+div.e3_action.titled a:link,
+div.e3_action.titled a:visited
+{
+	color: #686868;
+}
+/* like titled, but with inverted colors, and color green */
+div.e3_action.titledInvertedGreen a,
+div.e3_action.titledInvertedGreen a:link,
+div.e3_action.titledInvertedGreen a:visited
+{
+	background-color: #2AB31D;
+	color: white;
+}
+div.e3_action.titledInvertedGreen a.disabled
+{
+	background-color: white;
+	color: #2AB31D;
+	border-color: white !important;
+}
+/* like titled, but color green */
+div.e3_action.titledGreen a
+{
+	color: #2AB31D;
+	background-color: white;
+}
+/* like titled, but with inverted colors, and color blue */
+div.e3_action.titledInvertedBlue a,
+div.e3_action.titledInvertedBlue a:link,
+div.e3_action.titledInvertedBlue a:visited
+{
+	background-color: #0093FF;
+	color: white;
+}
+div.e3_action.titledInvertedBlue a.disabled
+{
+	background-color: white;
+	color: #0093FF;
+	border-color: white !important;
+}
+
+
+/* for a smaller action in the smaller headerbar */
+div.e3_action.small
+{
+	height: 40px;
+}
+div.e3_action.small a
+{
+	padding: 0px 24px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+}
+div.e3_action.small:first-child
+{
+	border-left: 1px solid #D0D0D0;
+}
+
+div.e3_action a.disabled,
+.e3_disabled
+{
+	opacity: 0.4;
+	cursor: default;
+}
+
+/* for actions, infoBlocks in a right side bar, reverse the position of the border */
+div.e3_panelHeaderBar div.e3_panelHeaderBarRight div.e3_action,
+div.e3_panelHeaderBar div.e3_panelHeaderBarRight div.e3_infoBlock
+{
+	border-right: none;
+	border-left: 1px solid #D0D0D0;
+}
+
+/* panels within a tool UI */
+div.e3_panel
+{
+	height: 100%;
+}
+div.e3_panelHeader
+{
+	background-color: #8E1E13;
+	height: 40px;
+	line-height: 40px;
+	color: #F3F3F3;
+	font-family: Oswald, sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+	padding-left: 18px;
+	position: relative;
+}
+div.e3_panel div.e3_panelBody
+{
+	background-color: white;
+/* 	margin-bottom: 24px;  16px; */
+}
+div.e3_panel div.e3_panelBody.footed
+{
+	padding-bottom: 48px;
+}
+div.e3_panel div.e3_panelBody.headed
+{
+	padding-top: 24px;
+}
+div.indented
+{
+	padding-left: 32px;
+	padding-right: 32px;
+}
+div.indented24
+{
+	padding-left: 24px;
+	padding-right: 24px;
+}
+
+div.e3_subpanelHeader
+{
+	background-color: rgba(0,0,0,0.6);
+	color: white;
+	height: 32px;
+	line-height:32px;
+	font-family: Oswald, sans-serif;
+	font-size: 14px;
+ 	padding-left: 16px;
+	position: relative;
+}
+
+div.e3_panelHeader a.edit,
+div.e3_subpanelHeader a.edit
+{
+	display: inline-block;
+	width: 26px;
+	position: relative;
+}
+div.e3_panelHeader a.edit:hover,
+div.e3_panelHeader a.edit:active,
+div.e3_panelHeader a.edit:focus,
+div.e3_subpanelHeader a.edit:hover,
+div.e3_subpanelHeader a.edit:active,
+div.e3_subpanelHeader a.edit:focus
+{
+	position: relative;
+	left: -2px;
+	top: 3px;
+	outline: none;
+}
+div.e3_panelHeader a.edit:hover svg,
+div.e3_panelHeader a.edit:active svg,
+div.e3_panelHeader a.edit:focus svg,
+div.e3_subpanelHeader a.edit:hover svg,
+div.e3_subpanelHeader a.edit:active svg,
+div.e3_subpanelHeader a.edit:focus svg
+{
+	width: 22px;
+	height: 22px;
+	fill: white;
+	outline: none;
+}
+div.e3_panelHeader a.edit svg,
+div.e3_subpanelHeader a.edit svg
+{
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	fill: #E0E0E0;
+}
+
+/* pad a section */
+div.e3_section
+{
+	padding: 8px;
+}
+
+/* that grey-backed bar with title, such as in syllabus and evaluation review score */
+div.e3_sectionHeader
+{
+/* 	font-weight: 700; */
+/* 	font-size: 14px; */
+/* 	padding: 6px 12px; */
+	background-color: #E6E6E6;
+	border: 1px solid #BBB;
+	margin-bottom: 12px;
+/* 	min-height: 18px; */
+	height: 32px;
+}
+div.e3_sectionHeader span,
+div.e3_sectionHeader a
+{
+	display: inline-block;
+	vertical-align: top;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 32px;
+	padding: 0px 24px;
+}
+
+div.e3_sectionHeader a,
+div.e3_sectionHeader a:link,
+div.e3_sectionHeader a:visited
+{
+	color: #686868;
+	text-decoration: none;
+}
+div.e3_sectionHeader a:hover,
+div.e3_sectionHeader a:active,
+div.e3_sectionHeader a:focus
+{
+	text-decoration: underline;
+	color: #000 !important;
+}
+
+/* info with a title and value, placed in a e3_sectionHeader (smaller than the e3_infoBlock).  First div is the title, second is the value. */
+div.e3_infoBlockSmall
+{
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	height: 32px;
+	border-right: 1px solid #BBB;
+	padding: 0px 24px;
+/* 	color: #686868; */
+}
+
+div.e3_infoBlockSmall LR
+{
+	border-left: 1px solid #BBB;
+}
+
+div.e3_infoBlockSmall div:first-child
+{
+	/* e3_text special */
+	font-family: Oswald, sans-serif;
+	font-weight: 400;
+	font-size: 9px;
+	padding-top: 1px;
+/* 	padding-top: 8px; */
+/* 	line-height: 9px; */
+	color: #686868;
+}
+div.e3_infoBlockSmall div:nth-child(2)
+{
+	/* e3_text bold */
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	font-weight: 700;
+	font-size: 13px;
+	line-height: 14px; 
+	color: black;
+}
+
+/* things colored with the "special color" (i.e. the color selected for the client's customization) */
+.e3_specialColor
+{
+	color: #8E1E13;
+	fill: #8E1E13;
+}
+
+/* things bordered with the "special color" */
+div.e3_specialBorder
+{
+	border-style: double;
+	border-width: 3px;
+	border-color: #8E1E13;
+	padding: 16px;
+}
+
+/* normal UI text */
+.e3_text
+{
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	font-weight: 400;
+}
+.e3_text.light
+{
+	font-weight: 300;
+}
+.e3_text.bold
+{
+	font-weight: 700;
+}
+.e3_text.italic
+{
+	font-style: italic;
+}
+.e3_text.ellipsis
+{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* actions, buttons, placeholder text, menus, banner text, panel headers */
+.e3_text.special
+{
+	font-family: Oswald, sans-serif;
+}
+
+/* colors to match the dots */
+.e3_text.green
+{
+	color: #2AB31D;
+}
+.e3_text.yellow
+{
+	color: #FFB000;
+}
+.e3_text.red
+{
+	color: #E00000;
+}
+.e3_text.gray
+{
+	color: #A0A0A0;
+}
+
+.e3_text.green.inverted
+{
+	background-color: #2AB31D;
+	color: white;
+	border: 1px solid #2AB31D;
+}
+.e3_text.gray.inverted
+{
+	background-color: #A0A0A0;
+	color: white;
+	border: 1px solid #A0A0A0;
+}
+.e3_text.red.inverted
+{
+	background-color: #E00000;
+	color: white;
+	border: 1px solid #E00000;
+}
+
+/* note on ui, such as "there are no XXX items" */
+div.e3_note
+{
+	padding: 0px 24px 24px 24px;
+	font-weight: 400;
+	font-size: 14px;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	color: #656565;
+	background-color: white;
+}
+
+/* small note on the ui (such as the college id in account) */
+div.e3_finePrint
+{
+	text-align: right;
+	font-size: 10px;
+	font-weight: 300px;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	color: #ADADAD;
+	padding-right: 10px;
+}
+
+/* class for the normal behind a hover roll-over - be sure the container is position:relative */
+div.e3_hoverNormal
+{
+	opacity: 1;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+/* class for the hover in front of a hover normal - be sure the container is position:relative */
+div.e3_hoverHover
+{
+	opacity: 0;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.e3_hoverCover
+{
+	background-color: rgba(0,0,0,0.8);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+/* hover effect links, icon on right - relies on an opaque (0,0,0,0.8) background (class e3_hoverCover) behind the div holding the a */
+a.e3_hoverLinkIR
+{
+	display: inline-block;
+	color: white;
+	text-decoration: none !important;
+	background-position: calc(100% - 54px) center;
+	background-repeat: no-repeat;
+	padding-right: 82px;
+	width: calc(100% - 82px);
+	height: 100%;
+	background-image: url('/ui/icons/arrow-white.png');
+	outline: none;
+}
+/* for a short hover, such as on home over the 3 small activity regions */
+a.e3_hoverLinkIR.short
+{
+	background-position: calc(100% - 16px) center !important;
+	padding-right: 44px !important;
+	width: calc(100% - 44px) !important;
+}
+
+/* in which we place user content */
+/* http://www.w3.org/TR/html5/rendering.html#rendering */
+.e3_content
+{
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	overflow: hidden;
+}
+.e3_content article,
+.e3_content aside,
+.e3_content h1,
+.e3_content h2,
+.e3_content h3,
+.e3_content h4,
+.e3_content h5,
+.e3_content h6,
+.e3_content hgroup,
+.e3_content nav,
+.e3_content section
+{
+	display: block !important;
+	font-weight: bold !important;
+	font-size: 13px;
+	padding: 0 !important;
+	border: 0 !important;
+	color: black !important;
+	background-color: transparent !important;
+}
+.e3_content h1 { margin-top: 0.67em !important; margin-bottom: 0.67em !important; font-size: 2.00em !important; }
+.e3_content h2 { margin-top: 0.83em !important; margin-bottom: 0.83em !important; font-size: 1.50em !important; }
+.e3_content h3 { margin-top: 1.00em !important; margin-bottom: 1.00em !important; font-size: 1.17em !important; }
+.e3_content h4 { margin-top: 1.33em !important; margin-bottom: 1.33em !important; font-size: 1.00em !important; }
+.e3_content h5 { margin-top: 1.67em !important; margin-bottom: 1.67em !important; font-size: 0.83em !important; }
+.e3_content h6 { margin-top: 2.33em !important; margin-bottom: 2.33em !important; font-size: 0.67em !important; }
+
+/* see http://www.sitepoint.com/pure-css3-paper-curls */
+.e3_content.paper
+{
+	padding: 24px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+/* for UI that will be pinned at top while scrolling */
+.e3_pinned
+{
+	position: relative;
+	z-index: 90;
+}
+
+/* group related fields in a section, each in a horizontal layout (label on the left, data on the right) - wrap in a classed fieldset, wrap each set in a classed div, mark the left and right with classes */
+fieldset.e3_editFieldsLR
+{
+	display: table;
+ 	border: none;
+ 	margin: 0px;
+ 	padding: 0px 0px 24px 0px;
+ 	line-height: 36px;
+}
+fieldset.e3_editFieldsLR div.e3_editFieldsEntry
+{
+	display: table-row;
+	position: relative;
+}
+fieldset.e3_editFieldsLR div.e3_editFieldsEntry div.e3_editFieldsTitle
+{
+	display: table-cell;
+	padding-right: 8px;	
+	text-align: left;
+	color: #656565;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+ 	font-size: 16px;
+	white-space: nowrap;
+}
+fieldset.e3_editFieldsLR div.e3_editFieldsEntry div.e3_editFieldsBody
+{
+	display: table-cell;
+}
+
+/* group related fields in a section, each in a vertical layout (label on top, data below) - wrap in a classed fieldset, wrap each set in a classed div, mark the label and data with classes */
+fieldset.e3_editFieldsTB
+{
+ 	border: none;
+ 	margin: 0px;
+ 	padding: 0px;
+}
+fieldset.e3_editFieldsTB div.e3_editFieldsEntry
+{
+	padding-bottom: 24px;
+/* 	position: relative; */
+}
+fieldset.e3_editFieldsTB div.e3_editFieldsEntry.compact
+{
+	padding-bottom: 12px;
+}
+fieldset.e3_editFieldsTB div.e3_editFieldsEntry div.e3_editFieldsTitle,
+/* fieldset.e3_editFieldsLR div.e3_editFieldsTitle, */
+/* fieldset.e3_editFieldsTB div.e3_editFieldsTitle, */
+.e3_title
+{
+	color: #656565;
+	font-weight: 400;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	font-size: 16px;
+	white-space: nowrap;
+	padding-bottom: 8px;
+}
+fieldset.e3_editFieldsTB div.e3_editFieldsEntry div.e3_editFieldsBody
+{
+}
+
+div.e3_editFieldsEntry div.e3_editFieldsBody div.e3_editFieldsBodyLine
+{
+	padding-bottom: 4px;
+}
+div.e3_editFieldsEntry div.e3_editFieldsBody.roomForInput div.e3_editFieldsBodyLine
+{
+	line-height: 28px;
+}
+div.e3_editFieldsEntry div.e3_editFieldsBody input ~ label,
+div.e3_editFieldsEntry div.e3_editFieldsBody label ~ input,
+div.e3_editFieldsEntry div.e3_editFieldsBody label ~ select
+{
+	padding-left: 6px;
+}
+div.e3_editFieldsEntry div.e3_editFieldsBody div.e3_editFieldsBodyLine label,
+div.e3_editFieldsEntry div.e3_editFieldsBody label
+{
+	color: black;
+	font-weight: 300;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	white-space: nowrap;
+}
+
+/* little "HELP ?" buttons on the UI - setup with setupHoverControls() */
+a.e3_help
+{
+	display: inline-block;
+	font-family: Oswald, sans-serif;
+	font-weight: 300;
+	font-size: 12px;
+	text-decoration: none;
+	color: #686868;
+	padding: 2px 6px;
+	border-radius: 4px;
+	margin-left: 12px;
+	line-height: 18px;
+}
+
+/* label in with edit fields, offstage until needed, showing a field related alert (such as * required) */
+label.alert,
+div.alert
+{
+	color: #E00000 !important;
+	font-weight: 400 !important;
+	font-style: italic !important;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif !important;
+	font-size: 14px !important;
+	white-space: nowrap !important;
+	margin-left:20px !important;
+}
+
+/* the bar of actions and info pinned across the top of a tool, holding controls and info (navbar, actionbar) */
+div.e3_panelHeaderBar
+{
+	position: relative;
+	height: 52px;
+	background-color: white;
+	border-bottom: 1px solid #DCDCDC;
+	white-space: nowrap;
+	overflow: hidden;
+}
+div.e3_panelHeaderBar.small
+{
+	height: 40px;
+	border-right: 1px solid #D0D0D0;
+}
+
+/* a div to control visibility of a bunch of items for the header bar */
+div.e3_panelHeaderBar div.e3_panelHeaderBarGrouping
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* a div to hold a bunch of items for the header bar, right justified */
+div.e3_panelHeaderBar div.e3_panelHeaderBarRight
+{
+	position:absolute;
+	top:0px;
+	right:0px;
+}
+
+/* a block of item navigation controls, placed into an e3_panelHeaderBar */
+div.e3_panelHeaderBar div.e3_itemnav
+{
+	display: inline-block;
+	vertical-align: top;
+	height: 52px;
+	line-height: 52px;
+}
+
+/* info with a title and value, placed in a header bar.  First div is the title, second is the value. */
+div.e3_infoBlock
+{
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	height: 52px;
+	border-right: 1px solid #D0D0D0;
+	padding: 0px 32px;
+	color: #686868;
+}
+
+div.e3_infoBlock div:first-child
+{
+	/* e3_text special */
+	font-family: Oswald, sans-serif;
+	font-weight: 400;
+	font-size: 10px;
+	padding-top: 8px;
+	line-height: 13px;
+	color: #A8A8A8;
+}
+div.e3_infoBlock div:nth-child(2)
+{
+	/* e3_text bold */
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	font-weight: 700;
+	font-size: 22px;
+}
+
+/* info in one or two lines placed in a header bar.  One or two divs make up the info. */
+div.e3_panelHeaderBar div.e3_infoLines
+{
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px 0px;
+	margin-left:32px;
+	font-size: 12px;
+	line-height: 16px;
+	color: #686868;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+/* any a's in info lines (use setupHoverControls for hover effect) */
+div.e3_panelHeaderBar div.e3_infoLines a
+{
+	padding: 4px 8px;
+	text-decoration: none;
+	color: #686868;
+	border-radius: 2px;
+}
+div.e3_panelHeaderBar div.e3_infoLines a:hover,
+div.e3_panelHeaderBar div.e3_infoLines a:active,
+div.e3_panelHeaderBar div.e3_infoLines a:focus
+{
+	text-decoration: underline;
+	color: black !important;
+}
+
+/* .e3_navbar */
+/* { */
+/* 	position: relative; */
+/* 	background-color:white; */
+/* 	border-bottom: 1px solid #DCDCDC; */
+/* 	width: 100%; */
+/* 	height: 52px; */
+/* } */
+
+/* .e3_navbar_itemnav */
+/* { */
+/* 	display: inline-block; */
+/* 	vertical-align: top; */
+/* 	height: 52px; */
+/* 	line-height: 52px; */
+/* 	background-color: white; */
+/* } */
+
+/* .e3_navbar_info */
+/* { */
+/* 	display: inline-block; */
+/* 	vertical-align: top; */
+/* 	height: 52px; */
+/* 	color: #808080; */
+/* 	color: #686868; */
+/* 	font-family: Arial, Helvetica Neue, Helvetica, sans-serif; */
+/* 	font-weight: 400; */
+/* 	font-size: 12px;  */
+/* 	line-height: 16px; */
+/* 	overflow: hidden; */
+/* } */
+/* .e3_navbar_info_section */
+/* { */
+/* 	display: inline-block; */
+/* 	vertical-align: top; */
+/* 	padding: 10px 0px; */
+/* } */
+
+/* .e3_actionbar */
+/* { */
+/* 	position: relative; */
+/* 	background-color: white; */
+/* 	border-bottom: 1px solid #DCDCDC; */
+/* 	width: 100%; */
+/* 	height: 52px; */
+/* } */
+
+/* dividing a list area from the detail display area, such as in announcement view */
+hr.e3_hr
+{
+	height: 12px;
+	border: 0;
+	box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* a stealthy <a> in the UI, that does not call attention to itself */
+a.e3_simple
+{
+	text-decoration: none;
+}
+
+/* the * * * context menu (currently in development in forum) */
+a.e3_contextMenu
+{
+	position: relative;
+}
+a.e3_contextMenu svg
+{
+	width: 24px;
+	height: 24px;
+	fill: #686868;
+	position: relative;
+}
+a.e3_contextMenu:hover svg,
+a.e3_contextMenu:active svg,
+a.e3_contextMenu:focus svg
+{
+	width: 28px;
+	height: 28px;
+	fill: black;
+	top: -2px;
+}
+a.e3_contextMenuLight
+{
+	position: relative;
+}
+a.e3_contextMenuLight svg
+{
+	width: 24px;
+	height: 24px;
+	fill: #E0E0E0;
+	position: relative;
+}
+a.e3_contextMenuLight:hover svg,
+a.e3_contextMenuLight:active svg,
+a.e3_contextMenuLight:focus svg
+{
+	width: 28px;
+	height: 28px;
+	fill: white;
+	top: -2px;
+}
+div.e3_contextMenu
+{
+	position: absolute;
+	width: 150px;
+	right: 0px;
+	top: 0px;
+	background-color: black;
+}
+div.e3_contextMenu a
+{
+	color: white;
+	background-color: black;
+	font-family: Oswald,sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	padding: 0px 16px;
+	text-align: left;
+	line-height: normal;
+	display: block;
+	text-decoration: none;
+}
+div.e3_contextMenu a:first-child
+{
+	margin-top: 16px;
+}
+div.e3_contextMenu a:last-child
+{
+	margin-bottom: 16px;
+}
+
+/* used for save / cancel little icons in-line with an edit, as in rename in the e3_filer */
+.e3_inlineControl
+{
+	width: 16px !important;
+	height: 16px !important;
+	background-position: center center;
+	background-repeat: no-repeat;
+	text-decoration: none;
+	position: absolute;
+}
+
+
+
+
+
+
+
+/* not yet - not working in safari or ie? */
+/* .e3_centered */
+/* { */
+/* 	display: -webkit-flex; */
+/* 	display: flex; */
+/* 	justify-content: center; */
+/* 	align-items: center;  */
+/* } */
+
+/* all links in tools which stand alone, for accessibility */
+/* a.e3_toolUiLinkDisabled */
+/* { */
+/* 	color: #6066AC; */
+/* 	text-decoration: none; */
+/* 	opacity: 0.4; */
+/* } */
+
+/* still kicking around, probably should be retired */
+a.e3_toolUiLink:link,
+a.e3_toolUiLink:visited
+{
+	color: #6066AC;
+	text-decoration: none;
+}
+a.e3_toolUiLink:hover,
+a.e3_toolUiLink:active,
+a.e3_toolUiLink:focus
+{
+	color: #0000B0;
+	text-decoration: underline;
+	outline: none;
+}
+
+
+/* on a dark (or dark transparent) background (site browser, reset password - both in dev.) probably needs to be retired */
+a.e3_toolUiLinkD:link,
+a.e3_toolUiLinkD:visited
+{
+	color: #909090; /* #F3AD00; */
+	text-decoration: none;
+}
+a.e3_toolUiLinkD:hover,
+a.e3_toolUiLinkD:active,
+a.e3_toolUiLinkD:focus
+{
+	color: #909090; /* #F3AD00; */
+	text-decoration: underline;
+	outline: none;
+}
+a.e3_toolUiLinkD.e3_featured
+{
+	color: /* #17F300 */ #19BF00 !important;
+}
+
+
+/* for icon only links */
+a.e3_toolUiLinkI:link,
+a.e3_toolUiLinkI:visited,
+a.e3_toolUiLinkI:hover,
+a.e3_toolUiLinkI:active,
+a.e3_toolUiLinkI:focus
+{
+	text-decoration: none !important;
+	outline: none;
+}
+
+/* for icon only links - complete, left */
+a.e3_toolUiLinkIL:link,
+a.e3_toolUiLinkIL:visited,
+a.e3_toolUiLinkIL:hover,
+a.e3_toolUiLinkIL:active,
+a.e3_toolUiLinkIL:focus
+{
+	text-decoration: none !important;
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding-left: 12px;
+	outline: none;
+}
+
+/* for icon only links - complete, right */
+a.e3_toolUiLinkIR:link,
+a.e3_toolUiLinkIR:visited,
+a.e3_toolUiLinkIR:hover,
+a.e3_toolUiLinkIR:active,
+a.e3_toolUiLinkIR:focus
+{
+	text-decoration: none !important;
+	background-position: right center;
+	background-repeat: no-repeat;
+	padding-right: 12px;
+	float: right;
+	outline: none;
+}
+	
+/* for icon with text links */
+a.e3_toolUiLinkIT:link,
+a.e3_toolUiLinkIT:visited
+{
+	color: #6066AC;
+	text-decoration: none;
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+a.e3_toolUiLinkIT:hover,
+a.e3_toolUiLinkIT:active,
+a.e3_toolUiLinkIT:focus
+{
+	color: #0000B0;
+	text-decoration: underline;
+	outline: none;
+}
+
+/* for configure links */
+a.e3_toolUiLinkC:link,
+a.e3_toolUiLinkC:visited
+{
+	color: #6066AC;
+	text-decoration: none;
+}
+a.e3_toolUiLinkC:hover,
+a.e3_toolUiLinkC:active,
+a.e3_toolUiLinkC:focus
+{
+	color: #0000B0;
+	text-decoration: underline;
+	outline: none;
+}
+a.e3_toolUiLinkC
+{
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+	background-image: url('/ui/icons/gear-edit.png');
+}
+
+/* all links in tools which are mixed, so need to stand out more, for accessibility */
+a.e3_toolUiLinkU:link,
+a.e3_toolUiLinkU:visited
+{
+	color: #6066AC;
+	text-decoration: underline;
+}
+
+a.e3_toolUiLinkU:hover,
+a.e3_toolUiLinkU:active,
+a.e3_toolUiLinkU:focus
+{
+	color: #0000B0;
+	outline: none;
+}
+
+.e3_italic
+{
+	font-style: italic;
+}
+
+
+
+/* organize a section of the UI into two columns, with a gap between - wrap the whole, and each column in a classed div, include a div classed for the gap between the columns. */
+div.e3_section2
+{
+	display: table;
+	width: 100%;
+	margin: 0 0 20px 0;
+	padding: 0;
+}
+div.e3_section2_col
+{
+	display: table-cell;
+	width: 48%;
+}
+div.e3_section2_gap
+{
+	display: table-cell;
+	width: 4%;
+}
+
+/* major UI section header - links for configure float right */
+h1.e3_sectionUi
+{
+	padding-left: 4px;
+	border-bottom: 1px solid #9A661F;
+	color: #9A661F;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 0px 0px 12px 0px;
+	min-height: 18px;
+}
+h1.e3_sectionUi a
+{
+	float:right;
+	font-weight: normal;
+	font-size: 13px;
+}
+
+/* content style section header */
+h1.e3_sectionContent
+{
+	font-weight: normal;
+	font-size: 14px;
+	padding: 6px;
+	background-color: #E3E7ED;
+	margin: 0px 0px 12px 0px;
+	min-height: 18px;
+}
+
+
+/* header with bold text and icon */
+h1.e3_sectionIcon
+{
+	padding-left:20px;
+	background-position: center left;
+	background-repeat: no-repeat;
+	font-weight: bold;
+	font-style: normal;
+	font-size: 12px;
+	margin: 0px 0px 12px 0px;
+}
+
+/* info in a section - lines up with fieldsets */
+.e3_info
+{
+	margin: 0 2px 12px 2px;
+	padding: 0 8px 0 8px;
+}
+
+/* an non-interactive info table in a section - class the table*/
+table.e3_info
+{
+}
+table.e3_info th
+{
+	text-align: left;
+	border-bottom: 1px solid #656565;
+	font-weight: bold;
+	color: #656565;	
+}
+
+
+
+
+
+
+
+div.e3_editFields,
+div.e3_infoFields
+{
+	padding: 8px;
+}
+
+/* group related fields in a section, each in a horizontal layout (label on the left, data on the right) - wrap in a classed fieldset, wrap each set in a classed div, mark the left and right with classes */
+fieldset.e3_horizontal,
+fieldset.e3_editFields,
+fieldset.e3_infoFields
+{
+	display: table;
+ 	border: none;
+	padding: 0 8px 12px 8px;
+}
+fieldset.e3_horizontal div.e3_entry,
+fieldset.e3_editFields div.e3_entry,
+fieldset.e3_infoFields div.e3_entry
+{
+	display: table-row;
+}
+fieldset.e3_horizontal div.e3_entry,
+fieldset.e3_editFields div.e3_entry
+{
+	line-height: 28px;
+}
+fieldset.e3_infoFields div.e3_entry
+{
+	line-height: 20px;
+}
+fieldset.e3_horizontal div.e3_entry div.e3_left,
+fieldset.e3_editFields div.e3_entry div.e3_left,
+fieldset.e3_infoFields div.e3_entry div.e3_left
+{
+	display: table-cell;
+	padding: 0px 10px 0px 10px;	
+	text-align: right;
+	color: #656565;
+	font-weight: 700;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	font-size: 14px;
+	white-space: nowrap;
+}
+fieldset.e3_horizontal div.e3_entry div.e3_right,
+fieldset.e3_editFields div.e3_entry div.e3_right,
+fieldset.e3_infoFields div.e3_entry div.e3_right
+{
+	display: table-cell;
+	padding: 0px 10px 0px 10px;	
+}
+fieldset.e3_editFields div.e3_entry div.e3_top,
+fieldset.e3_infoFields div.e3_entry div.e3_top
+{
+	display: table-caption;
+	padding: 0px 10px 0px 10px;	
+	color: #656565;
+	font-weight: bold;
+	white-space: nowrap;
+}
+fieldset.e3_editFields div.e3_entry div.e3_bottom,
+fieldset.e3_infoFields div.e3_entry div.e3_bottom
+{
+	display: table-caption;
+	padding: 0px 10px 0px 10px;	
+}
+fieldset.e3_editFields div.e3_entry div.e3_fullNote,
+fieldset.e3_infoFields div.e3_entry div.e3_fullNote
+{
+	display: table-caption;
+	padding: 0px 10px 0px 10px;	
+	white-space: nowrap;	
+	font-weight: normal;
+	font-size: 12px;
+	font-style: italic;
+}
+
+
+
+
+
+
+
+fieldset.e3_horizontal span.e3_caption
+{
+	padding-left: 10px;
+	line-height: 28px;
+	color: #656565;
+	font-weight: bold;
+	white-space: nowrap;
+	display: table-caption;
+}
+
+fieldset.e3_horizontal label.e3_label,
+fieldset.e3_horizontal span.e3_label
+{
+	padding-right:10px;
+	padding-left: 10px;
+	text-align:right;
+	color: #656565;
+	font-weight: bold;
+	white-space: nowrap;
+}
+fieldset.e3_horizontal label.e3_label.right
+{
+	padding-left: 8px;
+	text-align: left !important;
+	color: normal !important;
+	font-weight: normal !important;
+}
+fieldset.e3_horizontal .e3_label,
+fieldset.e3_horizontal .e3_data
+{
+	display:table-cell;
+}
+
+/* group related fields in a section, each in a vertical layout (label on top, data below) - wrap in a classed fieldset, wrap each set in a classed div, mark the label and data with classes */
+fieldset.e3_vertical
+{
+ 	border: none;
+	margin: 0 2px 12px 2px;
+	padding: 0 8px 0 8px;
+}
+fieldset.e3_vertical div.e3_entry
+{
+	margin-bottom: 10px;
+}
+fieldset.e3_vertical div.e3_editor
+{
+}
+fieldset.e3_vertical label.e3_label
+{
+	color: #656565;
+	font-weight: bold;
+	white-space: nowrap;
+}
+fieldset.e3_vertical .e3_label,
+fieldset.e3_vertical .e3_data
+{
+	display: block;
+}
+fieldset.e3_vertical .e3_multiLine
+{
+	line-height: 12px;
+}
+fieldset.e3_vertical .e3_label
+{
+	margin-bottom: 8px;
+}
+fieldset.e3_vertical .e3_data
+{
+	margin-bottom: 12px;
+}
+
+.e3_iconed
+{
+	background-position: left center;
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+.e3_iconedR
+{
+	background-position: right center;
+	background-repeat: no-repeat;
+	padding-right: 20px;
+}
+
+a.e3_navCrumb
+{
+	display: inline-block;
+	margin-left: 20px;
+	font-style: italic;
+	font-size: 13px;
+/* 	background-image: url('/ui/icons/resultset_next.png'); */
+	background-image: url('/ui/icons/chevron-right.png');
+	background-position: right center;
+	background-repeat: no-repeat;
+	padding-right: 20px;
+}
+a.e3_navCrumb:link,
+a.e3_navCrumb:visited
+{
+	color: #6066AC;
+	text-decoration: none;
+}
+a.e3_navCrumb:hover,
+a.e3_navCrumb:active,
+a.e3_navCrumb:focus
+{
+	color: #0000B0;
+	text-decoration: underline;
+	outline: none;
+}
+
+.e3_navHeading
+{
+	display: inline-block;
+	font-weight: bold;
+	font-size: 14px;
+	color: #9A661F;
+	margin-bottom: 10px;
+	margin-left: 20px;
+}
+
+a.e3_extLink
+{
+	background-position: right center;
+	background-image: url('/ui/icons/external-link.png');
+	background-repeat: no-repeat;
+	padding-right: 14px;
+}
+
+.e3_alert
+{
+	color: #b11;
+	font-weight: bold;
+	padding-left: 20px;
+	background: #fff url(/ui/icons/error.png) 4px center no-repeat;
+	display: inline-block;
+}
+
+.e3_working
+{
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	color: #006400;
+	font-weight: bold;
+}
+.e3_working img
+{
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+
+.e3_section.delineate
+{
+	border:1px solid #888888;
+/* 	border-radius:16px; */
+/* 	padding:16px; */
+}
+.e3_section.delineate.selected
+{
+	border-width:2px;
+	box-shadow:6px 6px 6px #888888;
+}
+
+.e3_draft
+{
+	background-color: #F8DADA;
+}
+
+.e3_included
+{
+/* 	border: 4px double #D1E3D1; */
+	background-color: #D1E3D1 !important;
+}
+
+.e3_viewInfo
+{
+/* 	margin: 0px 30px 10px 30px; */
+}
+
+div.e3_viewInfo fieldset
+{
+	display: table;
+ 	border: none;
+	margin: 0px 0px 20px 0px;
+	padding: 0px;
+}
+div.e3_viewInfo fieldset div.e3_entry
+{
+	display: table-row;
+}
+div.e3_viewInfo fieldset label.e3_label
+{
+	padding-right: 10px;
+	text-align: left;
+	white-space: nowrap;
+}
+div.e3_viewInfo fieldset .e3_label,
+div.e3_viewInfo fieldset .e3_data
+{
+	display: table-cell;
+}
+
+
+
+.e3_changed
+{
+	background-color: #FFF4E1;
+}
+
+.e3_badge
+{
+	display: inline-block;
+	background: #6066AC;
+	color: white;
+	position:relative;
+	right: 6px;
+	top: -28px;
+ 	font-size: 9px;
+ 	font-weight: normal;
+	text-align: center;
+	border-radius: 33%;
+	padding:1px 4px 1px 4px;
+	box-shadow: 0 1px 2px rgba(0,0,0,.5), 0 1px 4px rgba(0,0,0,.4), 0 0 1px rgba(0,0,0,.7) inset, 0 10px 0px rgba(255,255,255,.11) inset;
+}
+
+/* div.e3_panelFooter */
+/* { */
+/* 	height: 104px; */
+/* 	width: 100%; */
+/* 	background-color: white;  */
+/* } */
+
+

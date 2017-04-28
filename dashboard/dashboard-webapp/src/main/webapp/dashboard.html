@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+ 	<div style="width:1120px; margin:0 auto;"><!-- w/ width:100% of 1200: 40 [ cal=336 24 (sites=400) 24 news=336 ] 40 [scroll] -->
+		<div style="display:inline-block; width:336px; padding-right:24px; vertical-align:top;">
+			<div class="e3_panel">
+				<div class="e3_panelHeader" i18n="header_calendar">CALENDAR</div>
+				<div class="e3_panelBody" style="background-color:rgba(255, 255, 255, 0.4);">
+					<div id="dashboard_calendar" style="padding:8px; background-color:white;"></div>
+					<div class="e3_text" style="height:24px; line-height:15px; background-color:#363636; font-size:10px; text-transform:uppercase; position:relative">
+						<div id="dashboard_events_header_date" style="color:white; position:absolute; left:22px; top:4px;"></div>
+						<div id="dashboard_events_header_tz" style="color:#C8C8C8; position:absolute; right:22px; top:4px;"></div>
+					</div>
+					<div id="dashboard_events"></div>
+					<div id="dashboard_events_none" class="e3_note e3_offstage" style="padding-top:20px;" i18n="msg_noEvents">This day has no events.</div>
+				</div>
+			</div>
+		</div
+		><div style="display:inline-block; width:400px; vertical-align:top;">
+			<div class="e3_panel">
+				<div class="e3_panelHeader" i18n="header_sites">SITES</div>
+				<div class="e3_panelBody" style="background-color:rgba(255, 255, 255, 0.4);">
+					<div style="text-align:center;">
+						<div id="dashboard_siteTabs"></div>
+					</div>
+					<div id="dashboard_noSiteTabs" class="e3_note e3_offstage" style="padding-top:24px;" i18n="msg_noSites">There are no sites selected for your sites menu.</div>
+				</div>
+			</div>
+		</div
+		><div style="display:inline-block; width:336px; padding-left:24px; vertical-align:top;">
+			<div class="e3_panel" style="margin-bottom:24px;">
+				<div class="e3_panelHeader" i18n="header_etudesNews">ETUDES NEWS</div>
+				<div class="e3_panelBody" style="background-color:rgba(255, 255, 255, 0.4);">
+					<div id="dashboard_etudesNews"></div>
+				</div>
+			</div>
+			<div class="e3_panel">
+				<div class="e3_panelHeader" i18n="header_announcements">ANNOUNCEMENTS</div>
+				<div class="e3_panelBody" style="background-color:rgba(255, 255, 255, 0.4);">
+					<div id="dashboard_announcements"></div>
+				</div>
+			</div>
+		</div
+ 	></div>
+
+	<div id="dashboard_template_siteTab" class="e3_offstage">
+		<div class="e3_text" id="dashboard_template_siteTab_body" style="cursor:pointer; text-align:left; display:inline-block; background-color:white; vertical-align:top; position:relative; height:90px; width:400px;">
+			<div id="dashboard_template_siteTab_normal" class="e3_hoverNormal">
+				<div style="height:34px; width:400px;">
+					<div style="display:inline-block; width:346px; height:34px; line-height:34px; background-color:#CCCCCC; text-align:left; vertical-align:top; font-size:13px;"><span id="dashboard_template_siteTab_dot" style="vertical-align:top; position:relative; top:1px;"></span><span id="dashboard_template_siteTab_name" style="font-weight:700; vertical-align:top; color:black;"></span></div
+					><div style="display:inline-block; width:54px; height:34px; text-align:center; line-height:40px; background-color:#EAEAEA"><svg class="e3_specialColor" style="width:13px; height:17px;"><use xlink:href="#icon-arrow"></use></svg></div
+				></div>
+				<div style="height:56px; width:400px;">
+					<div style="position:relative; display:inline-block; vertical-align:top; width:100px; height:56px; line-height:56px; text-align:center; color:#686868; background:white url(/ui/art/mark/online.png) no-repeat center 8px;">
+						<div class="e3_text special" style="z-index:2; font-size:10px; padding-top:8px; line-height:13px;" i18n="header_online">ONLINE</div>
+						<div id="dashboard_template_siteTab_online_count" class="e3_text bold" style="font-size:22px; line-height:32px;"></div>
+					</div
+					><div style="position:relative; display:inline-block; vertical-align:top; width:100px; height:56px; line-height:56px; text-align:center; color:#686868; background:white url(/ui/art/mark/message.png) no-repeat center 8px;">
+						<div class="e3_text special" style="font-size:10px; padding-top:8px; line-height:13px;" i18n="header_pm">PM</div>
+						<div id="dashboard_template_siteTab_message_count" class="e3_text bold" style="font-size:22px; line-height:32px;"></div>
+					</div
+					><div style="position:relative; display:inline-block; vertical-align:top; width:100px; height:56px; line-height:56px; text-align:center; color:#686868; background:white url(/ui/art/mark/forum.png) no-repeat center 8px;">
+						<div class="e3_text special" style="font-size:10px; padding-top:8px; line-height:13px;" i18n="header_posts">POSTS</div>
+						<div id="dashboard_template_siteTab_forum_count" class="e3_text bold" style="font-size:22px; line-height:32px;"></div>
+					</div
+					><div id="dashboard_template_siteTab_alert_bkg" style="position:relative; display:inline-block; vertical-align:top; width:100px; height:56px; line-height:56px; text-align:center; color:#686868; background:white url(/ui/art/mark/alert.png) no-repeat center 8px;">
+						<div id="dashboard_template_siteTab_alert_title" class="e3_text special" style="font-size:10px; padding-top:8px; line-height:13px;"></div>
+						<div id="dashboard_template_siteTab_alert_count" class="e3_text bold" style="font-size:22px; line-height:32px;"></div>
+					</div
+				></div>
+			</div>
+			<div id="dashboard_template_siteTab_hover" class="e3_hoverHover" style="height:90px; width:400px; text-align:right;">
+				<div class="e3_hoverCover" style="height:90px; width:400px;"></div>
+				<div style="position:absolute; top:0px; left:0px; height:90px; width:400px;">
+					<a id="dashboard_template_siteTab_view" href="" class="e3_hoverLinkIR" style="line-height:90px; font-size:16px; position:relative; overflow:hidden;"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="dashboard_template_siteTabClosed" class="e3_offstage">
+		<div class="e3_text" id="dashboard_template_siteTabClosed_body" style="cursor:not-allowed; text-align:left; display:inline-block; background-color:white; vertical-align:top; position:relative; height:90px; width:400px;">
+			<div id="dashboard_template_siteTabClosed_normal" class="e3_hoverNormal">
+				<div style="height:34px; width:400px;">
+					<div style="display:inline-block; width:400px; height:34px; line-height:34px; background-color:#CCCCCC; text-align:left; vertical-align:top; font-size:13px;"><span id="dashboard_template_siteTabClosed_dot" style="vertical-align:top;"></span><span id="dashboard_template_siteTabClosed_name" style="font-weight:700; vertical-align:top; color:white;"></span></div
+				></div>
+				<div style="height:56px; width:400px;">
+					<div style="line-height:56px; font-size:18px; font-weight:300; text-align:left; color:#C0C0C0; background:white url(/ui/art/mark/closed.png) no-repeat 6px 6px; padding-left:60px;"><span i18n="msg_closed">CLOSED</span><span id="dashboard_template_siteTabClosed_when" style="margin-left:20px; text-transform: uppercase;"></span></div>
+				</div>
+			</div>
+			<div id="dashboard_template_siteTabClosed_hover" class="e3_hoverHover" style="height:90px; width:400px; text-align:right;">
+				<div class="e3_hoverCover" style="height:90px; width:400px;"></div>
+				<div style="position:absolute; top:0px; left:0px; height:90px; width:400px;">
+					<a id="dashboard_template_siteTabClosed_view" href="" class="e3_hoverLinkIR" style="line-height:90px; font-size:16px; position:relative; overflow:hidden;"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="dashboard_template_siteTabWillOpen" class="e3_offstage">
+		<div class="e3_text" id="dashboard_template_siteTabWillOpen_body" style="cursor:not-allowed; text-align:left; display:inline-block; background-color:white; vertical-align:top; position:relative; height:90px; width:400px;">
+			<div id="dashboard_template_siteTabWillOpen_normal" class="e3_hoverNormal">
+				<div style="height:34px; width:400px;">
+					<div style="display:inline-block; width:400px; height:34px; line-height:34px; background-color:#CCCCCC; text-align:left; vertical-align:top; font-size:13px;"><span id="dashboard_template_siteTabWillOpen_dot" style="vertical-align:top;"></span><span id="dashboard_template_siteTabWillOpen_name" style="font-weight:700; vertical-align:top; color:white;"></span></div
+				></div>
+				<div style="height:56px; width:400px;">
+					<div style="line-height:56px; font-size:18px; font-weight:300; text-align:left; color:#C0C0C0; background:white url(/ui/art/mark/will_open.png) no-repeat 6px 6px; padding-left:60px;"><span i18n="msg_opening">OPENING</span><span id="dashboard_template_siteTabWillOpen_when" style="margin-left:20px; text-transform: uppercase;"></span></div>
+				</div>
+			</div>
+			<div id="dashboard_template_siteTabWillOpen_hover" class="e3_hoverHover" style="height:90px; width:400px; text-align:right;">
+				<div class="e3_hoverCover" style="height:90px; width:400px;"></div>
+				<div style="position:absolute; top:0px; left:0px; height:90px; width:400px;">
+					<a id="dashboard_template_siteTabWillOpen_view" href="" class="e3_hoverLinkIR" style="line-height:90px; font-size:16px; position:relative; overflow:hidden;"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="dashboard_annc_template" class="e3_offstage">
+		<div id="dashboard_annc_template_body" style="height:100px; width:336px; cursor:pointer; border-top:1px solid #E0E0E0; position:relative;">
+			<div id="dashboard_annc_template_normal" class="e3_hoverNormal">
+				<div style="height:100px; width:336px; background-color:white;">
+					<div style="padding:8px 20px;">
+						<div id="dashboard_annc_template_subject" class="e3_text bold" style="color:#909090; font-size:14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"></div>
+						<div id="dashboard_annc_template_site" class="e3_text" style="color:#909090; font-size:10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"></div>
+						<div id="dashboard_annc_template_content" class="e3_content" style="font-size:11px; height:52px;"></div>
+					</div>
+				</div>
+			</div>
+			<div id="dashboard_annc_template_hover" class="e3_hoverHover" style="height:100px; width:336px; text-align:right;">
+				<div class="e3_hoverCover" style="height:100px; width:336px;"></div>
+				<div style="position:absolute; top:0px; left:0px; height:100px; width:336px;">
+					<a id="dashboard_annc_template_view" href="" class="e3_hoverLinkIR" style="line-height:100px; font-size:16px; position:relative; overflow:hidden;" i18n="msg_viewAnnc">VIEW ANNOUNCEMENT</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="dashboard_event_template" class="e3_offstage">
+		<div id="dashboard_event_template_body" style="height:54px; width:336px; border-top:1px solid #E0E0E0; cursor:pointer; position:relative;">
+			<div id="dashboard_event_template_normal" class="e3_hoverNormal">
+				<div class="e3_text special light" style="display:inline-block; height:54px; width:54px; background-color:#F8F8F8; vertical-align:top; text-align:center; color:#686868;">
+					<div style="padding:7px 0px;">
+						<div style="font-size:22px; line-height:28px;" id="dashboard_event_template_time"></div>
+						<div style="font-size:14px; line-height:12px;" id="dashboard_event_template_ampm"></div>
+					</div>
+				</div
+				><div class="e3_text light" style="display:inline-block; height:54px; background-color:#EAEAEA; vertical-align:top; width:calc(336px - 54px); color:#606060;">
+					<div id="dashboard_event_template_title" style="font-size:14px; line-height:54px; margin:0px 8px 0px 16px;"></div>
+				</div
+			></div>
+			<div id="dashboard_event_template_hover" class="e3_hoverHover" style="height:54px; width:336px; text-align:right;">
+				<div class="e3_hoverCover" style="height:54px; width:336px;"></div>
+				<div style="position:absolute; top:0px; left:0px; height:54px; width:336px;">
+					<a id="dashboard_event_template_view" href="" class="e3_hoverLinkIR" style="line-height:54px; font-size:16px; position:relative; overflow:hidden;" i18n="msg_viewEvent">VIEW EVENT</a>
+				</div>
+			</div
+		></div>
+	</div>
+
+	<div i18n="title_viewAnnouncement" id="dashboard_view_annc" title="ANNOUNCEMENT" style="display: none;">
+		<div class="e3_dialogBody">
+			<div id="dashboard_view_annc_subject" class="e3_text bold" style="font-size:16px;"></div>
+			<div id="dashboard_view_annc_byline"class="e3_text light" style="color:#909090; font-size:14px; padding:8px 0px 16px 0px;"></div>
+			<div id="dashboard_view_annc_content" class="e3_content" style="padding:0px 24px;"></div>
+		</div>
+	</div>
+
+	<div i18n="title_viewEvent" id="dashboard_view_event" title="EVENT" style="display:none;">
+		<div class="e3_dialogBody">
+			<div id="dashboard_view_event_title" class="e3_text bold" style="font-size:16px;"></div>
+			<div id="dashboard_view_event_byline" class="e3_text light" style="color:#909090; font-size:14px; padding:8px 0px 16px 0px;"></div>
+			<div id="dashboard_view_event_content" class="e3_content" style="padding:0px 24px;"></div>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

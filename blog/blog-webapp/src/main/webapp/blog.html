@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+	<div class="e3_panel">
+		<div class="e3_panelHeader">BLOGS</div>
+		<div class="e3_panelBody">
+
+			<!-- Multi-mode tool, but the modes are entered via navigation within the tool, not a mode bar -->
+			<!--  -->
+			<!-- mode 1 of 3: list of blogs in the site (supported by the Blog_blogs JS object) -->
+			<!--  -->
+			<div id="blog_blogs" class="e3_tool e3_offstage">
+				<div class="e3_section">		
+					<!-- new blog button, delete blog button -->
+					<div id="blog_blogs_actions" class="e3_tableActions">
+						<a i18n="add" id="blog_blogs_action_add" href="" style="background-image: url('/ui/icons/document_add.png');">Add</a>
+						<a i18n="edit" id="blog_blogs_action_edit" href="" style="background-image: url('/ui/icons/gear-edit.png');">Edit</a>
+						<a i18n="delete" id="blog_blogs_action_delete" href="" style="background-image: url('/ui/icons/remove.png');">Delete</a>
+					</div>
+					<!-- table of defined blogs, check box to select for edit/delete, click to view -->
+					<table id="blog_blogs_table" class="e3_table">
+						<thead>
+							<tr>
+								<th class="tight"></th>
+								<th i18n="header_owner" class="tight rGap">Owner</th>
+								<th i18n="header_name">Name</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+					<div id="blog_blogs_none" i18n="msg_noneDefined" class="e3_offstage e3_note">No items are defined</div>
+				</div>
+			</div>
+		
+			<!-- add / edit blog dialog -->
+			<div i18n="editBlogTitle" id="blog_blogs_edit" style="display: none;" title="Edit Blog Information">
+				<div class="e3_dialogBody">
+					<div class="e3_section">
+						<fieldset id="blog_blogs_edit_info" class="e3_horizontal" disabled>
+							<div class="e3_entry"><label class="e3_label" i18n="label_blogId" for="blog_blogs_edit_id">Blog ID</label><input class="e3_data" id="blog_blogs_edit_id" value="" type="text" size="80" /></div>
+							<div class="e3_entry"><label class="e3_label" i18n="label_site" for="blog_blogs_edit_site">Site</label><input class="e3_data" id="blog_blogs_edit_site" value="" type="text" size="80" /></div>
+							<div class="e3_entry"><label class="e3_label" i18n="label_created" for="blog_blogs_edit_created">Created</label><input class="e3_data" id="blog_blogs_edit_created" value="" type="text" size="80" /></div>
+							<div class="e3_entry"><label class="e3_label" i18n="label_modified" for="blog_blogs_edit_modified">Last Modified</label><input class="e3_data" id="blog_blogs_edit_modified" value="" type="text" size="80" /></div>
+						</fieldset>
+						<!--  editable fields -->
+						<h1 class="e3_sectionUi" i18n="header_blogInfo">Blog Information</h1>
+						<fieldset class="e3_horizontal">
+							<div class="e3_entry"><label class="e3_label" i18n="label_blogName" for="blog_blogs_edit_name">Blog Name</label><input class="e3_data" id="blog_blogs_edit_name" value="" type="text" size="80" /></div>
+							<div class="e3_entry"><label class="e3_label" i18n="label_owner" for="blog_blogs_edit_owner">Owner</label><select class="e3_data" id="blog_blogs_edit_owner" size="1"></select></div>
+						</fieldset>
+					</div>
+				</div>
+			</div>
+
+			<div i18n="confirmDeleteTitle" id="blog_blogs_confirmDelete" title="Delete Blog" style="display: none;">
+				<div i18n="confirmDelete" class="e3_dialogBody">Are you sure you want to delete the selected blog(s)?</div>
+			</div>
+		
+			<div i18n="nothingSelectedTitle" id="blog_blogs_selectFirst" title="Nothing Selected" style="display: none;">
+				<div i18n="nothingSelected" class="e3_dialogBody">First select one or more blogs before performing that action.</div>
+			</div>
+		
+			<!--  -->
+			<!-- mode 2 of 3: index of entries in a blog (supported by the Blog_index JS object) -->
+			<!--  -->
+			<div id="blog_index" class="e3_tool e3_offstage">
+				<div class="e3_section">
+					<a i18n="returnToBlogs" id="blog_index_return" class="e3_toolUiLinkU" href="">Return to Blogs</a>
+				</div>
+				<div class="e3_section">
+					<div class="e3_tableInfo">
+						<span id="blog_index_name"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span i18n="by">By</span> <span id="blog_index_owner"></span>
+					</div>
+					<!-- new entry button, delete entry button -->
+					<div id="blog_index_actions" class="e3_tableActions">
+						<a i18n="addEntry" id="blog_index_action_add" href="" style="background-image: url('/ui/icons/document_add.png');">Add Entry</a>
+						<a i18n="editEntry" id="blog_index_action_edit" href="" style="background-image: url('/ui/icons/gear-edit.png');">Edit Entry</a>
+						<a i18n="deleteEntry" id="blog_index_action_delete" href="" style="background-image: url('/ui/icons/remove.png');">Delete Entry</a>
+					</div>
+					<!-- table of blog entries, check box to select for edit / delete, click to view -->
+					<table id="blog_index_table" class="e3_table">
+						<thead>
+							<tr>
+								<th class="tight"></th>
+								<th class="tight"></th>
+								<th i18n="header_date" class="tight rGap">Date</th>
+								<th i18n="header_title">Title</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- add / edit blog entry dialog -->
+	<div i18n="editBlogEntryTitle" id="blog_index_edit" title="Blog Entry" style="display: none;">
+		<div class="e3_dialogBody">
+			<div class="e3_section">
+				<fieldset id="blog_index_edit_info" class="e3_horizontal" disabled>
+					<div class='e3_entry'><label class="e3_label" i18n="label_entryId" for="blog_index_edit_id">Entry ID</label><input class="e3_data" id="blog_index_edit_id" value="" type="text" size="80" /></div>
+					<div class='e3_entry'><label class="e3_label" i18n="label_created" for="blog_index_edit_created">Created</label><input class="e3_data" id="blog_index_edit_created" value="" type="text" size="80" /></div>
+					<div class='e3_entry'><label class="e3_label" i18n="label_modified" for="blog_index_edit_modified">Last Modified</label><input class="e3_data" id="blog_index_edit_modified" value="" type="text" size="80" /></div>
+				</fieldset>
+				<!--  editable fields -->
+				<fieldset class="e3_horizontal">
+					<div class="e3_entry"><label class="e3_label" i18n="label_title" for="blog_index_edit_title">Title</label><input class="e3_data" id="blog_index_edit_title" value="" type="text" size="80" /></div>
+				</fieldset>
+				<fieldset class="e3_vertical">
+					<div id="blog_index_edit_content" class="e3_editor"></div>
+				</fieldset>
+				<h1 class="e3_sectionUi" i18n="illustration">Illustration</h1>
+				<fieldset class="e3_vertical">
+					<div class="e3_entry">
+						<img i18n="img_illustration" class="e3_offstage" id="blog_index_edit_image_display" src="" border="0" alt="image" style="width:128px; height:auto;"/>
+					</div>
+					<div class="e3_entry">
+						<label class="e3_label" i18n="label_pickNewImage" for="blog_index_edit_image">Pick New Image</label><input id="blog_index_edit_image" type="file" accept="image/*" />
+						<input id="blog_index_edit_image_remove" type="checkbox"></input><label i18n="lable_removeImage" for="blog_index_edit_image_remove">Remove Image</label>
+					</div>
+				</fieldset>
+				<h1 class="e3_sectionUi" i18n="gallery">Gallery</h1>
+				<fieldset class="e3_horizontal">
+					<div id="blog_index_edit_gallery"></div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+
+	<div i18n="confirmDeleteEntryTitle" id="blog_index_confirmDelete" title="Delete Entry" style="display: none;">
+		<div i18n="confirmDeleteEntry" class="e3_dialogBody">Are you sure you want to delete the selected entry(s)?</div>
+	</div>
+
+	<div i18n="nothingSelectedTitle" id="blog_index_selectFirst" title="Nothing Selected" style="display: none;">
+		<div i18n="noEntrySelected" class="e3_dialogBody">First select one or more entries before performing that action.</div>
+	</div>
+
+	<!--  -->
+	<!-- mode 3 of 3: display of a blog entry (supported by the Blog_entry JS object) -->
+	<!--  -->
+	<div id="blog_entry" class="e3_tool e3_offstage">
+		<div><a i18n="returnToEntries" id="blog_entry_return" class="e3_toolUiLinkU" href="">Return to Entries</a></div>
+		<p>
+		<div><span id="blog_entry_blogName"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span i18n="by">By</span> <span id="blog_entry_blogOwner"></span></div>
+		<p>
+		<div><span id="blog_entry_title"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span i18n="by">By</span> <span id="blog_entry_owner"></span>, <span id="blog_entry_date"></span><span id="blog_entry_illustration" class="e3_offstage"><img i18n="img_illustration" id="blog_entry_illustration_display" border="0" alt="illustration" /></span></div>
+		<hr>
+		<div id="blog_entry_content"></div>
+	</div>
+
+	<!--  -->
+	<!-- general support -->
+	<!--  -->
+
+</div>
+</body>
+</html>

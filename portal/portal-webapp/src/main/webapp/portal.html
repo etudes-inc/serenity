@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<link href="/support/jquery-ui-1.11.1.custom/jquery-ui.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/support/etudes-core.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/support/etudes-icons.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/support/etudes-dialog.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/support/etudes-table.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/support/etudes-modebar.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/support/etudes-navbar.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/support/etudes-gallery.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/support/etudes-editor.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/support/etudes-timestamp.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/support/etudes-evaluation.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/support/jquery.contextmenu.css" type="text/css" rel="stylesheet" media="all" />
+<link href="/support/jquery-ui-timepicker-addon-1.5.0.css" type="text/css" rel="stylesheet" media="all" />
+<script type="text/javascript" src="/support/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="/support/jquery-ui-1.11.1.custom/jquery-ui.js"></script>
+<script type="text/javascript" src="/support/jquery.form_3.48.0-2013.12.28.js"></script>
+<script type="text/javascript" src="/support/jquery.tablesorter.min-2.17.8.js"></script>
+<script type="text/javascript" src="/support/jquery.contextmenu.js"></script>
+<script type="text/javascript" src="/support/jquery-ui-timepicker-addon-1.5.0.js"></script>
+<script type="text/javascript" src="/support/moment.min.2.9.0.js"></script>
+<script type="text/javascript" src="/support/moment-timezone-with-data.min.0.3.0.js"></script>
+<script type="text/javascript" src="/support/etudes-extend.js"></script>
+<script type="text/javascript" src="/support/etudes-edit.js"></script>
+<script type="text/javascript" src="/support/etudes-cdp.js"></script>
+<script type="text/javascript" src="/support/etudes-i18n.js"></script>
+<script type="text/javascript" src="/support/etudes-dialog.js"></script>
+<script type="text/javascript" src="/support/etudes-table.js"></script>
+<script type="text/javascript" src="/support/etudes-modebar.js"></script>
+<script type="text/javascript" src="/support/etudes-session.js"></script>
+<script type="text/javascript" src="/support/etudes-editor_i10n.js"></script>
+<script type="text/javascript" src="/support/etudes-editor.js"></script>
+<script type="text/javascript" src="/support/etudes-timestamp.js"></script>
+<script type="text/javascript" src="/support/rangy-core-1.2.3.js"></script>
+<script type="text/javascript" src="/support/etudes-evaluation_i10n.js"></script>
+<script type="text/javascript" src="/support/etudes-evaluation.js"></script>
+<script type="text/javascript" src="/portal/portal_i10n.js"></script>
+<script type="text/javascript" src="/portal/portal.js"></script>
+<script type="text/javascript">
+</script>
+<style type="text/css">
+.portal_center_padding
+{
+	padding: 16px 8px 16px 8px;
+}
+.portal_center
+{
+	display: table;
+	width: 100%;
+}
+.portal_footer
+{
+	text-align: center;
+	padding-bottom: 8px;
+}
+.portal_footer hr
+{
+	color: #730416;
+}
+#portal_footer_links
+{
+	color: #730416;
+}
+a.portal_footer_link:link,
+a.portal_footer_link:visited
+{
+	color: #730416;
+	text-decoration: none;
+}
+a.portal_footer_link:hover,
+a.portal_footer_link:active,
+a.portal_footer_link:focus
+{
+	color: #730416;
+	text-decoration: underline;
+}
+
+.portal_sidebar
+{
+	display: table-cell;
+	vertical-align: top;
+	width: 128px;
+	min-width: 128px;
+	padding-right: 16px;
+}
+.portal_tool
+{
+	display: table-cell;
+	vertical-align: top;
+}
+.portal_rsidebar
+{
+	display: table-cell;
+	vertical-align: top;
+	width: 128px;
+	padding-left: 16px;
+	padding-top: 22px;
+}
+.portal_tool_expand_button
+{
+	padding-left: 8px;
+	margin-right: 20px;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-image: url('/support/icons/chevron-left-2x.png');
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+}
+.portal_tool_collapse_button
+{
+	padding-left: 8px;
+	margin-right: 20px;
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-image: url('/support/icons/chevron-right-2x.png');
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	opacity: 0.6;
+}
+#portal_site_tools a
+{
+    text-align: center;
+    border-top: 1px solid #90A1C6;
+    border-left: 1px solid #90A1C6;
+    border-right: 1px solid #90A1C6;
+    display: block;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    color: #5A6D95;
+    background-color: #F5F4F4;
+    text-decoration: none;
+}
+#portal_site_tools a:hover
+{
+	background-color: #E7EAF1;
+	text-decoration: underline;
+}
+#portal_site_tools a.last
+{
+    border-bottom: 1px solid #90A1C6;
+}
+#portal_site_tools a.current,
+#portal_site_tools a.current:hover
+{
+	background-color: #730416;
+	color: #F4E10C;
+	text-decoration: none;
+	cursor: default;
+}
+
+#portal_site_links
+{
+	margin: 12px 20px 0 0;
+}
+#portal_site_links a
+{
+	display: block;
+	text-align: right;
+	margin-bottom: 8px;
+}
+
+.portal_banner
+{
+	height:84px;
+	background: #730416 url(/support/skin/Etudes/headback.gif) repeat-x;
+}
+.portal_banner_logo
+{
+	float: left;
+}
+.portal_banner_banner
+{
+	float: left;
+}
+.portal_banner_info
+{
+	float: right;
+	padding-right:8px;
+}
+.portal_banner_loggedout
+{
+	margin-top: 40px;
+	color: #730416;
+}
+.portal_banner_loggedinas
+{
+	margin-top: 8px;
+	color: #191970;
+	text-align: right;	
+}
+.portal_banner_loggedinas_name
+{
+	font-weight: bold;
+	margin-right: 8px;
+	padding-right: 12px;
+	border-right: 1px solid #730416;
+}
+.portal_banner_info a,
+.portal_banner_info a:link,
+.portal_banner_info a:visited
+{
+	color: #730416;
+	text-decoration: none;
+}
+.portal_banner_info a:hover
+{
+	/* color: #0000B0; */
+	text-decoration: underline;
+}
+.portal_banner_links
+{
+	margin-top:20px;
+	text-align: right;
+	color: #730416;
+}
+.portal_banner_link
+{
+	margin-right: 8px;
+	padding-right: 12px;
+	border-right: 1px solid #730416;
+}
+.portal_sites
+{
+	background-color: #730416;
+	line-height: 24px;
+	font-size: 12px;
+}
+.portal_sites div
+{
+	border-right: 1px solid #fff;
+	padding: 2px 0px 2px 0px;
+	display: inline-block;
+	width: 0px;
+	line-height: 12px;
+}
+.portal_sites a
+{
+	padding: 2px 6px 2px 6px;
+	white-space: nowrap;
+	text-decoration: none;
+}
+.portal_sites a span
+{
+	color: #fff;
+	padding: 4px;
+ }
+ .portal_sites a span.tabs
+ {
+ 	display: inline-block;
+	line-height: 16px;
+	text-align: center;
+ }
+.portal_sites a:hover span
+{
+	color: #F4E10C;
+	text-decoration: underline;
+}
+.portal_sites a.current
+{
+	cursor: default;
+}
+.portal_sites a.current span
+{
+	color: #F4E10C;
+}
+.portal_sites a.current:hover span
+{
+	text-decoration: none;
+}
+.portal_sites a.current span.tabs
+{
+	font-weight: bold;
+	color: #730416;
+	background-color: #fff;
+}
+.portal_sites a.unpublished
+{
+	cursor: not-allowed;
+}
+.portal_sites a.unpublished span
+{
+	color: #C0C0C0;
+}
+.portal_sites_more
+{
+	background:url(/support/icons/application_go.png) right center no-repeat;
+	padding-left: 24px;
+}
+.portal_tool_titlebar
+{
+	background:url(/support/skin/titlecenter.gif) top left repeat-x;
+	height:22px;
+	overflow:hidden;
+}
+.portal_tool_titlebar_text
+{
+	background:url(/support/skin/titleleft.gif) top left no-repeat;
+	padding: 4px 0 0 20px;
+	height:22px;
+	float: left;
+	color:#52698C;
+	font-weight: bold;
+	text-transform:uppercase;
+}
+.portal_tool_titlebar_right
+{
+	padding: 2px 16px 6px 2px;
+	height:22px;
+	background:url(/support/skin/titleright.gif) top right no-repeat;
+	float: right;
+	color:#52698C;
+}
+.portal_tool_titlebar_configure
+{
+	background:url(/support/icons/gear-edit.png) right top no-repeat;
+	float: right;
+	padding-right: 20px;
+}
+.portal_tool_titlebar_configureExit
+{
+	background:url(/support/icons/accept.png) right top no-repeat;
+	float: right;
+	padding-right: 20px;
+}
+.portal_tool_titlebar_configureCancel
+{
+	background:url(/support/icons/cancel.png) right top no-repeat;
+	float: right;
+	padding-right: 20px;
+}
+.portal_tool_titlebar_reset
+{
+	background:url(/support/icons/reload.gif) right top no-repeat;
+	padding-left: 12px;
+}
+.portal_tool_titlebar_loading
+{
+	background:url(icons/lorry_flatbed.png) left top no-repeat;
+	float: right;
+	padding-left: 20px;
+	padding-right: 80px;
+	font-size: 10px;
+	font-style: italic;
+	text-align: center;
+	vertical-align:middle;
+}
+.portal_tool_body
+{
+	border-color: #90A1C6;
+	border-style: none solid solid solid;
+	border-width: 1px;
+	padding: 8px;
+}
+.portal_sidebar_accessStatus
+{
+	height:22px;
+	text-align:center
+}
+#portal_maintenance_tools
+{
+	margin-top: 8px;
+	margin-left: 16px;
+}
+#portal_maintenance_tools a
+{
+	color: #6066AC;
+	padding-left: 20px;
+	background-repeat: no-repeat;
+	background-position: left center;
+    display: block;
+    height: 22px;
+    line-height: 22px;
+	font-size: 12px;
+	text-decoration: none;
+}
+#portal_maintenance_tools a:hover
+{
+	text-decoration: underline;
+}
+.portal_maintenance_setup
+{
+	background-image: url('/support/icons/gear-edit.png');
+}
+.portal_maintenance_roster
+{
+	background-image: url('/support/icons/user_female.png');
+}
+.portal_presence_header
+{
+	font-size: 11px;
+	text-align: center;
+	color: #90A1C6;
+	margin-top: 10px;
+}
+#portal_presence
+{
+	border: 1px solid #90A1C6;
+	height: 100px;
+	font-size: 11px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+#portal_presence div
+{
+	padding: 0px 10px 0px 10px;
+}
+.portal_newPresence
+{
+	color: #6066AC;
+	font-weight: bold;
+}
+.portal_oldPresence
+{
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+	filter: alpha(opacity=40);
+	opacity: 0.4;
+}
+</style>
+<title i18n="title">Serenity Portal</title>
+</head>
+<body>
+	<div class="portal_banner">
+		<div class="portal_banner_logo"><img src="/support/skin/Etudes/logo_inst.gif"></div>
+		<div class="portal_banner_banner"><img src="/support/skin/Etudes/banner_inst.gif"></div>
+		<div class="portal_banner_info">
+			<div id="portal_banner_loggedin" class="e3_offstage">
+				<div class="portal_banner_loggedinas"><span i18n="loggedinas">Logged in as:</span>&nbsp;<span id="portal_loggedinas" class="portal_banner_loggedinas_name"></span><a i18n="logout" href="" id="portal_command_logout">Logout</a></div>
+				<div class="portal_banner_links" id="portal_banner_links"></div>
+			</div>
+			<div id="portal_banner_loggedout" class="portal_banner_loggedout e3_offstage">
+				<form id="login_form" action="/portal/portal_i10n.js" enctype="application/x-www-form-urlencoded" method="post">
+					<label i18n="userid" for="login_userid">user id:</label>
+					<input id="login_userid" type="text" tabindex=1 />
+					<label i18n="password" for="login_password">password:</label>
+					<input id="login_password" type="password" tabindex=2 />
+					<button i18n="login" id="portal_command_login" tabindex=3 type="submit">Login</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="portal_sites e3_offstage" id="portal_sites"></div>
+	<div class="portal_center_padding">
+		<div class="portal_center">
+			<div class="portal_sidebar e3_offstage" id="portal_sidebar">
+				<div class="portal_sidebar_accessStatus">
+					<div id="portal_siteClosed" class="e3_offstage"><img src="/support/icons/closed.gif" style="vertical-align:bottom;"/><span i18n="closed" style="font-size:x-small;">Closed</span></div>
+					<div id="portal_siteWillOpen" class="e3_offstage"><img src="/support/icons/calendar.png" style="vertical-align:bottom;"/><span i18n="willopen" style="font-size:x-small;">Will Open</span></div>
+				</div>
+				<div id="portal_site_tools"></div>
+				<div id="portal_site_links"></div>
+				<div id="portal_maintenance_tools"></div>
+				<div id="portal_presence_area" class="e3_offstage">
+					<div class="portal_presence_header" i18n="presence">Users Present:</div>
+					<div id="portal_presence"></div>
+				</div>
+			</div>
+			<div class="portal_tool">
+				<div id="portal_notool" class="e3_offstage">&nbsp;</div>
+				<div id="portal_tool" class="e3_offstage">
+					<div id="portal_tool_titlebar" class="portal_tool_titlebar">
+						<div class="portal_tool_titlebar_text">
+							<a i18n="toggleSidebar" id="portal_tool_sidebar_toggle" href="" class="portal_tool_expand_button e3_toolUiLinkI">&nbsp;</a>
+							<a i18n="reset" id="portal_tool_reset" href="" class="portal_tool_titlebar_reset e3_toolUiLinkI e3_offstage">&nbsp;</a>
+							<span id="portal_tool_titlebar_title">Tool Title</span>
+						</div>
+						<div class="portal_tool_titlebar_right">
+							<a i18n="configure" id="portal_tool_configure" href="" class="portal_tool_titlebar_configure e3_toolUiLinkI e3_offstage">&nbsp;</a>
+							<a i18n="configureCancel" id="portal_tool_configureCancel" href="" class="portal_tool_titlebar_configureCancel e3_toolUiLinkI e3_offstage">&nbsp;</a>
+							<a i18n="configureExit" id="portal_tool_configureExit" href="" class="portal_tool_titlebar_configureExit e3_toolUiLinkI e3_offstage">&nbsp;</a>
+						</div>
+					</div>
+					<div id="portal_toolStage" class="portal_tool_body"></div>
+				</div>
+			</div>
+			<div class="portal_rsidebar e3_offstage" id="portal_rsidebar">
+				<div>DEV TOOLS</div>
+				<div>
+					<a i18n="reset" id="portal_options_refresh" href="" class="portal_tool_titlebar_reset e3_toolUiLinkI">&nbsp;</a>
+				</div>
+				<div style="margin-top:20px;">Site Tabs Options</div>
+				<div>
+					<input id="portal_option_sites_0" type="radio" name="portal_option_sites" value="T"></input>
+					<label for="portal_option_sites_0">Tabs</label>
+				</div>
+				<div>
+					<input id="portal_option_sites_1" type="radio" name="portal_option_sites" value="F"></input>
+					<label for="portal_option_sites_1">Fixed Tabs</label>
+				</div>
+				<div>
+					<input id="portal_option_sites_2" type="radio" name="portal_option_sites" value="H"></input>
+					<label for="portal_option_sites_2">Color</label>
+				</div>
+				<div style="margin-top:20px;">Sidebar Options</div>
+				<div>
+					<input id="portal_option_sidebar" type="checkbox"></input>
+					<label for="portal_option_sidebar">Optional</label>
+				</div>
+				<div>
+					<input id="portal_option_autoSidebar" type="checkbox"></input>
+					<label for="portal_option_autoSidebar">Auto Open</label>
+				</div>
+				<div style="margin-top:20px;">Editor Button Size</div>
+				<div>
+					<input id="portal_option_editorSize_0" type="radio" name="portal_option_editorSize" value="S"></input>
+					<label for="portal_option_editorSize_0">Small</label>
+				</div>
+				<div>
+					<input id="portal_option_editorSize_1" type="radio" name="portal_option_editorSize" value="L"></input>
+					<label for="portal_option_editorSize_1">Large</label>
+				</div>
+				<div style="margin-top:20px;">Editor Button Shape</div>
+				<div>
+					<input id="portal_option_editorShape_0" type="radio" name="portal_option_editorShape" value="S"></input>
+					<label for="portal_option_editorShape_0">Square</label>
+				</div>
+				<div>
+					<input id="portal_option_editorShape_1" type="radio" name="portal_option_editorShape" value="R"></input>
+					<label for="portal_option_editorShape_1">Round</label>
+				</div>
+				<div style="margin-top:20px;">Editor Button Outline</div>
+				<div>
+					<input id="portal_option_editorOutline_0" type="radio" name="portal_option_editorOutline" value="T"></input>
+					<label for="portal_option_editorOutline_0">Outline</label>
+				</div>
+				<div>
+					<input id="portal_option_editorOutline_1" type="radio" name="portal_option_editorOutline" value="F"></input>
+					<label for="portal_option_editorOutline_1">None</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="portal_footer">
+		<hr />
+		<div id="portal_footer_links">
+			<a href="/portal/site/!gateway" class="portal_footer_link">Gateway</a> |
+			<a href="http://etudes.org" target="_blank" class="portal_footer_link">Etudes</a> |
+			<a href="http://etudes.org/conduct-code" target="_blank" class="portal_footer_link">Conduct Policy</a> |
+			<a href="http://etudes.org/privacy-statement" target="_blank" class="portal_footer_link">Privacy Statement</a>
+		</div>
+		<div style="margin-top: 16px; font-size:x-small;">&copy; 2008 - 2015, Etudes, Inc.  All rights reserved.</div>
+		<div style="font-size:x-small">SerenityAlpha - dev</div>
+	</div>
+
+	<!--  -->
+	<!-- general support -->
+	<!--  -->
+	<div i18n="siteUnpublishedTitle" id="portal_unpublished_alert" title="Unpublished Site" style="display: none;">
+		<div i18n="siteUnpublished" class="e3_dialogBody">This site is not currently published.</div>
+	</div>
+
+	<div i18n="loginInvalidTitle" id="login_invalid_alert" title="Invalid Login" style="display: none;">
+		<div i18n="loginInvalid" class="e3_dialogBody">You have entered an invalid user id or password.</div>
+	</div>
+
+	<div i18n="notAuthorizedTitle" id="portal_accessDenied" title="Access Denied" style="display: none;">
+		<div i18n="notAuthorized" class="e3_dialogBody">You are not authorized to perform that action.</div>
+	</div>
+
+	<div i18n="notLoggedInTitle" id="portal_notLoggedIn" title="Access Denied" style="display: none;">
+		<div i18n="notLoggedIn" class="e3_dialogBody">You are not logged in.</div>
+	</div>
+
+	<div i18n="problemTitle" id="portal_cdpFailure" title="Problem with Request" style="display: none;">
+		<div i18n="problem" class="e3_dialogBody">Unable to contact Etudes at this time.</div>
+	</div>
+
+	<div id="portal_attributionTemplate" class="e3_offstage">
+		<div style="display:table; font-style: italic; font-size: 10px; padding-right: 10px; float:right;">
+			<div style="display:table-row"><div style="display:table-cell; text-align:right; padding-right:10px;" i18n="label_id"></div><div style="display:table-cell" id="portal_attributionTemplate_id"></div></div>
+			<div style="display:table-row"><div style="display:table-cell; text-align:right; padding-right:10px;" i18n="label_created"></div><div style="display:table-cell" id="portal_attributionTemplate_created"></div></div>
+			<div style="display:table-row"><div style="display:table-cell; text-align:right; padding-right:10px;" i18n="label_modified"></div><div style="display:table-cell" id="portal_attributionTemplate_modified"></div></div>
+		</div>
+		<div style="clear:both;"></div>
+	</div>
+
+ 	<div id="portal_itemNavTemplate" class="e3_offstage e3_navbar">
+		<input id="portal_itemNavTemplate_save" type="button" value="Save" i18n="input_save"style="background-image: url(/support/icons/accept.png);"/> 		
+		<input id="portal_itemNavTemplate_discard" type="button" value="Discard" i18n="input_discard"style="background-image: url(/support/icons/cancel.png);"/> 		
+ 		<div style="float:right;'">
+			<input id="portal_itemNavTemplate_return" type="button" value="Return" i18n="input_return"style="background-image: url(/support/icons/return.png);"/> 		
+			<input id="portal_itemNavTemplate_prev" type="button" value="Prev" i18n="input_prev" style="background-image: url(/support/icons/previous.png);"/>
+			<span id="portal_itemNavTemplate_pos">1 of 1</span>
+			<input id="portal_itemNavTemplate_next" class="iconRight" type="button" value="Next" i18n="input_next" style="background-image: url(/support/icons/next.png);"/>
+ 		</div>
+		<div style="clear:both;"></div>
+	</div>
+
+</body>
+</html>

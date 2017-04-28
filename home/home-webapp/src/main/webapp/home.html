@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+	<div id="home_header" class="e3_pinned e3_offstage">
+		<div class="e3_panelHeader" i18n="msg_header">HOME</div>
+		<div id="home_modebar" class="e3_modebar e3_offstage"></div>
+		<div id="home_headerbar" class="e3_panelHeaderBar e3_offstage">
+			<div id="home_itemnav" class="e3_itemnav e3_offstage"></div
+
+			><div id="home_bar_edit"  class="e3_panelHeaderBarGrouping e3_panelHeaderBarRight e3_offstage">
+				<div class="e3_action titled"><a id="home_edit_view" i18n="a_viewItem" href="">Preview</a></div
+			></div
+
+			><div id="home_bar_manage" class="e3_panelHeaderBarGrouping e3_offstage">
+				<div class="e3_action add"><a id="home_manage_add" i18n="a_add" href="">Add</a></div
+				><div class="e3_action titled"><a id="home_manage_view" i18n="a_viewItem" href="">Preview</a></div
+				><div class="e3_action titled"><a id="home_manage_publish" i18n="a_publish" href="">Publish</a></div
+				><div class="e3_action titled"><a id="home_manage_unpublish" i18n="a_unpublish" href="">Unpublish</a></div
+				><div class="e3_action delete"><a id="home_manage_delete" i18n="a_delete" href="">Delete</a></div
+			></div
+
+		></div>
+
+		<div id="home_header_manage" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 16+32 32+8 title+8 200+8 150+8 8+150+32 ] 40 | *20 -->
+			<div class="icon" style="width:16px;"></div
+			><div class="dot" style="width:32px;"></div
+			><div id="home_header_manage_title" style="width:calc(100vw - 100px - 652px); min-width:calc(1200px - 100px - 652px);" i18n="header_title">TITLE</div
+			><div style="width:200px;" i18n="header_source">SOURCE</div
+			><div class="date" i18n="header_releaseOn">RELEASED ON</div
+			><div class="date" i18n="header_modified">MODIFIED</div
+		></div>
+	</div>
+
+	<div id="home_view" class="e3_offstage"> <!-- 40 [x 24 302 ] 40 -->
+		<div style="display:inline-block; width:calc(100% - 326px); vertical-align:top;">
+			<div class="e3_panel">
+				<div class="e3_panelHeader">
+					<a id="home_view_edit" class="edit e3_offstage" href="" i18n="a_edit"><svg><use xlink:href="#icon-settings"></use></svg></a>
+					<span id="home_view_content_title">SITE HOME</span>
+				</div>
+				<div class="e3_panelBody" style="background-color:rgba(255, 255, 255, 0.4);">
+					<div id="home_view_content_body"></div>
+				</div>
+			</div>
+		</div
+		><div style="display:inline-block; width:302px; padding-left:24px; vertical-align:top; min-height:100px;">
+
+			<div id="home_view_activity_ui" class="e3_panel" style="margin-bottom:24px;">
+				<div class="e3_panelHeader" i18n="header_activity">ACTIVITY</div>
+				<div class="e3_panelBody" style="background-color:rgba(255, 255, 255, 0.4);">
+					<div style="height:56px; line-height:56px; width:302px; font-size:22px; background-color:white;">
+						<div style="display:inline-block; width:101px;">
+							<div id="home_message_count_body" style="position:relative; cursor:pointer; width:101px; height:56px; line-height:56px;">
+								<div id="home_message_count_normal" class="e3_hoverNormal" style="width:101px; height:56px;">
+<!-- 									<div id="home_message_count" class="e3_text special bold" style="display:inline-block; width:101px; height:56px; line-height:56px; text-align:center; color:#787878; background:white url(/ui/art/mark/message.png) no-repeat 8px 8px;"></div> -->
+									<div style="width:101px; height:56px; text-align:center; color:#686868; background:white url(/ui/art/mark/message.png) no-repeat center 8px;">
+										<div class="e3_text special" style="font-size:10px; padding-top:8px; line-height:13px;" i18n="header_pm">PM</div>
+										<div id="home_message_count" class="e3_text bold" style="font-size:22px; line-height:32px;"></div>
+									</div>								
+								</div>
+								<div id="home_message_count_hover" class="e3_hoverHover" style="width:101px; height:56px; line-height:56px; text-align:right;">
+									<div class="e3_hoverCover" style="width:101px; height:56px; line-height:56px;"></div>
+									<div style="position:absolute; top:0px; left:0px; width:101px; height:56px; line-height:56px;">
+										<a id="home_message_count_view" i18n="msg_view" href="" class="e3_hoverLinkIR short" style="line-height:56px; font-size:16px;">VIEW</a>
+									</div>
+								</div>
+							</div>
+						</div
+						><div style="display:inline-block; width:100px;">
+							<div id="home_forum_count_body" style="position:relative; cursor:pointer; width:100px; height:56px; line-height:56px;">
+								<div id="home_forum_count_normal" class="e3_hoverNormal">
+<!-- 									<div id="home_forum_count" class="e3_text special bold" style="display:inline-block; width:100px; text-align:center; color:#787878; background:white url(/ui/art/mark/forum.png) no-repeat 2px 8px;"></div> -->
+									<div style="width:101px; height:56px; text-align:center; color:#686868; background:white url(/ui/art/mark/forum.png) no-repeat center 8px;">
+										<div class="e3_text special" style="font-size:10px; padding-top:8px; line-height:13px;" i18n="header_post">POSTS</div>
+										<div id="home_forum_count" class="e3_text bold" style="font-size:22px; line-height:32px;"></div>
+									</div>								
+								</div>
+								<div id="home_forum_count_hover" class="e3_hoverHover" style="width:100px; height:56px; line-height:56px; text-align:right;">
+									<div class="e3_hoverCover" style="width:100px; height:56px; line-height:56px;"></div>
+									<div style="position:absolute; top:0px; left:0px; width:100px; height:56px; line-height:56px;">
+										<a id="home_forum_count_view" i18n="msg_view" href="" class="e3_hoverLinkIR short" style="line-height:56px; font-size:16px;">VIEW</a>
+									</div>
+								</div>
+							</div>
+						</div
+						><div style="display:inline-block; width:101px;">
+							<div id="home_alert_count_body" style="position:relative; cursor:pointer; width:101px; height:56px; line-height:56px;">
+								<div id="home_alert_count_normal" class="e3_hoverNormal">
+<!-- 									<div id="home_alert_count" class="e3_text special bold" style="display:inline-block; width:101px; text-align:center; color:#787878; background:white url(/ui/art/mark/alert.png) no-repeat 2px 8px;"></div> -->
+									<div id="home_alert_bkg" style="width:101px; height:56px; text-align:center; color:#686868; background:white url(/ui/art/mark/alert.png) no-repeat center 8px;">
+										<div id="home_alert_title" class="e3_text special" style="font-size:10px; padding-top:8px; line-height:13px;"></div>
+										<div id="home_alert_count" class="e3_text bold" style="font-size:22px; line-height:32px;"></div>
+									</div>								
+								</div>
+								<div id="home_alert_count_hover" class="e3_hoverHover" style="width:101px; height:56px; line-height:56px; text-align:right;">
+									<div class="e3_hoverCover" style="width:101px; height:56px; line-height:56px;"></div>
+									<div style="position:absolute; top:0px; left:0px; width:101px; height:56px; line-height:56px;">
+										<a id="home_alert_count_view" i18n="msg_view" href="" class="e3_hoverLinkIR short" style="line-height:56px; font-size:16px;">VIEW</a>
+									</div>
+								</div>
+							</div>
+						</div
+					></div>
+				</div>
+			</div>
+
+			<div id="home_view_annc_ui" class="e3_panel" style="margin-bottom:24px;">
+				<div class="e3_panelHeader" i18n="header_annc">ANNOUNCEMENTS</div>
+				<div class="e3_panelBody" style="background-color:rgba(255, 255, 255, 0.4);">
+					<div id="home_announcements"></div>
+				</div>
+			</div>
+
+			<div id="home_view_calendar_ui" class="e3_panel" style="margin-bottom:24px;">
+				<div class="e3_panelHeader" i18n="header_calendar">CALENDAR</div>
+				<div class="e3_panelBody" style="background-color:rgba(255, 255, 255, 0.4);">
+					<div id="home_calendar" style="padding:8px; background-color:white;"></div>
+					<div class="e3_text" style="height:24px; line-height:15px; background-color:#363636; font-size:10px; text-transform:uppercase; position:relative">
+						<div id="home_events_header_date" style="color:white; position:absolute; left:22px; top:4px;"></div>
+						<div id="home_events_header_tz" style="color:#C8C8C8; position:absolute; right:22px; top:4px;"></div>
+					</div>
+					<div id="home_events"></div>
+					<div id="home_events_none" class="e3_note e3_offstage" style="padding-top:20px;" i18n="msg_noEvents">This day has no events.</div>
+				</div>
+			</div
+		></div>
+	</div>
+	
+	<div id="home_manage" class="e3_offstage">
+		<div class="e3_panel">
+			<div class="e3_panelBody footed">
+				<table id="home_manage_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div id="home_edit" class="e3_offstage">
+		<div class="e3_panel">
+			<div class="e3_panelBody headed footed indented">
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_title" for="home_edit_title">Title</label></div>
+						<div class="e3_editFieldsBody"><input id="home_edit_title"class="e3_input" style="width:calc(100% / 2);" type="text" value="" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_releaseOn" for="home_edit_releaseOn">Release On</label><label id="home_edit_releaseOn_alert" class="alert e3_offstage" i18n="alert_required" for="home_edit_releaseOn">* required to publish</label></div>
+						<div class="e3_editFieldsBody"><input class="e3_input e3_timestamp" type="text" id="home_edit_releaseOn" value="" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_source">Source</label></div>
+						<div class="e3_editFieldsBody">
+							<div class="e3_editFieldsBodyLine"><input name="home_edit_source" id="home_edit_source_0" value="F" type="radio" /><label i18n="label_image" for="home_edit_source_0">Select or Upload an Image File (.jpg, .png, or .gif)</label></div>
+							<div class="e3_editFieldsBodyLine"><input name="home_edit_source" id="home_edit_source_1" value="Y" type="radio" /><label i18n="label_youtube" for="home_edit_source_1">Select a YouTube Video</label></div>
+							<div class="e3_editFieldsBodyLine"><input name="home_edit_source" id="home_edit_source_2" value="A" type="radio" /><label i18n="label_author" for="home_edit_source_2">Author an Item</label></div>
+							<div class="e3_editFieldsBodyLine"><input name="home_edit_source" id="home_edit_source_3" value="W" type="radio" /><label i18n="label_web" for="home_edit_source_3">Select a Web Resource</label></div>
+						</div>
+					</div>
+					<div class="e3_editFieldsEntry"><div class="e3_editFieldsBody"><input id="home_edit_published" type="checkbox"></input><label i18n="label_published" for="home_edit_published">Published</label></div></div>
+				</fieldset>
+				<fieldset id="home_edit_webFields" class="e3_editFieldsTB e3_offstage">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_ editFieldsTitle"><label i18n="label_url" for="home_edit_web_url">URL</label><label id="home_edit_web_url_alert" class="alert e3_offstage" i18n="alert_required" for="home_edit_web_url">* required to publish</label></div>
+						<div class="e3_editFieldsBody"><input class="e3_input" style="width:calc(100% - 8px);" type="text" id="home_edit_web_url" value="" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_urlAlt" for="home_edit_web_alt">Alternative Text</label></div>
+						<div class="e3_editFieldsBody"><input class="e3_input" style="width:calc(100% - 8px);" type="text" id="home_edit_web_alt" value="" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_height" for="home_edit_web_height">Height:</label></div>
+						<div class="e3_editFieldsBody">
+							<input id="home_edit_web_height" class="e3_input" type="number" />
+							<span i18n="msg_inpx" class="e3_text italic light" style="font-size:13px; margin-left:10px;">(pixels)</span>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset id="home_edit_youtubeFields" class="e3_editFieldsTB e3_offstage">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_youtubeId" for="home_edit_youtube_id">YouTube Video ID</label><a id="home_edit_youtube_help" class="e3_help" href="">HELP ?</a><label id="home_edit_youtube_id_alert" class="alert e3_offstage" i18n="alert_required" for="home_edit_youtube_id">* required to publish</label></div>
+						<div class="e3_editFieldsBody"><input class="e3_input" style="width:200px;" type="text" id="home_edit_youtube_id" value="" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_ratio">Aspect Ratio</label></div>
+						<div class="e3_editFieldsBody">
+							<div class="e3_editFieldsBodyLine"><input name="home_edit_youtube_ratio" id="home_edit_youtube_ratio_0" value="1" type="radio" /><label for="home_edit_youtube_ratio_0">1 : 1</label></div>
+							<div class="e3_editFieldsBodyLine"><input name="home_edit_youtube_ratio" id="home_edit_youtube_ratio_1" value="4" type="radio" /><label for="home_edit_youtube_ratio_1">4 : 3</label></div>
+							<div class="e3_editFieldsBodyLine"><input name="home_edit_youtube_ratio" id="home_edit_youtube_ratio_2" value="16" type="radio" /><label for="home_edit_youtube_ratio_2">16 : 9</label></div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset id="home_edit_authorFields" class="e3_editFieldsTB e3_offstage">
+					<div class="e3_editFieldsEntry">
+						<div id="home_edit_author" class="e3_editFieldsBody"></div>
+					</div>
+				</fieldset>
+				<fieldset id="home_edit_fileFields" class="e3_editFieldsTB e3_offstage">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_file">Selected File:</label> <span id="home_edit_file_selected"></span> <label id="home_edit_file_picker_alert" class="alert e3_offstage" i18n="alert_required" for="home_edit_youtube_id">* required to publish</label></div>
+						<div class="e3_editFieldsBody">
+							<div id="home_edit_file_picker" style="border-top:1px solid #DCDCDC;"></div>
+						</div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_urlAlt" for="home_edit_web_alt">Alternative Text</label></div>
+						<div class="e3_editFieldsBody"><input class="e3_input" style="width:calc(100% - 8px);" type="text" id="home_edit_file_alt" value="" /></div>
+					</div>
+				</fieldset>
+				<div id="home_edit_attribution"></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="home_options" class="e3_offstage" style="width:100%;"><!-- 1200px: 40 [ 24 524 24 524 24 ] 40 -->
+		<div class="e3_panel" style="background-color:rgba(255,255,255,0.6);">
+			<div class="e3_panelBody headed footed indented24" style="width:1072px; margin:auto; background-color:transparent;">
+				<div style="width:524px; margin-right:24px; display:inline-block; vertical-align:top;">
+					<div class="e3_panel" style="margin-bottom:24px;">
+						<div class="e3_subpanelHeader" i18n="header_format">DISPLAY FORMAT</div>
+						<div class="e3_panelBody headed indented24">
+							<fieldset class="e3_editFieldsTB">
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsBody">
+										<div class="e3_editFieldsBodyLine"><input name="home_options_format" id="home_options_format_0" value="0" type="radio" /><label i18n="label_wide" for="home_options_format_0">Wide Home Item</label></div>
+										<div class="e3_editFieldsBodyLine"><input name="home_options_format" id="home_options_format_1" value="1" type="radio" /><label i18n="label_split" for="home_options_format_1">Split Screen</label></div>
+									</div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+					<div class="e3_panel">
+						<div class="e3_subpanelHeader" i18n="header_annc">ANNOUNCEMENTS</div>
+						<div class="e3_panelBody headed indented24">
+							<fieldset class="e3_editFieldsLR">
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsTitle"><label i18n="label_show" for="home_options_numAnnc">show:</label></div>
+									<div class="e3_editFieldsBody">
+										<select id="home_options_numAnnc" style="border:none; width:5em;">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+										</select>
+									</div>
+								</div>
+								<div class="e3_editFieldsEntry">
+									<div class="e3_editFieldsTitle"></div>
+									<div class="e3_editFieldsBody"><input id="home_options_fullAnnc" type="checkbox" /><label i18n="label_full" for="home_options_fullAnnc">show first in full</label></div>
+								</div>
+							</fieldset>
+						</div>
+					</div>
+				</div
+				><div style="width:524px; display:inline-block; vertical-align:top;">
+					<div class="e3_panel">
+						<div class="e3_subpanelHeader" i18n="header_show">COMPONENTS</div>
+						<div class="e3_panelBody">
+							<table id="home_options_show" class="e3_table noindent">
+								<thead></thead>
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="home_annc_template" class="e3_offstage">
+		<div id="home_annc_template_body" style="height:100px; width:302px; cursor:pointer; border-top:1px solid #E0E0E0; position:relative;">
+			<div id="home_annc_template_normal" class="e3_hoverNormal">
+				<div style="font-size:16px; height:100px; width:302px; background-color:white;">
+					<div style="padding:8px 20px;">
+						<div id="home_annc_template_subject" class="e3_text bold" style="color:#909090; font-size:14px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;"></div>
+						<div id="home_annc_template_content" class="e3_content" style="font-size:11px; height:64px;"></div>
+					</div>
+				</div>
+			</div>
+			<div id="home_annc_template_hover" class="e3_hoverHover" style="height:100px; width:302px; text-align:right;">
+				<div class="e3_hoverCover" style="height:100px; width:302px;"></div>
+				<div style="position:absolute; top:0px; left:0px; height:100px; width:302px;">
+					<a id="home_annc_template_view" i18n="msg_viewAnnc" href="" class="e3_hoverLinkIR" style="line-height:100px; font-size:16px;">VIEW ANNOUNCEMENT</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="home_event_template" class="e3_offstage">
+		<div id="home_event_template_body" style="height:54px; width:302px; border-top:1px solid #E0E0E0; cursor:pointer; position:relative;">
+			<div id="home_event_template_normal" class="e3_hoverNormal">
+				<div class="e3_text special light" style="display:inline-block; height:54px; width:54px; background-color:#F8F8F8; vertical-align:top; text-align:center; color:#686868;">
+					<div style="padding:7px 0px;">
+						<div style="font-size:22px; line-height:28px;" id="home_event_template_time"></div>
+						<div style="font-size:14px; line-height:12px;" id="home_event_template_ampm"></div>
+					</div>
+				</div
+				><div class="e3_text light" style="display:inline-block; height:54px; background-color:#EAEAEA; vertical-align:top; width:calc(302px - 54px); color:#606060;">
+					<div id="home_event_template_title" style="font-size:14px; line-height:54px; margin:0px 8px 0px 16px;"></div>
+				</div
+			></div>
+			<div id="home_event_template_hover" class="e3_hoverHover" style="height:54px; width:302px; text-align:right;">
+				<div class="e3_hoverCover" style="height:54px; width:302px;"></div>
+				<div style="position:absolute; top:0px; left:0px; height:54px; width:302px;">
+					<a id="home_event_template_view" i18n="msg_viewEvent" href="" class="e3_hoverLinkIR" style="line-height:54px; font-size:16px;">VIEW EVENT</a>
+				</div>
+			</div
+		></div>
+	</div>
+
+	<div i18n="title_viewAnnc" id="home_view_annc" title="ANNOUNCEMENT" style="display: none;">
+		<div class="e3_dialogBody">
+			<div id="home_view_annc_subject" class="e3_text bold" style="font-size:16px;"></div>
+			<div id="home_view_annc_byline" class="e3_text light" style="color:#909090; font-size:14px; padding:8px 0px 16px 0px;"></div>
+			<div id="home_view_annc_content" class="e3_content" style="margin-top:8px;"></div>
+		</div>
+	</div>
+
+	<div i18n="title_viewEvent" id="home_view_event" title="EVENT" style="display:none;">
+		<div class="e3_dialogBody">
+			<div id="home_view_event_title" class="e3_text bold" style="font-size:16px;"></div>
+			<div id="home_view_event_byline" class="e3_text light" style="color:#909090; font-size:14px; padding:8px 0px 16px 0px;"></div>
+			<div id="home_view_event_content" class="e3_content" style="margin-top:8px;"></div>
+		</div>
+	</div>
+
+	<div id="home_youtube_template" class="e3_offstage">
+		<div id="home_youtube_template_body">
+			<iframe id="home_youtube_template_iframe" src="//www.youtube.com/embed/%0?rel=0&amp;wmode=opaque" allowfullscreen="" style="border-style:none; width:100%; height:100%;"></iframe>
+		</div>
+	</div>
+
+	<div id="home_authored_template" class="e3_offstage">
+		<div id="home_authored_template_body" class="e3_content" style="background-color: white; padding:16px 16px 56px 16px;"></div>
+	</div>
+
+	<div id="home_file_template" class="e3_offstage">
+		<div id="home_file_template_body" style="text-align:center;">
+			<img id="home_file_template_img" src="" style="max-width:100%; vertical-align:top;"/>
+		</div>
+	</div>
+
+	<div id="home_web_template" class="e3_offstage">
+		<div id="home_web_template_body" style="text-align:center;">
+			<img id="home_web_template_img" src="" style="max-width:100%; vertical-align:top;" />
+			<iframe id="home_web_template_iframe" src="" style="border-style:none; width:100%; height:100%;"></iframe>
+		</div>
+	</div>
+
+	<div id="home_nothing_template" class="e3_offstage">
+		<div id="home_nothing_template_body" style="text-align:center; background-color: white; padding:16px 16px 56px 16px;">
+			<span id="home_nothing_template_msg"></span>
+		</div>
+	</div>
+
+	<div i18n="title_nothingSelected" id="home_manage_selectFirst" title="Nothing Selected" style="display: none;">
+		<div i18n="msg_nothingSelected" class="e3_dialogBody">First select one or more item before performing that action.</div>
+	</div>
+
+	<div i18n="title_confirmDelete" id="home_manage_confirmDelete" title="Confirm Delete" style="display: none;">
+		<div i18n="msg_confirmDelete" class="e3_dialogBody">Are you sure you want to delete selected item(s)?</div>
+	</div>
+
+	<div i18n="title_youtubeHelp" id="home_edit_youtubeHelp"  title="About YouTube Video IDs" style="display: none;">
+		<div class="e3_dialogBody">
+			Every YouTube video has a unique, <b>11 character ID</b>.  Find your video's ID and enter it here.
+			<p>The ID can be found by viewing the video in YouTube, and noticing the URL in the browser window.  The section of the URL after the <b>v=</b> is the video's ID:
+			<p><img src="/ui/art/help/youtube_id1.png" />
+			<p>You can also see the ID in the URL shown under "share":
+			<p><img src="/ui/art/help/youtube_id2.png" />
+			<p>This video's ID is <b>_jZ25X1m458</b>
+			<p>Enter the ID in the <span style="font-weight:bold;color:#656565;">YouTube Video ID</span> field.
+			<p>You may also enter any of the full URLs that you see for the video, and Etudes will extract the ID for you.
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+	<div class="e3_panel">
+		<div id="activity_header" class="e3_pinned">
+			<div class="e3_panelHeader" i18n="header_activityMeter">ACTIVITY METER</div>
+			<div id="activity_modebar" class="e3_modebar"></div>
+			<div id="activity_headerbar" class="e3_panelHeaderBar e3_offstage">
+				<div id="activity_itemnav" class="e3_itemnav e3_offstage"></div
+
+				><div id="activity_bar_overview" class="e3_panelHeaderBarGrouping e3_offstage">
+			 		<div class="e3_action export"><a id="activity_overview_export" i18n="a_export" href="">Export</a></div
+					><div class="e3_infoBlock">
+						<div i18n="header_enrolled">ENROLLED</div>
+						<div id="activity_overview_enrolled"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_added">ADDED</div>
+						<div id="activity_overview_added"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_dropped">DROPPED</div>
+						<div id="activity_overview_dropped"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_blocked">BLOCKED</div>
+						<div id="activity_overview_blocked"></div>
+					</div
+					><div class="e3_infoLines">
+						<div><a id="activity_overview_alert" href=""></a></div>
+					</div
+					><div id="activity_overview_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="activity_bar_site" class="e3_panelHeaderBarGrouping e3_offstage">
+			 		<div class="e3_action export"><a id="activity_site_export" i18n="a_export" href="">Export</a></div
+					><div class="e3_infoBlock">
+						<div i18n="header_visited">VISITED</div>
+						<div id="activity_site_visited"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_absent">ABSENT</div>
+						<div id="activity_site_absent"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_recent">RECENT</div>
+						<div id="activity_site_recent"></div>
+					</div
+					><div id="activity_site_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="activity_bar_syllabus" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_accepted">ACCEPTED</div>
+						<div id="activity_syllabus_accepted"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_added">VIEWED</div>
+						<div id="activity_syllabus_viewed"></div>
+					</div
+					><div class="e3_infoLines">
+						<div></div>
+						<div><a id="activity_syllabus_pmNotAccepted" href="" i18n="msg_pmNotAccepted">Send PM to those who have NOT accepted the syllabus.</a></div>
+					</div
+					><div id="activity_syllabus_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="activity_bar_module" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_viewed">VIEWED</div>
+						<div id="activity_module_viewed"></div>
+					</div
+				></div
+
+				><div id="activity_bar_forum" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_posts">POSTS</div>
+						<div id="activity_forum_posts"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_posters">POSTERS</div>
+						<div id="activity_forum_posters"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_absent">ABSENT</div>
+						<div id="activity_forum_absent"></div>
+					</div
+				></div
+
+				><div id="activity_bar_assessment" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_assignments">ASSIGNMENTS</div>
+						<div id="activity_assessment_assignments"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_tests">TESTS</div>
+						<div id="activity_assessment_tests"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_surveys">SURVEYS</div>
+						<div id="activity_assessment_surveys"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_offline">OFFLINES</div>
+						<div id="activity_assessment_offlines"></div>
+					</div
+				></div
+
+				><div id="activity_bar_student" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div id="activity_student_name"></div>
+						<div id="activity_student_lastVisit"></div>
+					</div
+					><div class="e3_panelHeaderBarRight">
+				 		<div class="e3_action titled"><a id="activity_student_pm" i18n="a_pm" href="">PM</a></div
+					></div
+				></div
+
+				><div id="activity_bar_alert" class="e3_panelHeaderBarGrouping e3_offstage">
+			 		<div class="e3_action titled"><a id="activity_alert_pmAll" i18n="a_pmAll" href="">PM All</a></div
+			 		><div class="e3_action titled"><a id="activity_alert_pmNever" i18n="a_pmNever" href="">PM Absent</a></div
+					><div class="e3_infoLines">
+						<div></div>
+						<div id="activity_alert_heading"></div>
+					</div
+					><div id="activity_alert_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="activity_bar_moduleItem" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div id="activity_moduleItem_title" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+				></div
+
+				><div id="activity_bar_forumItem" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div id="activity_forumItem_title" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+				></div
+
+				><div id="activity_bar_assessmentItem" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoLines">
+						<div id="activity_assessmentItem_title" class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;"></div>
+					</div
+				></div
+
+			></div>
+			<div id="activity_headerbar2" class="e3_panelHeaderBar e3_offstage">
+
+				<div id="activity_bar2_student" class="e3_panelHeaderBarGrouping e3_offstage">
+			 		<div class="e3_action export"><a id="activity_student_export" i18n="a_export" href="">Export</a></div
+					><div class="e3_infoBlock">
+						<div i18n="header_modules">MODULES</div>
+						<div id="activity_student_modules"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_posts">POSTS</div>
+						<div id="activity_student_posts"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_assessments">ASSESSMENTS</div>
+						<div id="activity_student_assessments"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_syllabus">SYLLABUS</div>
+						<div id="activity_student_syllabus"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_missed">MISSED</div>
+						<div id="activity_student_missed"></div>
+					</div
+					><div id="activity_student_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="activity_bar2_moduleItem" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_viewed">VIEWED</div>
+						<div id="activity_moduleItem_viewed"></div>
+					</div
+			 		><div class="e3_action titled"><a id="activity_moduleItem_pm" i18n="a_pmAbsent" href="">PM Absent</a></div
+					><div id="activity_moduleItem_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="activity_bar2_forumItem" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_posted">POSTED</div>
+						<div id="activity_forumItem_posted"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_posted">ABSENT</div>
+						<div id="activity_forumItem_absent"></div>
+					</div
+			 		><div class="e3_action titled"><a id="activity_forumItem_pm" i18n="a_pmAbsent" href="">PM Absent</a></div
+					><div id="activity_forumItem_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="activity_bar2_assessmentItem" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_submitted">SUBMITTED</div>
+						<div id="activity_assessmentItem_submitted"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_inProgress">IN PROGRESS</div>
+						<div id="activity_assessmentItem_inProgress"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_surveys">ABSENT</div>
+						<div id="activity_assessmentItem_absent"></div>
+					</div
+			 		><div class="e3_action titled"><a id="activity_assessmentItem_pm" i18n="a_pmAbsent" href="">PM Absent</a></div
+					><div id="activity_assessmentItem_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+			></div>
+
+			<div id="activity_header_overview" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+x 8+60 8+60 8+80 8+80 8+60 8+80 8+80 8+80 8+80+32] 40 | *20 -->
+				<div style="width:calc(100vw - 100px - 796px); min-width:calc(1200px - 100px - 796px)" i18n="header_name" >NAME</div
+				><div style="width:60px;" i18n="header_section">SECTION</div
+				><div style="width:60px;" i18n="header_status">STATUS</div
+				><div class="date2l" i18n="header_firstVisit">FIRST VISIT</div
+				><div class="date2l" i18n="header_lastVisit">LAST VISIT</div
+				><div style="width:60px;" i18n="header_visits">VISITS</div
+				><div class="date2l"" i18n="header_syllabus">SYLLABUS</div
+				><div style="width:80px;" i18n="header_modules">MODULES</div
+				><div style="width:80px;" i18n="header_posts">POSTS</div
+				><div style="width:80px;" i18n="header_ats">AT&amp;S</div
+			></div>
+
+			<div id="activity_header_site" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+x 8+60 8+60 8+80 8+80 8+60+32 ] 40 | *20 -->
+				<div style="width:calc(100vw - 100px - 444px); min-width:calc(1200px - 100px - 444px)" i18n="header_name" >NAME</div
+				><div style="width:60px;" i18n="header_section">SECTION</div
+				><div style="width:60px;" i18n="header_status">STATUS</div
+				><div class="date2l" i18n="header_firstVisit">FIRST VISIT</div
+				><div class="date2l" i18n="header_lastVisit">LAST VISIT</div
+				><div style="width:60px;" i18n="header_visits">VISITS</div
+			></div>
+
+			<div id="activity_header_syllabus" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+x 8+60 8+60 8+80 8+80 8+80+32 ] 40 | *20  -->
+				<div style="width:calc(100vw - 100px - 464px); min-width:calc(1200px - 100px - 464px)" i18n="header_name" >NAME</div
+				><div style="width:60px;" i18n="header_section">SECTION</div
+				><div style="width:60px;" i18n="header_status">STATUS</div
+				><div class="date2l" i18n="header_accepted">ACCEPTED</div
+				><div class="date2l" i18n="header_firstVisit">FIRST VISIT</div
+				><div class="date2l" i18n="header_lastVisit">LAST VISIT</div
+			></div>
+
+			<div id="activity_header_module" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+32 8+x 8+75+32 ] 40 | *20  -->
+				<div class="dot"></div
+				><div style="width:calc(100vw - 100px - 412px); min-width:calc(1200px - 100px - 412px);" i18n="header_category">TITLE</div
+				><div style="width:300px;" i18n="header_students">STUDENTS</div
+			></div>
+
+			<div id="activity_header_forum" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+32 8+x 8+75 8+75+32] 40 | *20 -->
+				<div class="dot"></div
+				><div style="width:calc(100vw - 100px - 270px); min-width:calc(1200px - 100px - 270px);" i18n="header_title">TITLE</div
+				><div style="width:75px;" i18n="header_students">STUDENTS</div
+				><div style="width:75px;" i18n="header_posts">POSTS</div
+			></div>
+
+			<div id="activity_header_assessment" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+32 8+x 8+120 8+100 8+100 8+100+32] 40 | *20 -->
+				<div class="dot"></div
+				><div style="width:calc(100vw - 100px - 556px); min-width:calc(1200px - 100px - 556px);" i18n="header_title">TITLE</div
+				><div style="width:120px;"></div
+				><div style="width:100px;" i18n="header_students">STUDENTS</div
+				><div style="width:100px;" i18n="header_submissions">SUBMISSIONS</div
+				><div style="width:100px;" i18n="header_inProgress">IN PROGRESS</div
+			></div>
+
+			<div id="activity_header_student" class="e3_table_headerRow e3_offstage"> <!-- 40 [32+32 x+8 60+8 80+8 80+8 80+8 80+8 8+150+32] 40 | *20 -->
+				<div class="dot"></div
+				><div style="width:calc(100vw - 100px - 682px); min-width:calc(1200px - 100px - 682px);" i18n="header_title">TITLE</div
+				><div style="width:60px;"></div
+				><div class="date2l" i18n="header_open">OPEN</div
+				><div class="date2l" i18n="header_due">DUE</div
+				><div class="date2l" i18n="header_activity">ACTIVITY</div
+				><div class="date2l" i18n="header_count">COUNT</div
+				><div style="width:150px;" i18n="header_score">SCORE</div
+			></div>
+
+			<div id="activity_header_alert" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+x 8+60 8+60 8+80 8+80 8+60 8+80 8+80 8+80 8+80+32] 40 | *20 -->
+				<div style="width:calc(100vw - 100px - 796px); min-width:calc(1200px - 100px - 796px)" i18n="header_name" >NAME</div
+				><div style="width:60px;" i18n="header_section">SECTION</div
+				><div style="width:60px;" i18n="header_status">STATUS</div
+				><div class="date2l" i18n="header_firstVisit">FIRST VISIT</div
+				><div class="date2l" i18n="header_lastVisit">LAST VISIT</div
+				><div style="width:60px;" i18n="header_visits">VISITS</div
+				><div class="date2l"" i18n="header_syllabus">SYLLABUS</div
+				><div style="width:80px;" i18n="header_modules">MODULES</div
+				><div style="width:80px;" i18n="header_posts">POSTS</div
+				><div style="width:80px;" i18n="header_ats">AT&amp;S</div
+			></div>
+
+			<div id="activity_header_moduleItem" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+x 8+60 8+60 8+80 8+80+32] 40 | *20 -->
+				<div style="width:calc(100vw - 100px - 376px); min-width:calc(1200px - 100px - 376px)" i18n="header_name" >NAME</div
+				><div style="width:60px;" i18n="header_section">SECTION</div
+				><div style="width:60px;" i18n="header_status">STATUS</div
+				><div class="date2l" i18n="header_firstVisit">FIRST VISIT</div
+				><div class="date2l" i18n="header_lastVisit">LAST VISIT</div
+			></div>
+
+			<div id="activity_header_forumItem" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+x 8+60 8+60 8+80+32] 40 | *20 -->
+				<div style="width:calc(100vw - 100px - 356px); min-width:calc(1200px - 100px - 356px)" i18n="header_name" >NAME</div
+				><div style="width:60px;" i18n="header_section">SECTION</div
+				><div style="width:60px;" i18n="header_status">STATUS</div
+				><div style="width:60px;" i18n="header_posts">POSTS</div
+				><div class="date2l" i18n="header_reviewed">REVIEWED</div
+			></div>
+
+			<div id="activity_header_assessmentItem" class="e3_table_headerRow e3_offstage"> <!-- 40 [  32+x 8+60 8+60 8+80 8+80 8+80+32] 40 | *20 -->
+				<div style="width:calc(100vw - 100px - 464px); min-width:calc(1200px - 100px - 464px)" i18n="header_name" >NAME</div
+				><div style="width:60px;" i18n="header_section">SECTION</div
+				><div style="width:60px;" i18n="header_status">STATUS</div
+				><div class="date2l" i18n="header_firstVisit">STARTED</div
+				><div class="date2l" i18n="header_firstVisit">FINISHED</div
+				><div class="date2l" i18n="header_firstVisit">REVIEWED</div
+			></div>
+		</div>
+
+		<div id="activity_overview" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="activity_overview_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="activity_overview_none" i18n="msg_noneDefined" class="e3_offstage e3_note" style="padding-top:24px;">No items are defined.</div>
+			</div>
+		</div>
+	
+		<div id="activity_site" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="activity_site_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="activity_site_none" i18n="msg_noStudents" class="e3_offstage e3_note" style="padding-top:24px;">No students to display.</div>
+			</div>
+		</div>
+
+		<div id="activity_syllabus" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="activity_syllabus_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="activity_syllabus_none" i18n="msg_noStudents" class="e3_offstage e3_note" style="padding-top:24px;">No students to display.</div>
+			</div>
+		</div>
+
+		<div id="activity_module" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="activity_module_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="activity_module_none" i18n="msg_noStudents" class="e3_offstage e3_note" style="padding-top:24px;">No students to display.</div>
+			</div>
+		</div>
+
+		<div id="activity_forum" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="activity_forum_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="activity_forum_none" i18n="msg_noStudents" class="e3_offstage e3_note" style="padding-top:24px;">No students to display.</div>
+			</div>
+		</div>
+
+		<div id="activity_assessment" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="activity_assessment_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="activity_assessment_none" i18n="msg_noStudents" class="e3_offstage e3_note" style="padding-top:24px;">No students to display.</div>
+			</div>
+		</div>
+
+		<div id="activity_student" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="activity_student_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="activity_student_none" i18n="msg_noStudents" class="e3_offstage e3_note" style="padding-top:24px;">No students to display.</div>
+			</div>
+		</div>
+
+		<div id="activity_alert" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="activity_alert_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="activity_alert_none" i18n="msg_noStudents" class="e3_offstage e3_note" style="padding-top:24px;">No students to display.</div>
+			</div>
+		</div>
+
+		<div id="activity_moduleItem" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="activity_moduleItem_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="activity_moduleItem_none" i18n="msg_noStudents" class="e3_offstage e3_note" style="padding-top:24px;">No students to display.</div>
+			</div>
+		</div>
+
+		<div id="activity_forumItem" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="activity_forumItem_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="activity_forumItem_none" i18n="msg_noStudents" class="e3_offstage e3_note" style="padding-top:24px;">No students to display.</div>
+			</div>
+		</div>
+
+		<div id="activity_assessmentItem" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="activity_assessmentItem_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="activity_assessmentItem_none" i18n="msg_noStudents" class="e3_offstage e3_note" style="padding-top:24px;">No students to display.</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="activity_name_template" class="e3_offstage">
+		<div id="activity_name_template_body" style="padding-top:4px; padding-bottom:4px;">
+			<div id="activity_name_template_name"></div>
+			<div class="hover" style="font-size:9px; color:#686868; padding-top:4px;"><span i18n="label_id">ID: </span><span id="activity_name_template_iid"></span></div>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

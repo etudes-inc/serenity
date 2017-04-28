@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+	<div class="e3_panel" style="background-color:rgba(255,255,255,0.6);">
+		<div id="chat_header" class="e3_pinned">
+			<div class="e3_panelHeader">
+				<a id="chat_view_edit" class="edit e3_offstage" href="" i18n="a_edit"><svg><use xlink:href="#icon-settings"></use></svg></a>
+				<span i18n="header_chat">CHAT</span>
+			</div>
+			<div id="chat_modebar" class="e3_modebar e3_offstage"></div>
+			<div id="chat_headerbar" class="e3_panelHeaderBar e3_offstage">
+				<div id="chat_bar_manage" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action add"><a id="chat_manage_add" i18n="a_add" href="">Add</a></div
+					><div class="e3_action titled"><a id="chat_manage_publish" i18n="a_publish" href="">Publish</a></div
+					><div class="e3_action titled"><a id="chat_manage_unpublish" i18n="a_unpublish" href="">Unpublish</a></div
+					><div class="e3_action delete"><a id="chat_manage_delete" i18n="a_delete" href="">Delete</a></div
+					><div class="e3_infoLines">
+						<div class="e3_text bold" style="font-size:18px; position:relative; line-height:52px; top:-6px;" i18n="header_manageRooms">Manage Chat Rooms</div>
+					</div
+				></div>
+			</div>
+			<div id="chat_header_manage" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+16 8+16 8+32 8+x 8+24+32 ] 40 | *20 -->
+				<div class="icon"></div
+				><div class="icon"></div
+				><div class="dot"></div
+				><div style="width:calc(100vw - 100px - 184px); min-width:calc(1200px - 100px - 184px);" i18n="header_title">TITLE</div
+			></div>
+		</div>
+
+		<!-- view mode -->
+		<div id="chat_view" class="e3_panelBody headed footed indented24 e3_offstage" style="width:1072px; margin:auto; background-color:transparent;">
+			<div style="width:724px; margin-right:24px; display:inline-block; vertical-align:top;">
+				<div class="e3_panel" style="margin-bottom:24px;">
+					<div id="chat_view_roomTitle" class="e3_subpanelHeader" style="text-transform:uppercase;"></div>
+					<div class="e3_panelBody" style="padding-top:16px;">
+						<div id="chat_view_online" style="display:inline-block; width:calc(200px - 24px); margin-right:24px; vertical-align:top; overflow-x: auto; max-height:410px;"></div
+						><div style="display:inline-block; width:calc(100% - 200px); vertical-align:top;">
+							<div id="chat_view_messages" style="display:inline-block; overflow-x: auto; max-height:352px;"></div>
+							<!-- empty msg -->	
+							<textarea id="chat_view_post" class="e3_text" style="resize:none; width:calc(100% - 52px); margin-bottom:24px; margin-top:16px; height:18px; padding:8px; font-size:14px;"></textarea>
+						</div
+					></div>
+				</div>
+			</div
+
+			><div style="width:324px; display:inline-block; vertical-align:top;">
+				<div class="e3_panel" style="margin-bottom:24px;">
+					<div class="e3_subpanelHeader">ROOMS</div>
+					<div class="e3_panelBody footed">
+						<table id="chat_view_roomTable" class="e3_table">
+							<thead></thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- manage mode -->
+		<div id="chat_manage" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="chat_manage_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div id="chat_view_message_template" class="e3_offstage">
+		<div id="chat_view_message_template_body" style="padding-right:8px;">
+			<div style="margin-bottom:16px; font-size:13px; padding-left:22px; text-indent:-22px;"><span id="chat_view_message_template_from" style="font-size:11px; color:#006400; font-weight:bold;"></span><span>: </span><span id="chat_view_message_template_content" style="font-size:11px; color:#000;"></span></div>
+		</div>
+	</div>
+
+	<div id="chat_view_header_template" class="e3_offstage">
+		<div id="chat_view_header_template_body">
+			<div id="chat_view_header_template_date" style="font-size:11px; color:#808080; margin-bottom:	8px; margin-top:28px; text-align:center; padding-right:72px;"></div>
+		</div>
+	</div>
+
+	<div id="chat_view_online_template" class="e3_offstage">
+		<div id="chat_view_online_template_body" style="margin:0px 8px 8px 8px;">
+			<div id="chat_view_online_template_avatar" style="display:inline-block; vertical-align:middle; width:24px; height:24px;"><img id="chat_view_online_template_avatar_img" style="width:24px; height:24px;" /></div
+			><div id="chat_view_online_template_name" style="display:inline-block; width:calc(100% - 24px - 8px); font-size:11px; color:#006400; font-weight:bold; margin-left:8px; white-space:nowrap; overflow: hidden; text-overflow:ellipsis; line-height:24px; vertical-align:middle;"></div
+		></div>
+	</div>
+
+	<div id="chat_view_room_template" class="e3_offstage">
+		<div id="chat_view_room_template_body" style="padding-top:4px; padding-bottom:4px;">
+			<div id="chat_view_room_template_title"></div>
+			<div id="chat_view_room_template_online" class="hover" style="font-size:11px; color:#686868; padding-top:4px;"></div>
+		</div>
+	</div>
+
+	<div i18n="title_nothingSelected" id="chat_selectFirst" title="Nothing Selected" style="display: none;">
+		<div i18n="msg_nothingSelected" class="e3_dialogBody">First select one or more items before performing that action.</div>
+	</div>
+
+	<div i18n="title_confirmDelete" id="chat_confirmDelete" title="Delete Assessment" style="display: none;">
+		<div i18n="msg_confirmDelete" class="e3_dialogBody">Are you sure you want to delete the selected chat room(s)?</div>
+	</div>
+
+</div>
+</body>
+</html>

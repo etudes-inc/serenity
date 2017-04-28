@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+	<div class="e3_panel" style="width:600px; height:300px; margin:64px auto;">
+		<div class="e3_panelHeader"><span i18n="panel_header">RESET PASSWORD</span><a id="resetpw_login" href="" class="e3_toolUiLinkD" i18n="action_login">LOGIN &#10140;</a></div>
+		<div class="e3_panelBody" style="width:100%; height:100%; text-align:center;">
+			<div class="e3_text_light" style="padding:40px 0px 0px 32px; font-size:18px; text-align:left;" i18n="msg_reset">
+				Enter the email address associated with your Etudes account,<br />and we will email you a new password.
+			</div>
+			<input id="resetpw_email" i18n="ph_email" type="text" style="background-color:white; color:black; width:300px; font-size:22px; font-family:Helvetica, sans-serif; border:none; padding:0px; margin-top:24px; border-bottom:1px solid black; background-color:transparent;" placeholder="email" tabindex=1 />
+			<div style="height:60px;">
+				<div class="e3_offstage e3_text_bold" id="resetpw_resetSent" i18n="msg_resetSent" style="padding:20px 0px 0px 32px; font-size:18px; text-align:left;">New password sent!  Check for it in your email<br />(it might be in your junk mail folder).</div>
+				<div class="e3_alertMsg e3_offstage" id="resetpw_resetInvalid" i18n="msg_resetInvalid" style="padding-top:20px;">Try a different email address</div>
+			</div>
+			<div style="height:32px; text-align:right;">
+				<button id="resetpw_send" class="e3_button" style="font-size:24px; font-weight:bold; margin-right:48px; margin-top:20px;" i18n="action_send" tabindex=2 type="submit">Send New Password</button>
+				<button id="resetpw_relogin" class="e3_button" style="font-size:24px; font-weight:bold; margin-right:48px; margin-top:20px;" i18n="action_loginNow" tabindex=2 type="submit">Login Now</button>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+	<div class="e3_panel">
+		<div id="monitor_header" class="e3_pinned">
+			<div class="e3_panelHeader">
+				<a id="monitor_view_edit" class="edit e3_offstage" href="" i18n="a_edit"><svg><use xlink:href="#icon-settings"></use></svg></a>
+				<span id="header_monitor">ETUDES PRODUCTION MONITOR</span>
+			</div>
+			<div id="monitor_modebar" class="e3_modebar e3_offstage"></div>
+			<div id="monitor_headerbar" class="e3_panelHeaderBar e3_offstage">
+				<div id="monitor_itemnav" class="e3_itemnav e3_offstage"></div
+
+				><div id="monitor_bar_view" class="e3_panelHeaderBarGrouping e3_panelHeaderBarRight e3_offstage">
+				</div
+
+			></div>
+
+			<div id="monitor_header_view" class="e3_table_headerRow e3_offstage"> <!-- 40 [32+32 8+x 8+80 8+52 8+80 (8+32 8+52) 8+52 8+32 8+32 8+32 8+32 8+32 8+32 8+52 8+80 8+80+32] 40 | *20 -->
+				<div class="dot"></div
+				><div style="width:calc(100vw - 100px - 976px); min-width:calc(1200px - 100px - 976px);" i18n="header_server">SERVER</div
+				><div class="date2l" i18n="header_asOf">AS OF</div
+				><div style="width:52px;" i18n="header_load">LOAD</div
+				><div style="width:80px;" i18n="header_files">FILES</div
+				><div style="width:92px;" i18n="header_curl">APPSERVER</div
+				><div style="width:52px;" i18n="header_disk">DISK</div
+				><div class="dot" i18n="header_wsc">WSC</div
+				><div class="dot" i18n="header_wiris">WIRIS</div
+				><div class="dot" i18n="header_jira">JIRA</div
+				><div class="dot" i18n="header_svn">SVN</div
+				><div class="dot" i18n="header_nfs">NFS</div
+				><div class="dot" i18n="header_slave">SLAVE</div
+				><div style="width:52px;" i18n="header_queries">QUERIES</div
+				><div class="date2l" i18n="header_backup">BACKUP</div
+				><div class="date2l" i18n="header_offsite">OFFSITE</div
+			></div>
+		</div>
+
+		<!-- view mode -->
+		<div id="monitor_view" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="monitor_view_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="monitor_view_none" i18n="msg_noneAvailable" class="e3_note e3_offstage" style="padding-top:24px;">No samples are available</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- options -->
+	<div id="monitor_options" class="e3_offstage" style="width:100%;"><!-- 1200px: 40 [ 24 1072 24 ] 40 -->
+		<div class="e3_panel" style="background-color:rgba(255,255,255,0.6);">
+			<div class="e3_panelBody headed footed indented24" style="width:1072px; margin:auto; background-color:transparent;">
+				<div style="width:1072px; display:inline-block; vertical-align:top;">
+					<div class="e3_panel" style="margin-bottom:24px;">
+						<div class="e3_subpanelHeader" i18n="header_thresholds">THRESHOLDS</div>
+						<div class="e3_panelBody headed indented24">							
+							<fieldset class="e3_editFieldsLR">
+								<div class="e3_editFieldsEntry"><div class="e3_editFieldsTitle"><label i18n="label_appserverResponse" for="monitor_appserverResponse">Appserver Response:</label></div><div class="e3_editFieldsBody"><input class="e3_input" id="monitor_appserverResponse" value="" type="text" size="53" /></div></div>
+								<div class="e3_editFieldsEntry"><div class="e3_editFieldsTitle"><label i18n="label_diskUsedPct" for="monitor_diskUsedPct">Disk Used %:</label></div><div class="e3_editFieldsBody"><input class="e3_input" id="monitor_diskUsedPct" value="" type="text" size="53" /></div></div>
+								<div class="e3_editFieldsEntry"><div class="e3_editFieldsTitle"><label i18n="label_loadAvg" for="monitor_loadAvg">Load Average:</label></div><div class="e3_editFieldsBody"><input class="e3_input" id="monitor_loadAvg" value="" type="text" size="53" /></div></div>
+								<div class="e3_editFieldsEntry"><div class="e3_editFieldsTitle"><label i18n="label_openApache" for="monitor_openApache">Open Apache Connections:</label></div><div class="e3_editFieldsBody"><input class="e3_input" id="monitor_openApache" value="" type="text" size="53" /></div></div>
+								<div class="e3_editFieldsEntry"><div class="e3_editFieldsTitle"><label i18n="label_openFiles" for="monitor_openFiles">Open Files:</label></div><div class="e3_editFieldsBody"><input class="e3_input" id="monitor_openFiles" value="" type="text" size="53" /></div></div>
+								<div class="e3_editFieldsEntry"><div class="e3_editFieldsTitle"><label i18n="label_openMysql" for="monitor_openMysql">Open Mysql Connections:</label></div><div class="e3_editFieldsBody"><input class="e3_input" id="monitor_openMysql" value="" type="text" size="53" /></div></div>
+								<div class="e3_editFieldsEntry"><div class="e3_editFieldsTitle"><label i18n="label_queriesTotal" for="monitor_queriesTotal">Total Mysql Queries:</label></div><div class="e3_editFieldsBody"><input class="e3_input" id="monitor_queriesTotal" value="" type="text" size="53" /></div></div>
+								<div class="e3_editFieldsEntry"><div class="e3_editFieldsTitle"><label i18n="label_queriesActive" for="monitor_queriesActive">Active Mysql Queries:</label></div><div class="e3_editFieldsBody"><input class="e3_input" id="monitor_queriesActive" value="" type="text" size="53" /></div></div>
+								<div class="e3_editFieldsEntry"><div class="e3_editFieldsTitle"><label i18n="label_sinceDbBackup" for="monitor_sinceDbBackup">Time Since DB Backup:</label></div><div class="e3_editFieldsBody"><input class="e3_input" id="monitor_sinceDbBackup" value="" type="text" size="53" /></div></div>
+								<div class="e3_editFieldsEntry"><div class="e3_editFieldsTitle"><label i18n="label_sinceFsBackup" for="monitor_sinceFsBackup">Time Since FS Backup:</label></div><div class="e3_editFieldsBody"><input class="e3_input" id="monitor_sinceFsBackup" value="" type="text" size="53" /></div></div>
+								<div class="e3_editFieldsEntry"><div class="e3_editFieldsTitle"><label i18n="label_sinceOffsiteBackup" for="monitor_sinceOffsiteBackup">Time Since Offsite Backup:</label></div><div class="e3_editFieldsBody"><input class="e3_input" id="monitor_sinceOffsiteBackup" value="" type="text" size="53" /></div></div>
+								<div class="e3_editFieldsEntry"><div class="e3_editFieldsTitle"><label i18n="label_sinceReport" for="monitor_sinceReport">Time Since Server Report:</label></div><div class="e3_editFieldsBody"><input class="e3_input" id="monitor_sinceReport" value="" type="text" size="53" /></div></div>
+							</fieldset>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+</body>
+</html>

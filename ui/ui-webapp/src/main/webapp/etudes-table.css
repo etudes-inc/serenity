@@ -1,0 +1,446 @@
+table.e3_table
+{
+	/* keeps the headers together without white space between */
+	border-collapse: collapse;
+}
+table.e3_table.wide
+{
+	/* spread over the width of the page */
+	width: 100%;
+}
+
+/* for headers in a separate set of divs */
+div.e3_table_headerRow
+{
+	border-bottom: 1px solid #E0E0E0;
+	height: 38px;
+	line-height: 38px;
+	font-weight: 400;
+	color: #656565;
+	white-space: nowrap;
+	background-color: #F9F9F9;
+	font-family: Oswald, sans-serif;
+	font-size: 15px;
+	text-align: left;
+	padding: 0px;
+	margin: 0px
+}
+div.e3_table_headerRow div
+{
+	display: inline-block;
+	padding: 0px 0px 0px 8px;
+}
+div.e3_table_headerRow div:first-child
+{
+	padding: 0px 0px 0px 32px;
+}
+div.e3_table_headerRow div.date
+{
+	width: 150px;
+}
+div.e3_table_headerRow div.icon
+{
+	width: 16px;
+}
+div.e3_table_headerRow div.dot
+{
+	width: 32px;
+}
+div.e3_table_headerRow div.date2l
+{
+	width: 80px;
+}
+div.e3_table_headerRow div.dates
+{
+	width: 80px;
+}
+div.e3_table_headerRow div.dateInput
+{
+	width: 168px;
+}
+
+.e3_table th
+{
+	font-weight: 400;
+	color: #656565;
+	white-space: nowrap;
+	background-color: #F9F9F9;
+	font-family: Oswald, sans-serif;
+	font-size: 15px;
+	line-height: 28px;
+	text-align: left;
+	padding: 0px 0px 0px 8px;
+	margin: 0px
+}
+.e3_table th:first-child
+{
+	padding: 0px 0px 0px 32px;
+}
+.e3_table.noindent th:first-child
+{
+	padding: 0px 0px 0px 8px;
+}
+
+/* header with tablesorter */
+.e3_table th.tablesorter-headerDesc,
+.e3_table th.tablesorter-headerAsc,
+.e3_table th.tablesorter-headerUnSorted
+{
+	background-repeat: no-repeat;
+	background-position: center left;
+	padding: 0px 0px 0px 20px;
+	cursor: pointer;
+	color: #6066AC !important;
+}
+.e3_table th.tablesorter-header.sorter-false
+{
+	background-image: none;
+	cursor: default;
+	color: black !important;
+	padding: 0px;
+	margin: 0px
+}
+.e3_table th.tablesorter-headerUnSorted
+{
+	background-image: url(/ui/icons/sortUpDn.png);
+}
+.e3_table th.tablesorter-headerDesc
+{
+	background-image: url(/ui/icons/sortUp.png);
+	border-bottom: 3px double #9a661f;
+}
+.e3_table th.tablesorter-headerAsc
+{
+	background-image: url(/ui/icons/sortDn.png);
+	border-bottom: 3px double #9a661f;
+}
+
+/* the rows */
+.e3_table tr
+{
+	border-bottom: 1px solid #E0E0E0;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	font-size: 13px;
+	height: 38px;
+}
+
+.e3_table tr.e3_tableHotRow
+{
+	border: none;
+	height:30px;	
+}
+
+.e3_table tr.selected
+{
+	background-color: #404040;;
+	color: white;	
+}
+
+/* the cols */
+.e3_table td
+{
+	vertical-align: middle;
+	padding: 0px 0px 0px 8px;
+	margin: 0px;
+}
+.e3_table td:first-child
+{
+	padding: 0px 0px 0px 32px;
+}
+.e3_table.noindent td:first-child
+{
+	padding: 0px 0px 0px 8px;
+}
+.e3_table td:last-child
+{
+	padding: 0px 32px 0px 8px;
+}
+.e3_table.noindent td:last-child
+{
+	padding: 0px 0px 0px 8px;
+}
+.e3_table td.center,
+.e3_table th.center,
+.e3_table div.icon
+{
+	text-align: center;
+}
+
+.e3_table td.date,
+.e3_table th.date,
+.e3_table div.date
+{
+	width: 150px;
+	white-space: nowrap;
+	text-transform: uppercase;
+}
+
+/* 2 line full date / time format */
+.e3_table td.date2l,
+.e3_table th.date2l,
+.e3_table div.date2l
+{
+	width: 80px;
+	font-size: 12px;
+	white-space: normal;
+	text-transform: uppercase;
+}
+
+/* short date (only) format */
+.e3_table td.dateS,
+.e3_table th.dateS,
+.e3_table div.dateS
+{
+	width: 80px;
+	font-size: 12px;
+	white-space: nowrap;
+	text-transform: uppercase;
+}
+
+.e3_table td.dateInput,
+.e3_table th.dateInput,
+.e3_table div.dateInput
+{
+	width: 168px;
+	white-space: nowrap;
+	text-transform: uppercase;
+}
+
+.e3_table td.icon,
+.e3_table th.icon,
+.e3_table div.icon
+{
+	width: 16px;
+	white-space: nowrap;
+}
+
+.e3_table td.dot,
+.e3_table th.dot,
+.e3_table div.dot
+{
+	width:32px;
+	position: relative;
+	top: 2px;
+	text-align: center;
+}
+
+.e3_table div.menu
+{
+	width:24px;
+	text-align: center;
+	position: relative;
+}
+.e3_table div.menu a.menu
+{
+	text-decoration: none;
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+}
+.e3_table div.menu a.menu:hover svg,
+.e3_table div.menu a.menu:active svg,
+.e3_table div.menu a.menu:focus svg
+{
+	width: 28px;
+	height: 28px;
+	fill: black;
+	left: -2px;
+}
+.e3_table div.menu a.menu svg
+{
+	width: 24px;
+	height: 24px;
+	fill: #686868;
+	position: relative;
+}
+.e3_table div.menu div.dropdown
+{
+	position: absolute;
+	width: 150px;
+	left: -106px;
+	background-color: black;
+}
+.e3_table div.menu div.dropdown a
+{
+	color: white;
+	font-family: Oswald,sans-serif;
+	font-weight: 300;
+	font-size: 16px;
+	padding: 0px 16px;
+	text-align: left;
+	line-height: normal;
+	width: initial;
+	display: block;
+}
+.e3_table div.menu div.dropdown a:first-child
+{
+	margin-top: 16px;
+}
+.e3_table div.menu div.dropdown a:last-child
+{
+	margin-bottom: 16px;
+}
+
+/* for an in-table separator header */
+.e3_table td.header,
+.e3_table tr.header
+{
+	padding: 20px 0px 4px 48px;
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: 700;
+	color: #A8A8A8;
+	position: relative;
+	text-transform: uppercase;
+}
+
+/* the div (or hot a) containing the contents of the td in a table - some padding */
+.e3_table td div.td,
+.e3_table td a.td
+{
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+/* the hot a in a hot td - its text is in the span */
+.e3_table td a
+{
+	display: inline-block;
+	width: 100%;
+	color: black;
+	fill: #404040;
+	text-decoration: none;
+}
+
+.e3_table td a.icon,
+.e3_table td div.icon
+{
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.e3_table td.reorderable
+{
+	cursor: ns-resize;
+}
+
+
+
+
+/* TODO: needed any more? */
+
+.e3_table td.rGap,
+.e3_table th.rGap
+{
+	padding-right: 30px;
+}
+.e3_table td.tight,
+.e3_table th.tight
+{
+	width: 12px;
+	white-space: nowrap;
+}
+.e3_table td.dimmed
+{
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+	filter: alpha(opacity=40);
+	opacity: 0.4;
+}
+.e3_tableActions
+{
+	/* border to tie into the table header */
+	border-top: 1px solid #bbb;
+	border-left: 1px solid #bbb;
+	border-right: 1px solid #bbb;
+	
+	/* some height */
+	line-height: 24px;
+	
+	/* some space on the left and right */
+	padding-left: 12px;
+	padding-right: 12px;
+	
+	/* bring it in 1px left and right to better match the tool header area */
+	margin-left: 1px;
+	margin-right: 1px;
+}
+.e3_tableActions select
+{
+	vertical-align:middle;
+}
+.e3_tableActions label
+{
+	color: #656565;
+	font-weight: bold;
+	white-space: nowrap;
+	padding-right:10px;
+}
+.e3_tableActions a
+{
+	padding-left:20px;
+	background-position: center left;
+	background-repeat: no-repeat;
+	margin-right:30px;
+}
+
+/* all links in tools which stand alone, for accessibility */
+.e3_tableActions a:link,
+.e3_tableActions a:visited
+{
+	color: #6066AC;
+	text-decoration: none;
+}
+
+.e3_tableActions a:hover,
+.e3_tableActions a:active,
+.e3_tableActions a:focus
+{
+	color: #0000B0;
+	text-decoration: underline;
+}
+
+.e3_tableActions div.right
+{
+	 float: right;
+}
+.e3_tableStripe_stripe
+{
+	background-color: #F8F4EE;
+}
+
+.e3_tableStripe_normal
+{
+	background-color: #FFFFFF;
+}
+
+
+
+.e3_tableInfo
+{
+	margin: 0px 30px 10px 30px;
+}
+
+.e3_tableIcon
+{
+	background-position: center center;
+	background-repeat: no-repeat;
+	width: 16px !important;
+	display: inline-block !important;
+}
+
+.e3_tableHeader
+{
+    color: #656565;
+    font-weight: bold;
+    white-space: nowrap;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.e3_kbdSelect_row
+{
+/* 	border: 2px solid #F4FAFF; */
+}
+
+

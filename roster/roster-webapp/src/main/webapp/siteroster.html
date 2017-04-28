@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+	<div class="e3_panel">
+		<div id="siteroster_header" class="e3_pinned">
+			<div class="e3_panelHeader" i18n="header_roster">ROSTER</div>
+			<div id="siteroster_modebar"></div>
+			<div id="siteroster_headerbar" class="e3_panelHeaderBar e3_offstage">
+				<div id="siteroster_itemnav" class="e3_itemnav e3_offstage"></div
+
+				><div id="siteroster_bar_roster" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_infoBlock">
+						<div i18n="header_enrolled">ENROLLED</div>
+						<div id="siteroster_roster_enrolled"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_dropped">DROPPED</div>
+						<div id="siteroster_roster_dropped"></div>
+					</div
+					><div class="e3_infoBlock">
+						<div i18n="header_blocked">BLOCKED</div>
+						<div id="siteroster_roster_blocked"></div>
+					</div
+					><div class="e3_panelHeaderBarRight">
+						<div class="e3_infoBlock">
+							<div i18n="header_instructors">INSTRUCTORS</div>
+							<div id="siteroster_roster_instructors"></div>
+						</div
+						><div class="e3_infoBlock">
+							<div i18n="header_tas">TEACHING ASSISTANTS</div>
+							<div id="siteroster_roster_tas"></div>
+						</div
+						><div class="e3_infoBlock">
+							<div i18n="header_observers">OBSERVERS</div>
+							<div id="siteroster_roster_observers"></div>
+						</div
+						><div class="e3_infoBlock">
+							<div i18n="header_students">STUDENTS</div>
+							<div id="siteroster_roster_students"></div>
+						</div
+						><div class="e3_infoBlock">
+							<div i18n="header_guests">GUESTS</div>
+							<div id="siteroster_roster_guests"></div>
+						</div
+					></div
+				></div
+
+				><div id="siteroster_bar_group" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action add"><a i18n="a_add" id="siteroster_group_add" href=""></a></div
+					><div class="e3_action titled"><a i18n="a_delete" id="siteroster_group_delete" href="">Delete</a></div
+					><div id="siteroster_group_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+				><div id="siteroster_bar_groupEdit" class="e3_panelHeaderBarGrouping e3_offstage">
+				</div
+
+			></div>
+
+			<div id="siteroster_headerbar2" class="e3_panelHeaderBar e3_offstage">
+
+				<div id="siteroster_bar2_roster" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action add"><a i18n="a_add" id="siteroster_roster_add" href=""></a></div
+					><div class="e3_action titled"><a i18n="a_remove" id="siteroster_roster_remove" href="">Remove</a></div
+					><div class="e3_action titled"><a i18n="a_block" id="siteroster_roster_block" href="">Block</a></div
+					><div class="e3_action titled"><a i18n="a_unblock" id="siteroster_roster_unblock" href="">Unblock</a></div
+					><div class="e3_action titled"><a i18n="a_role" id="siteroster_roster_role" href="">Role</a></div
+					><div id="siteroster_roster_actions" class="e3_panelHeaderBarRight"></div
+				></div
+
+			></div>
+
+			<div id="siteroster_header_roster" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+16 8+64 8+x 8+120 8+120 8+120 8+24+32] 40 | *20 -->
+				<div class="icon"></div
+				><div style="width:64px;"></div				
+				><div style="width:calc(100vw - 100px - 576px); min-width:calc(1200px - 100px - 576px)" i18n="header_name" >NAME</div
+				><div style="width:120px;" i18n="header_section">SECTION</div
+				><div style="width:120px;" i18n="header_status">STATUS</div
+				><div style="width:120px;" i18n="header_role">ROLE</div
+			></div>
+
+			<div id="siteroster_header_group" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+16 8+x 8+80+32] 40 | *20 -->
+				<div class="icon"></div
+				><div style="width:calc(100vw - 100px - 176px); min-width:calc(1200px - 100px - 176px)" i18n="header_title" >TITLE</div
+				><div style="width:80px;" i18n="header_size">SIZE</div
+			></div>
+		</div>
+
+		<div id="siteroster_roster" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="siteroster_roster_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+			</div>
+		</div>
+
+		<div id="siteroster_group" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="siteroster_group_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="siteroster_group_none" i18n="msg_noneDefined" class="e3_offstage e3_note" style="padding-top:24px;">No groups are defined.</div>
+			</div>
+		</div>
+
+		<!-- edit mode -->
+		<div id="siteroster_groupEdit" class="e3_offstage">
+			<div class="e3_panelBody headed footed indented">
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_title" for="siteroster_groupEdit_title">Title:</label></div>
+						<div class="e3_editFieldsBody"><input id="siteroster_groupEdit_title" class="e3_input" value="" type="text" style="width:calc(100% / 2);" /></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_members">Members:</label></div>
+						<div class="e3_editFieldsBody">
+							<table id="siteroster_groupEdit_table" class="e3_table">
+								<thead></thead>
+								<tbody></tbody>
+							</table>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+
+	</div>
+
+	<div i18n="confirmRemoveTitle" id="siteroster_roster_confirmRemove" title="Remove Members" style="display: none;">
+		<div i18n="confirmRemove" class="e3_dialogBody">Are you sure you want to remove the selected members?  Members unable to be removed will be blocked.</div>
+	</div>
+
+	<div i18n="confirmBlockTitle" id="siteroster_roster_confirmBlock" title="Block Members" style="display: none;">
+		<div i18n="confirmBlock" class="e3_dialogBody">Are you sure you want to block the selected members, denying them access to the site?.</div>
+	</div>
+
+	<div i18n="confirmUnblockTitle" id="siteroster_roster_confirmUnblock" title="Unblock Members" style="display: none;">
+		<div i18n="confirmUnblock" class="e3_dialogBody">Are you sure you want to unblock the selected members, restoring their access to the site?.</div>
+	</div>
+
+	<div i18n="confirmRoleTitle" id="siteroster_roster_confirmRole" title="Role" style="display: none;">
+		<div class="e3_dialogBody">
+			<div class="e3_note" i18n="registrarRoleWarning">Assign a new role to the selected members.  Note: Registrar members' roles can be set only by your campus Registrar.</div>
+			<fieldset class="e3_editFieldsTB">
+				<div class="e3_editFieldsEntry">
+					<div class="e3_editFieldsTitle"><label class="e3_label"></label></div>
+					<div class="e3_editFieldsBody">
+						<div class="e3_editFieldsBodyLine"><input type="radio" name="siteroster_roster_confirmRole_role" id="siteroster_roster_confirmRole_role_5" value="5" /><label i18n="Instructor" for="siteroster_roster_confirmRole_role_5">Instructor</label></div>
+						<div class="e3_editFieldsBodyLine"><input type="radio" name="siteroster_roster_confirmRole_role" id="siteroster_roster_confirmRole_role_4" value="4" /><label i18n="TA" for="siteroster_roster_confirmRole_role_4">Teaching Assistant</label></div>
+						<div class="e3_editFieldsBodyLine"><input type="radio" name="siteroster_roster_confirmRole_role" id="siteroster_roster_confirmRole_role_3" value="3" /><label i18n="Student" for="siteroster_roster_confirmRole_role_3">Student</label></div>
+						<div class="e3_editFieldsBodyLine"><input type="radio" name="siteroster_roster_confirmRole_role" id="siteroster_roster_confirmRole_role_1" value="1" /><label i18n="Guest" for="siteroster_roster_confirmRole_role_1">Guest</label></div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+	<div id="siteroster_roster_confirmAdd" i18n="confirmAddTitle" title="Add Members" style="display: none;">
+		<div class="e3_dialogBody">
+			<div class="e3_note" i18n="addMemberInstructions">
+				Add new members to your site.  This is for guest members who are not officially registered.
+				Do not add students in this way - rely on your school's registration process to give your students access to your site.
+			</div>
+			<fieldset class="e3_editFieldsTB">
+				<div class="e3_editFieldsEntry">
+					<div class="e3_editFieldsTitle"><label i18n="users" for="siteroster_roster_confirmAdd_identifiers">Users:</label></div>
+					<div class="e3_editFieldsBody">
+						<textarea id="siteroster_roster_confirmAdd_identifiers" cols="50" rows="4" wrap="SOFT" style="padding:8px; resize:none;"></textarea>
+					</div>
+				</div>
+				<div class="e3_editFieldsEntry">
+					<div class="e3_editFieldsTitle"><label class="e3_label" i18n="role">Role:</label></div>
+					<div class="e3_editFieldsBody">
+						<div class="e3_editFieldsBodyLine"><input type="radio" name="siteroster_roster_confirmAdd_role" id="siteroster_roster_confirmAdd_role_5" value="5" /><label i18n="Instructor" for="siteroster_roster_confirmAdd_role_5">Instructor</label></div>
+						<div class="e3_editFieldsBodyLine"><input type="radio" name="siteroster_roster_confirmAdd_role" id="siteroster_roster_confirmAdd_role_4" value="4" /><label i18n="TA" for="siteroster_roster_confirmAdd_role_4">Teaching Assistant</label></div>
+						<div class="e3_editFieldsBodyLine"><input type="radio" name="siteroster_roster_confirmAdd_role" id="siteroster_roster_confirmAdd_role_3" value="3" /><label i18n="Student" for="siteroster_roster_confirmAdd_role_3">Student</label></div>
+						<div class="e3_editFieldsBodyLine"><input type="radio" name="siteroster_roster_confirmAdd_role" id="siteroster_roster_confirmAdd_role_1" value="1" /><label i18n="Guest" for="siteroster_roster_confirmAdd_role_1">Guest</label></div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+	<div i18n="title_nothingSelected" id="siteroster_selectFirst" title="Nothing Selected" style="display: none;">
+		<div i18n="msg_nothingSelected" class="e3_dialogBody">First select one or more items before performing that action.</div>
+	</div>
+
+	<div i18n="resultsTitle" id="siteroster_roster_results" title="Results" style="display: none;">
+		<div id="siteroster_roster_results_details" class="e3_dialogBody"></div>
+	</div>
+
+	<div i18n="title_confirmDelete" id="siteroster_confirmDelete" title="Confirm Delete" style="display: none;">
+		<div i18n="msg_confirmDelete" class="e3_dialogBody">Are you sure you want to delete selected group(s)?</div>
+	</div>
+
+	<div id="siteroster_title_template" class="e3_offstage">
+		<div id="siteroster_title_template_body" style="padding-top:4px; padding-bottom:4px;">
+			<div id="siteroster_title_template_title" style="color:#686868;"></div>
+			<div id="siteroster_title_template_msg" class="hover" style="font-size:11px; color:#A8A8A8; padding-top:4px;"></div>
+		</div>
+	</div>
+
+	<div i18n="title_showing" id="siteroster_accessDialog" title="SPECIAL ACCESS" style="display: none;">
+		<div class="e3_dialogBody">
+			<fieldset class="e3_editFieldsLR" style="padding-bottom:16px;">
+				<div class="e3_editFieldsEntry">
+					<div class="e3_editFieldsTitle"><label id="siteroster_accessDialog_name"></label></div>
+				</div>
+			</fieldset>
+			<fieldset class="e3_editFieldsLR" style="padding-bottom:8px;">
+				<div class="e3_editFieldsEntry">
+					<div class="e3_editFieldsTitle"><label i18n="label_extendDays">Extend all <span style="font-weight:bold; color:black;">due</span> and <span style="font-weight:bold; color:black;">allow until</span> dates by:</label></div>
+					<div class="e3_editFieldsBody"><input id="siteroster_accessDialog_days"class="e3_input" value="" type="text" size="5" /><span i18n="msg_days" style="color:#A8A8A8; padding-left:16px;">(number of days)</span></div>
+				</div>
+			</fieldset>
+			<fieldset class="e3_editFieldsTB">
+				<div class="e3_editFieldsEntry">
+					<div class="e3_editFieldsTitle"><label i18n="label_limit">For all <span style="font-weight:bold; color:black;">time limits</span>:</label></div>
+					<div class="e3_editFieldsBody roomForInput">
+						<div class="e3_editFieldsBodyLine">
+							<input name="siteroster_accessDialog_limit" id="siteroster_accessDialog_limit_N" value="N" type="radio" /><label i18n="msg_noExtend" for="siteroster_accessDialog_limit_N">Do not extend.</label>
+						</div>
+						<div class="e3_editFieldsBodyLine">
+							<input name="siteroster_accessDialog_limit" id="siteroster_accessDialog_limit_A" value="A" type="radio" /><label i18n="msg_addTime" for="siteroster_accessDialog_limit_A">Add additional time:</label>
+							<input id="siteroster_accessDialog_add" class="e3_input" value="" type="text" size="5" /><span i18n="msg_timeValue" style="color:#A8A8A8; padding-left:16px;">(time value, hh:mm, such as 1:30 for an hour and 30 minutes)</span>
+						</div>
+						<div class="e3_editFieldsBodyLine">
+							<input name="siteroster_accessDialog_limit" id="siteroster_accessDialog_limit_M" value="M" type="radio" /><label i18n="msg_multiplyTime" for="siteroster_accessDialog_limit_M">Multiple by:</label>
+							<input id="siteroster_accessDialog_mult" class="e3_input" value="" type="text" size="5" /><span i18n="msg_timeMultiplier" style="color:#A8A8A8; padding-left:16px;">(real number, such as 1.5 to give time and a half)</span>
+						</div>
+						<div class="e3_editFieldsBodyLine">
+							<input name="siteroster_accessDialog_limit" id="siteroster_accessDialog_limit_U" value="U" type="radio" /><label i18n="msg_unlimited" for="siteroster_accessDialog_limit_U">Remove all time limits.</label>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>

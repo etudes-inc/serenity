@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+	<form id="login_form" action="" enctype="application/x-www-form-urlencoded" method="post"><!-- to trigger browser user id password saves -->
+		<div style="width:600px; margin:64px auto;">
+			<div style="height:160px; line-height:160px; text-align:center; background-color:rgba(0,0,0,0.6);">
+				<img src="/ui/art/logo/etudes_logo-white.png" style="vertical-align:middle;"/>
+			</div>
+			<div style="height:92px; line-height:92px; background-color:rgba(255,255,255,0.9); text-align:center;">
+				<input id="login_userid" class="e3_input thickLine" style="font-size:18px; width:400px;" type="text" placeholder="User ID" i18n="ph_id" tabindex=1 spellcheck="false" />
+			</div>
+			<div style="height:92px; line-height:92px; background-color:rgba(0,0,0,0.6); text-align:center;">
+				<input id="login_password" class="e3_input thickLine inverted" style="font-size:18px; width:400px;" type="password" placeholder="Password" i18n="ph_pw" tabindex=2 spellcheck="false" />
+			</div>
+			<div style="height:88px; margin-top:12px; border:2px solid white;">
+				<button id="login_enter" disabled="disabled" class="e3_button disabled" style="font-size:20px; color:white;" i18n="action_login" tabindex=3 type="submit">Login</button>
+				<div id="login_invalid" class="e3_alertMsg e3_offstage" style="height:88px; line-height:88px;" i18n="msg_invalid">Invalid: try a different user ID or password.</div>
+			</div>
+			<div style="height:88px; margin-top:12px;">
+				<div style="display:inline-block; width:180px; height:64px; line-height:64px; vertical-align:top;">
+					<a id="login_help" class="e3_button" href="http://etudes.org/help/students/" target="_blank" style="font-size:16px; background-color:rgba(0,0,0,0.6); color:white;" i18n="action_help">Help ?</a>
+				</div
+				><div style="display:inline-block; width:180px; height:64px; margin:0px 30px;">
+					<button id="login_reset" class="e3_button" style="font-size:16px; background-color:rgba(0,0,0,0.6); color:white;" i18n="action_reset">Reset Password</button>
+				</div
+				><div style="display:inline-block; width:180px; height:64px;">
+					<button id="login_browse" class="e3_button" style="font-size:16px; background-color:rgba(0,0,0,0.6); color:white;" i18n="action_browse">Browse Sites</button>
+				</div
+			></div>
+		</div>
+	</form>
+</div>
+</body>
+</html>

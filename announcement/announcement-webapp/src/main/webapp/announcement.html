@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+	<div class="e3_panel">
+		<div id="annc_header" class="e3_pinned">
+			<div class="e3_panelHeader">
+				<a id="annc_view_edit" class="edit e3_offstage" href="" i18n="a_edit"><svg><use xlink:href="#icon-settings"></use></svg></a>
+				<span i18n="header_annc">ANNOUNCEMENTS</span>
+			</div>
+			<div id="annc_modebar" class="e3_modebar e3_offstage"></div>
+			<div id="annc_headerbar" class="e3_panelHeaderBar e3_offstage">
+				<div id="annc_itemnav" class="e3_itemnav e3_offstage"></div
+				><div id="annc_bar_edit"  class="e3_panelHeaderBarGrouping e3_panelHeaderBarRight e3_offstage">
+					<div class="e3_action titled"><a id="annc_edit_view" i18n="a_view" href="">Preview</a></div
+				></div
+				><div id="annc_bar_manage" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action add"><a id="annc_manage_add" i18n="a_add" href="">Add</a></div
+					><div class="e3_action titled"><a id="annc_manage_view" i18n="a_view" href="">Preview</a></div
+					><div class="e3_action titled"><a id="annc_manage_publish" i18n="a_publish" href="">Publish</a></div
+					><div class="e3_action titled"><a id="annc_manage_unpublish" i18n="a_unpublish" href="">Unpublish</a></div
+					><div class="e3_action delete"><a id="annc_manage_delete" i18n="a_delete" href="">Delete</a></div
+					><div id="annc_manage_actions" class="e3_panelHeaderBarRight"></div
+				></div>
+			</div>
+			<div id="annc_header_manage" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 16+32 16+8 32+8 x+8 150+8 8+150 8+24+32 ] 40 | *20 -->
+				<div class="icon"></div
+				><div class="icon"></div
+				><div class="dot"></div
+				><div style="width:calc(100vw - 100px - 500px); min-width:calc(1200px - 100px - 500px);" i18n="header_subject">TITLE</div
+				><div class="date" i18n="header_modified">MODIFIED</div
+				><div class="date" i18n="header_releaseOn">RELEASED ON</div
+			></div>
+		</div>
+
+		<!-- view mode -->
+		<div id="annc_view" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<div class="e3_table_headerRow"> <!-- 40 [ x+32 200+8 8+150+32 16[scrollbar] ] 40 | *20 -->
+					<div style="width:calc(100vw - 100px - 446px); min-width:calc(1200px - 100px - 446px)" i18n="header_subject">TITLE</div
+					><div style="width:200px;" i18n="header_from">FROM</div
+					><div class="date" style="width:200px;" i18n="header_date">DATE</div
+				></div>
+				<div id="annc_view_list" style="height:200px; overflow-y:scroll; overflow-x:hidden;">
+					<table id="annc_view_table" class="e3_table">
+						<thead></thead>
+						<tbody></tbody>
+					</table>
+					<div id="annc_view_none" i18n="msg_noneDefined" class="e3_note e3_offstage" style="padding-top:24px;">There are no announcements.</div>
+				</div>
+				<hr class="e3_hr" />
+				<div id="annc_view_annc" style="padding:32px;">
+					<div id="annc_view_annc_subject" class="e3_text bold" style="font-size:16px;"></div>
+					<div id="annc_view_annc_byline" class="e3_text light" style="font-size:12px; color:#808080; margin-top:4px; "></div>
+					<div id="annc_view_annc_content" class="e3_content" style="margin:20px;" ></div>				
+				</div>
+			</div>
+		</div>
+
+		<!-- manage mode -->
+		<div id="annc_manage" class="e3_offstage">
+			<div class="e3_panelBody footed">
+				<table id="annc_manage_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="annc_manage_none" i18n="msg_noneDefined" class="e3_note e3_offstage" style="padding-top:24px;">There are no announcements.</div>
+			</div>
+		</div>
+
+		<!-- edit mode -->
+		<div id="annc_edit" class="e3_offstage">
+			<div class="e3_panelBody headed footed indented">
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle"><label i18n="label_subject" for="annc_edit_subject">Title:</label></div>
+						<div class="e3_editFieldsBody"><input id="annc_edit_subject" class="e3_input" value="" type="text" style="width:calc(100% / 2);" /></div>
+					</div>
+				</fieldset>
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div id="annc_edit_content" class="e3_editFieldsBody"></div>
+					</div>
+				</fieldset>
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry"><div class="e3_editFieldsTitle"><label i18n="label_releaseDate" for="annc_edit_releaseDate">Release On:</label></div><div class="e3_editFieldsBody"><input class="e3_input e3_timestamp" type="text" id="annc_edit_releaseDate" i18n="ph_publication" placeholder="Immediately" value="" /></div></div>
+					<div class="e3_editFieldsEntry"><div class="e3_editFieldsBody"><input id="annc_edit_public" type="checkbox"></input><label i18n="label_public" for="annc_edit_public">Allow Public Access</label></div></div>
+					<div class="e3_editFieldsEntry"><div class="e3_editFieldsBody"><input id="annc_edit_published" type="checkbox"></input><label i18n="label_publish" for="annc_edit_published">Publish</label></div></div>
+				</fieldset>
+				<div id="annc_edit_attribution"></div>
+			</div>
+		</div>
+	</div>
+
+	<div i18n="title_viewAnnc" id="annc_edit_view_annc" title="ANNOUNCEMENT" style="display: none;">
+		<div class="e3_dialogBody">
+			<div id="annc_edit_view_annc_subject" class="e3_text bold" style="font-size:16px;"></div>
+			<div class="e3_text light" style="font-size:14px; margin-top:4px; margin-left:8px;"><span id="annc_edit_view_annc_byline"></span>, <span id="annc_edit_view_annc_bylineDate" class="e3_text light italic" i18n="msg_releaseDate">release date</span></div>
+			<div id="annc_edit_view_annc_content" class="e3_content" style="margin-top:8px;"></div>
+		</div>
+	</div>
+
+	<div i18n="title_nothingSelected" id="annc_selectFirst" title="Nothing Selected" style="display: none;">
+		<div i18n="msg_nothingSelected" class="e3_dialogBody">First select one or more announcement before performing that action.</div>
+	</div>
+
+	<div i18n="title_confirmDelete" id="annc_confirmDelete" title="Confirm Delete" style="display: none;">
+		<div i18n="msg_confirmDelete" class="e3_dialogBody">Are you sure you want to delete selected announcement(s)?</div>
+	</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+.e3_evaluation_reviewLink
+/* _green, */
+/* .e3_evaluation_reviewLink_red, */
+/* .e3_evaluation_reviewLink_yellow */
+{
+	height: 3px;
+	margin-bottom:2px;
+}
+/* .e3_evaluation_reviewLink_green */
+/* { */
+/*     background-color: #008000; */
+/* } */
+/* .e3_evaluation_reviewLink_red */
+/* { */
+/*     background-color: red; */
+/* } */
+/* .e3_evaluation_reviewLink_yellow */
+/* { */
+/*     background-color: #E6C200; */
+/* } */
+
+table.e3_evaluation_review tr
+{
+	border: none;
+	height: 20px;
+}
+table.e3_evaluation_review td span,
+table.e3_evaluation_review th span
+{
+    display: inline-block;
+    background-color:#F0FFFF;
+    padding:0px 20px 0px 20px;
+    margin:2px;
+    color: #A0A0A0;
+}
+
+.e3_evaluation_review_green
+{
+    background-color: #80C080;
+    text-align: right;
+    padding: 0px 20px 0px 20px;
+    font-weight: bold;
+}
+.e3_evaluation_review_red
+{
+    background-color: #FF8080;
+    text-align: right;
+    padding: 0px 20px 0px 20px;
+    font-weight: bold;
+}
+.e3_evaluation_review_yellow
+{
+    background-color: #FFE34D;
+    text-align: right;
+    padding:0px 20px 0px 20px;
+    font-weight: bold;
+}
+.e3_evaluation_title
+{
+    font-size:13px;
+    font-weight:bold;
+    text-align:right;
+    padding-right:10px;
+    width:120px;
+}
+.e3_evaluation_description
+{
+    font-size:11px;
+    padding-bottom:10px;
+}
+.e3_evaluation_rate_green
+{
+    background-color: #80C080 !important;
+}
+.e3_evaluation_rate_red
+{
+    background-color: #FF8080 !important;
+}
+.e3_evaluation_rate_yellow
+{
+    background-color: #FFE34D !important;
+}
+td.e3_evaluation_rate_selected
+{
+	background-color: blue;
+}
+span.e3_evaluation_rate_selected
+{
+	font-weight: bold;
+	color: black !important;
+}

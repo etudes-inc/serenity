@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="portal_content">
+
+	<div class="e3_panel">
+		<div id="roster_header" class="e3_pinned">
+			<div class="e3_panelHeader" i18n="header_roster">ROSTER</div>
+			<div id="roster_modebar" class="e3_modebar"></div>
+			<div id="roster_headerbar" class="e3_panelHeaderBar e3_offstage">
+
+				<div id="roster_bar_adhoc" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action titled"><a id="roster_adhoc_process" i18n="a_process" href="">Process</a></div
+					><div id="roster_adhoc_actions" class="e3_panelHeaderBarRight"></div
+				></div
+			
+				><div id="roster_bar_files" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action titled"><a id="roster_files_process" i18n="a_processFiles" href="">Process Files</a></div
+				></div
+
+				><div id="roster_bar_rosters" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action add"><a id="roster_rosters_add" i18n="a_add" href="">Add</a></div
+					><div class="e3_action titled"><a id="roster_rosters_process" i18n="a_load" href="">Load</a></div
+					><div class="e3_infoLines">
+						<div i18n="msg_filter">Filters</div>
+						<div>
+							<label i18n="label_siteFilter" for="roster_siteRoster_title">Site:</label>
+							<input class="e3_input" id="roster_rosters_siteFilter" value="" type="text" size="20" style="font-size:12px; margin-left:4px; padding:0px;" />
+							<label i18n="label_rosterFilter" for="roster_siteRoster_title" style="margin-left:12px;">Roster:</label>
+							<input class="e3_input" id="roster_rosters_rosterFilter" value="" type="text" size="20" style="font-size:12px; margin-left:4px; padding:0px;" />
+						</div>
+					</div
+					><div id="roster_rosters_actions" class="e3_panelHeaderBarRight">
+					</div
+				></div
+
+				><div id="roster_bar_siteRoster" class="e3_panelHeaderBarGrouping e3_offstage">
+					<div class="e3_action titled"><a id="roster_siteRoster_process" i18n="a_load" href="">Load</a></div
+					><div class="e3_infoLines">
+						<div>
+							<label i18n="label_siteTitle" for="roster_siteRoster_title">Site Title:</label>
+							<input class="e3_input" id="roster_siteRoster_site" value="" type="text" size="40" />
+						</div>
+						<div></div>
+					</div
+					><div id="roster_siteRoster_actions" class="e3_panelHeaderBarRight">
+						<div class="e3_action titled"><a id="roster_siteRoster_visit" i18n="a_visit" href="">View Site</a></div>
+					</div
+				></div
+
+			></div>
+
+			<div id="roster_header_rosters_mapping" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+16 8+300 8+x 8+24+32] 40 | *20 -->
+				<div class="icon"></div
+				><div style="width:300px;" i18n="header_site">SITE</div
+				><div style="width:calc(100vw - 100px - 428px); min-width:calc(1200px - 100px - 428px)" i18n="header_roster">ROSTER</div
+				><div style="width:24px;"></div
+			></div>
+
+			<div id="roster_header_rosters_sites" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+16 8+300 8+x 8+24+32] 40 | *20 -->
+				<div class="icon"></div
+				><div style="width:300px;" i18n="header_section">SITE</div
+				><div style="width:calc(100vw - 100px - 428px); min-width:calc(1200px - 100px - 428px)" i18n="header_rosters">ROSTERS</div
+				><div style="width:24px;"></div
+			></div>
+
+			<div id="roster_header_rosters_rosters" class="e3_table_headerRow e3_offstage"> <!-- 40 [ 32+16 8+120 8+x 8+24+32] 40 | *20 -->
+				<div class="icon"></div
+				><div style="width:120px;" i18n="header_roster">ROSTER</div
+				><div style="width:calc(100vw - 100px - 248px); min-width:calc(1200px - 100px - 248px)" i18n="header_sites">SITES</div
+				><div style="width:24px;"></div
+			></div>
+
+		</div>
+
+		<!--  -->
+		<!-- mode 1 of 5: Adhoc - supported by the Roster_adhoc() js object -->
+		<!--  -->
+		<div id="roster_adhoc" class="e3_offstage">
+			<div class="e3_panelBody headed footed indented">
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle" i18n="label_rosterLines">Roster Lines</div>
+						<div class="e3_editFieldsBody">
+							<textarea class="e3_data" id="roster_adhoc_rosterLines" wrap="soft" rows="20" style="width:100%;"></textarea>
+						</div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsBody"><input id="roster_adhoc_createInstructors" type="checkbox" /><label i18n="label_createInstructors" for="roster_adhoc_createInstructors">Create Sites (for new or non-UG users)</label></div>
+					</div>
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsBody"><input id="roster_adhoc_addToUG" type="checkbox" /><label i18n="lavbel_addToUG" for="roster_adhoc_addToUG">Add To Users Group</label></div>
+					</div>				
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsBody"><input id="roster_adhoc_createSitesOnly" type="checkbox" /><label i18n="label_createSitesOnly" for="roster_adhoc_createSitesOnly">Sites Without Rosters</label></div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+
+		<!--  -->
+		<!-- mode 2 of 5: Files - supported by the Roster_files() js object -->
+		<!--  -->
+		<div id="roster_files" class="e3_tool e3_offstage">
+			<div class="e3_panelBody headed footed indented">
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle" i18n="header_readyProcess">Roster Files Ready To Process</div>
+						<div class="e3_editFieldsBody">
+							<ul id="roster_files_readyFiles"></ul>
+							<div id="roster_files_readyFiles_none" i18n="msg_noReadyFiles" class="e3_note e3_offstage">There are no files ready to process.</div>
+						</div>
+					</div>
+				</fieldset>
+				<fieldset class="e3_editFieldsTB">
+					<div class="e3_editFieldsEntry">
+						<div class="e3_editFieldsTitle" i18n="header_fileSchedule">Scheduled Roster Processing (On This Server)</div>
+						<div class="e3_editFieldsBody">
+							<ul id="roster_files_schedule"></ul>
+							<div id="roster_files_schedule_none" i18n="msg_noSchedule" class="e3_note e3_offstage">There is no scheduled processing</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+
+		<!--  -->
+		<!-- mode 3 of 5: Rosters - supported by the Roster_rosters() js object -->
+		<!--  -->
+		<div id="roster_rosters" class="e3_tool e3_offstage">
+			<div class="e3_panelBody footed">
+<!-- 				<div class="e3_section2_col"> -->
+<!-- 					<h1 class="e3_sectionUi" i18n="header_clientTerm">Client and Term</h1> -->
+<!-- 					<fieldset class="e3_horizontal"> -->
+<!-- 						<div class="e3_entry"><label class="e3_label" i18n="label_client" for="roster_rosters_client">Client:</label><select class="e3_data" id="roster_rosters_client" size="1"></select></div> -->
+<!-- 						<div class="e3_entry""> -->
+<!-- 							<label class="e3_label" i18n="label_term" for="roster_rosters_term">Term:</label> -->
+<!-- 							<span class="e3_data"> -->
+<!-- 								<select id="roster_rosters_term" size="1"></select> -->
+<!-- 								<input style="margin-left: 50px" id="roster_rosters_allTerms" type="checkbox" /><label i18n="label_allTerms" for="roster_rosters_allTerms">Show All Terms</label> -->
+<!-- 							</span> -->
+<!-- 						</div> -->
+<!-- 						<div class="e3_entry""><button class="e3_label" i18n="Load" id="roster_rosters_load" type="button">Load</button></div> -->
+<!-- 					</fieldset> -->
+<!-- 				</div> -->
+<!-- 				<div class="e3_section2_gap"></div> -->
+<!-- 				<div class="e3_section2_col"> -->
+<!-- 					<h1 class="e3_sectionUi" i18n="header_organizeFilter">Organize and Filter</h1> -->
+<!-- 					<fieldset class="e3_horizontal"> -->
+<!-- 						<div class="e3_entry"> -->
+<!-- 							<label class="e3_label" i18n="label_organizeBy">Organize By:</label> -->
+<!-- 							<span class="e3_data"> -->
+<!-- 								<input type="radio" name="roster_rosters_mode" id="roster_rosters_mode_0" value="0" /><label i18n="Mapping" for="roster_rosters_mode_0">Mapping</label> -->
+<!-- 								<input type="radio" name="roster_rosters_mode" id="roster_rosters_mode_1" value="1" /><label i18n="Sites" for="roster_rosters_mode_1">Sites</label> -->
+<!-- 								<input type="radio" name="roster_rosters_mode" id="roster_rosters_mode_2" value="2" /><label i18n="Rosters" for="roster_rosters_mode_2">Rosters</label> -->
+<!-- 								<a i18n="title_helpOrganize" style="margin-left:30px;" class="e3_toolUiLinkU" id="roster_rosters_organize_help" href="" title="Help Organize">(?)</a> -->
+<!-- 							</span> -->
+<!-- 						</div> -->
+<!-- 						<div class="e3_entry"><label class="e3_label" i18n="label_siteFilter" for="roster_rosters_siteFilter">Site Filter</label><input class="e3_data" id="roster_rosters_siteFilter" value="" type="text" size="30" /></div> -->
+<!-- 						<div class="e3_entry"><label class="e3_label" i18n="label_rosterFilter" for="roster_rosters_rosterFilter">Roster Filter</label><input class="e3_data" id="roster_rosters_rosterFilter" value="" type="text" size="30" /></div> -->
+<!-- 						<div class="e3_entry"><button class="e3_label" i18n="View" id="roster_rosters_filter" type="button">View</button></div> -->
+<!-- 					</fieldset> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 			<div class="e3_section"> -->
+<!-- 				<h1 class="e3_sectionUi" i18n="Results">Results</h1> -->
+<!-- 				<div class="e3_tableInfo"><span id="roster_rosters_resultsLegend_rosters"></span><span id="roster_rosters_resultsLegend_filtered" style="margin-left:30px"></span></div> -->
+<!-- 				<div id="roster_rosters_resultsTableActions" class="e3_tableActions"> -->
+<!-- 					<a i18n="Add" id="roster_rosters_resultsTableActions_add" href="" style="background-image: url('/ui/icons/document_add.png');">Add</a> -->
+<!-- 					<a i18n="Remove" id="roster_rosters_resultsTableActions_remove" href="" style="background-image: url('/ui/icons/remove.png');">Remove</a> -->
+<!-- 				</div> -->
+<!-- 				<table id="roster_rosters_resultsTable" class="e3_table"> -->
+<!-- 					<thead> -->
+<!-- 						<tr> -->
+<!-- 							<th class="tight"></th> -->
+<!-- 							<th class="tight"></th> -->
+<!-- 							<th i18n="Site" class="tight rGap">Site</th> -->
+<!-- 							<th i18n="Roster">Roster</th> -->
+<!-- 						</tr> -->
+<!-- 					</thead> -->
+<!-- 					<tbody></tbody> -->
+<!-- 				</table> -->
+				<table id="roster_rosters_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="roster_rosters_none" i18n="msg_noResults" class="e3_note e3_offstage" style="padding-top:24px;">There are no results to show.</div>
+				<div id="roster_rosters_selectClientTermLoad" i18n="msg_selectClientTermLoad" class="e3_note e3_offstage" style="padding-top:24px;">Select a client and term and press &quot;Load&quot;</div>
+			</div>
+		</div>
+
+		<!--  -->
+		<!-- mode 4 of 5: Site Roster - supported by the Roster_siteRoster() js object -->
+		<!--  -->
+		<div id="roster_siteRoster" class="e3_tool e3_offstage">
+			<div class="e3_panelBody footed">
+<!-- 				<h1 class="e3_sectionUi" i18n="Site Roster">Site Roster</h1> -->
+<!-- 				<fieldset class="e3_horizontal"> -->
+<!-- 					<div class="e3_entry"><label class="e3_label" i18n="label_selectSite" for="roster_siteRoster_site">Site Name:</label><input class="e3_data" id="roster_siteRoster_site" value="" type="text" size="30" /></div> -->
+<!-- 					<div class="e3_entry"><button class="e3_label" i18n="Load" id="roster_siteRoster_load" type="button">Load</button></div> -->
+<!-- 				</fieldset> -->
+<!-- 				<h1 class="e3_sectionUi" i18n="Site Roster">Site Roster</h1> -->
+<!-- 				<div class="e3_tableInfo"> -->
+<!-- 					<span id="roster_siteRoster_siteRosterLegend"></span> -->
+<!-- 					<a i18n="visit" class="e3_toolUiLink e3_extLink" id="roster_siteRoster_visit" style="margin-left:30px;" href="" title="Visit Site (new window)">Visit</a> -->
+<!-- 				</div> -->
+<!-- 				<div id="roster_siteRoster_resultsTableActions" class="e3_tableActions"> -->
+<!-- 					<a i18n="Add" id="roster_siteRoster_resultsTableActions_add" href="" style="background-image: url('/ui/icons/document_add.png');">Add</a> -->
+<!-- 					<a i18n="Remove" id="roster_siteRoster_resultsTableActions_remove" href="" style="background-image: url('/ui/icons/remove.png');">Remove</a> -->
+<!-- 				</div> -->
+<!-- 				<table id="roster_siteRoster_resultsTable" class="e3_table"> -->
+<!-- 					<thead> -->
+<!-- 						<tr> -->
+<!-- 							<th class="tight"></th> -->
+<!-- 							<th class="tight"></th> -->
+<!-- 							<th i18n="Role">Role</th> -->
+<!-- 							<th i18n="Name">Name</th> -->
+<!-- 							<th i18n="EID">EID</th> -->
+<!-- 							<th i18n="IID">IID</th> -->
+<!-- 							<th i18n="Roster">Roster</th> -->
+<!-- 						</tr> -->
+<!-- 					</thead> -->
+<!-- 					<tbody></tbody> -->
+<!-- 				</table> -->
+<!-- 			</div> -->
+<!-- 			<div id="roster_siteRoster_rosters"></div> -->
+				<table id="roster_siteRoster_table" class="e3_table">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+				<div id="roster_siteRoster_noSite", i18n="msg_enterTitleToViewRoster" class="e3_note e3_offstage" style="padding-top:24px;">Enter a site title and press &quot;Load&quot; to view the site roster.</div>
+			</div>
+		</div>
+
+	<!--  -->
+	<!-- mode 5 of 5: Reports - supported by the Roster_reports() js object -->
+	<!--  -->
+	<div id="roster_reports" class="e3_tool e3_offstage">
+		<div class="e3_section">
+			<h1 class="e3_sectionUi" i18n="header_selectReport">Select a Report</h1>
+			<fieldset class="e3_horizontal">
+				<div class="e3_entry">
+					<label class="e3_label" i18n="label_selectReport">Select a Report:</label>
+					<span class="e3_data">
+						<input type="radio" name="roster_reports_mode" id="roster_reports_mode_0" value="0" /><label i18n="label_visitorsSite" for="roster_reports_mode_0">Visitors per Site</label>
+						<input type="radio" name="roster_reports_mode" id="roster_reports_mode_1" value="1" /><label i18n="label_seatsTerm" for="roster_reports_mode_1">Seats per Term</label>
+						<input type="radio" name="roster_reports_mode" id="roster_reports_mode_2" value="2" /><label i18n="label_seatsSite" for="roster_reports_mode_2">Seats per Site</label>
+					</span>
+				</div>
+				<div class="e3_entry"><label class="e3_label" i18n="label_client" for="roster_reports_client">Client:</label><select class="e3_data" id="roster_reports_client" size="1"></select></div>
+				<div class="e3_entry">
+					<label class="e3_label" i18n="label_term" for="roster_reports_term">Term:</label>
+					<span class="e3_data">
+						<select id="roster_reports_term" size="1"></select>
+						<input style="margin-left: 50px" id="roster_reports_allTerms" type="checkbox" /><label i18n="label_allTerms" for="roster_reports_allTerms">Show All Terms</label>
+					</span>
+				</div>
+				<div class="e3_entry"><button class="e3_label" i18n="Report" id="roster_reports_report" type="button">Report</button></div>
+			</fieldset>
+		</div>
+		<div class="e3_section">
+			<h1 class="e3_sectionUi" i18n="Results">Results</h1>
+			<div id="roster_reports_resultsTableActions" class="e3_tableActions">
+				<a i18n="Print" id="roster_reports_resultsTableActions_print" href="" style="background-image: url('/ui/icons/printer.png');">Print</a>
+				<a i18n="Export" id="roster_reports_resultsTableActions_export" href="" style="background-image: url('/ui/icons/import_export.png');">Export</a>
+			</div>
+			<table id="roster_reports_resultsTable" class="e3_table">
+				<thead>
+					<tr>
+						<th class="tight"></th>
+						<th i18n="Site" class="tight rGap">Site</th>
+						<th i18n="Site">Roster</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+	</div>
+	</div>
+
+	<!-- alert for organize help -->
+	<div id="roster_rosters_organize_help_alert" i18n="title_organizeHelp" title="About Organize" style="display: none;">
+		<div i18n="body_organizeHelp" class="e3_dialogBody">
+			How you organize the results determines what Remove feature you have.  The Add feature is the same for all organizations.<ul><li>Choose <b>Mapping</b> to remove a Site - Roster mapping.</li><li>Choose <b>Sites</b> to remove all rosters from a site.</li><li>Choose <b>Rosters</b> to remove a roster from all sites.</li></ul>
+		</div>
+	</div>
+
+	<!-- confirm for add section to site -->
+	<div id="roster_confirmAddSiteRoster" i18n="title_confirmAddSiteRoster" title="Add Site and Roster" style="display: none;">
+		<div class="e3_dialogBody">
+			<div class="e3_info" i18n="instructions_confirmAddSiteRoster">Enter the exact site and roster names.  If needed, either will be created.  The roster will be added to the site.</div>
+			<fieldset class="e3_horizontal">
+				<div class="e3_entry"><label class="e3_label" for="roster_confirmAddSiteRoster_site" i18n="label_confirmAddSiteRoster_site">Site:</label><input class="e3_data" id="roster_confirmAddSiteRoster_site" value="" type="text" size="40" /></div>
+				<div class="e3_entry"><label class="e3_label" for="roster_confirmAddSiteRoster_roster" i18n="label_confirmAddSiteRoster_roster">Roster:</label><input class="e3_data" id="roster_confirmAddSiteRoster_roster" value="" type="text" size="40" /></div>
+			</fieldset>
+		</div>
+	</div>
+
+	<!-- alert for add section to site missing parameters -->
+	<div id="roster_alert_addSiteRoster_params" i18n="title_alert_addSiteRoster_params" title="Missing Values" style="display: none;">
+		<div i18n="body_alert_addSiteRoster_params" class="e3_dialogBody">Fill in the site and roster names before pressing "Add".</div>
+	</div>
+
+	<!-- alert after operation -->
+	<div id="roster_alert_results" title="Results" style="display: none;">
+		<div id="roster_alert_results_body" class="e3_dialogBody"></div>
+	</div>
+
+	<!-- confirm for remove, mapping organization -->
+	<div id="roster_rosters_confirmRemoveMapping" i18n="confirmRemoveMapping_title" title="Confirm Remove Rosters from Sites" style="display: none;">
+		<div class="e3_dialogBody" i18n="confirmRemoveMappiong_body">The selected site - roster mappings will be removed.  Proceed?</div>
+	</div>
+	
+	<!-- confirm for remove, sites organization -->
+	<div id="roster_rosters_confirmRemoveSites" i18n="confirmRemoveites_title"  title="Confirm Remove Rosters from Sites" style="display: none;">
+		<div class="e3_dialogBody" i18n="confirmRemoveSites_body">All rosters will be removed from selected sites.  Proceed?</div>
+	</div>
+	
+	<!-- confirm for remove, rosters organization -->
+	<div id="roster_rosters_confirmRemoveRosters" i18n="confirmRemoveRosters_title" title="Confirm Remove Rosters From Sites" style="display: none;">
+		<div class="e3_dialogBody" i18n="confirmRemoveRosters_body">The selected rosters will be removed from all sites.  Proceed?</div>
+	</div>
+
+	<div i18n="confirmAddTitle" id="roster_siteRoster_confirmAdd" title="Add Members" style="display: none;">
+		<div class="e3_dialogBody">
+			<div class="e3_section">
+				<h1 class="e3_sectionUi" i18n="header_clientTerm">Identify Members</h1>
+				<div class="e3_info" i18n="addMemberInstructions">
+					Add new members to your site.  This is for instructors, TAs and observers - not for students.
+				</div>
+				<fieldset class="e3_vertical">
+					<div class="e3_entry">
+						<label class="e3_label" i18n="users" for="roster_siteRoster_confirmAdd_identifiers">Users</label>
+						<textarea class="e3_data" id="roster_siteRoster_confirmAdd_identifiers" cols="50" rows="4" wrap="virtual"></textarea>
+					</div>
+					<div class="e3_entry">
+						<label class="e3_label" i18n="role">Role:</label>
+						<div class="e3_data e3_multiLine">
+							<div><input type="radio" name="roster_siteRoster_confirmAdd_role" id="roster_siteRoster_confirmAdd_role_5" value="5" /><label i18n="Instructor" for="roster_siteRoster_confirmAdd_role_5">Instructor</label></div>
+							<div><input type="radio" name="roster_siteRoster_confirmAdd_role" id="roster_siteRoster_confirmAdd_role_4" value="4" /><label i18n="TA" for="roster_siteRoster_confirmAdd_role_4">Teaching Assistant</label></div>
+							<div><input type="radio" name="roster_siteRoster_confirmAdd_role" id="roster_siteRoster_confirmAdd_role_2" value="2" /><label i18n="Observer" for="roster_siteRoster_confirmAdd_role_2">Observer</label></div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+
+	<div id="roster_loadSiteFirst" i18n="loadSiteFirst_title" title="First Load A Site" style="display: none;">
+		<div class="e3_dialogBody" i18n="loadSiteFirst_body">First enter the title of a site and press "Load".</div>
+	</div>
+
+	<div id="roster_enterTitleFirst" i18n="enterTitleFirst_title" title="First Enter A Title" style="display: none;">
+		<div class="e3_dialogBody" i18n="enterTitleFirst_body">First enter the title of a site.</div>
+	</div>
+
+	<div id="roster_pickClientTermFirst" i18n="pickClientTermFirst_title" title="First Select Client And Term" style="display: none;">
+		<div class="e3_dialogBody" i18n="pickClientTermFirst_body">First pick a client and term.</div>
+	</div>
+
+	<div id="roster_pickLoadFirst" i18n="pickLoadFirst_title" title="First Load Rosters" style="display: none;">
+		<div class="e3_dialogBody" i18n="pickLoadFirst_body">First pick a client and term, and press &quot;Load&quot;.</div>
+	</div>
+
+	<!-- confirm for remove, mapping organization -->
+	<div id="roster_siteRoster_confirmRemove" i18n="confirmRemove_title" title="Confirm Remove Members" style="display: none;">
+		<div class="e3_dialogBody" i18n="confirmRemove_body">The selected members will be removed from the site.  Proceed?</div>
+	</div>
+
+</div>
+</body>
+</html>
